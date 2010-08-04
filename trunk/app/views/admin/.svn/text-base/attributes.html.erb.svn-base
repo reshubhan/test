@@ -1,0 +1,24 @@
+<h1>Listing Attributes</h1>
+<hr>
+<div align="right"><%= link_to 'Add Attribute', :controller => 'admin', :action => 'new_attribute'%></div>
+<table>
+  <tr>
+    <td><b>Name</b><td>
+    <td><b>Type</b><td>
+    <td colspan="2"><b>Options</b><td>
+  </tr>
+  <hr>
+  <% for attribute in @attributes %>
+    <tr>
+      <td><%=attribute.name%></td>
+      <td></td>
+       <td><%=attribute.attribute_type%></td>
+       <td></td>
+      <td><%= link_to 'Edit', :action => 'edit_attribute' , :id => attribute %></td>
+      <td><%= link_to 'Delete', :action => 'destroy_attribute',:confirm => 'Are you sure?', :id => attribute %></td>
+      <%#*<td><%= link_to 'featured', :action => 'display' , :id => attribute % ></td>%>
+    </tr>
+  <% end %>
+</table>
+<br />
+

@@ -1,0 +1,3 @@
+<div>
+  <span>Welcome <%= current_user.profile.firstname.capitalize %> | <%= link_to('Logout', {:controller => 'sessions', :action => 'destroy'})%></span>
+</div>

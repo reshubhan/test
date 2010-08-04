@@ -1,0 +1,30 @@
+<%= render :partial => "layouts/form_header", :locals => {:heading => "Upload Image"} %>
+<% form_for :image, :url=>{:controller=>"assets", :action=>'upload_image'} do |f| -%>
+  <%= flash[:message] %><br/><br/>
+  <%= flash[:failure_notice] %>
+
+  <table>
+
+    <tr>
+      <td><%= f.label :asset %></td><br />
+      <td><%=select_tag 'asset', options_from_collection_for_select(Asset.find(:all), 'id', 'name', Asset.find(:all)) , {:style => "height:20px;width:175px;"} %></td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          Select a Image 
+        </label>
+      </td>
+      <td>
+        <%= f.file_field :file, :style => "height:30px;" -%>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <br/>
+        <div><%= submit_tag 'Upload', :class => "button" -%></div>
+      </td>
+    </tr>
+  </table>
+<% end -%>

@@ -1,0 +1,1 @@
+<%= auto_complete_manager_result @managers, :name %>

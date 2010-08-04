@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  from: MyString
+  to: MyString
+  last_send_attempt: 1
+  mail: MyText
+
+two:
+  from: MyString
+  to: MyString
+  last_send_attempt: 1
+  mail: MyText

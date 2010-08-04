@@ -1,0 +1,23 @@
+<div style="top:200px;float:left;">
+<h1>Listing Assets</h1>
+<hr>
+  <div align="right"><%= link_to 'Add Asset', :controller => 'admin', :action => 'new_asset'%></div>
+<table cellpadding="0" cellspacing="0">
+  <tr>
+    <td><b>Name</b><td>       
+      <td></td>
+      <td><b>Options</b><td>
+  </tr>
+  <hr>
+
+<% for asset in @assets %>
+  <tr>
+    <td><%=asset.name%></td>    
+    <td><%= link_to 'Edit', :action => 'edit_asset' , :id => asset %></td>
+    <td><%= link_to 'Delete', :action => 'destroy_asset',:confirm => 'Are you sure?', :id => asset %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>

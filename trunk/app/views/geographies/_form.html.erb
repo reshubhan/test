@@ -1,0 +1,9 @@
+<p><%= label_tag 'Enter Name' %></p>
+<p><%= f.text_field :name %></p>
+<p>Pick one advertisement</p>
+<div class="advert-list">
+  <% @adverts.each do |advert| %>
+    <input type="checkbox" name="geography[advert_ids][]" id="<%= advert.id %>" value="<%= advert.id %>" <% if @geography.adverts.include? advert %>checked="checked"<% end %>/>
+    <img src="<%=advert.public_filename(:thumb)%>"/> <%= advert.name %><br/>
+  <% end %>
+</div>

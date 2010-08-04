@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/trustedinsight/!svn/ver/2713/source/trunk/app/views/assets
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/assets/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/assets/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/assets/new.html.erb
+END
+_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2564/source/trunk/app/views/assets/_results.html.erb
+END
+_asset_types.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2327/source/trunk/app/views/assets/_asset_types.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2660/source/trunk/app/views/assets/_form.html.erb
+END
+_autocomplete_script.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/2713/source/trunk/app/views/assets/_autocomplete_script.html.erb
+END

@@ -1,0 +1,135 @@
+<div style="float:left;"> <!--class="resultText"--><h3 style="font-size:14px;color:#666666;">Filter result by:</h3>
+</div><br /><br />
+
+<div class="filterresultButton">
+   <div style="width:153px;padding:6px 0px 4px 0px;font-size:12px;">
+   <%= link_to "Clear All Filters",:controller => 'secondaries', :action => 'index',:type =>@type%></div>
+
+  <div class="filter_Div_hd"><a href="javascript:void(0)" onclick="$('searchBox').toggle();">Refine Your Search</a></div>
+  <div class="filter_Div" id="searchBox" <% unless @save_search %> style="display:none" <% end %>>
+    <% form_tag('/secondaries/index_results', :id =>'filter_form', :method => 'get') do %>
+      <ul>
+        <%= error_messages_for "SavedSearch" %>
+        <li>Asset Class <br />
+          <%= select_tag 'search[asset]', "<option>Any</option>" + options_from_collection_for_select(Asset.parents, :id, :short_name, @asset.to_i)%>
+        </li>
+
+        <li>Geography<br />
+          <%= select_tag 'search[geography]', "<option>Any</option>" + options_from_collection_for_select(Geography.find(:all, :order => 'name'), :id, :name, @geography.to_i) %>
+        </li>
+
+        <li>Nav<br />
+          <%= select_tag 'search[nav]', "<option>Any Size</option>" + options_for_select(Secondary::NAV.collect {|s| [s, s]}, @nav) %>
+        </li>
+
+        <li>% Drawn<br />
+          <%= select_tag 'search[drawn]', "<option>Any</option>" + options_for_select(Secondary::DRAWN.collect {|s| [s, s]}, @drawn) %>
+        </li>
+
+        <li>Expected Price<br />
+          <%= select_tag 'search[expected_price]', "<option>Any</option>" + options_for_select(Secondary::EXPECTED_PRICE.collect {|s| [s, s]}, @expected_price) %>
+        </li>
+
+              <!--<li><%#= check_box_tag 'save_search', true, false, :style => 'width:20px;' %>Save this search</li>-->
+        <%= hidden_field_tag 'search[type]', @type %>
+        <%= hidden_field_tag 'search[browse_by]', @browseby %>
+
+        <li style="text-align:center;margin-left:-16px;"><%= submit_tag 'Search', :class => "button" %></li>
+      </ul>
+    <% end %>
+    <% if @save_search == true %>
+      <a href="javascript::void(0)" onclick="$('saveSearch').toggle()" style="float:left;margin:10px 0 0 30px;">Save this search</a>
+    <% end %>
+
+    <br class="clearFix" /><br />
+    <div id="saveSearch" style="display:none;">
+      <div id="error_div"  style="border:1px solid #F1F0EC;color:red">
+      </div>
+      <ul style="margin-left:5px">
+        <li>Name<br />
+          <%= text_field_tag "search_name" %>
+        </li>
+        <li>
+          <a href="javascript::void(0)" onclick="save_search();return false;" class="button">Save</a>
+          <a href="javascript::void(0)" onclick="$('saveSearch').hide();" ><span class="r1_float">Cancel</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div style="width:153px;padding:6px 0px 4px 0px"><h4 style="font-size:13px;color:#666666;">Browse</h4></div>
+  <div class="filterText">
+    <ul>
+      <li>
+        <%#=link_to_remote "Most Popular",:url =>{:controller => 'secondaries', :action => 'index_results', :browse_by => 'popular' ,
+                           :asset=> @asset, :geography=>@geography,:type =>@type},
+                           :loading => "show_loading();", :complete => "hide_loading();",
+                           :html => {:class => "", :id => "browsepopular"}%>
+        <a href="javascript:void(0);" onclick="$('search_browse_by').value = 'popular';$('filter_form').submit();"  id="browsepopular" > Most Popular </a>
+      </li>
+      <li>
+        <%#=link_to_remote "Recently Added",:url =>{:controller => 'secondaries', :action => 'index_results', :browse_by => 'recent' ,
+                           :asset=> @asset, :geography=>@geography,:type =>@type},
+                           :loading => "show_loading();", :complete => "hide_loading();",
+                           :html => {:class => "", :id => "browserecent"}%>
+        <a href="javascript:void(0);" onclick="$('search_browse_by').value = 'recent';$('filter_form').submit();"  id="browserecent" > Recently Added </a>
+      </li>
+      <li>
+        <%#=link_to_remote "Highest Rated",:url =>{:controller => 'secondaries', :action => 'index_results', :browse_by => 'rated' ,
+                           :asset=> @asset, :geography=>@geography,:type =>@type},
+                           :loading => "show_loading();", :complete => "hide_loading();",
+                           :html => {:class => "", :id => "browserated"}%>
+        <a href="javascript:void(0);" onclick="$('search_browse_by').value = 'rated';$('filter_form').submit();"  id="browserated" > Highest Rated </a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div id="asset_label" style="width:153px;padding:3px 0px 3px 0px;"><h4 style="font-size:13px;color:#666666;">Assets</h4></div>
+  <%= render :partial => "asset_filter_list" %>
+
+  <div style="width:153px;padding:6px 0px 4px 0px"><h4 style="font-size:13px;color:#666666;">Geography</h4></div>
+  <div class="filterText">
+    <ul>
+      <li>
+        <%#= link_to_remote "All (#{@total})", :url =>{:controller => 'secondaries', :action => 'index_results', :browse_by => @browseby ,
+                            :asset => @asset, :geography=>'All',:type =>@type},:loading => "show_loading();", :complete => "hide_loading();",:html => {:class => "", :id => "geographyAll"}%>
+        <a href="javascript:void(0);" onclick="$('search_geography').value = 'Any';$('filter_form').submit();"  id="geographyAny" > All (<%= @total %>) </a>
+      </li>
+      <% Geography.find(:all, :order => 'name').each do |geography| %>
+        <li>
+          <%#= link_to_remote "#{geography.name}  (#{get_size_secondaries(@type, @asset, geography.id, @nav, @drawn, @expected_price)})", :url =>{:controller => 'secondaries', :action => 'index_results', :browse_by => @browseby ,
+                              :asset=> @asset, :geography=>geography.id,:type =>@type},:loading => "show_loading();", :complete => "hide_loading();",:html => {:class => "", :id => "geography#{geography.id}"}%>
+          <a href="javascript:void(0);" onclick="$('search_geography').value = <%=geography.id%>;$('filter_form').submit();"  id="geography<%=geography.id%>" > <%="#{geography.name} (#{get_size_secondaries(@type, @asset, geography.id, @nav, @drawn, @expected_price)})"%> </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <br class="clearFix" /><br />
+  <% saved_searches = SavedSearch.find(:all,:conditions =>{:user_id => current_user.id, :search_type => 'secondary'}) %>
+  <div id="savedSearches" <% if saved_searches.blank? %> style="display:none;" <% end %> >
+    <%= render :partial => 'saved_searches', :locals => {:saved_searches => saved_searches} %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  
+  $('browse<%=@browseby%>').className = 'selected';
+  $('geography<%=@geography%>').className = 'selected';
+  $('asset<%=@asset%>').className = 'selected';
+
+  function show_assets(ele_id){
+    show_sectors(ele_id);
+  }
+  function hide_assets(ele_id){
+    hide_sectors(ele_id);
+  }
+  function save_search(){
+    if ($('search_name').value == '')
+      alert('Please enter a name to save the search.');
+    else
+      new Ajax.Request('/secondaries/save_search/' + $('search_name').value, {asynchronous:true, evalScripts:true, parameters:$('filter_form').serialize(true)});
+    end
+  }
+</script>

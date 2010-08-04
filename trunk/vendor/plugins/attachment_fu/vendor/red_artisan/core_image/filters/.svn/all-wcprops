@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters
+END
+watermark.rb
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/watermark.rb
+END
+color.rb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/color.rb
+END
+effects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/effects.rb
+END
+scale.rb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/scale.rb
+END
+quality.rb
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/quality.rb
+END
+perspective.rb
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/vendor/red_artisan/core_image/filters/perspective.rb
+END

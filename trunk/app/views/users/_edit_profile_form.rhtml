@@ -1,0 +1,131 @@
+<div class="formBox">
+  <div class="formBoxInner" style="float:left;">
+    <table width="100%" cellpading="0" cellspacing="0" border="0" align="left">
+      <div id="errors" style="display:none;">
+      </div>
+      <tr>
+        <td valign="top" width="50%" style="padding:0px 5px 0px 5px;">
+          <% remote_form_for @user, :url => {:controller => "users", :action => 'update_profile', :id => @profile} do %>
+            <table width="381" align="left" cellpadding="0" cellspacing="6" border="0">
+              <tr>
+                <th class="required">
+                  <%= label_tag 'profile_firstname', 'First Name' %>
+                </th>
+                <td>
+                  <%= text_field :profile, :firstname %>
+                </td>
+              </tr>
+              <tr>
+                <th class="required">
+                  <%= label_tag 'profile_lastname', 'Last Name' %>
+                </th>
+                <td>
+                  <%= text_field :profile, :lastname %>
+                </td>
+              </tr>
+              <tr>
+                <th class="required">
+                  <%= label_tag 'profile_email', 'Email' %>
+                </th>
+                <td>
+                  <%= text_field :profile, :email %>
+                </td>
+              </tr>
+              <tr>
+                <th class="required">
+                  <%= label_tag 'profile_telephone', 'Telephone' %>
+                </th>
+                <td>
+                  <%= text_field :profile, :telephone %>
+                </td>
+              </tr>
+              <tr>
+                <th class="fields">
+                  <%= label_tag 'profile_zip', 'Zip/Postal Code' %>
+                </th>
+                <td>
+                  <%= text_field :profile, :zip %>
+                </td>
+              </tr>
+              <tr>
+                <th class="fields">
+                  <%= label_tag 'profile_job_title', 'Job Title' %>
+                </th>
+                <td>
+                  <%= text_field :profile, :job_title %>
+                </td>
+              </tr>
+              <%if current_user.plan.role.id!=2%>
+                <tr>
+                  <th class="fields">
+                    <%= label_tag 'profile_organization_name', 'Organization Name' %>
+                  </th>
+                  <td>
+                    <%= text_field :profile, :organization_name %>
+                  </td>
+                </tr>
+              <%end%>
+              <tr>
+                <td colspan="2" align="center">
+                  &nbsp;
+                </td>
+              </tr>
+  <%# @subscription_notification = Notification.find(:all, :conditions => ["user_subscription is not null and user_subscription != ?", 0]) %>
+  <%# @subscription_notification.each do |notification| %>
+  <%#*<tr>%>
+  <%# frequency =['None','Daily', 'Weekly'] %>
+  <%#*<td>%>
+  <%#= notification.subject %>
+  <%#*</td>%>
+  <%#*<td>%>
+  <%# frequency_value = get_frequency_value(notification.id,@profile.notification_emails) %>
+  <%#= select_tag "notification_emails[#{notification.id}]", options_for_select(frequency.collect{|x| x}, frequency_value) %>
+  <%#*</td>%>
+  <%#*</tr>%>
+  <%# end %>
+              <tr>
+                <td colspan="2" align="right">
+                  <%= submit_tag 'Update', :class => "button" %>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          <% end %>
+        </td>
+        <td valign="top" style="border-left:1px solid #cdcdcd;padding-right:10px;" align="left;">
+          <table width="100%" cellpadding="2" cellspacing="3" border="0" align="left;">
+            <tr>
+              <td>
+                <table cellpadding="2" cellspacing="3">
+                  <tr><td valign="top">
+                      <div id="info_msg" style="color: #0f0;border: 1px solid #0b0;display: none;"></div>
+                      <div id="err_msg" style="color: #f00;display: none;"></div>
+                      <div>Want to change password?  Change it here:</div>
+                    </td></tr>
+                  <tr><td align="right"> <%= render :partial => "users/change_password"%></td></tr>
+                  <tr><td><div class="clear"></div></td></tr>
+                  <tr><td><div id="fb_setting_content">
+                        <%= render :partial=> "fb_settings" %>
+                      </div></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>   
+  </div>
+</div>
+<script>
+  function hide_err_msg(){
+    setTimeout(function(){document.getElementById('err_msg').style.display='none';},5000);
+  }
+  function hide_info_msg(){
+    setTimeout(function(){document.getElementById('info_msg').style.display='none';},5000);
+  }
+</script>

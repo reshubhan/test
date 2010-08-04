@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/trustedinsight/!svn/ver/2800/source/trunk/lib
+END
+authenticated_test_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/6/source/trunk/lib/authenticated_test_helper.rb
+END
+authenticated_system.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/1215/source/trunk/lib/authenticated_system.rb
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/trustedinsight/!svn/ver/2444/source/trunk/app/views/tickers
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2444/source/trunk/app/views/tickers/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2444/source/trunk/app/views/tickers/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/2444/source/trunk/app/views/tickers/new.html.erb
+END
+_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2444/source/trunk/app/views/tickers/_results.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/1950/source/trunk/app/views/tickers/show.html.erb
+END

@@ -1,0 +1,117 @@
+<table width="965" align="center" cellpadding="2" cellspacing="3" border="0" style="color:#666666;">
+  <tr>
+    <td colspan="1" width="50%" align="center" valign="top" class="buy_selltitleText" style="margin:0px;padding:0px;">
+      <%= render :partial => "layouts/form_header", :locals => {:heading => "Post a Fund that you want to Sell"} %>
+    </td>
+  </tr>
+  <tr>
+    <td width="60%" class="buy_selltitleText">
+      <% form_for(@classified_fund) do |f| %>
+        <center><%= f.error_messages %></center>
+        <%= hidden_field 'classified_fund', 'classified_fund_type'%>
+        <table  width="450" align="center" style="margin-top:50px;*margin-top:0px;">
+          <tr><td valign="top"></td><%= render :partial => "layouts/mandatory_info" %></tr>
+          <tr>
+            <td class="required" valign="top"><b class="required_mark">*</b><label>Manager Name</label></td>
+            <td class="form_fields" valign="top">
+              <div class="yui-skin-sam">
+                <div id="myAutoComplete">
+                  <input id="myInput" type="text"  style ="width:201px;margin-left:0px;" value="<%= @classified_fund.manager.name if @classified_fund.manager %>">
+                  <div id="myContainer" ></div>
+                  <input id="myHidden" name="classified_fund[manager_id]" type="hidden" value="<%= @classified_fund.manager.id if @classified_fund.manager %>">
+                </div>
+              </div>
+            </td>
+            <td style="font-size:10px;width:100%;">
+              <%= link_to 'Add a manager', :controller => 'managers', :action => 'new', :id => 'funds' %>
+          </tr>
+          <tr>
+            <td class="fields" align="right"><b class="required_mark">*</b><%= label_tag 'URL' %></td>
+            <td>
+              <div id='managerurl' style="font-size:11px;">
+                <% if @classified_fund.manager %>
+                  <%= @classified_fund.manager.url %>
+                <% else %>
+                  <input disabled="disabled" style="width:200px;"/>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="fields" valign="top"><b class="required_mark">*</b><%= label_tag 'Funds' %></td>
+            <td class="form_fields_sell" valign="top">
+              <div id="managerfunds" style="width:2px;font-size:11px;">
+                <% if @classified_fund.manager %>
+                  <%= select_tag 'classified_fund[fund_id]', options_from_collection_for_select(Fund.find(:all, :conditions => "manager_id='#{@classified_fund.manager.id}' and status='approved'"), 'id', 'name', @classified_fund.fund_id), {:onfocus =>"get_manager_funds_sell(this,#{ @classified_fund.id ? @classified_fund.id : -1 },'fund_manager_name'); return false;"}%>
+                <% else %>
+                  <select style="width:203px;"></select>
+                <% end %>
+              </div>
+            </td>
+            <td style="font-size:10px;width:110px;"><a href="/funds/new">Add a fund</a></td>
+          </tr>
+
+          <tr>
+            <td class="required" valign="top"><b class="required_mark">*</b><label>Note</label></td>
+            <td class="form_fields_sell" valign="top">
+              <%= text_field('classified_fund', 'description',:style => "width:201px;")  %>
+            </td>
+          </tr>
+          <% if is_admin? %>
+            <tr>
+              <td class="fields" valign="top"><b class="required_mark">*</b><label>For User (User Name)</label></td>
+              <td class="form_fields" valign="top"> <%= text_field_with_auto_complete :classified_fund, :user_login, { :size => 15 }, { :url => formatted_users_path(:js), :method => :get, :param_name => 'login_search' } %> </td>
+            </tr>
+          <% end %>
+          <tr>
+            <td class="required" valign="top">&nbsp;</td>
+            <td class="form_fields" valign="top"><br/>
+              <div class="middleButtnManager">
+                <input type="submit" class="button" value="Upload" onclick="fund_to_sell()"/>
+                <% if current_user.has_role('Admin') %>
+                  <% if @newfundtosell %>
+                    <div class="secondary_details_tab">Manager Details</div>
+                    <div style="margin:-20px 0px 0px 90px;text-align:left;width:70%;">
+                      <%= render :partial => "managers/manager_view", :locals => {:from_edit_profile => nil, :hide_edit_link => 'true'} %>
+                    </div>
+
+                    <%= render :partial => "funds/fund_details", :locals => {:fund => @classified_fund.fund} %>
+                  <% end %>
+                <%end%>
+              </div>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </td>
+    <td valign="top" width="40%" style="border-left:1px solid #cdcdcd;padding:0px 5px 0px 5px;">
+      <table width="100%" cellpading="2" cellspacing="3" border="0">
+        <tr>
+          <td style="padding-left:5px;"><div width="100px">
+              <p>
+                <b>Portfolio Upload</b>
+              </p>
+              <p style="font-size:11px;"  align="justify">
+                Do you want to add an entire portfolio of managers and funds? Contact our team at
+                <a href="mailto:Portfolio@trustedinsightinc.com">Portfolio@trustedinsightinc.com</a>
+                and we will be happy to assist in loading your portfolio into our system.
+
+<%#*Want to add an entire portfolio of secondaries to sell? Contact our team at%>
+<%#*<a href="mailto:Portfolio@trustedinsightinc.com">Portfolio@trustedinsightinc.com</a> and we will be%>
+<%#*happy to assist in loading your portfolio in our database.%>
+              </p>
+            </div>
+          </td>
+        </tr>
+        <%= render :partial => "layouts/advertisements" %>
+      </table>
+    </td>
+  </tr>
+</table>
+<%= render :partial => "secondaries/autocomplete_script" %>
+<script type="text/javascript">
+  document.title = 'Add Fund to sell - Trusted Insight'
+  $('myInput').focus();
+  $('myInput').select();
+</script>
+

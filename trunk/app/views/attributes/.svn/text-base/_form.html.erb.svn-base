@@ -1,0 +1,85 @@
+<p><%= label_tag 'Name' %></p>
+<p><%= f.text_field :name %></p>
+<p><%= label_tag 'Assets' %> <small>(Select atleast one asset from the list)</small></p>
+
+<div style="max-height: 350px;height: 350px;overflow: auto;border: 1px solid #cdcdcd;padding: 5px 10px;">
+<table cellpadding="0" cellspacing="0">
+  <tr>
+    <th colspan="3" align="center" style="min-width:250px;padding-left:10px;">
+      <div id="error_select_asset" style="display:none; font-size:10px;color:red;text-align:left;">
+        Select atleast one asset from the list
+      </div>
+    </th>
+  </tr>
+  <tr>
+    <th></th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;Pro</th>
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;Con</th>
+  </tr>
+  <tr style="font-size:10px;background-color: #8F8F91; ">
+    <td valign="top">
+      <input type="checkbox" id="select_all_assets" name="select_all_assets" onclick="return selectAll(this, 'asset_list');" style="width:40px;"/> <b>Select All&nbsp;&nbsp;</b>
+    </td>
+    <td valign="top">
+      <input type="checkbox" id="select_all_pros" name="select_all_pros" onclick="return selectAll(this, 'pros');" style="width:20px;margin: 0px;"/> <b>Select All&nbsp;&nbsp;</b>
+    </td>
+    <td valign="top">
+      <input type="checkbox" id="select_all_cons" name="select_all_cons" onclick="return selectAll(this, 'cons');" style="width:20px;margin: 0px;"/> <b>Select All&nbsp;&nbsp;</b>
+    </td>
+  </tr>
+  <% for asset in Asset.list%>
+    <tr>
+      <% mark_chkbx = false %>
+      <% mark_pros = false %>
+      <% mark_cons = false %>
+      <% if !@asset_attributes.nil? %>
+        <% for aa in @asset_attributes %>
+          <% if (aa.asset_id.eql?(asset.id)) %>
+            <% mark_chkbx = true %>
+            <% if (aa.attribute_type.to_s.eql?('pros')) %>
+              <% mark_pros = true %>
+            <% else %>
+              <% mark_cons = true %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <td>
+        <% if mark_chkbx %>
+          <input type="checkbox" id="asset_list_<%=asset.id%>" name="asset_list[]" value="<%=asset.id%>" checked="true" onchange="select_pros_by_default(<%=asset.id%>);" style="width:40px;"  /><%=asset.name%>
+        <% else %>
+          <input type="checkbox" id="asset_list_<%=asset.id%>" name="asset_list[]" value="<%=asset.id%>" onchange="select_pros_by_default(<%=asset.id%>);" style="width:40px;"  /><%=asset.name%>
+        <% end %>
+      </td>
+      <td>
+        <% if mark_pros %>
+          <input type="radio" name="type_<%=asset.id%>" id="pros_<%=asset.id%>" value="pros" style="width:40px;" checked="true" />
+        <% else %>
+          <input type="radio" name="type_<%=asset.id%>" id="pros_<%=asset.id%>" value="pros" style="width:40px;" />
+        <% end %>
+      </td>
+      <td>
+        <% if mark_cons %>
+          <input type="radio" name="type_<%=asset.id%>" id="cons_<%=asset.id%>" value="cons" style="width:40px;" checked="true"/>
+        <% else %>
+          <input type="radio" name="type_<%=asset.id%>" id="cons_<%=asset.id%>" value="cons" style="width:40px;" />
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+<p>&nbsp;</p>
+<script type="text/javascript">
+
+  function selectAll(obj, id){
+<% for asset in Asset.list%>
+      if( obj.checked == true ){
+        $(id+'_<%= asset.id %>').checked = true;
+      }else{
+        $(id+'_<%= asset.id %>').checked = false;
+      }
+<% end %>
+  }
+  
+</script>

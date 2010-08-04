@@ -1,0 +1,14 @@
+<div class="">
+<h1>New geography</h1>
+<div class="inner-center-form-box">
+<% form_for :geography,:url => {:controller => "admin", :action => "create_geography"  } do |f| %>
+  <center><%= f.error_messages %></center>
+  <p><%= label_tag 'Enter Name' %><br/>
+  <%= f.text_field :name %></p>
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+<% end %>
+</div></div>
+
+<%#= link_to 'Back', :action=>'geographies' %>

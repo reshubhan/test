@@ -1,0 +1,17 @@
+<div id="menu" class="filterText">
+  <ul>
+    <li>
+      <%#= link_to_remote "All (#{@total})", :url => {:controller => 'companies', :action => 'index_results', :browse_by => @browseby ,
+                                :asset=> 'All', :geography=>@geography}, :loading => "show_loading();", :complete => "hide_loading();",:html => {:class => "", :id => "assetAny"}%>
+      <a href="javascript:void(0);" onclick="$('search_deal_type').value = 'Any';$('filter_form').submit();" id="assetAny" > All (<%=@total%>) </a>
+    </li>
+    
+    <% Asset.parents.each do |asset| %>
+      <li>
+        <%#= link_to_remote "#{asset.name} (#{get_size_companies(@type, @financing, @geography, @desired_size, asset.id, @sector)})", :url => {:controller => 'companies', :action => 'index_results', :browse_by => @browseby ,
+                                       :asset=> asset.id, :geography=>@geography},:loading => "show_loading();", :complete => "hide_loading();",:type =>@type,:html => {:class => "", :id => "asset#{asset.id}"}%>
+        <a href="javascript:void(0);" onclick="$('search_deal_type').value = <%=asset.id%>;$('filter_form').submit();" id="asset<%=asset.id%>" > <%="#{asset.short_name} (#{get_size_companies(@type, @financing, @geography, @desired_size, asset.id, @asset_type, @sector)})"%> </a>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+<%= include_tiny_mce_if_needed %>
+<h3>Contact Us</h3>
+
+<% form_for(@message) do |f| %>
+  <center><%= f.error_messages %></center>
+  <%= render :partial => "form", :locals => {:f => f} %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>

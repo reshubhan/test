@@ -1,0 +1,48 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      Edit Notification
+    </h3>
+    <div style="float: right;margin: 10px;"><%= link_to 'Back', notifications_path, :class => "button" %></div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+        <div>
+          <table width="100%" cellpading="0" cellspacing="0" border="0" align="center">
+            <tr>
+              <td valign="top" width="65%" style="padding:10px;">
+                <% form_for(@notification) do |f| %>
+                  <center><%= f.error_messages %></center>
+                  <input type="hidden" name="role" value="<%=@role%>" />
+                  <input type="hidden" name="plan" value="<%=@plan%>" />
+                  <%= render :partial => "form", :locals => {:f => f} %>
+                  <div class="middleButtnManager">
+                    <br/>
+                    <input type="submit" class="button" value="Update"/>
+                  </div>
+                <% end %>
+              </td>
+              <td>
+                &nbsp;
+              </td>
+            </tr>
+          </table>
+        </div>
+        <br/>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  init();
+  function init(){
+    document.title = 'Edit Notification - Trusted Insight'
+    $('name').focus();
+    /* if(<%= current_user.blank? %>){
+      if(<%= !session[:money_manager_id].blank?%>){
+      }
+    }*/
+    return false;
+  }
+</script>

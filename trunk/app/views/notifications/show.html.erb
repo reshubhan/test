@@ -1,0 +1,64 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      Show Notification
+    </h3>
+    <div style="float: right;margin: 10px;"><%= link_to 'Back', notifications_path, :class => "button" %></div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <div>
+        <table width="100%" cellpading="5" cellspacing="0" border="0" align="center">
+          <tr>
+            <td valign="top" width="65%" style="padding:10px; font-size: large;">
+              <center>
+                <table width="100%" style="color:#666666;">
+                  <tr>
+                    <td class="required">Name </td>
+                    <td><%=h @notification.name %></td>
+                  </tr>
+                  <tr>
+                    <td class="required">Subject </td>
+                    <td><%=h @notification.subject %></td>
+                  </tr>
+                  <tr>
+                    <td class="required">Body<br/><small>(Preview)</small> </td>
+                    <td><div style="border: 1px solid #c6c6c6; overflow: auto; min-height: 320px; min-width: 700px;"><%= @notification.body %></div></td>
+                  </tr>
+                  <tr>
+                    <td class="required">Plans</td>
+                    <td>
+                      <%@notification.plans.each do |plan| %>
+                        <%= plan.role.title %> : <%= plan.name %> <br/>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="required">Status</td>
+                    <td><%= @notification.status ? 'Active' : 'InActive'  %></td>
+                  </tr>
+                </table>
+                <div style="float:right"><%= link_to 'Edit',  edit_notification_path(@notification), :class => "button" %></div>
+              </center>
+            </td>
+            <td>
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br/>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  init();
+  function init(){
+    document.title = 'Add Notification - Trusted Insight'
+    $('name').focus();
+    return false;
+  }
+</script>
+

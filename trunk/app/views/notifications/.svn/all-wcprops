@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/trustedinsight/!svn/ver/2699/source/trunk/app/views/notifications
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2593/source/trunk/app/views/notifications/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2593/source/trunk/app/views/notifications/index.html.erb
+END
+search_notification.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/2566/source/trunk/app/views/notifications/search_notification.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2593/source/trunk/app/views/notifications/new.html.erb
+END
+_frequency.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2698/source/trunk/app/views/notifications/_frequency.rhtml
+END
+_body_notification.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/2699/source/trunk/app/views/notifications/_body_notification.rhtml
+END
+_notification_list.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/2699/source/trunk/app/views/notifications/_notification_list.erb
+END
+_status_links.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/2699/source/trunk/app/views/notifications/_status_links.rhtml
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2615/source/trunk/app/views/notifications/show.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2698/source/trunk/app/views/notifications/_form.html.erb
+END

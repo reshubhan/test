@@ -1,0 +1,7 @@
+<span>Saved Searches</span>
+<ul>
+  <% form_tag('/classified_funds/index_results', :method => 'post') do %>
+  <%= select_tag 'search_name',"<option>Select Saved Searches</option>" +options_for_select(saved_searches.collect {|s| [ s.name,s.id]}, @search_name.to_i ) ,:style => "width:137px;margin-bottom:10px;", :onchange => "$('search_name').value=this.value;"%>
+  <%= submit_tag  'Load', :onclick => "if($('search_name').value == '' || $('search_name').value == 'Select Saved Searches')return false;", :class => 'button'%>
+  <% end %>
+</ul>

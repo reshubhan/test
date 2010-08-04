@@ -1,0 +1,67 @@
+<div style="font-size:11px;">*You must rate all stars and Give 3 pros and cons before submitting </div>
+<div class="managersview_container">
+  <div class="managersview_topcommentsimagebg">
+    <div class="toplinks">
+      <table width="334" border="0" cellspacing="2" cellpadding="2">
+        <tr>
+          <th><div class="profileimage"></div>
+          <div class="links_managers"><%= link_to 'Profile', manager_profile_url %></div></th>
+          <th ><div class="portfoliobg"></div>
+          <div class="links_managers"><%= link_to 'Portfolio', :controller => "funds", :action => "index", :id => @manager%></div></th>
+          <th><div class="rating"></div>
+          <div class="links_managers"><%= link_to 'Ratings' %></div></th>
+          <th ><div class="team"></div>
+          <div class="links_managers"><%= link_to 'Team', '#' %></div></th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="managersview__container1">
+      <div class="managersview_topcommentsimage">
+        <table width="701" border="0" cellspacing="0" cellpadding="0" style="margin:0px 10px 0px 10px;">
+          <tr>
+            <th width="202" rowspan="5" align="left"><div class="imgbox"><%= image_tag @manager.image.url, :alt => @manager.name %></div></th>
+            <th width="300" rowspan="5" align="left">
+              <div class="imgbox1">
+                <%= @manager.name %><br/><br/>
+                <% @manager.recent_funds.each do |fund| %>
+                  <%= fund.name %> ($ <%= fund.size %> Million USD) <%= fund.year %> <br/>
+                <% end %>
+              </div>
+            </th>
+          </tr>
+        </table>
+        <br/>
+        <div class="managersview_description"><%= @manager.description %> </div>
+      </div>
+      <%= render :partial => "ratings_page" %>
+    </div>
+  </div>
+  <% cons = @cons %>
+  <div class="managersview_topcommentsimagebg1" >
+    <div class="managersview_topcommentsimage3" >
+      <div class="centerheading"><span style="float:left;color:#ff6600;">Describe this manager with three clicks.</span><span class="centerheadingBold"> Provide top 3 for Pro's</span><br/><b>Votes Left :</b> <font id="pros_total_count">3</font > </div>
+      <table width="90%" border="0" align="center" cellpadding="0" cellspacing="6">
+        <tr>
+          <td>
+            <div>
+              <%= render :partial => 'attribute_list', :locals => {:asset_attrib_list => @pros}%>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div style="border-top:1px dotted #CCCCCC; margin-top:10px; margin-bottom:10px;" ></div>
+
+    <div class="centerheading"><span style="float:left;color:#ff6600;">Describe this manager with three clicks.</span><span class="centerheadingBold">Provide top 3 for Con's</span><br/><b>Votes Left :</b> <font id="cons_total_count">3</font > </div>
+    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="6">
+      <tr>
+        <td>
+          <div>
+            <%= render :partial => 'attribute_list', :locals => {:asset_attrib_list => cons}%>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

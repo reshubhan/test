@@ -1,0 +1,5 @@
+<iframe src="http://surveys.polldaddy.com/s/878063DF3DAE07D2/" frameborder="0" height="700" width="965" ></iframe>
+
+<br/>
+
+<%= link_to "Skip >>", "/classified_funds", :style => "float:right;" %>

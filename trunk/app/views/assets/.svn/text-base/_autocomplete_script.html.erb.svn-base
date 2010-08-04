@@ -1,0 +1,279 @@
+<script type="text/javascript">
+
+  YAHOO.example.FnMultipleFields = function(){
+    var myContacts = [
+<% items =[] %>
+<%if params[:id] &&  params[:id]!="asset_type" %>
+  <%asset=Asset.find(params[:id])%>
+<%else%>
+<%end%>
+<%if params[:id] &&  params[:id]!="asset_type"%>
+  <%if asset.parent_id.nil? %>
+    <% @managerList = Manager.find(:all, :conditions => {:status => "approved",:asset_primary_id => params[:id]}, :order => 'name', :include => [:primary_asset, :geography]) %>
+  <%else%>
+    <% @managerList = Manager.find(:all, :conditions => {:status => "approved",:asset_secondary_id => params[:id]}, :order => 'name', :include => [:primary_asset, :geography]) %>
+  <%end%>
+<%else%>
+  <% @managerList = Manager.find(:all, :conditions => {:status => "approved"}, :order => 'name', :include => [:primary_asset, :geography]) %>
+<%end%>
+<% if not @managerList.blank? %>
+  <% @managerList.each do |manager| %>
+    <% items << "{id:#{manager.id}, mname:\"#{manager.name}\", asset_name:'Asset: #{manager.primary_asset ? manager.primary_asset.name : nil}', geo_name:'Geography: #{manager.geography ? manager.geography.name : nil}'}" %>
+  <% end %>
+<% end %>
+<%= items.join(",\n") %>
+    ];
+
+    // Define a custom search function for the DataSource
+    var matchNames = function(sQuery) {
+      // Replacing single space represented by '%20' by a blank spaces so that even spaces typed can be handled
+      sQuery = sQuery.replace('%20', ' ')
+      // Case insensitive matching
+      var query = sQuery.toLowerCase(),
+      contact,
+      i=0,
+      l=myContacts.length,
+      matches = [];
+
+      // Match against each name of each contact
+      for(; i<l; i++) {
+        contact = myContacts[i];
+        if((contact.mname.toLowerCase().indexOf(query) == 0)) {
+          matches[matches.length] = contact;
+        }
+      }
+
+      return matches;
+    };
+
+    // Use a FunctionDataSource
+    var oDS = new YAHOO.util.FunctionDataSource(matchNames);
+    oDS.responseSchema = {
+      fields: ["id", "mname", "asset_name", "geo_name"]
+    }
+
+    // Instantiate AutoComplete
+    var oAC = new YAHOO.widget.AutoComplete("managerInput1", "managerContainer1", oDS);
+    var oAC2= new YAHOO.widget.AutoComplete("managerInput2", "managerContainer2", oDS);
+    var oAC3= new YAHOO.widget.AutoComplete("managerInput3", "managerContainer3", oDS);
+    var oAC4= new YAHOO.widget.AutoComplete("managerInput4", "managerContainer4", oDS);
+
+    oAC.resultTypeList = false;
+    oAC.useShadow = true;
+    oAC2.resultTypeList = false;
+    oAC2.useShadow = true;
+    oAC3.resultTypeList = false;
+    oAC3.useShadow = true;
+    oAC4.resultTypeList = false;
+    oAC4.useShadow = true;
+
+    // Custom formatter to highlight the matching letters
+    oAC.formatResult = function(oResultData, sQuery, sResultMatch) {
+      var query = sQuery.toLowerCase(),
+      mname = oResultData.mname,
+      asset_name = oResultData.asset_name,
+      geo_name = oResultData.geo_name || "", // Guard against null value
+      query = sQuery.toLowerCase(),
+      mnameMatchIndex = mname.toLowerCase().indexOf(query),
+      asset_nameMatchIndex = asset_name.toLowerCase().indexOf(query),
+      geo_nameMatchIndex = geo_name.toLowerCase().indexOf(query),
+      displaymname, displayasset_name, displaygeo_name;
+
+      if(mnameMatchIndex > -1) {
+        displaymname = highlightMatch(mname, query, mnameMatchIndex);
+      }
+      else {
+        displaymname = mname;
+      }
+
+      if(asset_nameMatchIndex > -1) {
+        displayasset_name = highlightMatch(asset_name, query, asset_nameMatchIndex);
+      }
+      else {
+        displayasset_name = asset_name;
+      }
+
+      if(geo_nameMatchIndex > -1) {
+        displaygeo_name = highlightMatch(geo_name, query, geo_nameMatchIndex);
+      }
+      else {
+        displaygeo_name = geo_name ? geo_name : "";
+      }
+
+      return "<font style=\'color:#2F76BC;\'><b>"+displaymname+"</b></font>"+"<br/>" + displayasset_name + "<br/>" + displaygeo_name;
+
+    };
+    oAC2.formatResult = function(oResultData, sQuery, sResultMatch) {
+      var query = sQuery.toLowerCase(),
+      mname = oResultData.mname,
+      asset_name = oResultData.asset_name,
+      geo_name = oResultData.geo_name || "", // Guard against null value
+      query = sQuery.toLowerCase(),
+      mnameMatchIndex = mname.toLowerCase().indexOf(query),
+      asset_nameMatchIndex = asset_name.toLowerCase().indexOf(query),
+      geo_nameMatchIndex = geo_name.toLowerCase().indexOf(query),
+      displaymname, displayasset_name, displaygeo_name;
+
+      if(mnameMatchIndex > -1) {
+        displaymname = highlightMatch(mname, query, mnameMatchIndex);
+      }
+      else {
+        displaymname = mname;
+      }
+
+      if(asset_nameMatchIndex > -1) {
+        displayasset_name = highlightMatch(asset_name, query, asset_nameMatchIndex);
+      }
+      else {
+        displayasset_name = asset_name;
+      }
+
+      if(geo_nameMatchIndex > -1) {
+        displaygeo_name = highlightMatch(geo_name, query, geo_nameMatchIndex);
+      }
+      else {
+        displaygeo_name = geo_name ? geo_name : "";
+      }
+
+      return "<font style=\'color:#2F76BC;\'><b>"+displaymname+"</b></font>"+"<br/>" + displayasset_name + "<br/>" + displaygeo_name;
+
+    };
+    oAC3.formatResult = function(oResultData, sQuery, sResultMatch) {
+      var query = sQuery.toLowerCase(),
+      mname = oResultData.mname,
+      asset_name = oResultData.asset_name,
+      geo_name = oResultData.geo_name || "", // Guard against null value
+      query = sQuery.toLowerCase(),
+      mnameMatchIndex = mname.toLowerCase().indexOf(query),
+      asset_nameMatchIndex = asset_name.toLowerCase().indexOf(query),
+      geo_nameMatchIndex = geo_name.toLowerCase().indexOf(query),
+      displaymname, displayasset_name, displaygeo_name;
+
+      if(mnameMatchIndex > -1) {
+        displaymname = highlightMatch(mname, query, mnameMatchIndex);
+      }
+      else {
+        displaymname = mname;
+      }
+
+      if(asset_nameMatchIndex > -1) {
+        displayasset_name = highlightMatch(asset_name, query, asset_nameMatchIndex);
+      }
+      else {
+        displayasset_name = asset_name;
+      }
+
+      if(geo_nameMatchIndex > -1) {
+        displaygeo_name = highlightMatch(geo_name, query, geo_nameMatchIndex);
+      }
+      else {
+        displaygeo_name = geo_name ? geo_name : "";
+      }
+
+      return "<font style=\'color:#2F76BC;\'><b>"+displaymname+"</b></font>"+"<br/>" + displayasset_name + "<br/>" + displaygeo_name;
+
+    };
+    oAC4.formatResult = function(oResultData, sQuery, sResultMatch) {
+      var query = sQuery.toLowerCase(),
+      mname = oResultData.mname,
+      asset_name = oResultData.asset_name,
+      geo_name = oResultData.geo_name || "", // Guard against null value
+      query = sQuery.toLowerCase(),
+      mnameMatchIndex = mname.toLowerCase().indexOf(query),
+      asset_nameMatchIndex = asset_name.toLowerCase().indexOf(query),
+      geo_nameMatchIndex = geo_name.toLowerCase().indexOf(query),
+      displaymname, displayasset_name, displaygeo_name;
+
+      if(mnameMatchIndex > -1) {
+        displaymname = highlightMatch(mname, query, mnameMatchIndex);
+      }
+      else {
+        displaymname = mname;
+      }
+
+      if(asset_nameMatchIndex > -1) {
+        displayasset_name = highlightMatch(asset_name, query, asset_nameMatchIndex);
+      }
+      else {
+        displayasset_name = asset_name;
+      }
+
+      if(geo_nameMatchIndex > -1) {
+        displaygeo_name = highlightMatch(geo_name, query, geo_nameMatchIndex);
+      }
+      else {
+        displaygeo_name = geo_name ? geo_name : "";
+      }
+
+      return "<font style=\'color:#2F76BC;\'><b>"+displaymname+"</b></font>"+"<br/>" + displayasset_name + "<br/>" + displaygeo_name;
+
+    };
+
+    // Helper function for the formatter
+    var highlightMatch = function(full, snippet, matchindex) {
+      return full.substring(0, matchindex) +
+        "<span class='match'>" +
+        full.substr(matchindex, snippet.length) +
+        "</span>" +
+        full.substring(matchindex + snippet.length);
+    };
+
+    // Define an event handler to populate a hidden form field
+    // when an item gets selected and populate the input field
+    var myHiddenField = YAHOO.util.Dom.get("managerHidden1");
+    var myHiddenField2 = YAHOO.util.Dom.get("managerHidden2");
+    var myHiddenField3 = YAHOO.util.Dom.get("managerHidden3");
+    var myHiddenField4 = YAHOO.util.Dom.get("managerHidden4");
+
+    var myHandler = function(sType, aArgs) {
+      var myAC = aArgs[0]; // reference back to the AC instance
+      var elLI = aArgs[1]; // reference to the selected LI element
+      var oData = aArgs[2]; // object literal of selected item's result data
+
+      // update hidden form field with the selected item's ID
+      myHiddenField.value = oData.id || "";
+      myAC.getInputEl().value = oData.mname;
+    };
+    var myHandler2 = function(sType, aArgs) {
+      var myAC = aArgs[0]; // reference back to the AC instance
+      var elLI = aArgs[1]; // reference to the selected LI element
+      var oData = aArgs[2]; // object literal of selected item's result data
+
+      // update hidden form field with the selected item's ID
+      myHiddenField2.value = oData.id || "";
+      myAC.getInputEl().value = oData.mname;
+    };
+    var myHandler3 = function(sType, aArgs) {
+      var myAC = aArgs[0]; // reference back to the AC instance
+      var elLI = aArgs[1]; // reference to the selected LI element
+      var oData = aArgs[2]; // object literal of selected item's result data
+
+      // update hidden form field with the selected item's ID
+      myHiddenField3.value = oData.id || "";
+      myAC.getInputEl().value = oData.mname;
+    };
+    var myHandler4 = function(sType, aArgs) {
+      var myAC = aArgs[0]; // reference back to the AC instance
+      var elLI = aArgs[1]; // reference to the selected LI element
+      var oData = aArgs[2]; // object literal of selected item's result data
+
+      // update hidden form field with the selected item's ID
+      myHiddenField4.value = oData.id || "";
+      myAC.getInputEl().value = oData.mname;
+    };
+    oAC.itemSelectEvent.subscribe(myHandler);
+    oAC2.itemSelectEvent.subscribe(myHandler2);
+    oAC3.itemSelectEvent.subscribe(myHandler3);
+    oAC4.itemSelectEvent.subscribe(myHandler4);
+
+    return {
+      oDS: oDS,
+      oAC: oAC,
+      oAC2: oAC2,
+      oAC3: oAC3,
+      oAC4: oAC4
+    };
+  }();
+
+
+</script>

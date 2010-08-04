@@ -1,0 +1,34 @@
+<a href="javascript::void(0)" onclick="$('exportUsers').toggle();">Export as xls</a>
+<div id="exportUsers" style="display:none;margin-top:20px;">
+  <% form_tag('/admin/export_active_users.xls') do %>
+    <table>
+      <tr>
+        <td><%= check_box_tag 'export[email_alias]' %>Email alias</td>
+        <td><%= check_box_tag 'export[firstname]' %>Firstname</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag 'export[lastname]' %>Lastname</td>
+        <td><%= check_box_tag 'export[organization_name]' %>Organization name</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag 'export[zip]' %>Zip</td>
+        <td><%= check_box_tag 'export[telephone]' %>Telephone</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag 'export[role_name]' %>Role</td>
+        <td><%= check_box_tag 'export[plan_name]' %>Plan</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag 'export[sign_up_date]' %>Sign up date</td>
+        <td><%= check_box_tag 'export[last_login_date]' %>Last login date</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag 'export[no_of_postings]' %>No. of postings</td>
+        <td><%= check_box_tag 'export[organization_type]' %>Organization type</td>
+      </tr>
+    </table>
+    <%= hidden_field_tag 'format', 'xls' %>
+    <%= submit_tag 'Export', :class => 'button' %></span>
+  <% end %>
+</div>
+<div class="clear"></div>

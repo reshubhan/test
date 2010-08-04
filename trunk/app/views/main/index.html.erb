@@ -1,0 +1,89 @@
+<script type="text/javascript" language="JavaScript" src="javascripts/ui.js"></script>
+<script type="text/javascript" language="JavaScript" src="javascripts/crawler.js"></script>
+<script type="text/javascript">
+  function popUp(URL) {
+    day = new Date();
+    id = day.getTime();
+    eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=800,left = 440,top = 312');");
+  }
+</script>
+<script type="text/javascript">
+  RunSlideShow("emilyforegroundimg","emilybackgrounddiv",
+  "images/banner/welcome.png;images/banner/i_investors.png;images/banner/service_providers.png;images/banner/money_managers.png",10);
+</script>
+<div class="container">
+  <div class="top">
+    <div class="l">
+      <div id="emilybackgrounddiv">
+        <img src="/images/banner/welcome.png" alt="" id="emilyforegroundimg" />
+      </div>
+      <div class="paginate">
+        <a href="javascript:void(0);" id="first" onclick="FadeInImage('emilyforegroundimg','images/banner/welcome.png','emilybackgrounddiv', id);"></a>
+        <a href="javascript:void(0);" id="second" onclick="FadeInImage('emilyforegroundimg','images/banner/i_investors.png','emilybackgrounddiv', id)"></a>
+        <a href="javascript:void(0);" id="third" onclick="FadeInImage('emilyforegroundimg','images/banner/service_providers.png','emilybackgrounddiv', id)"></a>
+        <a href="javascript:void(0);" id="four" onclick="FadeInImage('emilyforegroundimg','images/banner/money_managers.png','emilybackgrounddiv', id)"></a>
+      </div>
+      <div class="clearFix"></div>
+      <div class="bar">
+        <%tickers=Ticker.find(:all,:conditions=>{:ticker_to_show=>true}, :order => "updated_at DESC", :limit => 5)%>
+        <div id="mycrawler">
+          <%for ticker in tickers%>&nbsp;&nbsp;&nbsp;
+            <b style="color:#ff6600;"><%= Date::ABBR_MONTHNAMES[Time.now.month] %>&nbsp;<%= Time.now.day%></b>&nbsp;
+            <%=ticker.ticker_text%>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <div class="r">
+      <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
+      <div class="rht">
+        <h1>Statistics</h1>
+        <ul>
+          <%statistics=Statistic.find(:all,:conditions=>{:statistic_to_show=>true})%>
+          <%for statistic in statistics%>
+            <li><%=statistic.statistic_text%></li>
+          <%end%>
+        </ul>
+        <h1>Watch Video</h1>
+        <a href="#" onclick="RedBox.showInline('home_video_show'); return false;"><img src="/images/video.png" alt="video" style="padding:0px;" class="home_video" /></a>
+        <div id="home_video_show" style="display:none;">
+          <%= render :partial => "layouts/home_video" %>
+        </div>
+      </div>
+      <b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b>
+    </div>
+  </div>
+  <div class="dwd">
+    <div class="investor">
+      <%= link_to "" , {:controller => 'main', :action => 'select_plan', :role_id => 1}, :title => "It is FREE to join. Sign up today"%>
+    </div>
+    <div class="provider gap">
+      <%= link_to "" , {:controller => 'users', :action => 'new', :role => 3,:plan=>16}, :title => "It is FREE to join. Sign up today"%>
+    </div>
+    <div class="manager">
+      <%= link_to "" , {:controller => 'users', :action => 'new', :role => 2,:plan=>21}, :title => "It is FREE to join. Sign up today"%>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  marqueeInit({
+    uniqueid: 'mycrawler',
+    style: {
+      'float': 'left',
+      'margin-left': '120px',
+      '_margin-left': '60px',
+      'padding-top': '10px',
+      'width': '520px',
+      'height':'20px',
+      'margin-left' : '120px'
+    },
+    inc: 5, //speed - pixel increment for each iteration of this marquee's movement
+    mouse: 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
+    moveatleast: 2,
+    neutral: 850,
+    savedirection: true
+  });
+</script>
+
+
+

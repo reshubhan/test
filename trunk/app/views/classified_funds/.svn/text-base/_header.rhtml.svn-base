@@ -1,0 +1,1 @@
+<%= "#{@heading} - #{number_with_delimiter(@total)} postings representing up to $ #{number_with_delimiter(@amount_total.to_f.round(2))} B" %>

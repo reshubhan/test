@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker
+END
+facebooker.gemspec
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/facebooker.gemspec
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/Rakefile
+END
+InstalledFiles
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/InstalledFiles
+END
+setup.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/setup.rb
+END
+README.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/README.rdoc
+END
+.config
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/.config
+END
+Manifest.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/Manifest.txt
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/init.rb
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/.gitignore
+END
+.autotest
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/.autotest
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/install.rb
+END
+TODO.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/TODO.rdoc
+END
+CHANGELOG.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/CHANGELOG.rdoc
+END
+COPYING.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/COPYING.rdoc
+END

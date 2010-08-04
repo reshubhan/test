@@ -1,0 +1,34 @@
+<p>
+  <b>Subject:</b>
+  <%=h @message.subject %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @message.body %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @message.sender_id %>
+</p>
+
+<p>
+  <b>Manager:</b>
+  <%=h @message.manager_id %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @message.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @message.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_message_path(@message) %> 
+<%#*|%>
+<%#= link_to 'Back', messages_path %>

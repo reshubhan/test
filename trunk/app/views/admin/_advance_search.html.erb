@@ -1,0 +1,62 @@
+<%= link_to_redbox("Advance Search", "upgrade", {:class => "button"}) %>
+<div id="upgrade" style="display:none;">
+  <div class="content-box">
+    <div class="content-box-header">
+      <h3 style="cursor: s-resize;">
+        Advance Search
+      </h3>
+      <div style="float: right;margin: 10px;">
+        <%= link_to_close_redbox('Close', html_options = {:id => 'closeredbox',:class=>"closeComentBoxImg"})%>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="content-box-content">
+      <div style="display: block;" class="tab-content default-tab scrollDiv">
+        <%url=""%>
+        <%if params[:action] == 'users' %>
+          <%url = "/admin/users"%>
+        <% end %>
+        <%if params[:action] == 'active_users' %>
+          <%url = "/admin/active_users"%>
+        <% end %>
+        <% form_remote_tag :url=>url do -%>
+          <% if @change_plan %>
+        <input type="hidden" name="change_plan" value="1"/>
+        <% end %>
+          <table>
+            <tr>
+              <th>Login</th>
+              <td><input type="text" name="search[login_like]"/></td>
+            </tr>
+            <tr>
+              <th>First Name</th>
+              <td><input type="text" name="search[profile_firstname_like]"/></td>
+            </tr>
+            <tr>
+              <th>Last Name</th>
+              <td><input type="text" name="search[profile_lastname_like]"/></td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td><input type="text" name="search[profile_email_like]"/></td>
+            </tr>
+            <tr>
+              <th>Organization Name</th>
+              <td>
+                <input type="text" name="search[profile_organization_like]"/>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center"><%=submit_tag "Search", :class=>"button" %></td>
+            </tr>
+          </table>
+        <% end %>
+        <script>
+          function done(){
+            RedBox.close(); return false;
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

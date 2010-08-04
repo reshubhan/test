@@ -1,0 +1,31 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      New Transaction Type
+    </h3>
+    <div style="float: right;margin: 10px;">
+      <%= link_to 'All Transaction Types', transaction_types_path, :class => "button" %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <% form_for(@transaction_type) do |f| %>
+
+        <%= f.error_messages%>
+        <p class="questionhead">
+          <%= f.label :transaction_type %><br />
+          <%= f.text_field :transaction_type %>
+        </p>
+        <p class="questionhead">
+          <%= f.label :asset_id %><br />
+          <%= select_tag 'transaction_type[asset_id]', options_from_collection_for_select(Asset.find(:all,:conditions=>['parent_id is null']), 'id', 'name') , {:style => "height:20px;width:175px;"} %>
+        </p>
+        <p><br/>
+          <%= f.submit "Create"  , :class => "button"%>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

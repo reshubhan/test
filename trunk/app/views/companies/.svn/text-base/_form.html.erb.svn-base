@@ -1,0 +1,56 @@
+<div style="margin-top:10px;margin-bottom:10px;">
+  <p align="center" style="margin-left:10px;width:375px;">Please select your online payment method below. We offer secure online payment through PayPal.</p>
+  <p align="center" style="margin-left:10px;width:375px;">Please pay $29 to access this service.</p>
+  <p align="center">
+    <%= image_tag "paypal.gif" %>
+  </p>
+  <%= hidden_field_tag  'order[user_id]', current_user.id%>
+  <%= hidden_field_tag 'order[amount]',29 %>
+  <%= hidden_field_tag 'order[first_name]',current_user.profile.firstname %>
+  <%= hidden_field_tag 'order[last_name]', current_user.profile.lastname %>
+  <%= hidden_field_tag 'order[order_type]','company_to_sell' %>
+  <%= hidden_field_tag 'companyIdToSell','true' %>
+  <table align="center" style="border:1px solid #e6e6e6; width:420px;">
+    <tr>
+      <th colspan="2" style="background-color:#c6c6c6;">
+        <h3 style="color:#fff;">Payment Detail</h3>
+      </th>
+    </tr>
+    <tr>
+      <th class="payment_label">User name: </th>
+      <td><%= current_user.login%></td>
+    </tr>
+    <tr>
+      <th class="payment_label">Payment Type: </th>
+      <td>Directs/Co-investments to sell </td>
+    </tr>
+
+    <tr>
+      <th class="payment_label">Amount: </th>
+      <td>29 USD</td>
+    </tr>
+    <tr>
+      <th class="payment_label"><%= f.label :card_type %> </th>
+      <td><%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %></td>
+    </tr>
+    <tr>
+      <th class="payment_label"><%= f.label :card_number %></th>
+      <td><%= f.text_field :card_number %></td>
+    </tr>
+    <tr>
+      <th class="payment_label"><%= f.label :card_verification, "Card Verification Value (CVV)" %></th>
+      <td><%= f.text_field :card_verification %></td>
+    </tr>
+    <tr>
+      <th class="payment_label"><%= f.label :card_expires_on %></th>
+      <td class="payment_field"><%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %></td>
+    </tr>
+  </table>
+</div>
+<script type="text/javascript">
+  function cancelAction() {
+    if (confirm("Are you sure?")) {
+      window.location = '<%= cancel_registration_url(:id => (@user ? @user.id : current_user)) %>'
+    }
+  }
+</script>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/tasks
+END
+facebooker.rake
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/tasks/facebooker.rake
+END
+facebooker.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/tasks/facebooker.rb
+END
+tunnel.rake
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/tasks/tunnel.rake
+END

@@ -1,0 +1,35 @@
+<div class="newfund">
+  <ul>
+    <%if current_user.plan.role.title=='Institutional Investor'%>
+      <li><a href="/classified_funds/new_fund_to_buy?retry=true" <% if current.eql?'fund' %> class="current" <% end %> >Preference - Fund</a></li>
+      <li><a href="/companies/new_directs_to_buy" <% if current.eql?'direct' %> class="current" <% end %> >Preference - Direct</a></li>
+      <li><a href="/list_question">Investment Criteria</a></li>
+      <li><%=link_to "Invite Friends" ,:controller => "users",:action => "edit_profile",:from_fund_page =>true%></li>
+      <li><a href="/profile">Profile</a></li>
+    <%elsif current_user.plan.role.title=='Fund Manager'%>
+      <%if current_user.profile.organization_type.name=="Fund Manager"||current_user.profile.organization_type.name=="Fundless Sponsor" %>
+        <li><a href="/companies/new_directs_to_buy" <% if current.eql?'direct' %> class="current" <% end %> >Preference - Direct</a></li>
+        <li><a href="/list_question">Investment Criteria</a></li>
+        <li><%=link_to "Invite Friends" ,:controller => "users",:action => "edit_profile",:from_fund_page =>true%></li>
+        <li><a href="/profile">Profile</a></li>
+      <%elsif (current_user.profile.organization_type.name=="Fund of Funds" ||current_user.profile.organization_type.name=="Asset Manager"||current_user.profile.organization_type.name=="Wealth Manager")%>
+        <li><a href="/classified_funds/new_fund_to_buy?retry=true" <% if current.eql?'fund' %> class="current" <% end %> >Preference - Fund</a></li>
+        <li><a href="/companies/new_directs_to_buy" <% if current.eql?'direct' %> class="current" <% end %> >Preference - Direct</a></li>
+        <li><a href="/list_question">Investment Criteria</a></li>
+        <li><%=link_to "Invite Friends" ,:controller => "users",:action => "edit_profile",:from_fund_page =>true%></li>
+        <li><a href="/profile">Profile</a></li>
+      <%end%>
+    <%elsif current_user.plan.role.title=='Service Provider'%>
+      <%if current_user.profile.organization_type.name=="Consultant"%>
+        <li><a href="/classified_funds/new_fund_to_buy?retry=true" <% if current.eql?'fund' %> class="current" <% end %> >Preference - Fund</a></li>
+        <li><%=link_to "Invite Friends" ,:controller => "users",:action => "edit_profile",:from_fund_page =>true%></li>
+        <li><a href="/profile">Profile</a></li>
+      <%elsif current_user.profile.organization_type.name!="Consultant"%>
+        <li><a href="/list_question">Investment Criteria</a></li>
+        <li><%=link_to "Invite Friends" ,:controller => "users",:action => "edit_profile",:from_fund_page =>true%></li>
+        <li><a href="/profile">Profile</a></li>
+      <%end%>
+    <%end%>
+
+  </ul>
+</div>

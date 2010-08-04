@@ -1,0 +1,116 @@
+<!--link type="text/css" rel="stylesheet" href="/stylesheets/border-radius.css" />
+<link id="skinhelper-compact" type="text/css" rel="alternate stylesheet" href="/stylesheets/reduce-spacing.css" /-->
+<script src="/javascripts/jscal2.js"></script>
+<script src="/javascripts/lang/en.js"> </script>
+<%#*<script src="/javascripts/FusionCharts.js" type="text/javascript"></script>%>
+<table width="100%" cellpadding="0px" cellspacing="0px;">
+  <tr><td colspan="4" id="successDiv" align="center" style="font-size:12px;border:0px !important;"></td></tr>
+</table>
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th >Login</th>
+    <th >Email</th>
+    <% if @change_plan.blank? and !session[:change_plan] %>
+      <th style="width:150px !important;">Options</th>
+    <% else %>
+      <th>
+        <table width="100%">
+          <tr>
+            <th width="91" style="*width:100px;">Start Date</th>
+            <th width="103">&nbsp;End Date</th>
+            <th width="136">&nbsp;&nbsp;Organization &nbsp;name</th>
+            <th width="136">&nbsp;&nbsp;Organization &nbsp;type</th>
+            <th width="259">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plan</th>
+            <th width="">Amount</th>
+            <th width="35">Users Profile</th>
+            <th width="35">Show user name</th>
+            <th width="35">Options</th>
+          </tr>
+        </table>
+      </th>
+    <% end %>
+  </tr>
+  <%i=0%>
+  <% for user in @users %>
+    <tr align="left">
+      <td><%= wrap_string(user.login)%></td>
+
+      <% if @change_plan.blank? and !session[:change_plan] %>
+        <td><small title="<%=user.profile.email%>"><%= user.profile.email%></small></td>
+        <td style="width:80px !important;">
+          <%if params[:action] == 'users' %>
+            <%= link_to (image_tag "activate.gif", :alt => "Activate", :title => "Approve this user"), {:controller => "admin", :action => "approve_user", :id => user.id} %>
+          <% end %>
+          <%if params[:action] == 'active_users' %>
+            <%= link_to (image_tag "inactive.gif", :alt => "Deactivate", :title => "Delete this user"), user, :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        </td>
+      <% else %>
+        <td><small title="<%=user.profile.email%>"><%= wrap_string(user.profile.email, 10)%></small></td>
+        <td>
+          <div>
+            <% form_remote_tag :url => { :action => "change_user_profile", :id => user.id} do -%>
+              <table>
+                <tr>
+                  <td style="padding:0px;*padding:0px 0px 0px 10px ;">
+                    <%= text_field_tag 'start_date', user.start_date, {:disabled => true, :style => "width:70px;", :id => "calendar_field_#{user.id}"} %>
+                    <%= hidden_field_tag "user[start_date]",{}, :id => "start_date#{user.id}" %>
+                  </td>
+                  <td style="padding:0px;">
+                    <img id="calendar_trigger_<%=user.id%>" src="/images/calendar_date_select/calendar_icon.png" width="22" height="22" class="calendar_date" style="margin-top:4px;cursor:pointer;"/>
+                  </td>
+                  <td style="padding:0px;">
+                    <%= text_field_tag 'end_date', user.end_date, {:disabled => true, :style => "width:70px;margin-left:3px;", :id => "calendar_field_#{i}"} %>
+                    <%= hidden_field_tag "user[end_date]", {},:id => "end_date#{i}" %>
+                  </td>
+                  <td style="padding:0px;">
+                    <img id="calendar_trigger_<%=i%>" src="/images/calendar_date_select/calendar_icon.png" width="22" height="22" class="calendar_date" style="margin-top:4px;cursor:pointer;"/>
+                  </td>
+                  <td style="width:136px;">
+                    <% if user.profile.organization_name%><%= wrap_string(user.profile.organization_name, 15)%><%else%>Any<%end%>
+                  </td>
+                  <td>
+                    <div id="organization_type_div_<%=user.id%>">
+                      <%= select_tag 'user[organization_type]',options_from_collection_for_select(OrganizationType.find(:all,:conditions=>{:role_id=>user.plan.role_id}), 'id', 'name', (user.profile.organization_type ? user.profile.organization_type.id : nil)) , {:style => "height:23px;width:130px;"} %>
+                    </div>
+                  </td>
+                  <td><%= select('user', 'plan_id', Plan.find(:all).collect { |plan|  [plan.detail , plan.id]}, {:selected => user.plan_id} ,{ :onchange=>"populate_organization_type(#{user.id}, this.value);",:style => "width:170px"}) %></td>
+                  <td><%=text_field_tag 'user[admin_fee]', user.admin_fee.nil? ? (user.plan.blank? ? '0' : user.plan.fee) : user.admin_fee, :style => "width:50px", :disabled => user.paypal_profile_id.nil? ? true : false %></td>
+                  <td><%= link_to "Users Profile", :controller => 'users', :action => 'edit_profile',:user_id=>user.id %></td>
+                  <td>
+                      <%=check_box_tag 'user[show_user_name]',user.id,user.show_user_name ? true : false,{:style=>"width:5px;float:right;"} %>
+                  </td>
+                  <td><%= submit_tag "Change", :class => 'small_button', :confirm => 'Are you sure you want to change user plan?',:onclick => "$('start_date#{user.id}').value = $('calendar_field_#{user.id}').value;$('end_date#{i}').value = $('calendar_field_#{i}').value;" %></td>
+                </tr>
+              </table>
+            <% end -%>
+            <script>
+              Calendar.setup({
+                inputField : "calendar_field_<%=user.id%>",
+                trigger    : "calendar_trigger_<%=user.id%>",
+                onSelect   : function() { this.hide() }
+              });
+              Calendar.setup({
+                inputField : "calendar_field_<%=i%>",
+                trigger    : "calendar_trigger_<%=i%>",
+                onSelect   : function() { this.hide() }
+              });
+            </script>
+            <%i=i+1%>
+          </div>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+<% if @change_plan.blank? %>
+  <%if params[:action] == 'users' %>
+    <%#= will_paginate @users, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'admin', :action => 'users', :change_plan => true} %>
+  <% end %>
+  <%if params[:action] == 'active_users' %>
+    <%= will_paginate @users, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'admin', :action => 'active_users', :change_plan => true} %>
+  <% end %>
+<% else %>
+  <%= will_paginate @users, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'admin', :action => 'users'} %>
+<% end %>
+<div class="clear"></div>

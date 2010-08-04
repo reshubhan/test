@@ -1,0 +1,139 @@
+<div style="width:1000px;float:left;text-align:left;padding:10px 0px 20px 0px;" align="center">
+  <div style="margin:0px auto;width:100%;text-align:center;">
+    <table cellpadding="0" cellpsacing="0" border="0" align="center">
+      <tr>
+        <td valign="top">
+          <div class="all_managerTitleText">
+            <div>
+              <h2 style="text-align:center;padding-top:5px;">
+                <% if @role.title == 'Institutional Investor'%>
+                  Institutional Investor
+                <% elsif @role.title == 'Service Provider' %>
+                  Service Provider
+                <% else @role.title == 'Fund Manager' %>
+                  Money Manager
+                <% end %>
+              </h2>
+              <br/>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div style="width:1000px;float:left;text-align:left;padding:10px 0px 20px <% if @role.id==1 %>196px<%else%>60px<%end%>;">
+    <% plansList = Plan.find(:all, :conditions => "status=1 and role_id=#{@role.id}", :order => 'rank' ) %>
+
+    <table class="sub-plans" cellpadding="0" cellspacing="0" border="0">
+      <tr class="plans">
+        <th rowspan="2" style="background:#FDDC96 none repeat scroll 0 0;border-right:1px solid #EEC965; border-left:1px solid #EEC965; line-height:18px;
+            padding:12px 0; color:#FF6600; font-weight:bold; text-align:center;">
+          <h2>Plan Type</h2>
+        </th>
+        <td>
+          <h2>Basic</h2>
+        </td>
+        <% if @role.id==1 %>
+        <td>
+          <h2>Plus</h2>
+        </td>
+        <td>
+          <h2>Premium</h2>
+        </td>
+        <% else %>
+        <td>
+          <h2>Plus Monthly</h2>
+        </td>
+        <td>
+          <h2>Premium Monthly</h2>
+        </td>
+        <td>
+          <h2>Plus Yearly</h2>
+        </td>
+        <td>
+          <h2>Premium Yearly</h2>
+        </td>
+        <% end %>
+      </tr>
+      <tr>
+        <% for plan in plansList %>
+          <td style="background-color:#FDDC96;">
+            <font size="2"><%= plan.duration %></font><br/>
+            <b style="font-size:14px;"><%= link_to 'Sign Up', :controller => 'users', :action => 'new', :role => @role, :plan => plan.id %></b>
+          </td>
+        <% end %>
+      </tr>
+      <tr class="strong" >
+        <th style="border-left:1px solid #eec965;">Number of fund and secondary views</th>
+        <% for plan in plansList %>
+          <td>
+            <% if plan.no_of_views == -1 %>
+              Unlimited
+            <% else %>
+              <%=plan.no_of_views%>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <th style="border-left:1px solid #eec965;">Email to buyers and sellers</th>
+        <% for plan in plansList %>
+          <td>
+            <% if plan.no_of_emails == -1 %>
+              Unlimited
+            <% else %>
+              <%=plan.no_of_emails%>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <th style="border-left:1px solid #eec965;">Post funds and secondaries to buy</th>
+        <% for plan in plansList %>
+          <td><img src="../images/selectButton.gif" height="16px" width="16px" alt="yes"/></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th style="border-left:1px solid #eec965;">
+          Post
+          <% if not @role.id == 1 %>
+            funds and
+          <% end %>
+          secondaries to sell
+        </th>
+        <% for plan in plansList %>
+          <td><img src="../images/selectButton.gif" height="16px" width="16px" alt="yes"/></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th style="border-left:1px solid #eec965;">Subscription fees</th>
+        <% for plan in plansList %>
+          <td>
+            <% if plan.fee%>
+              <% if plan.fee < 0 %>
+                <a href="mailto:info@trustedinsightinc.com">Contact Us</a>
+              <% elsif plan.fee == 0 %>
+                FREE
+              <% elsif plan.fee > 0%>
+                <%= number_to_currency(plan.fee) %><br/>
+                <b style="font-size:11px;">
+                  <% if plan.duration.eql?('Two Years') %>
+                    <% if @role.id == 1  and plan.name.eql?('Plus')%>
+                      (<%= number_to_currency(395) %> Discount)
+                    <% elsif @role.id == 1  and plan.name.eql?('Premium')%>
+                      (<%= number_to_currency(995) %> Discount)
+                    <% elsif @role.id == 3 and plan.name.eql?('Plus')%>
+                      (<%= number_to_currency(995) %> Discount)
+                    <% end %>
+                  <% end %>
+                </b>
+              <% end %>
+            <% else %>
+              <a href="mailto:info@trustedinsightinc.com">Contact Us</a>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+</div>

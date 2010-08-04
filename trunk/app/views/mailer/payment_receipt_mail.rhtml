@@ -1,0 +1,34 @@
+Dear <%= @user.profile.firstname %> <%= @user.profile.lastname %>,
+
+This mail confirms that you have paid Trusted Insight Inc $<%=@order.amount%>
+
+................................................................................
+................................................................................
+ Business Details
+
+      Payment Type   :   <%= @order.order_type=="membership_upgrade" or @order.order_type != "company_to_sell"  ? @order.order_type : "Sign Up" %>
+      Login                :   <%= @user.login %>
+      Name               :   <%= @user.profile.firstname+" "+@user.profile.lastname %>
+      Role                 :   <%= @user.plan.role.title %>
+      <% if @order.order_type != "company_to_sell" %>
+      Duration            :   <%= @order.plan.duration%>
+      Plan Type           :    <%= @order.plan.name %>
+      <%end%>
+................................................................................
+
+Payment Details
+
+     Transaction Id     :   
+     Amount Paid      :   <%= @order.amount %>
+     Card Type          :   <%= @order.card_type %>
+     Payment Date    :   <%= @order.updated_at %>
+................................................................................
+................................................................................
+
+Thank you again for your payment.
+
+If you have any questions or comments, please contact us at admin@trustedinsightinc.com.
+
+Best Regards,
+Trusted Insight Team
+         

@@ -1,0 +1,75 @@
+<div style="padding:10px;" align="center">
+  <div class="centerheading"> Confirm Payment</div>
+  <p align="center">
+    <%= image_tag "paypal.gif" %>
+  </p>
+
+  <table align="center" style="border:1px solid #e6e6e6; width:420px;">
+    <tr>
+      <th colspan="2" style="background-color:#c6c6c6;">
+        <h3 style="color:#fff;">Business Details</h3>
+      </th>
+    </tr>
+
+    <tr>
+      <th class="payment_label">&nbsp;&nbsp;&nbsp;Payment Type&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th>
+      <td><% if @companyIdToSell.blank? %><%= @order.order_type=="membership_upgrade" ? "Membership Upgrade" : "Sign Up" %><% else %> Directs/Co-investments to sell <% end %></td>
+    </tr>
+    <tr>
+      <th class="payment_label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th>
+      <td><%= @order.user.login %></td>
+    </tr>
+    <tr>
+      <th class="payment_label">&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th>
+      <td><%= @order.user.profile.firstname+" "+@order.user.profile.lastname %></td>
+    </tr>
+    <tr>
+      <th class="payment_label">&nbsp;&nbsp;&nbsp;Role&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th>
+      <td><%= @order.user.plan.role.title %></td>
+    </tr>
+    <% if @companyIdToSell.blank? %>
+      <tr>
+        <th class="payment_label">&nbsp;&nbsp;&nbsp;Duration&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th>
+        <td><%= @order.plan.duration%></td>
+      </tr>
+      <tr>
+        <th class="payment_label">&nbsp;&nbsp;&nbsp;Plan Type&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th>
+        <td><%= @order.plan.name %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <th colspan="2" style="background-color:#c6c6c6;">
+        <h3 style="color:#fff;">Payment Details</h3>
+      </th>
+    </tr>
+
+    <tr>
+      <th class="payment_label">&nbsp;&nbsp;&nbsp;Amount Paid&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th>
+      <td>$<%= @order.amount %></td>
+    </tr>
+
+    <tr>
+      <th class="payment_label">&nbsp;&nbsp;&nbsp;Card Type&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th><br>
+    <td><%= @order.card_type %></td>
+    </tr>
+    <tr>
+      <th class="payment_label">&nbsp;&nbsp;&nbsp;Card Number&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</th><br>
+    <td><%= @order.card_number %></td>
+    </tr>
+
+  </table><br><br><br>
+<%# session[:order]=@order %>
+  <center>
+    <tr style="border:4px solid #e6e6e6; width:420px;height:100px">
+<%#=button_to  'Cancel', {:action => "new"} %>
+      <% if not @companyIdToSell.blank? %>
+      <%=button_to  '', { :action => "create", :companyIdToSell => @companyIdToSell}, :class => "paypal_button" %>
+      <%else%>
+      <%=button_to  '', { :action => "create"}, :class => "paypal_button" %>
+      <%end%>
+    </tr>
+  </center>
+
+
+
+</div>

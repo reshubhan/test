@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  function setRating(value,rate) {
+    document.getElementById('current-star-rating-'+rate).style.backgroundImage = "url(/images/stars/stars_"+value+"0.gif)";
+    document.getElementById('rating_'+rate).value = value;
+  }
+</script>
+  <ul id="current-star-rating-<%=rate%>" class="star-rating" style="background-image:url('/images/stars/stars_<%=prefilled_value%>0.gif')">
+    <li><a class="one-star" href="JavaScript:void(0);" onclick="setRating('1','<%=rate%>'); return false">1</a></li>
+    <li><a class="two-stars" href="JavaScript:void(0);" onclick="setRating('2','<%=rate%>'); return false">2</a></li>
+    <li><a class="three-stars" href="JavaScript:void(0);" onclick="setRating('3','<%=rate%>'); return false">3</a></li>
+    <li><a class="four-stars" href="JavaScript:void(0);" onclick="setRating('4','<%=rate%>'); return false">4</a></li>
+    <li><a class="five-stars" href="JavaScript:void(0);" onclick="setRating('5','<%=rate%>'); return false">5</a></li>
+  </ul>
+
+
+

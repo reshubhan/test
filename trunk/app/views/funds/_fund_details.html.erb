@@ -1,0 +1,193 @@
+<table class ="secondaries_detail" border="0" cellspacing="10" cellpadding="5">
+  <!--<tr>
+    <th colspan="3" style="font-size:14px;">New Fund to
+  <% if @classified_fund.classified_fund_type == "sell" %> sell <% else %> buy <% end %>
+    </th>
+  </tr>-->
+  <%messages=Message.find(:last,:conditions=>{:post_id=>@classified_fund.id,:post_type=>"postings"})%>
+  <% if @newfundtosell %>
+    <tr>
+      <td width="15%" align="left">Manager Name :</td>
+      <th width="85%" align="left"><%= @classified_fund.manager.name%></th>
+    </tr>
+    <tr>
+      <td width="15%" align="left">Fund :</td>
+      <th width="85%" align="left"><%= @classified_fund.fund.name %></th>
+      <td rowspan="4" width="100" align="center" valign="middle">
+        <% if (current_user.emails != 0) %>
+          <span onclick="update_mailing_list(<%=@classified_fund.id%>);">
+            <%if @classified_fund.user_id!=current_user.id%><%if ((not messages.blank?) && (messages.is_not_interested==true) )%><%=(image_tag "contact-us.gif", :alt => "Contact", :title => "You have already replied to this Classified funds")%><%else%><%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "contact") %><%end%><%end%>
+          </span>
+          <div id="contact" style="display:none;width:700px;height:490px;" >
+            <iframe id="frame"
+                    src='/messages/new?classified_fund_id=<%=@classified_fund.id %>'
+                    style="width:700px;height:490px;overflow:none;" >
+            </iframe>
+          </div>
+        <% else %>
+          <% if (Plan.find_by_id(current_user.plan_id).role_id)==1 %>
+            <%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "upgrade") %>
+          <%else%>
+            <%= link_to((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), :controller=>"users",:action=>"upgrade_plan") %>
+          <% end %>
+          <div id="upgrade" style="display:none;">
+            <%= render :partial => "users/upgrade_membership", :locals => {:upgrade_message => nil} %>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td width="15%" align="left">URL :</td>
+      <th width="85%" align="left"><%= @classified_fund.manager.url%></th>
+    </tr>
+
+    <tr>
+      <td width="15%" align="left">Note :</td>
+      <th width="85%" align="left"><%= @classified_fund.description%></th>
+    </tr>
+    <tr>
+      <th width="260">
+        <% if current_user.has_role('Admin') or @classified_fund.user_id == current_user.id %>
+          <%= link_to "Edit", :controller => "classified_funds" , :action =>  "edit" %>
+          &nbsp;
+          <%= link_to "Delete", {:controller => 'classified_funds', :action => 'destroy'},:confirm => 'Are you sure you want to delete this fund?', :method => :delete %>
+        <% end %>
+      </th>
+    </tr>
+  <% else %>
+    <% if @classified_fund.classified_fund_type == "sell" %>
+      <tr>
+        <td width="15%" align="left">Manager Name :</td>
+        <th width="85%" align="left"><%= @classified_fund.manager.name%></th>
+      </tr>
+      <tr>
+        <td width="15%" align="left">Fund :</td>
+        <th width="85%" align="left"><%= @classified_fund.fund.name %></th>
+        <td rowspan="4" width="100" align="center" valign="middle">
+          <% if (current_user.emails != 0) %>
+            <span onclick="update_mailing_list(<%=@classified_fund.id%>);">
+              <%if @classified_fund.user_id!=current_user.id%><%if ((not messages.blank?) && (messages[0].is_not_interested==true) )%><%=(image_tag "contact-us.gif", :alt => "Contact", :title => "You have already replied to this posting")%><%else%><%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "contact") %><%end%><%end%>
+            </span>
+            <div id="contact" style="display:none;width:700px;height:490px;" >
+              <iframe id="frame"
+                      src='/messages/new?classified_fund_id=<%=@classified_fund.id %>'
+                      style="width:700px;height:490px;overflow:none;" >
+              </iframe>
+            </div>
+          <% else %>
+            <% if (Plan.find_by_id(current_user.plan_id).role_id)==1 %>
+              <%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "upgrade") %>
+            <%else%>
+              <%= link_to((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), :controller=>"users",:action=>"upgrade_plan") %>
+            <% end %>
+            <div id="upgrade" style="display:none;">
+              <%= render :partial => "users/upgrade_membership", :locals => {:upgrade_message => nil} %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td width="15%" align="left">URL :</td>
+        <th width="85%" align="left"><%= @classified_fund.manager.url%></th>
+      </tr>
+
+      <tr>
+        <td width="15%" align="left">Note :</td>
+        <th width="85%" align="left"><%= @classified_fund.description%></th>
+      </tr>
+      <tr>
+        <th width="260">
+          <% if current_user.has_role('Admin') or @classified_fund.user_id == current_user.id %>
+            <%= link_to "Edit", :controller => "classified_funds" , :action =>  "edit" %>
+            &nbsp;
+            <%= link_to "Delete", {:controller => 'classified_funds', :action => 'destroy'},:confirm => 'Are you sure you want to delete this fund?', :method => :delete %>
+          <% end %>
+        </th>
+      </tr>
+    <%else%>
+      <tr>
+        <td width="15%" align="left">Asset Class :</td>
+        <th width="85%" align="left"><%= @classified_fund.asset.name %></th>
+        <td rowspan="7" width="100" align="center" valign="middle">
+          <% if (current_user.emails != 0) %>
+            <span onclick="update_mailing_list(<%=@classified_fund.id%>);">
+              <%if @classified_fund.user_id!=current_user.id%><%if ((not messages.blank?) && (messages.is_not_interested==true) )%><%=(image_tag "contact-us.gif", :alt => "Contact", :title => "You have already replied to this posting")%><%else%><%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "contact") %><%end%><%end%>
+            </span>
+            <div id="contact" style="display:none;width:700px;height:490px;" >
+              <iframe id="frame"
+                      src='/messages/new?classified_fund_id=<%=@classified_fund.id %>'
+                      style="width:700px;height:490px;overflow:none;" >
+              </iframe>
+            </div>
+          <% else %>
+            <% if (Plan.find_by_id(current_user.plan_id).role_id)==1 %>
+              <%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "upgrade") %>
+            <%else%>
+              <%= link_to((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), :controller=>"users",:action=>"upgrade_plan") %>
+            <% end %>
+            <div id="upgrade" style="display:none;">
+              <%= render :partial => "users/upgrade_membership", :locals => {:upgrade_message => nil} %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td width="15%" align="left">Asset Type :</td>
+        <th width="85%" align="left"><% if !@classified_fund.asset_type_id.nil? %> <%=(Asset.find_by_id(@classified_fund.asset_type_id)).name; %> <% else %>Any<% end %></th>
+      </tr>
+      <tr>
+        <td width="15%" align="left">Sector :</td>
+        <th width="85%" align="left">
+          <% if @classified_fund.sectors.first %>
+            <%if @classified_fund.sectors.first.name== @classified_fund.sectors.last.name%>
+              <%= @classified_fund.sectors.name%>
+            <%else%>
+              <%@classified_fund.sectors.each do |sector|%>
+                <%=sector.name%>,
+              <%end%>
+            <%end%>
+          <% else %>
+            Any
+          <% end %>
+        </th>
+      </tr>
+      <tr>
+        <td width="15%" align="left">Geography :</td>
+        <th width="85%" align="left"><% if @classified_fund.geography %> <%= @classified_fund.geography.name %> <% else %>Any<% end %></th>
+      </tr>
+      <tr>
+        <td width="15%" align="left">Desired Size :</td>
+        <th width="85%" align="left"><% if  @classified_fund.desired_size %> <%= @classified_fund.desired_size.name %> <% else %> - <% end %>  </th>
+      </tr>
+      <tr>
+        <td width="15%" align="left">Fund Size :</td>
+        <th width="85%" align="left"><% if @classified_fund.fund_size %> <%= @classified_fund.fund_size %> <% else %>Any<% end %></th>
+      </tr>
+      <tr>
+        <td width="15%" align="left">Description :</td>
+        <th width="85%" align="left"><% if @classified_fund.description %><%= @classified_fund.description %> <% else %><%=(@classified_fund.automated_generated_description(@classified_fund.id))%><% end %></th>
+      </tr>
+      <tr>
+        <td width="15%" align="left">Last Login :</td>
+        <th width="85%" align="left"><%= @classified_fund.user.last_user_activity%> </th>
+      </tr>
+      <tr>
+        <th width="260">
+          <% if current_user.has_role('Admin') or @classified_fund.user_id == current_user.id %>
+            <%= link_to "Edit" ,{:controller => 'classified_funds', :action => 'edit'}%>
+            &nbsp;
+            <%= link_to "Delete", {:controller => 'classified_funds', :action => 'destroy'},:confirm => 'Are you sure you want to delete this fund?', :method => :delete %>
+          <% end %>
+        </th>
+      </tr>
+    <%end%>
+  <% end %>
+
+
+</table>
+
+<script language="javascript">
+  function closeIframe() {
+    parent.document.location = parent.document.location;
+  }
+</script>

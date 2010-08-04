@@ -1,0 +1,135 @@
+<script type="text/javascript">
+function selectTabs(id){
+	if(id=='managerTab'){
+	if(document.getElementById('managerTab')){
+		document.getElementById('managers').style.display = '';
+		
+		document.getElementById('managerTab').style.color = "red";                 /* change color to show the active tab */
+		document.getElementById('buySecondaryTab').style.color = "black";
+		document.getElementById('sellSecondaryTab').style.color = "black";
+		
+		document.getElementById('buySecondaries').style.display = 'none';
+		document.getElementById('sellSecondaries').style.display = 'none';
+	}
+	}
+	if(id=='buySecondaryTab'){
+	if(document.getElementById('buySecondaryTab')){
+		document.getElementById('buySecondaries').style.display = '';
+		
+		document.getElementById('managerTab').style.color = "black";                 /* change color to show the active tab */
+		document.getElementById('buySecondaryTab').style.color = "red";
+		document.getElementById('sellSecondaryTab').style.color = "black";
+		
+		document.getElementById('sellSecondaries').style.display = 'none';
+		document.getElementById('managers').style.display = 'none';
+	}
+	}
+	if(id=='sellSecondaryTab'){
+	if(document.getElementById('sellSecondaryTab')){
+	/*
+	document.getElementById('addManuallyTab').className = 'selected';
+		document.getElementById('partnersTab').className = 'nonSelected';
+*/
+		document.getElementById('sellSecondaries').style.display = '';
+		
+		document.getElementById('managerTab').style.color = "black";                 /* change color to show the active tab */
+		document.getElementById('buySecondaryTab').style.color = "black";
+		document.getElementById('sellSecondaryTab').style.color = "red";
+		
+		document.getElementById('buySecondaries').style.display = 'none';
+		document.getElementById('managers').style.display = 'none';
+	}
+	}
+	
+}
+</script>
+<div class="containerInner">
+    <div class="leftContainer">
+      <div class="profileManagerButtonDiv">
+        <ul>
+          <li><%= link_to 'Add Manager', :controller => 'managers', :action => 'new' %></li>
+          <li><%= link_to 'Add Fund', :controller => 'funds', :action => 'new' %></li>
+		  <li><a href="JavaScript:void(0);">Add Person</a></li>
+          <li><%= link_to 'Add Secondary to buy', :controller => 'secondaries', :action => 'new', :secondary_type => 'Buy' %></li>
+          <li><%= link_to 'Add Secondary to sell', :controller => 'secondaries', :action => 'new', :secondary_type => 'Sell' %></li>
+        </ul>
+      </div>
+      <!--<div class="leftContainerDiv"> 
+		 <div class="selectMenuInner">
+		 	 <%# select :secondary, :asset, Asset.list.collect{|asset| [asset.name, asset.id]} , :prompt => "Select Asset Class" ,:size=>10%>
+		 </div>
+		 <div class="selectMenuInner1">
+		 	<%# select :secondary, :geography_id, Geography.list.collect{|geography| [geography.name, geography.id]}, :prompt => "Select" ,:size=>10%>
+		 </div>
+		 <div class="selectMenuInner2">
+			 <select name="Select Size">
+				 <option>Select Size</option>
+				 <option>Select Size</option>
+				 <option>Select Size</option>
+			 </select>
+		 </div>
+		 <div class="resultText"><h3>Filter result by:</h3></div>
+		 <div class="filterresultButton">
+			  <ul>
+				  <li>Browse
+					  <ul>
+						  <li><a href="#">Most Popular</a></li>
+						  <li><a href="#">Recently Added</a></li>
+						  <li><a href="#">Highest Rated</a></li>
+						  <li><a href="#">Recently Raised</a></li>
+					  </ul>
+				  </li>
+				  
+				  <ul>
+				  </ul>
+				  
+				  </li></li>
+			  </ul>
+		 
+		 </div>
+      </div>-->
+    </div>
+    <div class="middleContainer">
+      <div class="welcomeText">
+        
+      </div>
+      <div class="welcomeTag"> <b>Current Plan</b><br /><br />
+        <div class="currentPageDetailsText">
+          <ul>
+            <li><b><% current_user.roles.each do |role|%><%= role.title %><% end %></b></li>
+            <li><b> </b>
+            </li><li><b>Price:</b> Free</li>
+          </ul>
+        </div>
+      </div>
+       <!-- <div  class="paddingTop_bottom">
+		      <div class="buyAndSellrightMainDiv">
+				  <div class="managerDiv"><a href="JavaScript:void(0);" style="color:red;" onclick="selectTabs(id);" id="managerTab">Manager</a></div>
+				  <div class="buyerButtonDiv"><a href="JavaScript:void(0);" onclick="selectTabs(id);" id="buySecondaryTab">Buyer</a></div>
+				  <div class="sellerButtonDiv"><a href="JavaScript:void(0);" onclick="selectTabs(id);" id="sellSecondaryTab">Seller</a></div>
+		 	  </div>
+			 
+			
+			 <div style="border:1px solid #000;width:100%;float:left;padding-top:10px;" id="managers" >
+			   <%# render :partial => "manager"%>
+			 </div>
+        </div>
+		 
+		 <div style="border:1px solid #126e96;width:100%;float:left;padding-top:10px;display:none;" id="buySecondaries">
+		   <%# render :partial => "buySecondaries"%>
+		 </div>
+		 
+		 <div style="border:1px solid #126e96;width:100%;float:left;padding-top:10px;display:none;" id="sellSecondaries">
+		   <%# render :partial => "sellSecondaries"%>
+		 </div>-->
+    </div>
+    <div class="rightContainer">
+      <div class="profileManagerButtonDiv">
+        <ul>
+          <li> <a href="JavaScript:void(0);">Create Data Room</a></li>
+          <li> <a href="JavaScript:void(0);">Upload Documents</a></li>
+          <li> <a href="JavaScript:void(0);">Invite your LP's</a></li>
+        </ul>
+      </div>
+    </div>
+</div>

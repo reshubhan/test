@@ -1,0 +1,20 @@
+<% if @secondary.secondary_type.eql?('buy') %>
+  <%= render :partial => "layouts/form_header", :locals => {:heading => "Secondary to Buy"} %>
+<% else %>
+  <%= render :partial => "layouts/form_header", :locals => {:heading => "Secondary to Sell"} %>
+<% end %>
+
+<div class="secondary_details_tab">Secondary Details</div>
+<%= render :partial => "secondary_details", :locals => {:new_fund => nil} %>
+<!--
+<div style=" margin:0 125px 0 110px;width:710px; padding:8px;border:2px solid #e5e5e5;">
+  <%= render :partial => "managers/pros_cons" ,:locals => {:manager => @secondary.manager}%>
+</div>-->
+<div class="secondary_details_tab">Manager Details</div>
+<div style="width:100%;">
+
+  <%= render :partial => "managers/manager_view", :locals => {:from_edit_profile => nil, :hide_edit_link => 'true'} %>
+
+</div>
+<br/>
+<%= render :partial => "secondary_details", :locals => {:new_fund => nil} %>

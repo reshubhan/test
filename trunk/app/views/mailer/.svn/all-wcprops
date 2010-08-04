@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/trustedinsight/!svn/ver/2819/source/trunk/app/views/mailer
+END
+payment_receipt_mail.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/mailer/payment_receipt_mail.rhtml
+END
+contact_mail.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2819/source/trunk/app/views/mailer/contact_mail.rhtml
+END
+account_activation_mail.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/1005/source/trunk/app/views/mailer/account_activation_mail.rhtml
+END
+manager_account_upgrade_mail.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/2633/source/trunk/app/views/mailer/manager_account_upgrade_mail.rhtml
+END
+test.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/trustedinsight/!svn/ver/792/source/trunk/app/views/mailer/test.rhtml
+END
+forgot_password.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/1454/source/trunk/app/views/mailer/forgot_password.rhtml
+END
+user_details.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2751/source/trunk/app/views/mailer/user_details.rhtml
+END
+user_approval_mail.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/515/source/trunk/app/views/mailer/user_approval_mail.rhtml
+END
+invite_freinds.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2776/source/trunk/app/views/mailer/invite_freinds.rhtml
+END
+newmailertemp.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/1085/source/trunk/app/views/mailer/newmailertemp.rhtml
+END

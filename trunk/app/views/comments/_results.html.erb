@@ -1,0 +1,23 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th>Title</th>
+    <th>Comment</th>
+    <th>Options</th>
+  </tr>
+  <% for comment in @comments %>
+    <tr align="left">
+      <td>
+        <b><%= comment.title %></b>
+      </td>
+      <td>
+        <%= truncate(comment.body, 100)%>
+      </td>
+      <td>
+        <%= link_to_component_redbox((image_tag "view.gif", :alt => "Show", :title => "Show"), url_options = {:controller => 'comments', :action => 'show', :id => comment}, html_options = {:id => 'details'}) %>
+        <%= link_to (image_tag "approve.gif", :alt => "Approve", :title => "Approve"), approve_flagged_comment_url(comment) %>
+        <%= link_to (image_tag "disapprove.gif", :alt => "Disapprove", :title => "Dissapprove"), disapprove_flagged_comment_url(comment) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div class="clear"></div>

@@ -1,0 +1,41 @@
+  <div class="container_inbox">
+    <div class="nav" style="width:946px !important;">
+      <div id="inbox">
+        <%=link_to_remote "Inbox" ,:url=>{:controller=>"messages",:action=>"inbox_messages"}, :html => {:id=>"inbox_link",:class=>"selected"}%>
+      </div>
+      <div id="sent">
+        <%=link_to_remote "Sent" ,:url=>{:controller=>"messages",:action=>"sent_messages"}, :html => {:id=>"sent_link"}%>
+      </div>
+    </div>
+    <div class="article">
+      <table style="width:100%;margin-left: 10px;">
+        <tr>
+          <!--<td valign="top">
+            <div class="aSide">
+              <div class="top"><label for="search">Search Inbox</label></div>
+              <div class="mid">
+                <input type="text" value="search" id="search" />
+                <div class="PT">
+                  <input id="search_box" type="button" class="button" value="Search Inbox" onclick="search_string($('search').value);" />
+                </div>
+              </div>
+              <div class="btm"></div>
+            </div>
+          </td>-->
+          <td>
+            <div class="section">
+              <div class="tpBar">
+                <input type="button" class="button" value="Mark Read" onclick="show_checked();"/>
+                <input type="button" class="button" value="Mark Unread" onclick="show_checked_unread();"/>
+                <input type="button" class="button" value="Delete" onclick="delete_messages();"/>
+              </div>
+              <div id="all_messages" class="msgContent">
+                <%=render :partial=>"inbox_index", :locals => {:messages => @messages}%>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+

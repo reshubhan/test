@@ -1,0 +1,27 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th>Name</th>
+    <th>Link</th>
+    <th>Image</th>
+    <th width="80px">Options</th>
+  </tr>
+
+
+  <% for advert in @adverts %>
+    <tr align="left">
+      <td><%=advert.name%></td>
+      <td valign="top">
+       <%= advert.link %>
+      </td>
+      <td valign="top">
+        <a href="<%=advert.public_filename(:medium)%>" title="<%=advert.name%>" target="_blank"><img src="<%=advert.public_filename(:thumb)%>"/></a>
+      </td>
+      <td>
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_advert_path(advert) %>
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), advert, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @adverts, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'adverts', :action => 'index'} %>
+<div class="clear"></div>

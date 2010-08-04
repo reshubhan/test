@@ -1,0 +1,17 @@
+<div>
+<h1>Editing asset</h1>
+<div class="inner-center-form-box">
+<% form_for :asset,:url => {:controller => "admin", :action => "update_asset" , :id => @asset } do |f| %>
+  <center><%= f.error_messages %></center>
+  <p>
+  <%= label_tag 'Asset Name' %><br/>
+   <%= text_field :asset , :name %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>
+</div>
+<%#= link_to 'Back', :action=>'assets' %>
+
+

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/adapters
+END
+bebo_adapter.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/adapters/bebo_adapter.rb
+END
+facebook_adapter.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/adapters/facebook_adapter.rb
+END
+adapter_base.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/adapters/adapter_base.rb
+END

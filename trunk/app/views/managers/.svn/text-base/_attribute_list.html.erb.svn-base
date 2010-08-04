@@ -1,0 +1,37 @@
+<% @col = 3 %>
+
+<% if asset_attrib_list.size%@col == 0 %>
+  <%  per = asset_attrib_list.size / @col %>
+<% else %>
+  <%  per = asset_attrib_list.size / @col+1 %>
+<% end %>
+
+<% col1 = 0 %>
+<% col2 = col1 + per %>
+<% col3 = col2 + per %>
+<% count = 0 %>
+
+<% asset_attrib_list.each do |asset_attrib| %>
+  <% if count==col1 or count==col2 or count==col3 %>
+    <ul style="margin-left:0px;float:left;">
+  <% end %>
+      <li style="font-size: 11px;list-style-type:none;">
+        <div class="managersview_tablefont">
+          <div class="tablesign1">
+            <a onclick="decreament_attribute_count(<%=asset_attrib.id%>,'<%= asset_attrib.attribute_type %>');">
+            <%= image_tag "delete_button.png", :alt=>'Sub'%></a>
+          </div>
+          <div class="tablesign2" id="count_<%= asset_attrib.id %>">0</div>
+          <div class="tablesign1">
+            <a onclick="increament_attribute_count(<%=asset_attrib.id%>,'<%= asset_attrib.attribute_type %>');">
+            <%= image_tag "add_button.png", :alt=>'Add' %></a>
+          </div>
+          <%= asset_attrib.attribute.name %>
+        </div>
+      </li>
+  <% if count==col2-1 or count==col3-1 or count==asset_attrib_list.size-1 %>
+    </ul>
+  <% end %>
+  <% count+=1 %>
+<% end %>
+ 

@@ -1,0 +1,13 @@
+<div style="width:5px;">
+  <%=  radio_button_tag 'question[options][]',"yes",false ,:class=>"question_type_option_checkbox",:onclick=>"more_options(this.value);"%>
+  <label class="question_type_radio_button">Yes</label>
+  <div id="radio">
+    <div id="more_options">
+    </div>
+  </div>
+  <div>
+    <%=  radio_button_tag 'question[options][]',"no",true ,:class=>"question_type_option_checkbox" ,:onclick=>"hide_more_option();"%>
+  </div>
+  <label class="question_type_radio_button">No</label>
+</div>
+<br />

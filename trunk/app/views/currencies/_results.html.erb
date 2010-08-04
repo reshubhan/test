@@ -1,0 +1,17 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th >Name</th>
+    <th style="width:80px !important;">Options</th>
+  </tr>
+  <% for currency in @currencies %>
+    <tr align="left">
+      <td><%=currency.name%></td>
+      <td style="width:80px !important;">
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_currency_path(currency) %>
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), currency, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @currencies, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'currencies', :action => 'index'} %>
+<div class="clear"></div>

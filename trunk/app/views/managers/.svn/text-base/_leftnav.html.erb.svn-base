@@ -1,0 +1,56 @@
+<div style="border:1px solid black; height: 100%; width:150px; top:0px" >
+  <table>
+    <tr><td><b>Filter</b></td></tr>
+    <tr>
+      <td>
+        <p align="left">
+        <%=f.select :asset_primary_id, Asset.list.collect{|asset| [asset.name, asset.id]} , :prompt => "Select Asset Class" ,:size=>10%></p>
+        <p>
+        <p align="left">
+        <%=f.select :geography_id, Geography.list.collect{|geography| [geography.name, geography.id]}, :prompt => "Select Geography" ,:size=>10%></p>
+        <p>
+        <p align="left">
+        <%=f.select :asset_secondary_id, Asset.list.collect{|asset| [asset.name, asset.id]} , :prompt => "Select Asset Value" ,:size=>10%></p>
+    </td></tr>
+    <tr>
+      <td>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div><b style="font-size:13px;color:#666666;">Filter Result By</b></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div><b style="font-size:13px;color:#666666;">Browse</b></div>
+        <div>
+          <div>Most Populer</div>
+          <div>Recently Added</div>
+          <div>Height Rated</div>
+          <div>Recently Raised</div>
+        </div>
+      </td
+    </tr>
+    <tr>
+      <td>
+        <div align="center"><b style="font-size:13px;color:#666666;">Asset Classes</b></div>
+        <div>
+          <%=select_tag("asset_id[]",options_from_collection_for_select(Asset.find(:all),
+                "id", "name", 3),:multiple=>true) %>
+        </div>
+      </td>
+      </tr>
+    <tr>
+      <td>
+        <div align="center"><b style="font-size:13px;color:#666666;">Geography</b></div>
+        <div>
+          <%=select_tag("geography_id[]",options_from_collection_for_select(Geography.find(:all),
+                "id", "name", 3),:multiple=>true) %>
+        </div>
+      </td>
+      </tr>
+    <tr><td></td></tr>
+  </table>
+</div>

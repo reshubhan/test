@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/trustedinsight/!svn/ver/2746/source/trunk/test/functional
+END
+companies_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/1201/source/trunk/test/functional/companies_controller_test.rb
+END
+funds_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/12/source/trunk/test/functional/funds_controller_test.rb
+END
+sectors_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/825/source/trunk/test/functional/sectors_controller_test.rb
+END
+answers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/1993/source/trunk/test/functional/answers_controller_test.rb
+END
+main_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/9/source/trunk/test/functional/main_controller_test.rb
+END
+comments_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/36/source/trunk/test/functional/comments_controller_test.rb
+END
+attributes_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/36/source/trunk/test/functional/attributes_controller_test.rb
+END
+admin_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/57/source/trunk/test/functional/admin_controller_test.rb
+END
+statistics_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/1937/source/trunk/test/functional/statistics_controller_test.rb
+END
+questions_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/1993/source/trunk/test/functional/questions_controller_test.rb
+END
+geographies_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/36/source/trunk/test/functional/geographies_controller_test.rb
+END
+managers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/12/source/trunk/test/functional/managers_controller_test.rb
+END
+orders_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/792/source/trunk/test/functional/orders_controller_test.rb
+END
+secondaries_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/36/source/trunk/test/functional/secondaries_controller_test.rb
+END
+pages_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/515/source/trunk/test/functional/pages_controller_test.rb
+END
+users_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/6/source/trunk/test/functional/users_controller_test.rb
+END
+currencies_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/819/source/trunk/test/functional/currencies_controller_test.rb
+END
+assets_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/36/source/trunk/test/functional/assets_controller_test.rb
+END
+tickers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/1937/source/trunk/test/functional/tickers_controller_test.rb
+END
+classified_funds_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/840/source/trunk/test/functional/classified_funds_controller_test.rb
+END
+sessions_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/194/source/trunk/test/functional/sessions_controller_test.rb
+END
+messages_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/601/source/trunk/test/functional/messages_controller_test.rb
+END
+ratings_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/43/source/trunk/test/functional/ratings_controller_test.rb
+END
+adverts_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/2403/source/trunk/test/functional/adverts_controller_test.rb
+END
+facebook_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/2746/source/trunk/test/functional/facebook_controller_test.rb
+END
+notifications_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/2561/source/trunk/test/functional/notifications_controller_test.rb
+END
+transaction_types_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/1993/source/trunk/test/functional/transaction_types_controller_test.rb
+END
+emails_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/2561/source/trunk/test/functional/emails_controller_test.rb
+END
+webinars_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/1598/source/trunk/test/functional/webinars_controller_test.rb
+END

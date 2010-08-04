@@ -1,0 +1,64 @@
+<% if @classified_fund.classified_fund_type=="sell" %>
+  <%#= render :partial => "layouts/form_header", :locals => {:heading => "New Fund to Sell"} %>
+<% else %>
+  <%#= render :partial => "layouts/form_header", :locals => {:heading => "New Fund to Buy"} %>
+<% end %>
+
+<div class="secondary_details_tab">New Fund Details</div>
+<%= render :partial => "funds/fund_details", :locals => {:fund => @classified_fund.fund} %>
+
+<% if @newfundtosell %>
+  <div class="secondary_details_tab">Manager Details</div>
+  <div style="margin:-20px 0px 0px 90px;text-align:left;width:70%;">
+    <%= render :partial => "managers/manager_view", :locals => {:from_edit_profile => nil, :hide_edit_link => 'true'} %>
+  </div>
+
+  <%= render :partial => "funds/fund_details", :locals => {:fund => @classified_fund.fund} %>
+<% end %>
+<% unless @flag==false && @answers.blank? %>
+  <div style="margin:10px 0px;">
+    <div class="content-box">
+      <div class="content-box-header">
+        <h3 style="cursor: s-resize;">
+          Investment Criteria
+        </h3>
+        <div class="clear"></div>
+      </div>
+      <div class="content-box-content">
+        <div style="display: block;" class="tab-content default-tab scrollDiv">
+          <div style="text-align: left;">
+            <%i=1%>
+            <%@answers.each do |answer|%>
+              <%if answer.question.role_ids.include?(current_user.plan.role.id)%>
+                <p><b>Q <%=i%>.  <%=answer.question.answer_text.nil? ? answer.question.questions : answer.question.answer_text%></b></p><br/>
+                <p>
+                <ul>
+                  <%answer.option_id.split(",").each do |op|%>
+                    <%if is_a_number(op)%>
+                      <%option=Option.find(:first,:conditions=>"id=#{op.to_i} and parent_id is NULL")%>
+                      <%if option && (option.option=="option_yes"||option.option=="option_no")%>
+                        <%if option.option=="option_yes"%>
+                          <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span>Yes</span></li>
+                        <%else%>
+                          <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span>No</span></li>
+                        <%end%>
+                      <%elsif answer.question.question_type=="multiple choice"%>
+                        <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span><%=Option.find(op).option%></span></li>
+                      <%elsif answer.question.question_type!="text field"%>
+                        <li class="user_answer_option_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span><%=Option.find(op).option%></span></li>
+                      <%end%>
+                    <%else%>
+                      <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><%=op%></li>
+                    <%end%>
+                  <%end%>
+                  <%i=i+1%>
+                </ul>
+                </p><br/>
+              <%end%>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

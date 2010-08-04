@@ -1,0 +1,28 @@
+<h1>Listing messages</h1>
+
+<table>
+  <tr>
+    <th>Subject</th>
+    <th>Body</th>
+    <th>User</th>
+    <th>Manager</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+
+<% for message in @messages %>
+  <tr>
+    <td><%=h message.subject %></td>
+    <td><%=h message.body %></td>
+    <td><%=h message.sender_id %></td>
+    <td><%=h message.manager_id %></td>
+    <td><%=h message.created_at %></td>
+    <td><%=h message.updated_at %></td>
+    <td><%= link_to 'Show', message %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) %></td>
+    <td><%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

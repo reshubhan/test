@@ -1,0 +1,11 @@
+<div class="ticker_show">
+    <p>
+      <b>Ticker text:</b><br /><br />
+      <div style="padding-left:20px;"><%=h @ticker.ticker_text %></div>
+    </p>
+    <br />
+    <div style="padding-left:2px;">
+      <%= link_to 'Edit', edit_ticker_path(@ticker) %> |
+      <%= link_to 'Back', tickers_path %>
+    </div>
+</div>

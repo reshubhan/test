@@ -1,0 +1,65 @@
+<table class ="secondaries_detail" border="0" cellspacing="10" cellpadding="5">
+  <tr>
+    <th colspan="3" style="font-size:14px;">
+      Secondary to <%= @secondary.secondary_type %> in <%= @secondary.manager.name %>
+    </th>
+  </tr>
+  <tr>
+    <td width="130" align="left">Fund :</td>
+    <th width="660" align="left"><%= @secondary.fund ? @secondary.fund.name : " "%></th>
+    <td rowspan="4" width="100" align="center" valign="middle">
+      <% if (current_user.emails != 0) %>
+        <span onclick="update_mailing_list(<%=@secondary.id%>);">
+           <%messages=Message.find(:last,:conditions=>{:post_id=>@secondary.id,:post_type=>"secondary"})%>
+          <%if @secondary.user_id!=current_user.id%><%if((not messages.blank?) && (messages.is_not_interested==true))%><%=(image_tag "contact-us.gif", :alt => "Contact", :title => "You have already replied to this Secondary")%><%else%><%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "contact") %><%end%><%end%>
+        </span>
+        <div id="contact" style="display:none;width:700px;height:490px;" >
+          <iframe id="frame"
+                  src='/messages/new?secondary_id=<%= @secondary.id %>'
+                  style="width:700px;height:490px;overflow:none;" >
+          </iframe>
+        </div>
+       <% else %>
+          <% if (Plan.find_by_id(current_user.plan_id).role_id)==1 %>
+            <%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "upgrade") %>
+          <%else%>
+            <%= link_to((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), :controller=>"users",:action=>"upgrade_plan") %>
+          <% end %>
+          <div id="upgrade" style="display:none;">
+            <%= render :partial => "users/upgrade_membership", :locals => {:upgrade_message => nil} %>
+          </div>
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td width="130" align="left"> NAV
+      <% if @secondary.secondary_type.eql?'buy' %>
+        (Desired Size)
+      <% end %> :
+    </td>
+    <th width="660" align="left"><% if  @secondary.net_asset_value %> <%= @secondary.net_asset_value.name %> <% else %> - <% end %>  </th>
+  </tr>
+  <tr>
+    <td width="130" align="left">% Drawn :</td>
+    <th width="660" align="left"><%= @secondary.drawn %></th>
+  </tr>
+  <tr>
+    <td width="130" align="left">Expected Price :</td>
+    <th width="660" align="left"><%= @secondary.expected_price %></th>
+  </tr>
+
+  <tr>
+    <td width="130" align="left">Description: </td>
+    <th width="660" align="left"><%if @secondary.description.blank?%><%=automatic_description_for_all_types("secondary",@secondary.id)%><%else%><%= @secondary.description %><%end%></th>
+  </tr>
+  <tr>
+    <th width="260">
+      <% if current_user.has_role('Admin') or @secondary.user_id == current_user.id %>
+        <%= link_to "Edit", edit_secondary_path(@secondary) %>
+        &nbsp;
+        <%= link_to "Delete", @secondary, :confirm => 'Are you sure you want to delete the secondary?', :method => :delete %>
+      <% end %>
+    </th>
+  </tr>
+</table>
+

@@ -1,0 +1,35 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      Listing Transaction Types
+    </h3>
+    <div style="float: right;margin: 10px;">
+      <%= link_to 'Add New Transaction Type', new_transaction_type_path, :class => "button" %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+
+      
+        <table>
+          <tr>
+            <th>Transaction Type</th>&nbsp;&nbsp;
+            <th>Asset Id</th>
+          </tr>
+          <br />
+          <% for transaction_type in @transaction_types %>
+            <tr>
+              <td><img src="/images/dot11.jpg" style="padding-right:10px;width:10px;"/><%=h transaction_type.transaction_type %></td>
+              <td><%=h transaction_type.asset_id %></td>
+              <td><%= link_to 'Show', transaction_type %></td>
+              <td><%= link_to '|Edit', edit_transaction_type_path(transaction_type) %></td>
+              <td><%= link_to '|Destroy', transaction_type, :confirm => 'Are you sure?', :method => :delete %></td>
+            </tr>
+          <% end %>
+        </table>
+        <br />
+
+      </div>
+    </div>
+  </div>

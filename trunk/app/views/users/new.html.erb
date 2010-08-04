@@ -1,0 +1,99 @@
+<% if @user && @user.password
+    @user.password=nil
+   end
+  if @user && @user.password_confirmation
+    @user.password_confirmation= nil 
+  end
+  %>
+<div class="formBox">
+  <div class="headings" ><%= @title %></div>
+  <div class="formBoxInner">
+    <table   cellpading="0" cellspacing="0" border="0" style="padding-top:10px;" align="center">
+      <tr>
+        <td class="all_managerTitleText" align="left">
+          <h3 style="text-align:left;">
+            <%= render :partial => "layouts/form_header",:locals => {:heading => "It takes just 30 seconds to join"} %>
+          </h3>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        
+        <% if  @managercheck=='showregistration' %>
+          <%= render :partial => "registration" %>
+        <%else%>
+           <%= render :partial => "managercheck" %>
+        <%end%>
+        <td valign="top" width="50%" style="border-left:1px solid #cdcdcd;padding:0px 5px 0px 5px;">
+          <table width="100%" cellpading="2" cellspacing="3" border="0">
+            <!--<tr><td style="padding-left:40px;"><b>User Type: </b> <%= @role.title %></td></tr>
+            <tr><td style="padding-left:40px;"><b>Selected Plan: </b> <%= @user.plan.name %></td></tr>
+            <tr>
+              <td style="padding-left:40px;"><b>Price: </b>
+                <% if @user.plan && @user.plan.fee %>
+                  <% if @user.plan.fee == 0 %>
+                    FREE
+                  <% elsif @user.plan.fee < 0 %>
+                    <a href="mailto:info@trustedinsightinc.com">Contact Us</a>
+                  <% else %>
+                    <%= number_to_currency(@user.plan.fee) %>
+                  <% end %>
+                <% else %>
+                  <a href="mailto:info@trustedinsightinc.com">Contact Us</a>
+                <% end %>
+              </td>
+            </tr>-->
+            <!--<tr><td >
+                <table  cellpading="0" cellspacing="0" border="0">
+                  <tr><td style="padding-left:40px;font-weight:bold">Want to change the plan type? </td>
+                    <td style="padding-left:5px;"><a href="/main/select_plan?role_id=<%= @role.id%>"  class="button"><span></span>Click Here</a></td>
+                </tr></table>
+            </td></tr>-->
+            <tr>
+              <td width="50%">
+                <div class="form-login-container">
+                  <% form_tag session_path do -%>
+                    <table width="300" cellpading="0" cellspacing="0" border="0">
+                      <%= hidden_field_tag 'fromFreeSignUpPage', 'true'%>
+                      <tr><td colspan="2">
+                          <div class="commentBoxOrangeText">
+                            <center>
+                              <h6>Already have an account?  Login here:</h6>
+                            </center>
+                          </div>
+                      </td></tr>
+                      <tr>
+                        <td width="30%">User name:</td>
+                        <td width="70%"><%= text_field_tag 'login' %></td>
+                      </tr>
+                      <tr>
+                        <td width="30%">Password:</td>
+                        <td width="70%"><%= password_field_tag 'password' %></td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <table cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td ><%= link_to_unless_current('Forgot your password?', {:controller => 'users', :action => 'forgot_password'}) %></td>
+                              <td style="padding-left:15px" >
+                                <div class="middleButtnManager" align="center" style="float:right;width:auto;">
+                                  <input type="submit" class="button" value="Submit"/>
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  <% end -%>
+                </div>
+              </td>
+            </tr>
+            <%#= render :partial => "layouts/advertisements" %>
+          </table>
+      </td></tr>
+    </table>
+  </div>
+  <br/>
+</div>
+<div id="create_manager"></div>

@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/trustedinsight/!svn/ver/2825/source/trunk/app/views/users
+END
+edit_profile.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2825/source/trunk/app/views/users/edit_profile.html.erb
+END
+_add_invite.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2809/source/trunk/app/views/users/_add_invite.html.erb
+END
+_inbox_index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2065/source/trunk/app/views/users/_inbox_index.html.erb
+END
+_change_password.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/2350/source/trunk/app/views/users/_change_password.html.erb
+END
+_fb_settings.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2736/source/trunk/app/views/users/_fb_settings.html.erb
+END
+survey.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/1566/source/trunk/app/views/users/survey.rhtml
+END
+_fb_friend_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2802/source/trunk/app/views/users/_fb_friend_list.html.erb
+END
+_registration.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2550/source/trunk/app/views/users/_registration.html.erb
+END
+set_password.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2259/source/trunk/app/views/users/set_password.html.erb
+END
+_message_content.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/1868/source/trunk/app/views/users/_message_content.html.erb
+END
+index.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/207/source/trunk/app/views/users/index.js.erb
+END
+forgot_password.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2360/source/trunk/app/views/users/forgot_password.html.erb
+END
+_message.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2258/source/trunk/app/views/users/_message.html.erb
+END
+_import_contact.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2810/source/trunk/app/views/users/_import_contact.html.erb
+END
+contact_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2626/source/trunk/app/views/users/contact_list.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/users/new.html.erb
+END
+_single_invite.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2823/source/trunk/app/views/users/_single_invite.html.erb
+END
+_message_collection.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/1866/source/trunk/app/views/users/_message_collection.html.erb
+END
+payment_received.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/users/payment_received.rhtml
+END
+_user_bar.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/6/source/trunk/app/views/users/_user_bar.html.erb
+END
+_upgrade_membership.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/users/_upgrade_membership.html.erb
+END
+upgrade_plan.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2565/source/trunk/app/views/users/upgrade_plan.html.erb
+END
+_edit_profile_form.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2821/source/trunk/app/views/users/_edit_profile_form.rhtml
+END
+confirmation.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/users/confirmation.rhtml
+END
+_managercheck.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2488/source/trunk/app/views/users/_managercheck.erb
+END
+reset_password.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/users/reset_password.html.erb
+END

@@ -1,0 +1,72 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+     New Question
+    </h3>
+    <div style="float: right;margin: 10px;">
+      <%= link_to 'All Questions', questions_path, :class => "button" %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+      
+      <% form_for(@question) do |f| %>
+        <%= f.error_messages %>
+        <p   class="questionhead">
+          <%= f.label :user_type %><br />
+          <%=check_box_tag('question[role][]',1,true)%>Investor<br />
+          <%=check_box_tag('question[role][]',3,true)%>Provider<br />
+          <%=check_box_tag('question[role][]',2,true)%>Manager
+        </p>
+        <p   class="questionhead">
+          <%= f.label :question_type %><br />
+          <%= select_tag 'question[question_type]', options_for_select(Question::QUESTION_TYPE) , {:style => "margin-top:10px;height:20px;width:175px;",:onchange=>"display_options(this.value);"} %>
+        </p>
+        <p  class="questionhead">
+          <%= f.label :questions %><br />
+          <%= f.text_area :questions ,:style=>"margin-top:10px;width:400px;",:rows=>7%>
+        </p>
+        <p  class="questionhead">
+          <%= f.label :answer_text %><br />
+          <%= f.text_field :answer_text ,:style=>"margin-top:10px;width:400px;"%>
+        </p>
+        <div id="options" style="margin-top: 10px;width: 50%" >
+          <b><label>Options (at least one required)</label></b>
+          <div style="margin-top: 10px; ">
+            <input type="text" size="60" name="question[option][]" style="width: auto;"/>
+          </div>
+          <div id="more_options">
+
+          </div>
+          <div id="add_more" style="margin-top: 10px;float: right">
+            <img src="/images/add.png" style="vertical-align: middle;"/><a href="javascript:void(0);" onclick="add_more();">Add more option</a>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div style="margin-top: 10px;width: 50%">
+          <%= f.submit "Create" , :class => "button", :style => "float:right;"%>
+        </div>
+      <% end %>
+        <div class="clear"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function display_options(type){
+    if((type=='multiple choice')||(type=='yes/no with option')){
+      $('options').show();
+    }
+    else{
+      $('options').hide();
+    }
+  }
+  function add_more(){
+    new Ajax.Request('/questions/add_field', {
+      method:'get',
+      asynchronous:true
+    });
+  }
+</script>
+

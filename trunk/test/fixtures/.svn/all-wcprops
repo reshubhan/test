@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/trustedinsight/!svn/ver/2746/source/trunk/test/fixtures
+END
+saved_searches.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2189/source/trunk/test/fixtures/saved_searches.yml
+END
+sectors.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/trustedinsight/!svn/ver/825/source/trunk/test/fixtures/sectors.yml
+END
+roles.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/trustedinsight/!svn/ver/6/source/trunk/test/fixtures/roles.yml
+END
+organization_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/1633/source/trunk/test/fixtures/organization_types.yml
+END
+options.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/trustedinsight/!svn/ver/1993/source/trunk/test/fixtures/options.yml
+END
+desired_sizes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2258/source/trunk/test/fixtures/desired_sizes.yml
+END
+orders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/trustedinsight/!svn/ver/792/source/trunk/test/fixtures/orders.yml
+END
+funds_secondaries.yml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/66/source/trunk/test/fixtures/funds_secondaries.yml
+END
+secondaries.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/76/source/trunk/test/fixtures/secondaries.yml
+END
+session_datas.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2332/source/trunk/test/fixtures/session_datas.yml
+END
+currencies.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/819/source/trunk/test/fixtures/currencies.yml
+END
+user_activities.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/506/source/trunk/test/fixtures/user_activities.yml
+END
+order_transactions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/792/source/trunk/test/fixtures/order_transactions.yml
+END
+tickers.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/trustedinsight/!svn/ver/1937/source/trunk/test/fixtures/tickers.yml
+END
+subscriptions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/8/source/trunk/test/fixtures/subscriptions.yml
+END
+webinars.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/trustedinsight/!svn/ver/1598/source/trunk/test/fixtures/webinars.yml
+END
+emails.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/trustedinsight/!svn/ver/2561/source/trunk/test/fixtures/emails.yml
+END
+companies.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/1202/source/trunk/test/fixtures/companies.yml
+END
+funds.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/trustedinsight/!svn/ver/12/source/trunk/test/fixtures/funds.yml
+END
+manager_attributes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/76/source/trunk/test/fixtures/manager_attributes.yml
+END
+invites.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/trustedinsight/!svn/ver/2702/source/trunk/test/fixtures/invites.yml
+END
+profiles.yml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/trustedinsight/!svn/ver/8/source/trunk/test/fixtures/profiles.yml
+END
+comments.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/trustedinsight/!svn/ver/76/source/trunk/test/fixtures/comments.yml
+END
+asset_attributes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/179/source/trunk/test/fixtures/asset_attributes.yml
+END
+attributes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/trustedinsight/!svn/ver/76/source/trunk/test/fixtures/attributes.yml
+END
+comment_ratings.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/373/source/trunk/test/fixtures/comment_ratings.yml
+END
+statistics.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/1937/source/trunk/test/fixtures/statistics.yml
+END
+facebook_users.yml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2746/source/trunk/test/fixtures/facebook_users.yml
+END
+questions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/1993/source/trunk/test/fixtures/questions.yml
+END
+geographies.yml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/76/source/trunk/test/fixtures/geographies.yml
+END
+managers.yml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/trustedinsight/!svn/ver/12/source/trunk/test/fixtures/managers.yml
+END
+pages.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/trustedinsight/!svn/ver/515/source/trunk/test/fixtures/pages.yml
+END
+users.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/trustedinsight/!svn/ver/6/source/trunk/test/fixtures/users.yml
+END
+assets.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/trustedinsight/!svn/ver/12/source/trunk/test/fixtures/assets.yml
+END
+tests.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/trustedinsight/!svn/ver/76/source/trunk/test/fixtures/tests.yml
+END
+logs.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/trustedinsight/!svn/ver/515/source/trunk/test/fixtures/logs.yml
+END
+classified_funds.yml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/840/source/trunk/test/fixtures/classified_funds.yml
+END
+payment_notifications.yml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/1937/source/trunk/test/fixtures/payment_notifications.yml
+END
+messages.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/trustedinsight/!svn/ver/601/source/trunk/test/fixtures/messages.yml
+END
+adverts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/trustedinsight/!svn/ver/2403/source/trunk/test/fixtures/adverts.yml
+END
+notifications.yml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2561/source/trunk/test/fixtures/notifications.yml
+END
+fund_sizes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/2258/source/trunk/test/fixtures/fund_sizes.yml
+END
+transaction_types.yml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/1993/source/trunk/test/fixtures/transaction_types.yml
+END

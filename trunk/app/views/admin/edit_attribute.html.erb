@@ -1,0 +1,19 @@
+<div >
+<h1>Editing Attribute</h1>
+<div class="inner-center-form-box">
+<% form_for :attribute,:url => {:controller => "admin", :action => "update_attribute" , :id => @attribute } do |f| %>
+  <center><%= f.error_messages %></center>
+  <p  >
+  <%= label_tag 'Attribute Name' %><br/>
+   <%= text_field :attribute , :name %></p>
+  <p  >
+  <%= label_tag 'Attribute Type' %><br/>
+   <%= text_field :attribute , :attribute_type %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>
+</div>
+<%#= link_to 'Back', :action=>'attributes' %>

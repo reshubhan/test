@@ -1,0 +1,165 @@
+<td valign="top"   width="50%">
+  <% form_tag :action => 'new', :role => @role,:plan =>@plan, :type=>'create' do -%>
+    <center><%= error_messages_for :profile,:user %></center>
+    <%= hidden_field :user, :plan_id %>
+    <table width="100%" cellpadding="0" cellspacing="3" border="0" class="normalText">
+      <%= render :partial => "layouts/mandatory_info" %>
+      <% if @role.title == 'Fund Manager' %>
+        <tr>
+          <th class="required" width="50%" valign="top">
+            <%= label_tag 'manager', 'Manager' %>
+            <br/>
+          </th>
+          <td width="50%" class="inputBoxprofile_zip" valign="top">
+            <div class="yui-skin-sam">
+              <div id="managerAutoComplete">
+                <div id="managerInput"><%= @user.manager.name if @user.manager %></div>
+                <input id="managerHidden" name="manager_id" type="hidden" value="<%= @user.manager.id if @user.manager %>">
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td style="font-size:10px;width:300px;">
+            <%=link_to 'Change manager', :controller=>'users',:action=>'new',:plan =>@user.plan,:type =>true, :role=>@role%>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <th class="required" width="50%">
+          <b class="required_mark">*</b>User Name
+        </th>
+        <td width="50%" class="inputBoxprofile_zip">
+          <%= text_field :user, :login %>
+        </td>
+      </tr>
+      <tr>
+        <th class="required">
+          <b class="required_mark">*</b>First Name
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= text_field :profile, :firstname %>
+        </td>
+      </tr>
+      <tr>
+        <th class="required">
+          <b class="required_mark">*</b>Last Name
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= text_field :profile, :lastname %>
+        </td>
+      </tr>
+      <tr>
+        <th class="required" valign="top">
+          <b class="required_mark">*</b><%= label_tag 'Email' %>
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= text_field :profile, :email %>
+        </td>
+      </tr>
+      <tr>
+        <th class="required" valign="top">
+          <b class="required_mark">*</b><%= label_tag 'email_confirmation','Confirm Email' %>
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= text_field :profile, :email_confirmation %>
+          <p style="font-size:0.8em;padding-left:0px;">Min. 6 characters: use letters / digits<br />/ special characters</p>
+        </td>
+      </tr>
+      <tr>
+        <th class="required">
+          <b class="required_mark">*</b><%= label_tag 'password' %>
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= password_field :user, :password %>
+        </td>
+      </tr>
+      <tr>
+        <th class="required">
+          <b class="required_mark">*</b><%= label_tag 'password_confirmation', 'Confirm Password' %>
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= password_field :user, :password_confirmation %>
+        </td>
+      </tr>
+      <tr>
+        <th class="required"><b class="required_mark">*</b>
+          &nbsp;<%= label_tag 'Telephone' %>
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= text_field :profile, :telephone %>
+        </td>
+      </tr>
+      <!--<tr>
+        <th class="fields">
+          &nbsp;<%= label_tag 'zip', 'Zip/Postal Code' %>
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= text_field :profile, :zip %>
+        </td>
+      </tr>
+      <tr>
+        <th class="fields">
+          &nbsp;<%= label_tag 'job_title', 'Job Title' %>
+        </th>
+        <td class="inputBoxprofile_zip">
+          <%= text_field :profile, :job_title %>
+        </td>
+      </tr>-->
+      <%if (params[:role]=="3"||params[:role]=="1")%>
+        <tr>
+          <th class="required">
+            <b class="required_mark">*</b><%= label_tag ':organization_name', 'Organization Name' %>
+          </th>
+          <td class="inputBoxprofile_zip">
+            <%= text_field :profile, :organization_name %>
+          </td>
+        </tr>
+        <%end%>
+        <tr>
+          <th class="required">
+            <b class="required_mark">*</b><%= label_tag  ':organization_type', 'Organization Type' %>
+          </th>
+          <td class="inputBoxprofile_zip">
+            <%= select_tag 'organization_type', options_from_collection_for_select(OrganizationType.find(:all,:conditions=>{:role_id=>@role.id}), 'id', 'name', (@role.id==Role.find_by_title("Fund Manager").id ? OrganizationType.find_by_name("Fund Manager").id : OrganizationType.find(:all,:conditions=>{:role_id=>@role.id})) ), {:style => "height:22px;width:199px;"} %>
+          </td>
+        </tr>
+      
+      <tr><td colspan="2" style="padding-left:219px;padding-right:17px;padding-top:6px;" align="center"><%= show_simple_captcha %></td></tr>
+      <tr>
+        <td colspan="2" valign="top" style="padding-left:219px;padding-right:17px;font-size:11px;">
+          <div style="padding:2px; border:1px solid #cdcdcd; font-size:9px;">
+            <%= check_box('profile', 'i_agree', :style => "border:0 none;margin-top:5px;width:20px;")%>
+            I have read and accept <a href="/pages/about-us" target="_blank">Terms of Use, Privacy Policy</a> and <a href="/pages/accreditation-certification" target="_blank">Certificate of Accreditation</a>.
+          </div>
+        </td>
+      </tr>
+      <%#*<tr>%>
+      <%#*<th class="required">%>
+      <%#*<b class="required_mark">*</b>Signature First Name%>
+      <%#*</th>%>
+      <%#*<td class="inputBoxprofile_zip">%>
+      <%#= text_field :profile, :signature_firstname %>
+      <%#*</td>%>
+      <%#*</tr>%>
+      <%#*<tr>%>
+      <%#*<th class="required">%>
+      <%#*<b class="required_mark">*</b>Signature Last Name%>
+      <%#*</th>%>
+      <%#*<td class="inputBoxprofile_zip">%>
+      <%#= text_field :profile, :signature_lastname %>
+      <%#*</td>%>
+      <%#*</tr>%>
+      <tr>
+        <td colspan="2" align="right" style="padding-right:14px;">
+          <br/>
+          <div class="middleButtnManager" align="right" style="float:right;">
+            <%= submit_tag 'Join Now', :class => "button" %>
+          </div>
+        </td>
+      </tr>
+      <tr><td>&nbsp;</td></tr>
+    </table>
+  <% end -%>
+</td>

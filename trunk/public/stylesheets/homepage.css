@@ -1,0 +1,41 @@
+.homepageheader{
+    border:1px solid red;
+}
+.homepagemiddlebottom{
+    background-color:#ECECEC;
+}
+.homepagemiddlebottom ul {
+    border:1px solid black;
+    float:left;
+    height:30px;
+    padding-top:18px;
+    width:70%;
+    background-color:#ECECEC;
+}
+.homepagemiddleleft ul{
+    float:left;
+    
+}
+.homepagemiddleright ul{
+  float:right;
+ 
+  background:#F6F6F6;
+ 
+}
+.homepagefooter{
+    width:101%;
+    height:auto;
+}
+.homepagefooterleft{
+    float:left;
+    
+}
+.homepagefootermiddle{
+    float:left;
+    
+}
+.homepagefooterright{
+    float:left;
+   
+
+}

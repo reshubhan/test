@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/2452/source/trunk/app/views/transaction_types
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/2451/source/trunk/app/views/transaction_types/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/2452/source/trunk/app/views/transaction_types/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2451/source/trunk/app/views/transaction_types/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/1996/source/trunk/app/views/transaction_types/show.html.erb
+END

@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/trustedinsight/!svn/ver/2762/source/trunk/app/helpers
+END
+companies_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2762/source/trunk/app/helpers/companies_helper.rb
+END
+answers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/1993/source/trunk/app/helpers/answers_helper.rb
+END
+sectors_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/825/source/trunk/app/helpers/sectors_helper.rb
+END
+slider_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/183/source/trunk/app/helpers/slider_helper.rb
+END
+questions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/1993/source/trunk/app/helpers/questions_helper.rb
+END
+statistics_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/1933/source/trunk/app/helpers/statistics_helper.rb
+END
+remote_link_renderer.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/194/source/trunk/app/helpers/remote_link_renderer.rb
+END
+secondaries_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2647/source/trunk/app/helpers/secondaries_helper.rb
+END
+users_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/2326/source/trunk/app/helpers/users_helper.rb
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2675/source/trunk/app/helpers/application_helper.rb
+END
+tickers_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/1933/source/trunk/app/helpers/tickers_helper.rb
+END
+classified_funds_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2762/source/trunk/app/helpers/classified_funds_helper.rb
+END
+messages_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/1930/source/trunk/app/helpers/messages_helper.rb
+END
+adverts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/2403/source/trunk/app/helpers/adverts_helper.rb
+END
+facebook_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/2649/source/trunk/app/helpers/facebook_helper.rb
+END
+notifications_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2593/source/trunk/app/helpers/notifications_helper.rb
+END
+transaction_types_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/1993/source/trunk/app/helpers/transaction_types_helper.rb
+END
+emails_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/2561/source/trunk/app/helpers/emails_helper.rb
+END
+webinars_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/1598/source/trunk/app/helpers/webinars_helper.rb
+END

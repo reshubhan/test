@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/test/mocks
+END
+http_mock.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/test/mocks/http_mock.rb
+END
+method_mock.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/test/mocks/method_mock.rb
+END

@@ -1,0 +1,28 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th>Name</th>
+    <th>Ad</th>
+    <th width="80px">Options</th>
+  </tr>
+  <% for geography in @geographies %>
+    <%@geography=geography%>
+    <tr align="left">
+      <td><%=geography.name%></td>
+      <td valign="top">
+        <% if geography.adverts %>
+          <% geography.adverts.each do |advert| %>
+        <a href="<%= advert.link %>"><img src="<%=advert.public_filename(:thumb)%>" title="<%=advert.name%>"/></a>
+          <% end %>
+        <% else %>
+          -
+        <% end %>
+      </td>
+      <td>
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_geography_path(geography) %>
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), geography, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @geographies, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'geographies', :action => 'index'} %>
+<div class="clear"></div>

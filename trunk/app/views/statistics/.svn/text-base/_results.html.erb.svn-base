@@ -1,0 +1,22 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th >Statistic Text</th>
+    <th style="width:200px !important;">Options</th>
+  </tr>
+  <% for statistic in @statistics %>
+    <tr align="left">
+      <td><%=statistic.statistic_text%></td>
+      <td>
+        <%= link_to 'Show', statistic %> |
+        <%= link_to 'Edit', edit_statistic_path(statistic) %> |
+        <%= link_to 'Destroy', statistic, :confirm => 'Are you sure?', :method => :delete %> |
+        <%if statistic.statistic_to_show!=true%>
+          <%= link_to 'Show Ticker',:controller=>"statistics" ,:action=>"show_statistic",:id=>statistic.id%>
+        <%else%>
+          <%= link_to 'Hide Ticker',:controller=>"statistics" ,:action=>"remove_statistic",:id=>statistic.id%>
+        <%end%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div class="clear"></div>

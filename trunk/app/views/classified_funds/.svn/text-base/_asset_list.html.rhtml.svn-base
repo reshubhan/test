@@ -1,0 +1,5 @@
+<div id="<%= id %>" onmouseover="show_assets('<%= id %>');" onmouseout="hide_assets('<%= id %>');" style="left:10px;background-color:#fff;display:none;z-index:99;border:2px solid #666666;width:350px;">
+  <%remote_form_for :classified_funds, @classified_fund, :url => {:controller => 'classified_funds', :action => 'filter_results', :browse_by => @browse_by, :geography => @geography }, :html => {:style => "width:100%;"} do |f| %>
+    <%= render :partial => "managers/asset_form", :locals => {:id => id} %>
+  <% end %>
+</div>

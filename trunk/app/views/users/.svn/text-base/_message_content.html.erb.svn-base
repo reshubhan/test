@@ -1,0 +1,5 @@
+<div style="float:right;"><%= render :partial=>"messages/popup_close" %></div>
+<p><b>Sender: </b><%=message.sender.fullname%></p>
+<p><b>Subject: </b><%=message.subject%></p>
+<p>&nbsp;</p>
+<p><%=message.body%></p>

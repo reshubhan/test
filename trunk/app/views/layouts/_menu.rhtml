@@ -1,0 +1,83 @@
+<% cache(:key => "search") do %>
+<div class="menuDiv">
+  <div class="menuLeft"></div>
+  <div class="chromestyle" id="chromemenu">
+    <ul>
+      <li>
+        <span id="dropmenu11" style="display: none;"></span>
+        <!--<a href="javascript:void(0)" rel="dropmenu1">New Funds</a>-->
+        <a href="/classified_funds" rel="dropmenu1"><img src="/images/new_funds.png" /></a>
+        <span id="dropmenu12" style="display: none;"></span>
+      </li>
+      <li>
+        <span id="dropmenu21" style="display: none;"></span>
+      <!--<a href="javascript:void(0)" rel="dropmenu2">Secondaries</a></li>-->
+      <a href="/secondaries?type=sell" rel="dropmenu2"><img src="/images/secondaries.png" /></a></li>
+      <span id="dropmenu22" style="display: none;"></span>
+      <li>
+        <span id="dropmenu31" style="display: none;"></span>
+      <!--<a href="javascript:void(0)" rel="dropmenu3">Directs/Co-Investments</a></li>-->
+      <a href="/companies?type=sell" rel="dropmenu3"><img src="/images/directs.png" /></a></li>
+      <span id="dropmenu32" style="display: none;"></span>
+      <li>
+        <span id="dropmenu41" style="display: none;"></span>
+      <!--<a href="javascript:void(0)" rel="dropmenu4">Directories</a></li>-->
+      <a href="/managers" rel="dropmenu4"><img src="/images/directories.png" /></a></li>
+      <span id="dropmenu42" style="display: none;"></span>
+      <li>
+        <span id="dropmenu51" style="display: none;"></span>
+      <a href="/webinars" rel="dropmenu5"><img src="/images/webinars.png" /></a></li>
+      <span id="dropmenu52" style="display: none;"></span>
+      <!--<li>
+        <span id="dropmenu61" style="display: none;"></span>
+      <a href="javascript:void(0)" rel="dropmenu6"><img src="/images/blogs.png" /></a></li>-->
+      <span id="dropmenu62" style="display: none;"></span>
+    </ul>
+  </div>
+  <div id="dropmenu1" class="dropmenudiv">
+    <span id="ddropmenu11" ></span>
+    <a href="/classified_funds">Buyers</a>
+    <a href="/classified_funds/list/sell">Sellers</a>
+    <a href="/classified_funds/new_fund_to_buy">Post to Buy</a>
+    <a href="/classified_funds/upload/sell">Post to Sell</a>
+    <span id="ddropmenu12" ></span>
+  </div>
+  <div id="dropmenu2" class="dropmenudiv">
+    <span id="ddropmenu21" ></span>
+    <a href="/secondaries">Buyers</a>
+    <a href="/secondaries?type=sell">Sellers</a>
+    <a href="/secondaries/upload/buy">Post to Buy</a>
+    <a href="/secondaries/upload/sell">Post to Sell</a>
+    <span id="ddropmenu22" ></span>
+  </div>
+  <div id="dropmenu3" class="dropmenudiv">
+    <span id="ddropmenu31" ></span>
+    <a href="/companies">Buyers</a>
+    <a href="/companies?type=sell">Sellers</a>
+    <a href="/companies/new_directs_to_buy">Post to Buy</a>
+    <a href="/companies/upload/sell">Post to Sell</a>
+    <span id="ddropmenu32" ></span>
+  </div>
+  <div id="dropmenu4" class="dropmenudiv">
+    <span id="ddropmenu41" ></span>
+    <a href="/managers">Managers</a>
+    <a href="/managers/new">Post</a>
+    <span id="ddropmenu42" ></span>
+  </div>
+  <div id="dropmenu5" class="dropmenudiv">
+
+  </div>
+  <div id="dropmenu6" class="dropmenudiv">
+    <span id="ddropmenu61" ></span>
+    <a href="javascript::void(0)">Manager Selection</a>
+    <a href="javascript::void(0)">Terms</a>
+    <a href="javascript::void(0)">Fundraising</a>
+    <span id="ddropmenu62" ></span>
+  </div>
+  <%= render :partial => "layouts/search" %>
+  <div class="menuRight"></div>
+</div>
+<script type="text/javascript">
+  cssdropdown.startchrome("chromemenu")
+</script>
+<% end %>

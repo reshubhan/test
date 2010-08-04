@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/trustedinsight/!svn/ver/2800/source/trunk/lib/tasks
+END
+email_alert.rake
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/trustedinsight/!svn/ver/2615/source/trunk/lib/tasks/email_alert.rake
+END
+backup.rake
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/trustedinsight/!svn/ver/2787/source/trunk/lib/tasks/backup.rake
+END
+create_postings.rake
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/2800/source/trunk/lib/tasks/create_postings.rake
+END
+postings_creation.rake
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2800/source/trunk/lib/tasks/postings_creation.rake
+END
+email_expiring.rake
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/2561/source/trunk/lib/tasks/email_expiring.rake
+END

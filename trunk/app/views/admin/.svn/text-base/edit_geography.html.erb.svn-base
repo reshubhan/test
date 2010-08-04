@@ -1,0 +1,19 @@
+<div >
+<h1 style="width:100%">Editing Geography</h1>
+<div class="inner-center-form-box">
+<% form_for :geography,:url => {:controller => "admin", :action => "update_geography" , :id => @geography } do |f| %>
+  <center><%= f.error_messages %></center>
+ <p >
+  <%= label_tag 'Geography Name' %><br/>
+   <%= text_field :geography , :name %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>
+</div>
+<%#= link_to 'Back', :action=>'geographies' %>
+
+
+
+

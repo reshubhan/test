@@ -1,0 +1,127 @@
+<% if current_user.has_role('Admin') %>
+  <div class="content-box">
+    <div class="content-box-header">
+      <h3 style="cursor: s-resize;">
+        Post a secondary position that you would like to <%=@secondary.secondary_type%>
+      </h3>
+      <div style="float: right;margin: 10px;">
+        <%= link_to 'All Secondaries For Sell', "/secondaries?type=sell", :class=>"button" %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="content-box-content">
+      <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <% else %>
+        <table width="965" align="center" cellpadding="2" cellspacing="3" border="0" style="color:#666666;">
+          <tr>
+            <td colspan="1" width="50%" valign="top" class="buy_selltitleText" style="margin:0px;padding:0px;">
+              <%= render :partial => "layouts/form_header", :locals => {:heading => "Post a Secondary position that you would like to #{@secondary.secondary_type}"} %>
+            </td>
+          </tr>
+          <tr>
+            <td width="60%" class="buy_selltitleText">
+            <% end %>
+            <% form_for(@secondary) do |f| %>
+              <center><%= f.error_messages %></center>
+              <%= f.hidden_field :secondary_type, :value => @secondary.secondary_type%>
+              <table class="secondary_tosell_table">
+                <tr><td valign="top"></td><td> <%= render :partial => "layouts/mandatory_info" %><td></tr>
+                <tr>
+                  <td class="required_secondary_tobuy" valign="top"><b class="required_mark">*</b><label>Manager Name</label></td>
+                  <td class="form_fields" valign="top">
+                    <div class="yui-skin-sam">
+                      <div id="myAutoComplete">
+                        <input id="myInput" style="margin-left:0px;" type="text"  value="<%= @secondary.manager.name if @secondary.manager %>">
+                        <div id="myContainer" ></div>
+                        <input id="myHidden" name="secondary[manager_id]" type="hidden" value="<%= @secondary.manager.id if @secondary.manager %>">
+                      </div>
+                    </div>
+                  </td>
+                  <td style="font-size:10px;width:112px;"><a href="/managers/new">Add a manager</a></td>
+                </tr>
+                <tr>
+                  <td class="fields" align="right" ><%= label_tag 'URL' %></td>
+                  <td style="border:1px;" >
+                    <div id='managerurl' style="font-size:11px;margin-top:7px;">
+                      <% if @secondary.manager %>
+                        <%= @secondary.manager.url %>
+                      <% else %>
+                        <input disabled="disabled"/>
+                      <% end %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="fields" valign="top"><b class="required_mark">*</b><%= label_tag 'Funds' %></td>
+                  <td class="form_fields" valign="top">
+                    <div id="managerfunds" style="font-size:11px;">
+                      <% if @secondary.manager %>
+                        <%= select_tag 'secondary[fund_id]', options_from_collection_for_select(Fund.find(:all, :conditions => " status='approved' and manager_id='#{@secondary.manager.id}'"), 'id', 'name', @secondary.fund_id), {:style => "height:20px;", :onfocus =>"get_manager_funds(this,#{ @secondary.id ? @secondary.id : -1 },'secondary_manager_name'); return false;"} %>
+                      <% else %>
+                        <select></select>
+                      <% end %>
+                    </div>
+                  </td>
+                  <td style="font-size:10px;width:110px;"><a href="/funds/new">Add a fund</a></td>
+                </tr>
+                <tr>
+                  <td class="required_secondary_tobuy" valign="top"><b class="required_mark">*</b><label>Commitment Size</label></td>
+                  <td class="form_fields" valign="top">
+                    <%= select('secondary', 'commitment_size', Secondary::NAV.collect {|s| [s, s]},{}) %>
+                  <td>
+                </tr>
+                <tr>
+                  <td class="required_secondary_tobuy" valign="top"><b class="required_mark">*</b><label>NAV</label></td>
+                  <td class="form_fields" valign="top">
+                    <%= select('secondary', 'nav', DesiredSize.find(1,2,6).collect {|s| [s.name, s.id]},{}) %>
+                  <td>
+                </tr>
+                <tr>
+                  <td class="required_secondary_tobuy" valign="top" ><b class="required_mark">*</b><label>% Drawn</label></td>
+                  <td class="form_fields" valign="top">
+                    <%= select('secondary', 'drawn', Secondary::DRAWN.collect {|s| [s, s]},{}) %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="required_secondary_tobuy" valign="top" ><b class="required_mark">*</b><label>Expected Price</label></td>
+                  <td class="form_fields" valign="top">
+                    <%= select('secondary', 'expected_price', Secondary::EXPECTED_PRICE.collect {|s| [s, s]},{}) %>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="required_secondary_tobuy" valign="top"><label>Description</label></td>
+                  <td class="form_fields" valign="top">
+                    <%= text_field('secondary', 'description') %>
+                  </td>
+                </tr>
+                <% if is_admin? %>
+                  <tr>
+                    <td class="fields" valign="top"><b class="required_mark">*</b><label>For User (User Name)</label></td>
+                    <td class="form_fields" valign="top"> <%= text_field_with_auto_complete :secondary, :user_login, { :size => 15 }, { :url => formatted_users_path(:js), :method => :get, :param_name => 'login_search' } %> </td>
+                  </tr>
+                <% end %>
+                <tr>
+                  <td class="required_secondary_tobuy" valign="top">&nbsp;</td>
+                  <td class="form_fields" valign="top"><br/>
+                    <input type="submit" class="button" value="Upload"/>
+                  </td>
+                </tr>
+              </table>
+            <% end %>
+            <% if current_user.has_role('Admin') %>
+              </div>
+              </div>
+              </div>
+            <% else %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+      <%= render :partial => "autocomplete_script" %>
+      <script type="text/javascript">
+        document.title = 'Add secondary to sell - Trusted Insight'
+        $('myInput').focus();
+        $('myInput').select();
+      </script>
+

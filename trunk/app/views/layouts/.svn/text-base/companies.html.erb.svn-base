@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <%= render :partial => "layouts/head" %>
+  </head>
+  <!--<body onload="MM_preloadImages('/images/secondariesover.jpg','/images/managersover.jpg')">-->
+  <body onkeypress="keyPressHandler(event)">
+    <div class="main">
+      <div class="header">
+        <%= render :partial => "layouts/header" %>
+      </div>
+      <div class="grayBoxBottom">
+        <div class="grayBoxBottomInner">
+          <div class="addManagerdropDownMain">
+            <% if current_user && !current_user.has_role('Admin')  %>
+              <%= render :partial => "layouts/add_links" %>
+              <div class="searchBox">
+                <%= render :partial => "layouts/search" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="mainContainer">
+      	<% if current_user %>
+        	<%= render :partial => "layouts/breadcrumbs" %>
+		<% end %>
+        <div class="container">
+          <% if params[:controller] != 'main' && params[:action] != 'index' %>
+            <div class="containerInnerBGShadow">
+            <% end %>
+            <%= render :partial => "layouts/flash", :locals => {:flash => flash} %>
+            <div class="containerMain">
+              <div class="containerInner" >
+                <%= yield %>
+              </div>
+            </div>
+            <% if params[:controller] != 'main' && params[:action] != 'index' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div class="footer">
+        <%= render :partial => "layouts/footer" %>
+        <%= render :partial => "layouts/disclaimer" %>
+      </div>
+    </div>
+  </body>
+</html>

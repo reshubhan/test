@@ -1,0 +1,18 @@
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>
+  <% if @title %>
+    <%= @title %><% if @title.index('on Trusted Insight').blank? %> - Trusted Insight<% end %>
+  <% else %>
+  <%if params[:controller]=="classified_funds"%>
+    <%= 'postings'.capitalize %> <%= " - " + controller.action_name.capitalize.gsub('_', ' ') unless controller.action_name.capitalize == 'Index' or controller.action_name.capitalize == params[:controller].capitalize %> - Trusted Insight
+    <%else%>
+    <%= params[:controller].capitalize %> <%= " - " + controller.action_name.capitalize.gsub('_', ' ') unless controller.action_name.capitalize == 'Index' or controller.action_name.capitalize == params[:controller].capitalize %> - Trusted Insight
+    <%end%>
+  <% end %>
+</title>
+<%= include_tiny_mce_if_needed %>
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_merged :base %>
+<%= stylesheet_link_merged :base %>
+<%= stylesheet_link_tag 'form' %>

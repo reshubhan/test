@@ -1,0 +1,91 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      Edit Question
+    </h3>
+    <div style="float: right;margin: 10px;">
+      <%= link_to 'All Questions', questions_path, :class => "button" %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+
+      <% form_for(@question) do |f| %>
+        <%ques =@question%>
+        <input type="hidden" name ="question[id]" value="<%= @question.id %>"/>
+        <%= f.error_messages %>
+        <p   class="questionhead">
+          <%= f.label :user_type %><br />
+          <%=check_box_tag('question[role][]',1,@question.role_ids.include?(1)?true : false)%>Investor<br />
+          <%=check_box_tag('question[role][]',3,@question.role_ids.include?(3)?true : false)%>Provider<br />
+          <%=check_box_tag('question[role][]',2,@question.role_ids.include?(2)?true : false)%>Manager
+        </p>
+        <p   class="questionhead">
+          <%= f.label :question_type %><br />
+          <%= text_field_tag( 'question[question_type]',ques.question_type,:style => "height:20px;width:175px;" ,:readonly=>true)%>
+        </p>
+        <p  class="questionhead">
+          <%= f.label :questions %><br />
+          <%= f.text_area :questions ,:style=>"margin-top:10px;width:400px;",:rows=>7%>
+        </p>
+        <p  class="questionhead">
+          <%= f.label :answer_text %><br />
+          <%= f.text_field :answer_text ,:style=>"margin-top:10px;width:400px;"%>
+        </p>
+        <% if (@question.question_type=='multiple choice' or @question.question_type=='yes/no with option') %>
+          <div id="options" style="margin-top: 10px;width: 50%" >
+            <b><label>Options (at least one required)</label></b>
+            <div id="more_options">
+              <%@question.options.each do |option|%>
+                <% if @question.question_type == "yes/no with option" %>
+                  <%unless option.parent_id.nil?%>
+                    <%#num = rand(1000).to_s%>
+                    <div id="multiplechoice">
+                      <input type="text" size="60" name="question[option][]" value="<%=option.option%>" style="width: auto;margin:5px 0px;"/>
+                      <%=check_box_tag('question[default][]',option.option,true)%>
+                      <%#=image_tag("delete.png" ,:onclick =>"remove_field('multiplechoice',#{num});", :class => "ques-delete") %>
+                    </div>
+                  <%end%>
+                <%else%>
+                  <%#num = rand(1000).to_s%>
+                  <div id="multiplechoice">
+                    <input type="text" size="60" name="question[option][]" value="<%=option.option%>" style="width: auto;margin:5px 0px;"/>
+                    <%=check_box_tag('question[default][]',option.option,true)%>
+                    <%#=image_tag("delete.png" ,:onclick =>"remove_field('multiplechoice',#{num});", :class => "ques-delete") %>
+                  </div>
+                <%end%>
+              <%end%>
+            </div>
+            <div id="add_more" style="margin-top: 10px;float: right">
+              <img src="/images/add.png" style="vertical-align: middle;"/><a href="javascript:void(0);" onclick="add_more();">Add more option</a>
+            </div>
+          </div>
+        <%end%>
+        <div class="clear"></div>
+        <div style="margin-top: 10px;width: 50%">
+          <%= f.submit "Update" , :class => "button", :style => "float:right;"%>
+          <%= button_to 'Back', questions_path,:class=>"button", :style => "float:left;" %>
+        </div>
+      <% end %>
+        <div class="clear"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function display_options(type){
+    if((type=='multiple choice')||(type=='yes/no with option')){
+      $('options').show();
+    }
+    else{
+      $('options').hide();
+    }
+  }
+  function add_more(){
+    new Ajax.Request('/questions/add_field', {
+      method:'get',
+      asynchronous:true
+    });
+  }
+</script>

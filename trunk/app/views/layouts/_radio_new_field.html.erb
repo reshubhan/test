@@ -1,0 +1,12 @@
+<div id="radiodiv<%=@num%>">
+
+  <div style="*width:400px;" name="radio_div" id="radio_div">
+
+    <div style="width:5px;*margin-bottom:-30px;*float:left;">
+      <%=  check_box_tag 'question',true,true ,:class=>"new_option_checkbox"%>
+    </div>
+    <div style="*float:left;*width:10px;margin-left:30px;*margin-left:2px;" >
+      <%= text_field 'question[options]',{},:class=>"radio_new_option_field"%><%=image_tag("close.png" ,:onclick =>"remove_field('radiodiv',#{@num});") %><br />
+    </div>
+  </div>
+</div>

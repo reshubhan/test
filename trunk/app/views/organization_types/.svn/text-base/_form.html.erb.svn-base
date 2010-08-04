@@ -1,0 +1,9 @@
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :role_id %><br />
+  <%= select_tag 'role', options_from_collection_for_select(Role.find(:all), 'id', 'title', Role.find(:all)) , {:style => "height:20px;width:175px;"} %>
+</p>
+<br/>

@@ -1,0 +1,9 @@
+<center><% form_for :order, :url => {:action => 'confirm'} do |f| %>
+    <center><%= f.error_messages %></center>
+
+    <%= render :partial => "form", :locals => {:f => f} %>
+    <p style="text-align:center;">
+      <%= f.submit "", :class => "paypal_button" %>
+    </p>
+  <% end %>
+</center>

@@ -1,0 +1,21 @@
+<%#*<div>&nbsp;<br/></div>%>
+<%#*<div class="cricket" style="width:100%;">Facebook Connect</div><br/>%>
+<%#*<div>&nbsp;<br/></div>%>
+<div style="background-color: #dddddd; padding: 40px 50px">
+  <% user = User.find(current_user.id) %>
+<%# if user and user.facebook_user.blank? %>
+  <% if !current_user.nil? and not (session[:facebook_session] and session[:facebook_session].user) %>
+    <%= fb_login_button "facebook_login('setting')", :text=> "Click to login to Facebook", :v=>2 %>
+  <% else %>
+  <%#*<span style="margin-left:30px;"><fb:profile-pic uid="loggedinuser" size="small" facebook-logo="true" /></span>%>
+
+    <span style="margin-left:30px;"><%= fb_profile_pic(:size=> 'medium')%></span>
+    <div>&nbsp;</div>
+    <div class="bigGreenButtonOne">
+      <input type="button" onclick="window.location='/facebook/disconnect';" value="Disconnect from Facebook" class="button"/>
+    </div>
+    <br/>
+
+  <% end %>
+</div>
+<br/>

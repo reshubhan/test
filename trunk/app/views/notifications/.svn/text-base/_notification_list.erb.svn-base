@@ -1,0 +1,47 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;" >
+  <tr  align="left" >
+    <th>Name</th>
+    <th>Plans</th>
+    <th>Mailer Type</th>
+    <th>Iteration</th>
+    <th>Status</th>
+    <th width="120px">Options</th>
+  </tr>
+  <% for notification in @notifications %>
+    <tr align="left" style="margin-right: 50px;">
+      <td><%=h notification.name %></td>
+      <td>
+        <%notification.plans.each do |plan| %>
+          <%= plan.role.title %> : <%= plan.name %> <br/>
+        <% end %>
+      </td>
+      <td><%= notification.mailer_type.name %></td>
+      <td>
+        <% if notification.mailer_type.name == 'daily' %>
+        n/a
+        <% end %>
+        <% if notification.mailer_type.name == 'weekly' %>
+          <%= Notification::WEEKDAYS.invert[notification.iteration] %>
+        <% end %>
+        <% if notification.mailer_type.name == 'monthly' %>
+          <%= notification.iteration %>
+        <% end %>
+      </td>
+      <td>
+        <div id="status<%=notification.id%>">
+          <%= render :partial => 'status_links', :locals => { :status => notification.status, :id => notification.id }  %>
+        </div>
+      </td>
+      <td width="230px">
+        <%= link_to_remote "Send Now", :url => {:controller=>"notifications", :action => "send_now", :id=>"#{notification.id}"}, :html=>{:class =>"button"} %> &nbsp;
+        <%= link_to (image_tag "view.gif", :alt => "Show Preview", :title => "Show Preview"), notification %>
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_notification_path(notification) %>
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), notification, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<% if current_user.has_role('Admin') %>
+  <div class="clear"></div>
+<% end %>
+<%= will_paginate(@notifications, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'notifications', :action => 'index'}) %>
+

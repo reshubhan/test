@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/trustedinsight/!svn/ver/2518/source/trunk/app/views/adverts
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2518/source/trunk/app/views/adverts/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/adverts/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/2518/source/trunk/app/views/adverts/new.html.erb
+END
+_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2444/source/trunk/app/views/adverts/_results.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2403/source/trunk/app/views/adverts/show.html.erb
+END

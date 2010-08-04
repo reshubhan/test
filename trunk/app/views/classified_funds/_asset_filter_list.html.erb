@@ -1,0 +1,23 @@
+<div id="menu" class="filterText">
+  <ul>
+    <li>
+      <%#=link_to_remote "All (#{@total})",:url => {:controller => 'classified_funds', :action => 'index_results', :browse_by => @browseby ,
+        :asset=> 'All',:type =>@type, :geography=>@geography},
+        :loading => "show_loading();", :complete => "hide_loading();",
+        :html => {:class => "", :id => "assetAny"}%>
+        <a href="javascript:void(0);" onclick="$('search_asset_class').value = 'Any';$('filter_form').submit();" id="assetAny" > All (<%=@total%>) </a>
+    </li>
+
+    <% Asset.parents.each do |asset| %>
+    <% size=get_size_funds(@type, asset.id, @asse_type, @institution, @geography, @desired_size, @fund_size) %>
+      <li>
+        <!--<div style="width:125px;float:left;"><%#=link_to_remote "#{asset.short_name} (#{size})",:url => {:controller => 'classified_funds', :action => 'index_results', :browse_by => @browseby ,
+            <%#*:asset=> asset.id, :geography=>@geography,:type =>@type},%>
+            :loading => "show_loading();", :complete => "hide_loading();",
+            :html => {:title=>"#{asset.name} (#{size})",:class => "", :id => "asset#{asset.id}"}%></div>-->
+        <div style="width:125px;float:left;"><a href="javascript:void(0);" onclick="$('search_asset_class').value = <%=asset.id%>;$('filter_form').submit();" title="<%=asset.name%> (<%=size%>)" id="asset<%=asset.id%>" > <%="#{asset.short_name} (#{size})"%> </a></div>
+      </li>
+    <% end %>
+
+  </ul>
+</div>

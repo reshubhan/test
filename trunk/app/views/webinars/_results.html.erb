@@ -1,0 +1,32 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr>
+    <th width="40%">Title</th>
+    <th width="15%">Speaker</th>
+    <th width="15%">Organization</th>
+    <th width="15%">Date</th>
+    <% if current_user.has_role('Admin') %>
+      <th width="80px">Options</th>
+    <% end %>
+  </tr>
+
+  <%count=0%>
+  <%css_class="dark"%>
+  <% for webinar in @webinars %>
+    <% css_class= count%2==0 ? "dark" : "light" %>
+    <tr align="left">
+      <td class="<%=css_class%>"><%=link_to webinar.title, "#{webinar.link}", :target=>"_blank"%></td>
+      <td class="<%=css_class%>"><%=webinar.speaker%></td>
+      <td class="<%=css_class%>"><%=webinar.organization%></td>
+      <td class="<%=css_class%>"><%=webinar.date%></td>
+      <% if current_user.has_role('Admin') %>
+        <td class="<%=css_class%>">
+          <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_webinar_path(webinar) %>
+          <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), webinar, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      <% end %>
+    </tr>
+    <%count=count+1%>
+  <% end %>
+</table>
+<%= will_paginate @webinars, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'webinars', :action => 'index'} %>
+<div class="clear"></div>

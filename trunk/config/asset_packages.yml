@@ -1,0 +1,68 @@
+--- 
+javascripts:
+- base:
+  - prototype
+  - builder
+  - effects
+  - dragdrop
+  - controls
+  - slider
+  - sound
+  - scriptaculous
+  - autocomplete
+  - redbox
+  - layouts
+  - chrome
+  - application
+  - yahoo
+  - unittest
+  - ui
+  - tablednd
+  - manager_review
+  - jscal2
+  - js
+  - dropdowntabs
+  - crawler
+  - accordion
+stylesheets:
+- base: 
+  - main
+  - accordion_glam
+  - admin
+  - autocomplete
+  - border-radius
+  - button
+  - css
+  - default
+  - hack
+  - halfmoontabs
+  - homepage
+  - jscal2
+  - new_css
+  - redbox
+  - reduce-spacing
+  - scaffold
+  - style
+  - theme
+  - yahoo
+  - form
+- secondary:
+  - main
+  - accordion_glam
+  - admin
+  - autocomplete
+  - border-radius
+  - button
+  - css
+  - default
+  - hack
+  - halfmoontabs
+  - homepage
+  - jscal2
+  - new_css
+  - redbox
+  - reduce-spacing
+  - scaffold
+  - style
+  - theme
+  - yahoo

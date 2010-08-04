@@ -1,0 +1,10 @@
+<div class="searchBox">
+    <%= text_field_tag 'managerInput', "Search Manager", :class => "searchInput", :onfocus => "this.value = '';", :onblur => "if (this.value == '') { this.value = 'Search Manager'; }", :onkeydown => "submitSearchForm(event);" %>
+    <% form_tag '/managers/search' do -%>
+       <input id="managerHidden" name="manager[name]" type="hidden" value="" />
+      <%=submit_tag '', :class => "searchButton" %>
+    <% end %>
+    <div class="yui-skin-sam">
+      <div id="managerContainer" ></div>
+    </div>
+  </div>

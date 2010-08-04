@@ -1,0 +1,20 @@
+<% if object_type == 'fund'%>
+  <% unless asset == -1 %>
+    <%= select_tag 'fund[asset_type_id]', '<option></option>' + options_from_collection_for_select(Asset.find(:all, :conditions => "parent_id='#{asset}'"), 'id', 'name', asset), {:style => "height:20px;"} %>
+  <% else %>
+    <%= select_tag 'fund[asset_type_id]', '<option></option>' + options_from_collection_for_select(Asset.find(:all, :conditions => "parent_id='#{asset}'"), 'id', 'name', nil), {:style => "height:20px;"} %>
+  <% end %>
+<% elsif object_type == 'company'%>
+  <% unless asset == -1 %>
+    <%= select_tag 'company[asset_type_id]', '<option></option>' + options_from_collection_for_select(Asset.find(:all, :conditions => "parent_id='#{asset}'"), 'id', 'name', asset), {:style => "height:20px;"} %>
+  <% else %>
+    <%= select_tag 'company[asset_type_id]', '<option></option>' + options_from_collection_for_select(Asset.find(:all, :conditions => "parent_id='#{asset}'"), 'id', 'name', nil), {:style => "height:20px;"} %>
+  <% end %>
+<% else %>
+  <% unless asset == -1 %>
+    <%= select_tag 'classified_fund[asset_type_id]', '<option></option>' + options_from_collection_for_select(Asset.find(:all, :conditions => "parent_id='#{asset}'"), 'id', 'name', asset), {:style => "height:20px;"} %>
+  <% else %>
+    <%= select_tag 'classified_fund[asset_type_id]', '<option></option>' + options_from_collection_for_select(Asset.find(:all, :conditions => "parent_id='#{asset}'"), 'id', 'name', nil), {:style => "height:20px;"} %>
+  <% end %>
+<% end %>
+

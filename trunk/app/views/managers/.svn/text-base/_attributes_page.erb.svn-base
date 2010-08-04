@@ -1,0 +1,146 @@
+<%= hidden_field_tag(:id, @manager.id) %>
+  <input type="hidden" id="asset_attributes" name="asset_attributes" value=""/>
+  <% cons = @cons %>
+  <div class="managersview_topcommentsimagebg1" >
+    <div class="managersview_topcommentsimage3">
+      <div class="centerheading"><span style="float:left;color:#ff6600;">Describe this manager with three clicks.<span class="centerheadingBold"> Provide top 3 for Pro's</span></span><span style="float:right;"><b>Votes Left :</b> <font id="pros_total_count">3</font ></span></div>
+      <br/>
+      <table border="0" align="center" cellpadding="0" cellspacing="0" >
+        <tr>
+          <td valign="top">
+            <div style="float:left;">
+              <%= render :partial => 'managers/attribute_list', :locals => {:asset_attrib_list => @pros}%>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="centerheading"><span style="float:left;color:#ff6600;">Describe this manager with three clicks.<span class="centerheadingBold"> Provide top 3 for Con's</span></span><span style="float:right;"><b>Votes Left :</b> <font id="cons_total_count">3</font ></span></div>
+      <br/>
+      <table  border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top">
+          <div  style="width:100%;float:left;">
+            <%= render :partial => 'managers/attribute_list', :locals => {:asset_attrib_list => cons}%>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div align="center">
+      <br/>
+      <%= submit_tag "Submit", :class => "button", :onclick => "prepare_asset_attributes();"%>
+    </div>
+  </div>
+<script type="text/javascript">
+    var asset_attrib_pros;
+    var asset_attrib_cons;
+    var pros_total_count=3;
+    var cons_total_count=3;
+
+    init();
+
+    function init(){
+        asset_attrib_cons=null;
+        asset_attrib_pros=null;
+        document.getElementById("asset_attributes").value = "";
+        asset_attrib_pros = Array(<%= @pros.size %>);
+        asset_attrib_cons = Array(<%= @cons.size %>);
+        var i=0;
+<% @pros.each do |pros| %>
+          asset_attrib_pros[i]=Array(2);
+          asset_attrib_pros[i][0]=<%= pros.id %>;
+          asset_attrib_pros[i][1]=0;
+          i++;
+<% end %>
+        i=0;
+<% @cons.each do |cons| %>
+          asset_attrib_cons[i]=Array(2);
+          asset_attrib_cons[i][0]=<%= cons.id %>;
+          asset_attrib_cons[i][1]=0;
+          i++;
+<% end %>
+    }
+
+    function increament_attribute_count(id, type){
+        if(type=='pros')
+            increamnt_pros_count(id)
+        else
+            increamnt_cons_count(id)
+    }
+
+    function decreament_attribute_count(id, type){
+        if(type=='pros')
+            decreament_pros_count(id)
+        else
+            decreament_cons_count(id)
+    }
+
+    function increamnt_pros_count(id){
+        var i=0;
+        for(i=0;i<asset_attrib_pros.length;i++){
+            if ((asset_attrib_pros[i][0]==id)&&(asset_attrib_pros[i][1]<3)&&(pros_total_count>0)){
+                asset_attrib_pros[i][1]++;
+                document.getElementById('count_'+id).innerHTML=asset_attrib_pros[i][1];
+                pros_total_count--;
+                document.getElementById('pros_total_count').innerHTML=pros_total_count;
+            }
+        }
+    }
+
+    function decreament_pros_count(id){
+        var i=0;
+        for(i=0;i<asset_attrib_pros.length;i++){
+            if ((asset_attrib_pros[i][0]==id)&&(asset_attrib_pros[i][1]>0)&&(pros_total_count<3)){
+                asset_attrib_pros[i][1]--;
+                document.getElementById('count_'+id).innerHTML=asset_attrib_pros[i][1];
+                pros_total_count++;
+                document.getElementById('pros_total_count').innerHTML=pros_total_count;
+            }
+        }
+    }
+
+    function increamnt_cons_count(id){
+        var i=0;
+        for(i=0;i<asset_attrib_cons.length;i++){
+            if ((asset_attrib_cons[i][0]==id)&&(asset_attrib_cons[i][1]<3)&&(cons_total_count>0)){
+                asset_attrib_cons[i][1]++;
+                document.getElementById('count_'+id).innerHTML=asset_attrib_cons[i][1];
+                cons_total_count--;
+                document.getElementById('cons_total_count').innerHTML=cons_total_count;
+            }
+        }
+    }
+
+    function decreament_cons_count(id){
+        var i=0;
+        for(i=0;i<asset_attrib_cons.length;i++){
+            if ((asset_attrib_cons[i][0]==id)&&(asset_attrib_cons[i][1]>0)&&(cons_total_count<3)){
+                asset_attrib_cons[i][1]--;
+                document.getElementById('count_'+id).innerHTML=asset_attrib_cons[i][1];
+                cons_total_count++;
+                document.getElementById('cons_total_count').innerHTML=cons_total_count;
+            }
+        }
+    }
+
+    function prepare_asset_attributes(){
+        var i=0;
+        var j=0;
+        for(i=0;i<asset_attrib_pros.length;i++){
+            if (asset_attrib_pros[i][1]>0){
+                for(j=0;j<asset_attrib_pros[i][1];j++){
+                    document.getElementById("asset_attributes").value+=asset_attrib_pros[i][0]+",";
+                }
+            }
+        }
+        i=0;
+        j=0;
+        for(i=0;i<asset_attrib_cons.length;i++){
+            if (asset_attrib_cons[i][1]>0){
+                for(j=0;j<asset_attrib_cons[i][1];j++){
+                    document.getElementById("asset_attributes").value+=asset_attrib_cons[i][0]+",";
+                }
+            }
+        }
+    }
+</script>

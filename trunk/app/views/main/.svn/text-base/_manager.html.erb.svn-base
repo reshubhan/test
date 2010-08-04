@@ -1,0 +1,15 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="3">
+     <tr>
+     	<%= will_paginate @managers %>
+     <% @managers.each do |manager|%>	
+     <td> <div class="fundsDetailBoxLeftMain" style="border:none;">
+        <div class="fundsDetailBoxImage"><img src="/images/dummyImage.gif" alt="fundsimage" width="133" height="89" /></div>
+        <div class="fundsDetailBoxresult">
+          <div class="fundsDetailBoxresultTitle"> <%=manager.name%> </div>
+          <div class="fundsDetailBoxfundDetails">Fund11 ($300M)</div>
+          <div class="fundAssetresult">AssetClass:<span style="color:#FE7B02;font-weight:bold;">Distressed</span></div>
+        </div>
+      </div></td>
+	  <% end %> 
+     </tr>
+</table>

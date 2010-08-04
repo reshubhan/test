@@ -1,0 +1,9 @@
+<div class="maincontainer">
+  <% if @company.type_buy %>
+    <%= render :partial => "layouts/form_header", :locals => {:heading => "Direct/Co-Investment to Buy"} %>
+  <% else %>
+    <%= render :partial => "layouts/form_header", :locals => {:heading => "Direct/Co-Investment to Sell"} %>
+  <% end %>
+
+  <%= render :partial => "company_details" %>
+</div>

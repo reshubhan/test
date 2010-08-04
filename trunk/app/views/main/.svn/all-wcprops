@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/trustedinsight/!svn/ver/2822/source/trunk/app/views/main
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/2822/source/trunk/app/views/main/index.html.erb
+END
+landing_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/183/source/trunk/app/views/main/landing_page.html.erb
+END
+_manager.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/582/source/trunk/app/views/main/_manager.html.erb
+END
+private_policy.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/10/source/trunk/app/views/main/private_policy.html.erb
+END
+select_plan.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/1723/source/trunk/app/views/main/select_plan.html.erb
+END
+terms.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/10/source/trunk/app/views/main/terms.html.erb
+END
+_buySecondaries.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/396/source/trunk/app/views/main/_buySecondaries.html.erb
+END
+_sellSecondaries.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/183/source/trunk/app/views/main/_sellSecondaries.html.erb
+END
+select_user_type.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/567/source/trunk/app/views/main/select_user_type.html.erb
+END
+list_managers.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/471/source/trunk/app/views/main/list_managers.js.erb
+END
+_popup_close.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2595/source/trunk/app/views/main/_popup_close.rhtml
+END

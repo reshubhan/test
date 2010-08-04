@@ -1,0 +1,56 @@
+<script type="text/javascript">
+<% if @retry and session[:token] %>
+    var answer = confirm ("You already created postings a while ago. Do you want to cancel all previously created posting?\nClick 'Ok' to cancel previous posting and proceed.");
+    if (answer){
+      new Ajax.Request ('/classified_funds/delete_recent_postings',
+      {
+        method:'post',
+        asynchronous:true,
+        evalScripts:true
+      });
+    }else{
+      document.window.location = '/companies/new_directs_to_buy';
+    }
+<% end %>
+</script>
+<div id="loader" style="width: 100%;display: none;"><center><img src="/images/loader.gif" alt="Processing :"/> Scheduling posting creation, please wait...</center><br/></div>
+<div style="width: 100%;"><center><%= progress_image() %></center></div>
+<%= render :partial => "layouts/left_pane", :locals => { :current => 'fund'} %>
+<div class="newfundContainer">
+  <div class="newfundTop"></div>
+  <div class="newfundContent">
+    <h2>Where are you Investing?</h2><br/>
+    <% form_tag(:action => "fund_to_direct_preference" ,:controller => "classified_funds")  do -%>
+      <% asset = Asset.find(:first, :conditions => "name = 'Hedge Funds'") %>
+      <div class="newfundInner">
+        <%= check_box_tag "asset_ids[]", asset.id, session[:fund_checked_value]? (((session[:fund_checked_value].to_s.include?(asset.id.to_s))? true : false )) : true %>
+        <label><%= display_name(asset.name) %></label>
+        <%= link_to "provide more specifics", {:controller => :classified_funds, :action => :new_fund_to_buy, "asset_id" => asset.id}%>
+      </div><br/>
+      <% asset = Asset.find(:first, :conditions => "name = 'Private Equity'") %>
+      <div class="newfundInner">
+        <%= check_box_tag "asset_ids[]", asset.id,session[:fund_checked_value]? (((session[:fund_checked_value].to_s.include?(asset.id.to_s))? true : false )) : true %>
+        <label><%= display_name(asset.name) %></label>
+        <%= link_to "provide more specifics", {:controller => :classified_funds, :action => :new_fund_to_buy, "asset_id" => asset.id}%>
+      </div><br/>
+      <% asset = Asset.find(:first, :conditions => "name = 'Real Estate'") %>
+      <div class="newfundInner">
+        <%= check_box_tag "asset_ids[]", asset.id,session[:fund_checked_value]? (((session[:fund_checked_value].to_s.include?(asset.id.to_s))? true : false )) : true %>
+        <label><%= display_name(asset.name) %></label>
+        <%= link_to "provide more specifics", {:controller => :classified_funds, :action => :new_fund_to_buy, "asset_id" => asset.id}%>
+      </div><br/>
+      <div class="newfundInner" style="margin-top: 10px;text-align: center;">
+        <%= submit_tag 'Save and continue >>', :class => "button", :onClick => "return confirm('Your previous posts if any will be deleted. Are you sure you want to continue?');show_loader()" %>
+      </div><br/>
+      <div class="newfundContent" style="border-bottom:1px solid #EFEEEC;margin-top:-1px;padding:9px;width:582px;">
+        <p style="font-size: 11px; font-weight: normal;">*Please provide specifics of the assets that are of interest to you.<br/>Checking all assets will create default postings which may not capture your preferences accurately.</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="newfundBottom"></div>
+</div>
+<script type="text/javascript">
+  function show_loader(){
+    document.getElementById('loader').style.display = "";
+  }
+</script>

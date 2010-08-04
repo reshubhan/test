@@ -1,0 +1,6 @@
+<% if not fund == -1 %>
+    <%= select_tag 'classified_fund[fund_id]', options_from_collection_for_select(Fund.find(:all, :conditions => " status='approved' and manager_id='#{manager}'"), 'id', 'name', Fund.find(fund).fund_id), {:style => "height:20px;width:203px;"} %>
+  <% else %>
+    <%= select_tag 'classified_fund[fund_id]', options_from_collection_for_select(Fund.find(:all, :conditions => " status='approved' and manager_id='#{manager}'"), 'id', 'name', nil), {:style => "height:20px;width:203px;"} %>
+  <% end %>
+

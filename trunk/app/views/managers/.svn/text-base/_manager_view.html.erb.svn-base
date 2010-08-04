@@ -1,0 +1,120 @@
+<div class="manager_container">
+  <div class="manager_container1">
+    <div class="topcommentsimage">
+      <table width="701" border="0" cellspacing="0" cellpadding="0" style="color:#666666;">
+        <tr>
+          <th width="131" rowspan="6" ><div class="imgbox"><%= image_tag APP_CONFIG["WEBSNAPR_URL"] + @manager.url, :alt => @manager.name, :style=>"border:0 none;" %></div></th>
+          <th width="250" rowspan="6" >
+            <div class="imgbox1" style="*height:147px;">
+              <table>
+                <tr>
+                  <td colspan="2"><%= @manager.name %></td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                  <td><b>Asset Class </b></td>
+                  <td><b>: <%=@manager.primary_asset.name%></b></td>
+                </tr>
+                <tr>
+                  <td><b>Asset Type </b></td>
+                  <td>
+                    <b>: <%=@manager.secondary_asset.blank? ? '-' : @manager.secondary_asset.name%></b>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Geography </b></td>
+                  <td><b>: <%=@manager.geography.name%></b></td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+              </table>
+              <% if hide_edit_link.blank? %>
+                <%= link_to "Edit", edit_manager_path(@manager), :style => "*height:100%;" %>
+                &nbsp;<% if current_user.has_role('Admin') or @manager.user_id == current_user.id %>
+                  <%= link_to "Delete", @manager, :confirm => 'Are you sure?', :method => :delete %>
+                <% end %>
+              <% end %>
+              <br/><br/>
+            </div>
+          </th>
+          <%= render :partial => "managers/rating_summary" ,:locals => {:manager => @manager}%>
+      </table>
+    </div>
+    
+    <div class="topcommentsimage" style="border:1px solid #fff;">
+      <div class="description">
+        <span class="description1">Description: </span>
+        <%= @manager.description %>
+      </div>
+    </div>
+
+    <div class="topcommentsimage" style="font-style:italic;">
+ <span style="float:left;margin-top:15px;margin-left:10px;padding:0px;">
+        <% if @manager.all_secondaries('sell').size > 0 %>
+          <%= link_to("Number of secondaries to sell for this manager: #{@manager.all_secondaries('sell').size}", :controller => 'secondaries',:action => 'listing',:type=>'sell',:manager_id=>@manager.id)%>
+        <% else %>
+          <a href = "/secondaries/upload/sell?manager_id=<%= @manager.id %>"> Add secondary to sell for this manager</a>
+        <% end %>
+      </span>
+      <span style="float:right;padding:0px;margin-top:15px;margin-right:10px;">
+        <% if @manager.all_secondaries('buy').size > 0 %>
+          <%= link_to("Number of secondaries to buy for this manager: #{@manager.all_secondaries('buy').size}", :controller => 'secondaries',:action => 'listing',:type=>'buy',:manager_id=>@manager.id)%>
+        <% else %>
+          <a href = "/secondaries/upload/buy?manager_id=<%= @manager.id %>"> Add secondary to buy for this manager</a>
+        <% end %>
+      </span>
+    </div>
+
+    <% if !@manager.recent_funds.empty? %>
+      <div class="topcommentsimage" style="padding:10px;">
+        <div class="centerheadingBold">Most Recent Funds</div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="5px">
+          <tr style="font-size:12px; color:#fff; background-color:#929292;height:25px;">
+            <th style="padding:3px;">Name </th>
+            <th style="padding:3px;">Manager Name </th>
+            <th style="padding:3px;">Fund Year</th>
+            <th style="padding:3px;">Size</th>
+          </tr>
+          <% @manager.recent_funds.each do |fund| %>
+            <tr style="height:20px;">
+              <td style="padding:3px;" width="241"><%=fund.name%></td>
+              <td style="padding:3px;"><%=fund.manager.name%></td>
+              <td style="padding:3px;" width="70"><%=fund.year%></td>
+              <td style="padding:3px;" width="150"><%=number_to_currency(fund.size)%>&nbsp;<%= get_currency(fund.currency)%> Million</td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <% if @manager.funds.size > 2 %>
+        <div class="topcommentsimage" style="border:1px solid #fff;" align="right">
+          <%= link_to 'More Funds', fund_list_url(@manager) %>
+        </div>
+      <% end %>
+    <% end %>
+    
+    <div style="width:98.7%;float:left;text-align:left;padding:8px 0px 0px 12px;margin-left:-1px;border-bottom:1px solid #eee;">
+      <% if current_user.has_role('Institutional Investor') %>
+        <div id="rate_tab" <% if flash[:openReviewTab].blank? %> style="background-color:#e5e5e5;color:#000;" <% end %> class="managerTabs">
+          <a href="javascript:void(0);" onclick="showContentsOfTab('ratings', 'results');highlightTab('rate_tab', 'reviews_tab');">Rate this manager*</a>
+        </div>
+      <% end %>
+      <div id="reviews_tab" <% unless flash[:openReviewTab].blank? %> style="background-color:#e5e5e5;color:#000;" <% end %> class="managerTabs">
+        <a href="javascript:void(0);" onclick="showContentsOfTab('results', 'ratings');highlightTab('reviews_tab', 'rate_tab');">User Reviews</a>
+      </div>
+    </div>
+    
+    <% if current_user.has_role('Institutional Investor') %>
+      <div id="ratings" <% if flash[:openReviewTab].blank? %> class="topcommentsimage" <% else %> style="display:none ! important;" <% end %> >
+        <%= render :partial => "managers/ratings_page" %>
+      </div>
+    <% end %>
+    <div id="results" <% if !flash[:openReviewTab].blank? || !current_user.has_role('Institutional Investor') %> class="topcommentsimage" <% else %>  style="display:none ! important;" <% end %> >
+      <%= render :partial => "managers/comments" ,:locals => {:manager => @manager}%>
+    </div>
+  </div>
+</div>
+
+<% if (from_edit_profile.blank?) && !current_user.has_role('Admin') %>
+  <div style="width:200px; float: right; padding : 20px 0px;">
+        <%= render :partial => "managers/pros_cons" ,:locals => {:manager => @manager}%>
+  </div>
+<% end %>

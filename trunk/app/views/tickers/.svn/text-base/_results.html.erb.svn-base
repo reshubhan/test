@@ -1,0 +1,22 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th >Ticker Text</th>
+    <th style="width:80px !important;">Options</th>
+  </tr>
+  <% for ticker in @tickers %>
+    <tr align="left">
+      <td><%=ticker.ticker_text%></td>
+      <td>
+        <%= link_to 'Show', ticker %> |
+        <%= link_to 'Edit', edit_ticker_path(ticker) %> |
+        <%= link_to 'Destroy', ticker, :confirm => 'Are you sure?', :method => :delete %> | 
+        <%if ticker.ticker_to_show!=true%>
+          <%= link_to 'Show Ticker',:controller=>"tickers" ,:action=>"show_ticker",:id=>ticker.id%>
+        <%else%>
+          <%= link_to 'Hide Ticker',:controller=>"tickers" ,:action=>"remove_ticker",:id=>ticker.id%>
+        <%end%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div class="clear"></div>

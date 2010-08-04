@@ -1,0 +1,22 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      Create New Geography
+    </h3>
+    <div style="float: right;margin: 10px;">
+      <%= button_to 'All Geographies', geographies_path, :class => "button" %>
+    </div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <% form_for :geography, :url => "/geographies/update", :html => {:multipart => true} do |f| %>
+        <%= f.error_messages %>
+        <%= render :partial => "form", :locals => {:f => f} %><br/>
+        <p><%= f.submit "Update", :class => "button" %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,13 @@
+<h1>Editing secondary</h1>
+
+<% form_for(@secondary) do |f| %>
+  <center><%= f.error_messages %></center>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @secondary %> 
+<%#*|%>
+<%#= link_to 'Back', secondaries_path %>

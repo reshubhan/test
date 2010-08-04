@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/lib/searchlogic/active_record
+END
+named_scopes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/lib/searchlogic/active_record/named_scopes.rb
+END
+consistency.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/lib/searchlogic/active_record/consistency.rb
+END

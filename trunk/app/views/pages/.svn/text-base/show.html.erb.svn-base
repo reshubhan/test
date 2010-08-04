@@ -1,0 +1,4 @@
+<%= render :partial => "layouts/form_header", :locals => {:heading => @page.title} %>
+<div style="width:96%;padding:20px;" align="justify" class="contentPage">
+  <%= @page.content %>
+</div>

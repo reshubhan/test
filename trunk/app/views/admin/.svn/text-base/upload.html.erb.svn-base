@@ -1,0 +1,25 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      <%="Import #{@action}"%>
+    </h3>
+    <div style="float: right;margin: 10px;"><%= link_to 'All Pages', pages_path, :class => "button" %></div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <% form_for :dump, :url=>{:controller=>"admin", :action=>@action}, :html => { :multipart => true } do |f| -%>
+        <%= flash[:message] %>
+        <%= flash[:failure_notice] %>
+        <input id="dump_action" name="dump[action]" type="hidden" value="<%=@action%>"/>
+        <p>
+          <label>Select a CSV File :</label>
+        </p>
+        <p>
+          <%= f.file_field :file, :style => "*width:300px;" -%>
+        </p>
+        <p><%= submit_tag 'Upload', :class => "button" -%></p>
+      <% end -%>
+    </div>
+  </div>
+</div>

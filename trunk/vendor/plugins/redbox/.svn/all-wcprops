@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/trustedinsight/!svn/ver/413/source/trunk/vendor/plugins/redbox
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/413/source/trunk/vendor/plugins/redbox/Rakefile
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/413/source/trunk/vendor/plugins/redbox/init.rb
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/413/source/trunk/vendor/plugins/redbox/install.rb
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/413/source/trunk/vendor/plugins/redbox/README
+END

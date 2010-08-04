@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  url: MyString
+  revenue_per_year: 1.5
+  currency: 1
+  new_financing: false
+  desired_size: MyString
+  geography_id: 1
+  sector_id: 1
+  type_of_financing: MyString
+  posted_by: MyString
+  description: MyText
+  asset_id: 1
+
+two:
+  name: MyString
+  url: MyString
+  revenue_per_year: 1.5
+  currency: 1
+  new_financing: false
+  desired_size: MyString
+  geography_id: 1
+  sector_id: 1
+  type_of_financing: MyString
+  posted_by: MyString
+  description: MyText
+  asset_id: 1

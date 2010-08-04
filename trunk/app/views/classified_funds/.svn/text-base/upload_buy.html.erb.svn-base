@@ -1,0 +1,103 @@
+<% if current_user.has_role('Admin') %>
+  <div class="content-box">
+    <div class="content-box-header">
+      <h3 style="cursor: s-resize;">
+        Post the description of a fund you would like to <%=@classified_fund.classified_fund_type%>
+      </h3>
+      <div style="float: right;margin: 10px;">
+        <%= link_to 'All Classified Funds For Buy', "/classified_funds?type=buy", :class=>"button" %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="content-box-content">
+      <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <% else %>
+        <table width="965" align="center" cellpadding="2" cellspacing="3" border="0">
+          <tr>
+            <td colspan="1" width="50%" valign="top" class="buy_selltitleText" style="margin:0px;padding:0px;color:#666666;font-size:10px;">
+              <%= render :partial => "layouts/form_header", :locals => {:heading => "Post the description of a fund you would like to #{@classified_fund.classified_fund_type}"} %>
+            </td>
+          </tr>
+          <tr>
+            <td width="60%" class="buy_selltitleText">
+            <%end%>
+            <% form_for(@classified_fund) do |f| %>
+              <center><%= f.error_messages %></center>
+              <%= f.hidden_field :classified_fund_type, :value => @classified_fund.classified_fund_type%>
+              <table class="fund_table_for_buy">
+                <tr><td valign="top"></td><td> <%= render :partial => "layouts/mandatory_info" %><td></tr>
+                <tr>
+                  <td class="required_fund_tobuy" valign="top" style="color:#666666;"><b class="required_mark">*</b><%= label_tag 'Asset Class' %></td>
+                  <td class="form_fields" valign="top">
+                    <%= select('classified_fund', 'asset_id', Asset.list_parents.collect {|s| [s[:label], s[:val]]}, {}, {:onchange =>"get_asset_types('classified_fund_asset_id', 'classified_fund'); return false;"}) %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="fields" align="right" style="color:#666666;" ><%= label_tag 'Asset Type' %></td>
+                  <td id="assettypes" class="form_fields" valign="top"  style="font-size:11px;">
+                    <% if @classified_fund.asset %>
+                      <%= select_tag 'classified_fund[asset_type_id]', '<option></option>' + options_from_collection_for_select(Asset.find(:all, :conditions => "parent_id='#{@classified_fund.asset_id}'"), 'id', 'name'), { :style => "height:20px;" }%>
+                    <% else %>
+                      <select></select>
+                    <% end %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="fields" valign="top" style="color:#666666;"><b class="required_mark">*</b><%= label_tag 'Desired Size' %></td>
+                  <td class="form_fields" valign="top">
+                    <%= select('classified_fund', 'desired_size_id', DesiredSize.find(:all, :conditions => "name != '>$20M'").collect {|s| [s.name, s.id]}) %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="required_fund_tobuy" valign="top" style="color:#666666;"><%= label_tag 'Geography' %></td>
+                  <td class="form_fields" valign="top">
+                    <%= f.select 'geography_id', Geography.list.collect {|geography| [geography.name, geography.id]},{:prompt=>'Any'} %>
+                  <td>
+                </tr>
+                <tr>
+                  <td class="required_fund_tobuy" valign="top" style="color:#666666;"><%= label_tag 'Sector' %></td>
+                  <td class="form_fields" valign="top">
+                    <%= select_tag 'classified_fund[sector_ids][]', options_from_collection_for_select(Sector.list, 'id', 'name', @classified_fund.sector_ids), { :style => "height:100px;", :multiple => true }%>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="required_fund_tobuy" valign="top" style="color:#666666;"><%= label_tag 'Fund Size' %></td>
+                  <td class="form_fields" valign="top">
+                    <%= select('classified_fund', 'fund_size', ClassifiedFund::FUND_SIZE.collect {|s| [s, s]}) %>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="required_fund_tobuy" valign="top" style="color:#666666;"> <b class="required_mark">*</b><%= label_tag 'Description' %></td>
+                  <td class="form_fields" valign="top">
+  <%#= f.text_field :description,:style=>"width:172px;" %>
+                    <%= text_field('classified_fund', 'description',:style => "width:172px;")  %>
+                  </td>
+                </tr>
+                <% if is_admin? %>
+                  <tr>
+                    <td class="fields" valign="top" style="color:#666666;"><b class="required_mark">*</b><%= label_tag 'For User (User Name)' %></td>
+                    <td class="form_fields" valign="top"> <%= text_field_with_auto_complete :classified_fund, :user_login, { :size => 15 }, { :url => formatted_users_path(:js), :method => :get, :param_name => 'login_search' } %> </td>
+                  </tr>
+                <% end %>
+                <tr>
+                  <td class="required" valign="top" >&nbsp;</td>
+                  <td class="form_fields" valign="top">
+                      <input type="submit" class="button" value="Upload"/>
+                  </td>
+                </tr>
+              </table>
+            <% end %>
+            <% if current_user.has_role('Admin') %>
+              </div>
+              </div>
+              </div>
+            <%else%>
+          </td>
+        </tr>
+      </table>
+    <%end%>
+      <script type="text/javascript">
+        document.title = 'Add new fund to buy - Trusted Insight'
+        $('classified_fund_asset_id').focus();
+        $('classified_fund_asset_id').select();
+      </script>

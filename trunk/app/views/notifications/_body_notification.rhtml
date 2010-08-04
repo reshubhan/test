@@ -1,0 +1,5 @@
+<% if type.eql?'html' %>
+  <%= text_area_tag 'notification[body]', @notification.blank? ? nil : @notification.body, :class => "mceEditor", :style => "width:100%;height:350px;", :tabindex => "3" %>
+<% else %>
+  <%= text_area_tag 'notification[body]', @notification.blank? ? nil : @notification.body, :style => "width:100%;height:350px;", :tabindex => "3" %>
+<% end %>

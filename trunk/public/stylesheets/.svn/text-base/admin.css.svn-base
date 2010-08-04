@@ -1,0 +1,9 @@
+.advert-list{
+    margin-bottom: 10px;
+    max-height: 200px !important;
+    max-width: 200px !important;
+    height: 200px !important;
+    width: 200px !important;
+    overflow: auto !important;
+    border: 1px solid #cdcdcd;
+}

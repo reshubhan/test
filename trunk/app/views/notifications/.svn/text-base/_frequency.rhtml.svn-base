@@ -1,0 +1,5 @@
+<% if (@notification && @notification.mailer_type_id == 2) or frequency.eql?'weekly' %>
+  <span id="weekly" >On : <%= select_tag 'notification[iteration]',  options_for_select(Notification::WEEKDAYS.sort {|a,b| a[1]<=>b[1]}.collect {|k,v| [ k,v ]}, @notification.blank? ? nil : @notification.iteration )%></span>
+<% elsif (@notification && @notification.mailer_type_id == 3) or frequency.eql?'monthly' %>
+  <span id="monthly" >On : <%= select_tag 'notification[iteration]',  options_for_select(Notification::DAYS.collect {|k| [ k,k ]}, @notification.blank? ? nil : @notification.iteration) %></span>
+<% end %>

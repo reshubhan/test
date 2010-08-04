@@ -1,0 +1,23 @@
+#paypal related: sandbox
+business_certid: TFC423SKUF3GA
+#S7LQBD3EJSKS4
+paypal_url: 'http://www.paypal.com/cgi-bin/webscr'
+#'https://www.sandbox.paypal.com/ci-bin/webscr'
+paypal_cert_file: File::read("paypal_cert_pem.pem")
+#'paypal_cert.pem'
+business_email: Alex@trustedinsightinc.com
+#seller_1246388022_biz@aol.com
+
+# Buyer seller contact us mailer's subject and body
+SUBJECT: Responding to Your Secondary on Trusted Insight "!!manager_and_fund!!".
+SUBJECT_COMPANY: Responding to Your Direct/Co-Investment on Trusted Insight.
+CLASSIFIED_FUNDS_BUY_SUBJECT:   Responding to Your Buy Posting on Trusted Insight.
+CLASSIFIED_FUNDS_SELL_SUBJECT:  Responding to Your Sell Posting on Trusted Insight.
+BODY:  Hello,<br/><br/> "We are interested in discussing your position listed on Trusted Insight. Our contact info is below." [We suggest that you tell the other party a little about your organization or institution that you are representing].<br/><br/>Sincerely.
+
+#facebook
+FACEBOOK_API_KEY: d8860aa86f9d5cd7b528fc951d2c0466
+FACEBOOK_SECRET_KEY: f29d45f8e6a749e0cbfd6a09c1d9f267
+
+# Websnapr url
+WEBSNAPR_URL: "http://images.websnapr.com/?size=H&key=i56VJYo9cpew&url="

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/geographies
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2417/source/trunk/app/views/geographies/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/geographies/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2417/source/trunk/app/views/geographies/new.html.erb
+END
+_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2417/source/trunk/app/views/geographies/_results.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2417/source/trunk/app/views/geographies/_form.html.erb
+END

@@ -1,0 +1,14 @@
+<div >
+<h1>Add asset</h1>
+<div class="inner-center-form-box">
+  <% form_for :asset,:url => {:controller => "admin", :action => "create_asset"  } do |f| %>
+    <center><%= f.error_messages %></center>
+    <p  ><%= label_tag 'Enter Name' %><br/>
+    <%= f.text_field :name %></p>
+    <p>
+      <%= f.submit "Submit" %>
+    </p>
+  <% end %>
+</div>
+</div>
+<%#= link_to 'Back', :action=>'assets' %>

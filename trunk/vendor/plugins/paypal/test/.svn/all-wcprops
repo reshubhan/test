@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/test
+END
+helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/test/helper_test.rb
+END
+notification_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/test/notification_test.rb
+END

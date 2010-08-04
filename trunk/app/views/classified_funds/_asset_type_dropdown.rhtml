@@ -1,0 +1,1 @@
+<%= select_tag 'search[asset_type]', "<option>Any</option>" + options_from_collection_for_select(asset_types, :id, :name, @asset_type.to_i) %>

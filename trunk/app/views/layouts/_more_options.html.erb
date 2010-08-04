@@ -1,0 +1,10 @@
+<div class="more_option_div" id="add_new_field_div" name="add_new_field_div">
+
+  <div style="float:left;">
+    <%=  check_box_tag 'question[options]',true,true ,:class=>"question_type_option_checkbox"%>
+  </div>
+  <div>
+    <%= text_field 'question[options]',{},:class=>"option_field",:style=>"margin-top:10px;margin-left:10px;"%><br />
+  </div>
+  <a href="#" onclick="add_radio_option();">Add New Field</a>
+</div>

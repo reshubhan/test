@@ -1,0 +1,60 @@
+<% if @asset_type %>
+  <p><%= label_tag 'Asset Class' %></p>
+  <p><%= f.select 'parent_id', Asset.list.collect {|asset| [asset.name, asset.id]} %></p>
+ <!-- <p>
+    <%= label_tag 'Activate asset' %>
+    <%if @asset.active_asset==true%>
+      <input type="checkbox" name="asset[active_asset]" id="asset[active_asset]" value="<%= @asset.active_asset %>" checked="checked" />
+    <%else%>
+      <input type="hidden" name="asset[active_asset]"  value="0"  />
+      <input type="checkbox" name="active_asset"  value="1" />
+    <%end%>
+  </p>-->
+  <%= f.hidden_field :has_parent, :value => true %>
+<% end %>
+<p>
+  <% if @asset_type %>
+    <%= label_tag 'Type Name' %>
+  <% else %>
+    <%= label_tag 'Asset Name' %>
+  <% end %>
+</p>
+<p>
+  <% if @asset.id %>
+    <input type="hidden" name="asset[id]" value="<%= @asset.id %>"/>
+  <% end %>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <label>Pick one advertisement</label>
+</p>
+<div class="advert-list">
+  <% @adverts.each do |advert| %>
+    <input type="checkbox" name="asset[advert_ids][]" id="<%= advert.id %>" value="<%= advert.id %>" <% if @asset.adverts.include? advert %>checked="checked"<% end %>/>
+    <img src="<%=advert.public_filename(:thumb)%>"/> <%= advert.name %><br/>
+  <% end %>
+</div>
+<p>
+  <label>Pick the Sponsered Managers for this asset</label>
+</p>
+<div class="manager-list"><br />
+  <%i=1%>
+  <%unless @sponsered_managers.nil?%>
+  <% @sponsered_managers.each do|manager| %>
+    <%= text_field_tag "managerInput#{i}", manager.name, :class => "searchInput", :onfocus => "this.value = '';", :onblur => "if (this.value == '') { this.value = 'Manager #{i}'; }", :onkeydown => "submitSearchForm(event);" %>
+    <input id="managerHidden<%=i%>" name="manager[name<%=i%>]" type="hidden" value= "<%=manager.id%>"/>
+  <div class="yui-skin-sam">
+    <div id="managerContainer<%=i%>" ></div>
+  </div><br /><br />
+  <%i=i+1%>
+<% end %>
+<%end%>
+<% for j in i..4 %>
+  <%= text_field_tag "managerInput#{j}", "Manager #{j}", :class => "searchInput", :onfocus => "this.value = '';", :onblur => "if (this.value == '') { this.value = 'Manager #{j}'; }", :onkeydown => "submitSearchForm(event);" %>
+  <input id="managerHidden<%=j%>" name="manager[name<%=j%>]" type="hidden" value= ""/>
+  <div class="yui-skin-sam">
+    <div id="managerContainer<%=j%>" ></div>
+  </div><br /><br />
+<%end%>
+</div><br />
+<%= render :partial => 'autocomplete_script' %>

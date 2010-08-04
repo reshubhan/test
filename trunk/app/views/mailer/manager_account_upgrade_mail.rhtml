@@ -1,0 +1,81 @@
+<p><b>Global Investors are Looking to Invest in Your Funds.</b><br/></p>
+
+<p><i>Please note we are not a broker or a placement agent and take NO FEE from transactions resulting from our site.</i></p>
+
+<p>
+  Trusted Insight, Inc is a subscription based on-line matching tool which is connecting global institutional investor buyers and sellers.
+  Agents and Fund Managers have reported <b>over <%=number_to_currency(ClassifiedFund.total_desired_size.to_f*1000, :precision => 3)%> million of fundraising
+    transactions</b> taking place in off-line discussions.
+</p>
+
+<p>
+  <b>Trusted Insight empowers you to extend your relationship network allowing you to discover and to connect with investors that are interested in your in offerings. Trusted Insight institutional investor members:</b>
+<ul>
+  <li>Reside in over 50 countries.</li>
+  <li>Endowments, Foundations, Family Offices, Pensions, Fund of Funds, Insurance Co's and Government Pensions.</li>
+</ul>
+</p>
+
+<p>
+  Global Institional Investors are using the site because they desire:
+<ul>
+  <li>Targeted Deal Flow.</li>
+  <li>Sourcing a Diamond in the Rough.</li>
+</ul>
+</p>
+
+<p>
+  Currently on Trusted Insight, global institutional investors are looking to invest in Fund Managers and Co-Investments and have made <b><%=number_with_delimiter(ClassifiedFund.count(:all,:conditions=>" status='approved'").to_i, :precision => 3)%> postings
+  </b>representing <b>over <%= number_to_currency(ClassifiedFund.total_desired_size.to_f, :precision => 3) %> billion of demand.</b>
+</p>
+
+<br/>
+
+<table border="1px;!important" cellpadding="0px" cellspacing="0px;" >
+  <tr>
+    <th bgcolor="#E4E4E4">New Fund Asset Class </th>
+    <th bgcolor="#E4E4E4">Postings </th>
+    <th  bgcolor="#E4E4E4">Institutional Investor Demand </th>
+  </tr>
+  <% for asset in Asset.parents %>
+    <% if asset.get_total_new_funds > 0 %>
+    <tr>
+      <td align="center"><b><%= asset.name %></b></td>
+      <td align="center"><%= asset.get_total_new_funds.round(2) %></td>
+      <%= total_size = asset.get_total_new_fund_size.to_f %>
+      <td align="center"> <%  if total_size > 1 %> <%= number_to_currency(total_size, :precision => 2) %> Billion <%else%> <%= number_to_currency(total_size*1000, :precision => 2) %> Million <%end%> </td>
+    </tr>
+    <%end%>
+  <%end%>
+</table>
+
+<br/>
+
+<p style="background-color: #f00;">
+  <b>Trusted Insight has been quoted the following:</b>
+<ul>
+  <li style="background-color: #f00;">   “Great sourcing tool for Fund Managers and Agents”</li>
+
+  <li style="background-color: #f00;">   “This is the Realtor.com for Placement Agents”</li>
+
+  <li style="background-color: #f00;">   “Outsourced Fundraising Analyst”</li>
+</ul>
+</p>
+
+<p>
+  To begin sending messages and contacting any of these institutional investor postings, please sign in and upgrade your account now at www.trustedinsightinc.com.
+  Or Click to Upgrade <%=@url%>
+</p>
+
+<p>
+  If you have any questions, please contact the Trusted Insight Team at <a href="mailto:info@trustedinsightinc.com">info@trustedinsightinc.com</a>.
+</p>
+
+<p>
+  Sincerely,<br/>
+  Trusted Insight Team
+</p>
+
+<p>
+  <b>Trusted Insight, Inc.</b> (TII) is an on-line community and classifieds dedicated to alternative investments. The site features free classifieds of new funds, secondaries and co-investments. TII also allows qualified institutional investors to review, source, and comment on managers. TII is the leading user generated content site for financial information on global alternative investments (i.e. – private equity, venture capital, real assets and hedge funds). TII’s mission is to assist institutional investors in fulfilling their fiduciary duties and increase transparency of information in the alternative investments community. TII’s aspiration is to be the leading global alternative investments distribution platform for institutional investors. TII was founded in 2008 and is a Delaware Incorporated Company. The Founders have relevant industry experience as institutional investors and trusted advisors. Combined, the Founders have over 30 years of professional experience working for top organizations such as CalPERS, Robert Wood Johnson Foundation, Lucent, Bell Labs and AT&T. TII’s founders have invested over $4 billion in more than 200 alternative investments globally and have been on 20 plus board seats.
+</p>

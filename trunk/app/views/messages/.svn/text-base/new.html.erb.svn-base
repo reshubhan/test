@@ -1,0 +1,9 @@
+
+<% form_for(@message) do |f| %>
+  <center><%= f.error_messages %></center>
+  <%= render :partial => "form", :locals => {:f => f} %>
+  <p align="center">
+    <%= f.submit "Send" %>
+    <input type="button" onclick="window.parent.closeIframe();" value="Cancel"/>
+  </p>
+<% end %>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/trustedinsight/!svn/ver/1087/source/trunk/config/paypal
+END
+private_key.pem
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/1059/source/trunk/config/paypal/private_key.pem
+END
+paypal_cert.pem
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/672/source/trunk/config/paypal/paypal_cert.pem
+END
+paypal_cert_pem.pem
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/1087/source/trunk/config/paypal/paypal_cert_pem.pem
+END
+trusted-prvkey.pem
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/672/source/trunk/config/paypal/trusted-prvkey.pem
+END
+public_cert.pem
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/1059/source/trunk/config/paypal/public_cert.pem
+END
+trusted-pubcert.pem
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/672/source/trunk/config/paypal/trusted-pubcert.pem
+END

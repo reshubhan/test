@@ -1,0 +1,80 @@
+<div class="pagelink">
+  <% if not @manager.belongs_to_user(current_user) %>
+    <div style="margin-left:8px;float:left;border:1px solid #fff;margin-top:10px;">
+      <%= link_to_redbox("Write a Review", "write_a_review") %>
+    </div>
+  <% end %>
+  <%= page_entries_info @comments %><%= will_paginate @comments, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'managers', :action => 'show',
+      :loading => "$('loading').style.display=''",
+      :complete => "$('loading').style.display='none'",
+      :inner_window => 1,
+      :Outer_window => 0,} %>
+</div>
+
+<div id="write_a_review" style="display:none;">
+  <%= render :partial => "managers/comments_page", :locals => {:manager => @manager, :parent_id => 0, :reply_title => nil} %>
+</div>
+
+<% @comments.each do |comment| %>
+  <div class="topcommentsimage2">
+    <table align="right" style="float:right;" cellpadding="0" cellspacing="0">
+      <tr align="right">
+        <td><b>Relationship : </b><%= comment.relationship %></td>
+      </tr>
+      <tr align="right">
+        <td><b>Experience in Alternative Investments &nbsp; : </b><%= comment.experience_level %></td>
+      </tr>
+    </table>
+    <p><b><%= comment.user.login %></b> wrote <%= time_ago_in_words(Time.at(comment.created_at.to_i)) %> ago</p>
+    <p><i><b><%= comment.title %></b></i></p>
+    <p><i><%= comment.body %></i></p>
+  </div>
+  <div class="topcommentsimage3" style="border:1px solid none; background-color:#f2f1f1;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+      <tr>
+        <td width="100%" >
+          <div id="flag_info_<%=comment.id%>" class="flagged"><% if comment.flag %>*The comment have been flagged.<% end %></div>
+        </td>
+        <% if not comment.user.login==current_user.login %>
+          <td >
+            <div>
+              <%# if current_user.replies != 0 %>
+                <%= link_to_redbox("Reply", "reply_"+comment.id.to_s) %>
+                <div id="reply_<%= comment.id.to_s %>" style="display:none">
+                  <%= render :partial => "managers/comments_page", :locals => {:manager => @manager, :parent_id => comment.id, :reply_title => 'Re:'+ comment.title} %>
+                </div>
+              <%# else %>
+                <%#= link_to_redbox("Reply", "upgrade") %>
+                <%#*<div id="upgrade" style="display:none;">%>
+                  <%#= render :partial => "users/upgrade_membership", :locals => {:upgrade_message => nil} %>
+                <%#*</div>%>
+              <%# end %>
+            </div>
+          </td>
+          <td>
+            <div class="thumbsup">
+              <%= link_to_remote image_tag("/images/thumbs_up.png", :size => "20x20"), :url => {:controller=>'comments', :action => "rate_comment", :id => comment.id, :rate => 'up' } %>
+            </div>
+          </td>
+          <td>
+            <div id="up_count_<%=comment.id%>" class="count_up"><%= CommentRatings.find(:all, :conditions => "comment_id = #{comment.id} and rate = 'up'").size %></div>
+          </td>
+          <td>
+            <div class="thumbsdown">
+              <%= link_to_remote image_tag("/images/thumbs_down.png", :size => "20x20"), :url => {:controller=>'comments', :action => "rate_comment", :id => comment.id, :rate => 'down' } %>
+            </div>
+          </td>
+          <td>
+            <div id="down_count_<%=comment.id%>" class="count_down"><%= CommentRatings.find(:all, :conditions => "comment_id = #{comment.id} and rate = 'down'").size %></div>
+          </td>
+
+          <td width="24" >
+            <div id="flag_<%=comment.id%>" class="moreF1">
+              <%= link_to_remote (comment.flag ? image_tag("/images/flag_manager_glow.jpg", :size => "20x20") : image_tag("/images/flag_manager.jpg", :size => "20x20")), :url => {:controller=>'comments', :action => "add_flag", :id => comment.id } %>
+            </div>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+<% end %><br />

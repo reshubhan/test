@@ -1,0 +1,87 @@
+<div style="width:370px;">
+  <%= render :partial => "/main/popup_close" %>
+  <% form_tag :controller => "managers", :action => "save_comment" do -%>
+
+    <%= hidden_field_tag(:id, @manager.id) %>
+    <input type="hidden" name="parent_id" value="<%=parent_id%>">
+    <div>
+      <div class="commentBoxMain">
+        <div class="commentBoxInner">
+          <%= render :partial => "layouts/form_header", :locals => {:heading => "Comments"} %>
+          <br/>
+          Title :
+          <% if not reply_title %>
+            <input name="comment[title]" >
+          <% else %>
+            <%= text_field(:comment, :title, :value => reply_title) %>
+          <% end %>
+          <br/>
+          Comment : (2000 characters) <%= text_area :comment, :body, :rows=>5, :cols=>30, :onkeydown => "reviewbodycount(this,'message_counter',2000);" %>
+		  <span class="small_textGray" style="padding-top:5px;">
+        </span> </div>
+        <% if not @manager.belongs_to_user(current_user) %>
+          <div class="commentBox1"> <span class="commentBoxOrangeText">
+              <h6>Choose an identity</h6>
+            </span>
+            <table width="100%" border="0" cellspacing="3" cellpadding="0" align="left">
+              <tr>
+                <td> <%= radio_button "comment", "user_id", 1, :checked => true, :style => "width:30px;border:0 none;" %><%= label_tag 'Anonymous' %> </td>
+              </tr>
+              <tr>
+                <td> <%= radio_button "comment", "user_id", current_user.id, :style => "width:30px;border:0 none;" %><%= label_tag 'Name/URL' %> </td>
+              </tr>
+            </table>
+          </div>
+          <div class="commentBox2"> <span class="commentBoxOrangeText">
+              <h6>Choose your relationship</h6>
+            </span>
+            <table width="100%" border="0" cellspacing="3" cellpadding="0" align="left">
+              <tr>
+                <td> <%= radio_button "comment", "relationship", "Current Investor", :style => "width:30px;border:0 none;", :checked => true %><%= label_tag 'Current Investor' %> </td>
+              </tr>
+              <tr>
+                <td> <%= radio_button "comment", "relationship", "Past Investor", :style => "width:30px;border:0 none;" %><%= label_tag 'Past Investor' %> </td>
+              </tr>
+              <tr>
+                <td> <%= radio_button "comment", "relationship", "They pitched to me", :style => "width:30px;border:0 none;" %><%= label_tag 'They pitched to me' %> </td>
+              </tr>
+              <tr>
+                <td> <%= radio_button "comment", "relationship", "Considering investment", :style => "width:30px;border:0 none;" %><%= label_tag 'Considering investment' %> </td>
+              </tr>
+              <tr>
+                <td> <%= radio_button "comment", "relationship", "Other", :style => "width:30px;border:0 none;" %><%= label_tag 'Other' %> </td>
+              </tr>
+            </table>
+          </div>
+          <div class="commentBox3">
+            <span class="commentBoxOrangeText">
+              <h6>Experience in Alternative Investments</h6>
+            </span>
+            <table width="100%" border="0" cellspacing="3" cellpadding="0" align="left">
+              <tr>
+                <td> <%= radio_button "comment", "experience_level", "0-5 years", :checked => true, :style => "width:30px;border:0 none;" %><%= label_tag '0-5 years' %> </td>
+              </tr>
+              <tr>
+                <td> <%= radio_button "comment", "experience_level", "5-10 years", :style => "width:30px;border:0 none;" %><%= label_tag '5-10 years' %> </td>
+              </tr>
+              <tr>
+                <td> <%= radio_button "comment", "experience_level", "10+ years", :style => "width:30px;border:0 none;" %><%= label_tag '10+ years' %> </td>
+              </tr>
+            </table>
+          </div>
+        <% end %>
+        <div align="center">
+          <%= submit_tag "Submit", :class => "small_button" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+	function limitText(limitField, limitCount, limitNum) {
+		if ($(limitField).value.length > limitNum) {
+			$(limitField).value = $(limitField).value.substring(0, limitNum);
+		}
+		//$(limitCount).innerHTML = limitNum - $(limitField).value.length;
+	}
+</script>	

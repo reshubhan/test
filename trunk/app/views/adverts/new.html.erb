@@ -1,0 +1,39 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      New Advertisment
+    </h3>
+    <div style="float: right;margin: 10px;"><%= link_to 'Back', adverts_path, :class => "button" %></div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <% form_for(@advert, :url => {:controller => "adverts", :action => "create"},:html => { :multipart => true }) do |f| -%>
+        <%= f.error_messages %>
+        <table>
+          <tr>
+            <td><label for="advert">Advertisment Name:</label></td>
+            <td><%= f.text_field :name, :style => "width:220px !important;" %><br/></td>
+          </tr>
+          <tr>
+            <td><label for="advert">Advertisment Link:</label></td>
+            <td>http://<%= f.text_field :link, :style => "width:220px !important;" %><br/></td>
+          </tr>
+          <tr>
+            <td><label for="advert">Upload An Image:</label></td>
+            <td><%= f.file_field :uploaded_data %></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td>&nbsp;</td>
+            <td><%= submit_tag 'Create' , :class => "button"%></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

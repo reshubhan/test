@@ -1,0 +1,131 @@
+<div style="width:520px;" align="center">
+  <%= render :partial => "/main/popup_close" %>
+  <%= render :partial => "layouts/form_header", :locals => {:heading => "Upgrade Membership"} %>
+  <% if not upgrade_message.nil? %>
+    <div>
+      <p>If you would like to use this feature now, you need to upgrade your account.</p>
+    </div>
+  <% end %>
+  <%@role=current_user.plan.role%>
+  <% @plan = current_user.plan %>
+  <div style="border:1px solid #cdcdcd;margin:20px;">
+    <table width="80%" cellpading="2" cellspacing="3" border="0" style="padding:10px;">
+      <tr><td align="left"><b>Role</b></td><td align="left"><b>:</b> <%= @role.title %></td></tr>
+      <tr><td align="left"><b>Plan</b></td><td align="left"><b>:</b> <%= @plan.name%></td></tr>
+      <% if @plan.name!="Basic" %><tr><td align="left"><b>Duration</b></td><td align="left"><b>:</b> <%= @plan.duration%></td></tr><% end %>
+      <tr><td align="left" colspan="2"><b>Your upgrade options:</b></td></tr>
+      <tr>
+      <td class="clickhereLink" colspan="2">
+      <div style="width:400px;text-align:left;">
+        <% plansList = Plan.find(:all, :conditions => "status=1 and role_id=#{@role.id}", :order => 'rank' ) %>
+        <table class="sub-plans" cellpadding="0" cellspacing="0" border="0">
+          <tr class="plans">
+            <th rowspan="2" style="background:#FDDC96 none repeat scroll 0 0;border-right:1px solid #EEC965; border-left:1px solid #EEC965; line-height:18px;
+                padding:12px 0; color:#FF6600; font-weight:bold; text-align:center;">
+              <h2 align="center">Plan Type</h2>
+            </th>
+          </tr>
+          <tr>
+            <% for plan in plansList %>
+              <% if @plan.rank < plan.rank %>
+                <td style="background-color:#FDDC96;">
+                  <h2><%=plan.name%></h2>
+                  <font size="2"><%= plan.duration %></font><br/>
+                  <b>
+                    <% if @role.id==2 || @role.id==3 %>
+                      <%= link_to 'Upgrade', :controller => 'users', :action => 'upgrade_plan', :id => plan.id %>
+                    <%else%>
+                      <%= link_to 'Upgrade', :controller => 'users', :action => 'upgrade_membership', :id => plan.id %>
+                    <% end %>
+                                    
+                  </b>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr class="strong">
+            <th style="border-left:1px solid #eec965;">Number of fund and secondary views</th>
+            <% for plan in plansList %>
+              <% if @plan.rank < plan.rank %>
+                <td>
+                  <% if plan.no_of_views == -1 %>
+                    Unlimited
+                  <% else %>
+                    <%=plan.no_of_views%>
+                  <% end %>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <th style="border-left:1px solid #eec965;">Email to buyers and sellers</th>
+            <% for plan in plansList %>
+              <% if @plan.rank < plan.rank %>
+                <td>
+                  <% if plan.no_of_emails == -1 %>
+                    Unlimited
+                  <% else %>
+                    <%=plan.no_of_emails%>
+                  <% end %>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <th style="border-left:1px solid #eec965;">Post funds and secondaries to buy</th>
+            <% for plan in plansList %>
+              <% if @plan.rank < plan.rank %>
+                <td><img src="../images/selectButton.gif" height="16px" width="16px" alt="yes"/></td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <th style="border-left:1px solid #eec965;">
+              Post
+              <% if not @role.id == 1 %>
+                funds and
+              <% end %>
+              secondaries to sell
+            </th>
+            <% for plan in plansList %>
+              <% if @plan.rank < plan.rank %>
+                <td><img src="../images/selectButton.gif" height="16px" width="16px" alt="yes"/></td>
+              <% end %>
+            <% end %>
+          </tr>
+          <tr>
+            <th style="border-left:1px solid #eec965;">Subscription fees</th>
+            <% for plan in plansList %>
+              <% if @plan.rank < plan.rank %>
+                <td>
+                  <% if plan.fee %>
+                    <% if plan.fee == 0 %>
+                      FREE
+                    <% elsif plan.fee == -1 %>
+                      <a href="mailto:info@trustedinsightinc.com">Contact Us</a>
+                    <% else %>
+                      <%= number_to_currency(plan.fee) %><br/>
+                      <b style="font-size:11px;">
+                        <% if plan.duration.eql?('Two Years') %>
+                          <% if @role.id == 1  and plan.name.eql?('Plus')%>
+                            (<%= number_to_currency(395) %> Discount)
+                          <% elsif @role.id == 1  and plan.name.eql?('Premium')%>
+                            (<%= number_to_currency(995) %> Discount)
+                          <% elsif @role.id == 3 and plan.name.eql?('Plus')%>
+                            (<%= number_to_currency(995) %> Discount)
+                          <% end %>
+                        <% end %>
+                      </b>
+                    <% end %>
+                  <% else %>
+                    <a href="#">Contact Us</a>
+                  <% end %>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+    </table>
+  </div>
+</div>

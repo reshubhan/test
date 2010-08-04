@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/trustedinsight/!svn/ver/2795/source/trunk/config
+END
+facebooker.yml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/trustedinsight/!svn/ver/2719/source/trunk/config/facebooker.yml
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/trustedinsight/!svn/ver/2795/source/trunk/config/routes.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/trustedinsight/!svn/ver/2651/source/trunk/config/database.yml
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/trustedinsight/!svn/ver/4/source/trunk/config/boot.rb
+END
+config.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/trustedinsight/!svn/ver/2651/source/trunk/config/config.yml
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/trustedinsight/!svn/ver/2658/source/trunk/config/environment.rb
+END
+amazon_s3.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/trustedinsight/!svn/ver/314/source/trunk/config/amazon_s3.yml
+END
+asset_packages.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/trustedinsight/!svn/ver/2678/source/trunk/config/asset_packages.yml
+END
+schedule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/trustedinsight/!svn/ver/2774/source/trunk/config/schedule.rb
+END

@@ -1,0 +1,30 @@
+<td align="center" colspan="2" style="font-size:11px;"> Institutional Investor Ratings <b>(<%= manager.ratings.size.to_s %>)</b></td>
+</tr>
+<tr>
+  <th class="starratefont" >Performance :</th>
+  <th><div id="current-star-rating" class="star-rating" style="width:110px;text-align:right;background-image:url('/images/stars/stars_<%=manager.rating_summary('performance').to_i%>0.gif')"> <%= number_with_precision(manager.rating_summary('performance'), 1) %></div></th>
+</tr>
+<tr>
+  <th class="starratefont" >Team : </th>
+  <th><div id="current-star-rating" class="star-rating" style="width:110px;text-align:right;background-image:url('/images/stars/stars_<%=manager.rating_summary('team').to_i%>0.gif')"> <%= number_with_precision(manager.rating_summary('team'), 1) %></div></th>
+</tr>
+<tr>
+  <th class="starratefont" >Strategy : </th>
+  <th><div id="current-star-rating" class="star-rating" style="width:110px;text-align:right;background-image:url('/images/stars/stars_<%=manager.rating_summary('strategy').to_i%>0.gif')"> <%= number_with_precision(manager.rating_summary('strategy'), 1) %></div></th>
+</tr>
+<tr>
+  <th class="starratefont" >Terms : </th>
+  <th><div id="current-star-rating" class="star-rating" style="width:110px;text-align:right;background-image:url('/images/stars/stars_<%=manager.rating_summary('terms').to_i%>0.gif')"> <%= number_with_precision(manager.rating_summary('terms'), 1) %></div></th>
+</tr>
+<tr>
+  <th class="starratefont" >Overall : </th>
+  <th><div id="current-star-rating" class="star-rating" style="width:110px;text-align:right;background-image:url('/images/stars/stars_<%=manager.rating.to_i%>0.gif')"> <%= number_with_precision(manager.rating, 1)%></div></th>
+</tr>
+
+
+
+
+
+
+
+

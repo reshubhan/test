@@ -1,0 +1,34 @@
+<div style="width:100%;margin-left:-20px;">
+  <div style="min-height:100px;max-height:350px;overflow:auto;">
+    <% assets = Asset.parents %>
+    <% assets.each do |asset| %>
+      <div style="width:100%; font-size:13px; ">
+        <input id="asset<%= asset.id %>" style="border:0 none;width:auto;height:auto;" type="checkbox" name="<%= id %>[]" value="<%= asset.id %>"/>
+        <b><%= asset.name %></b>
+      </div>
+      <div style="width:100%;">
+        <ul style="margin-left:40px;">
+          <% asset_types = Asset.find(:all, :conditions => "parent_id='#{asset.id}'") %>
+          <% asset_types.each do |asset_type| %>
+            <li style=" font-size:11px;color:#000;width:100%;padding:0px;line-height:13px;">
+              <input id="asset<%= asset_type.id %>" style="border:0 none;width:auto;height:auto;" type="checkbox" name="<%= id %>[]" value="<%= asset_type.id %>"/>
+              <%= asset_type.name %>
+              <ul style="margin-left:40px;">
+                <% asset_sub_types = Asset.find(:all, :conditions => "parent_id='#{asset_type.id}'") %>
+                <% asset_sub_types.each do |asset_sub_type| %>
+                  <li style=" font-size:11px !important;color:#000;width:100%;padding:0px;line-height:13px;">
+                    <input id="asset<%= asset_sub_type.id %>" style="border:0 none;width:auto;height:15px;" type="checkbox" name="<%= id %>[]" value="<%= asset_sub_type.id %>"/>
+                    <i><%= asset_sub_type.name %></i>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div style="width:100%; background-color:#e0e0e0;height:30px;margin-left:0px;">
+    <%= submit_tag "Ok", :class => "button" %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/test/assets/stylesheets/subdir
+END
+foo.css
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/test/assets/stylesheets/subdir/foo.css
+END
+bar.css
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/test/assets/stylesheets/subdir/bar.css
+END

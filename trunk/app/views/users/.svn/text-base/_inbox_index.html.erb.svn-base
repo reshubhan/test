@@ -1,0 +1,34 @@
+<table class="msgs" cellspacing="0">
+  <tr>
+    <tr>
+      <th class="small"><input id="checkall" name="check_all" type="checkbox" onclick="check_all();"/></th>
+      <th>From</th>
+      <th>Subject</th>
+      <th class="small">&nbsp;</th>
+      <th>Status</th>
+      <th>Date</th>
+    </tr>
+  </tr>
+  <%if !@messages.blank?%>
+    <%for message in @messages %>
+      <%= message_row(message) %>
+    <%end%>
+  <%else%>
+    <tr><td colspan="6" style="text-align:center;">
+        No Message Found.
+      </td>
+    </tr>
+  <%end%>
+</table>
+<%for message in @messages %>
+  <div id="message_display_<%=message.id%>" style="display:none;padding:20px;width:800px;max-height:200px;overflow:auto;">
+    <%= render :partial => "users/message_content" , :locals => {:message => message} %>
+  </div>
+<%end%>
+
+<%= will_paginate @messages, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'messages', :action => "#{@type}_messages"} %>
+
+
+
+
+

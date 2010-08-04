@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/trustedinsight/!svn/ver/832/source/trunk/app/views/simple_captcha
+END
+_simple_captcha.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/832/source/trunk/app/views/simple_captcha/_simple_captcha.erb
+END

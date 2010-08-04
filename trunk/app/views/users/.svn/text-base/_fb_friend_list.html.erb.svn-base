@@ -1,0 +1,27 @@
+<div>
+  <% user = User.find(current_user.id) %>
+  <div id="login_div" style="margin-left:145px;margin-top:10px;text-align:left;<% unless !current_user.nil? and not (session[:facebook_session] and session[:facebook_session].user) %>display: none<%end%>" >
+    <%= fb_login_button "facebook_login('setting')", :text=> "Click to login to Facebook", :v=>2 ,:onclick =>"show_login_button('login_button');"%>
+  </div>
+  <div id="friend_div" style="<% if !current_user.nil? and not(session[:facebook_session] and session[:facebook_session].user) %>display: none<%end%>" >
+    <fb:serverfbml>
+      <script type='text/fbml'>
+          <fb:fbml>
+<% content_for("invite_message") do %>
+  <%=user.profile.firstname%> <%= user.profile.lastname%> wants you to sign up for Trusted Insight. You should
+    give it a try! Trusted Insight helps institutional investors get targeted
+    deal flow and discover new managers of interest.  You can also use it for
+    direct deals and secondaries.
+  <%= fb_req_choice("Accept","#{APP_CONFIG['FACEBOOK_CALLBACK_URL']}/facebook/accept_invite/#{current_user.id}") %>
+<% end %>
+<% fb_request_form("Trusted Insight", "invite_message", "#{APP_CONFIG['FACEBOOK_CALLBACK_URL']}/facebook/sent_invite") do %>
+  <%= fb_multi_friend_selector("Invite Friends to Trusted Insight",:cols => 2, :invite => false, :import_external_friends=>false, :email_invite=> false) %>
+<%end%>
+    </fb:fbml>
+      </script>
+    </fb:serverfbml>
+  </div>
+
+</div>
+<br/>
+

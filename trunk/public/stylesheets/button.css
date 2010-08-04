@@ -1,0 +1,40 @@
+/************ Button ************/
+.button {
+    -moz-background-clip:border !important;
+    -moz-background-inline-policy:continuous !important;
+    -moz-background-origin:padding !important;
+    border-color:#747474 !important;
+    display: inline-block !important;
+    background: #858585 url('../images/bg-button-gray.gif') repeat-x scroll left top !important;
+    border: 1px solid #747474 !important;
+    padding: 0px 7px !important;
+    color: #fff !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    -moz-border-radius-bottomleft:4px !important;
+    -moz-border-radius-bottomright:4px !important;
+    -moz-border-radius-topleft:4px !important;
+    -moz-border-radius-topright:4px !important;
+    font-size-adjust:none !important;
+    font-stretch:normal !important;
+    font-style:normal !important;
+    font-variant:normal !important;
+    font-weight:normal !important;
+    line-height:normal !important;
+    margin-bottom:10px !important;
+    cursor:pointer !important;
+    width: auto !important;
+    height: auto !important;
+} .button:hover {
+    text-decoration: underline;
+} .button:active {
+    padding: 0px 7px !important;
+}
+
+a.remove-link {
+    color: #bb0000;
+}
+
+a.remove-link:hover {
+    color: #000;
+}

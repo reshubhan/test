@@ -1,0 +1,6 @@
+Hello <%= @user.profile.firstname %> <%= @user.profile.lastname %>,
+
+Your account have been activated as a free user, you may now proceed with the login using your login credentials.
+
+Sincerely
+Trusted Insight

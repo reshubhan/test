@@ -1,0 +1,63 @@
+<div style="width:153px;padding:3px 0px 3px 0px"><h4 style="font-size:13px;color:#666666;">Browse</h4></div>
+<div class="filterText">
+  <ul>
+    <li><%=link_to_remote "Most Popular",:url =>{:controller => 'managers', :action => 'filter_results',
+        :browseby => 'popular' , :asset=> @asset, :geography=>@geography, :sector =>@sector,:time=>@time, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer },
+        :loading => "show_loading();", :complete => "hide_loading();",
+        :html => {:class => "", :id => "browsepopular"}%></li>
+    <li><%=link_to_remote "Recently Added",:url =>{:controller => 'managers', :action => 'filter_results',
+        :browseby => 'recent' , :asset=> @asset, :geography=>@geography, :sector =>@sector,:time=>@time, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer },
+        :loading => "show_loading();", :complete => "hide_loading();",
+        :html => {:class => "", :id => "browserecent"}%></li>
+    <li><%=link_to_remote "Highest Rated",:url =>{:controller => 'managers', :action => 'filter_results',
+        :browseby => 'rated' , :asset=> @asset, :geography=>@geography, :sector =>@sector,:time=>@time, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer },
+        :loading => "show_loading();", :complete => "hide_loading();",
+        :html => {:class => "", :id => "browserated"}%></li>
+  </ul>
+</div>
+<div id="asset_label" style="width:153px;padding:3px 0px 3px 0px;"><h4 style="font-size:13px;color:#666666;">Assets</h4></div>
+<%= render :partial => "managers/asset_filter_list" %>
+<div style="width:153px;padding:3px 0px 3px 0px;"><h4 style="font-size:13px;color:#666666;">Geography</h4></div>
+<div class="filterText">
+  <ul>
+    <li><%= link_to_remote "All",:url =>{:controller => 'managers', :action => 'filter_results',
+        :geography=>'All',:asset => @asset,:browseby => @browseby , :sector =>@sector,:time=>@time, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer },
+        :loading => "show_loading();", :complete => "hide_loading();",:html => {:class => "", :id => "geographyAll"}%></li>
+      <% Geography.find(:all, :order => 'name').each do |geography| %>
+      <li><%= link_to_remote geography.name,:url =>{:controller => 'managers', :action => 'filter_results',
+          :geography=>geography.id,:asset => @asset,:browseby => @browseby , :sector =>@sector,:time=>@time, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer },
+          :loading => "show_loading();", :complete => "hide_loading();",:html => {:class => "", :id => "geography#{geography.id}"}%></li>
+      <% end %>
+  </ul>
+</div>
+<div style="width:153px;padding:3px 0px 3px 0px;"><h4 style="font-size:13px;color:#666666;">Sector</h4></div>
+<%url="&asset=#{@asset}&geography=#{@geography}&browseby=#{@browseby}&time=#{@time}&size_min=#{@sizemin}&size_max=#{@sizemax}&buyer=#{@buyer}&open=#{@open}&seller=#{@seller}"%>
+<!--<div id="url" value="<%#=url%>" />-->
+<div class="filterText">  
+  <ul>
+    <%= select_tag "sector", "<option>All</option>" + options_for_select(Sector.list.collect{|c| [c.name, c.id]}, @sector.to_i), :onchange=> "get_name('"+url+"');" %>
+  </ul>
+</div>
+
+
+<script type="text/javascript">
+  
+  $('browse<%=@browseby%>').className = 'selected';
+  $('geography<%=@geography%>').className = 'selected';
+  $('asset<%=@asset%>').className = 'selected';
+ 
+  function show_sectors(ele_id){
+    $(ele_id).show();
+    $(ele_id).style.position = "absolute";
+  }
+  function hide_sectors(ele_id){
+    $(ele_id).hide();
+  }
+  function show_assets(ele_id){
+    show_sectors(ele_id);
+  }
+  function hide_assets(ele_id){
+    hide_sectors(ele_id);
+  }
+  
+</script>

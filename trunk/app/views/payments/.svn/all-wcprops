@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/trustedinsight/!svn/ver/626/source/trunk/app/views/payments
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/626/source/trunk/app/views/payments/index.html.erb
+END
+thanks.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/480/source/trunk/app/views/payments/thanks.html.erb
+END
+sorry.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/480/source/trunk/app/views/payments/sorry.html.erb
+END

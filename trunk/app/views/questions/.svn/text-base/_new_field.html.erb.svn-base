@@ -1,0 +1,5 @@
+<div id="multiplechoice<%=@num%>">
+  <input type="text" size="60" name="question[option][]" style="width: auto;"/>
+  <%=check_box_tag('question[default][]',true,true)%>
+  <%=image_tag("delete.png" ,:onclick =>"remove_field('multiplechoice',#{@num});", :class => "ques-delete") %>
+</div>

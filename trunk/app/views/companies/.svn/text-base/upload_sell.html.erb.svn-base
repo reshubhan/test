@@ -1,0 +1,166 @@
+<table width="100%" align="center" cellpadding="2" cellspacing="3" border="0" style="color:#666666;">
+  <tr>
+    <td colspan="1" width="100%" valign="top" class="buy_selltitleText" style="margin:0px;padding:0px;">
+      <%= render :partial => "layouts/form_header", :locals => {:heading => "Post a description of a Direct/Co-Investment to #{@company.company_type}"} %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <% form_for(@company) do |f| %>
+        <center><%= f.error_messages %></center>
+        <%= f.hidden_field :company_type, :value => @company.company_type%>
+        <table class="company_tosell_table">
+          <tr><td valign="top"></td><td> <%= render :partial => "layouts/mandatory_info" %></td></tr>
+          <tr>
+            <td class="required_company_tosell" valign="top"><b class="required_mark">*</b><%= label_tag 'Asset Class' %></td>
+            <td class="form_fields" valign="top">
+              <%= select('company', 'asset_id', Asset.list_parents.collect {|s| [s[:label], s[:val]]}, {}, {:onchange =>"get_asset_types('company_asset_id', 'company'); return false;"}) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="fields" align="right" ><%= label_tag 'Asset Type' %></td>
+            <td id="assettypes" class="form_fields" valign="top"  style="font-size:11px;">
+              <% if @company.asset %>
+                <%= select_tag 'company[asset_type_id]', '<option></option>' + options_from_collection_for_select(Asset.find(:all, :conditions => "parent_id='#{@company.asset_id}'"), 'id', 'name'), { :style => "height:20px;" }%>
+              <% else %>
+                <select></select>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="required_company_tosell" valign="top"><%= label_tag 'revenue_per_year' %></td>
+            <td >
+              <%= f.text_field :revenue_per_year, :style => "width:108px;", :onkeypress => "return allowNumbersOnly(event);" %>
+              <%= f.select 'currency', Currency.list.collect {|currency| [currency.name, currency.id]},{}, :style => "height:24px;width:60px !important;" %>
+            </td>
+          </tr>
+          <tr>
+            <td class="required_company_tosell" valign="top"><%= label_tag 'EBITDA' %></td>
+            <td >
+              <%= select_tag 'company[target_ebitda]', options_for_select(Company::TARGET_EBITDA,'<$5M'), { :style => "height:24px;width:110px !important;" }%>
+              <%= f.select 'currency', Currency.list.collect {|currency| [currency.name, currency.id]},{}, :style => "height:24px;width:60px !important;" %>
+            </td>
+          </tr>
+          <tr>
+            <td  class="required_company_tosell" valign="top"><%= label_tag 'new_financing?' %></td>
+            <td align="left" >
+              <%= f.radio_button :new_financing, true, :style => "width:30px;border:0 none;" %><%= label_tag 'Yes' %>
+              <%= radio_button "company", "new_financing", false, :checked => true, :style => "width:30px;border:0 none;" %><%= label_tag 'No' %>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="fields" valign="top"><b class="required_mark">*</b><%= label_tag 'Transaction Size' %></td>
+            <td class="form_fields" valign="top">
+              <%= select('company', 'desired_size_id', DesiredSize.find(:all, :conditions => "name != '>$20M'").collect {|s| [s.name, s.id]}) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="required_company_tosell" valign="top"><%= label_tag 'Geography' %></td>
+            <td class="form_fields" valign="top">
+            <%= f.select 'geography_id', Geography.list.collect {|geography| [geography.name, geography.id]},{:prompt=>"Any"} %>
+            </td>
+          </tr>
+          <tr>
+            <td class="required_company_tosell" valign="top"><%= label_tag 'Sector' %></td>
+            <td class="form_fields" valign="top" align="left" >
+              <div  class="assettype_check">
+                <span><%=radio_button_tag  'company[sector_ids][]',"All available",true,{:style => "width:20px;border:0px;", :onclick=>"hide_sectors('all_sectors');" }%></span>
+                <label><%="All available"%></label><br />
+                <span><%=radio_button_tag  'company[sector_ids][]',"Let me choose",false,{:style => "width:20px;border:0px;"  , :onclick=>"select_sectors('all_sectors');"}%></span>
+                <label><%="Let me choose"%></label>
+                <% display_style = "display:none" %>
+                <div id="all_sectors" style="<%= display_style %>">
+                  <%Sector.find(:all).each do |sector|%>
+                    <%=check_box_tag  'company[sector_ids][]',sector.id,true,{:style => "margin-top:0px;width:25px;border:0px;" } %>
+                    <label><%=sector.name%></label><br />
+                  <%end%>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="required_company_tosell" valign="top"><%= f.label :type_of_financing %></td>
+            <td class="form_fields" valign="top">
+            <%= select('company', 'type_of_financing', Company::TYPE_OF_FINANCING.collect {|s| [s, s]}) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="required_company_tosell" valign="top"><%= f.label :posted_by %></td>
+            <td class="form_fields" valign="top">
+            <%= select('company', 'posted_by', Company::POSTED_BY.collect {|s| [s, s]}) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="required_company_tosell" valign="top"><%= label_tag 'Description' %></td>
+            <td class="form_fields" valign="top">
+              <%= f.text_area :description, :style => "width:171px;height:150px;"%>
+            </td>
+          </tr>
+          <% if is_admin? %>
+            <tr>
+              <td class="fields" valign="top"><b class="required_mark">*</b><%= label_tag 'For User (User Name)' %></td>
+              <td class="form_fields" valign="top"> <%= text_field_with_auto_complete :company, :user_login, { :size => 15 }, { :url => formatted_users_path(:js), :method => :get, :param_name => 'login_search' } %> </td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>
+              <tr>
+                <td class="required_company_tosell" valign="top">&nbsp;</td>
+                <td class="form_fields" valign="top"><br/>
+                <input type="submit" class="button" value="Upload"/>
+                </td>
+              </tr>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </td>
+    <td valign="top" width="30%" style="padding:0px 5px 0px 5px;">
+      <%if current_user.plan.name=='Basic' && current_user.credit<1 && (not current_user.has_role('Admin'))%>
+        <%form_for :order, :url => {:controller => 'orders',:action => 'confirm'} do |f|%>
+          <center><%= f.error_messages %></center>
+          <%=  render :partial => "form", :locals => {:f => f} %>
+          <p style="text-align:center;">
+            <%= f.submit "", :class => "paypal_button" %>
+          </p>
+        <%end%>
+      <%else%>
+      <%end%>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  document.title = 'Add Direct/Co-Investment to buy - Trusted Insight'
+  $('company_name').focus();
+
+  function show_assets(ele_id){
+    $(ele_id).show();
+    $(ele_id).style.position = "absolute";
+    $(ele_id).style.top = $(ele_id+'_label').offsetTop;
+    $(ele_id).style.left = $(ele_id+'_label').offsetLeft + $(ele_id+'_label').width;
+  }
+  function hide_assets(ele_id){
+    $(ele_id).hide();
+  }
+
+  function allowNumbersOnly(e){
+    var keynum;
+    var keychar;
+    if(window.event){ // IE
+      keynum = e.keyCode;
+    } else if(e.which){
+      keynum = e.which;
+    }
+    if( keynum== null ||  keynum=='8'){
+      return true;
+    }
+    keychar = String.fromCharCode(keynum);
+    if( keychar >= '0' && keychar <= '9' || keychar == ''){
+      return true;
+    } else {
+      return false;
+    }
+  }
+</script>

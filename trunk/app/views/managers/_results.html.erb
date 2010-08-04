@@ -1,0 +1,36 @@
+<table class="listing" width="100%" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <tr>
+      <th>Id</th>
+      <th>Manager Name</th>
+      <th>Manager URL</th>
+      <th>Geography</th>
+      <th>Primary Asset</th>
+      <th>Secondary Asset</th>
+      <th>User</th>
+      <th>Options</th>
+    </tr>
+  </tr>
+  
+  
+  <% for manager in @managers %>
+    <tr align="left">
+      <td><%=manager.id%></td>
+      <td><%=manager.name%></td>
+      <td><%=manager.url%></td>
+      <td><%=manager.geography.name%></td>
+      <td><%= manager.asset_primary_id ? manager.primary_asset.name : " "%></td>
+      <td><%= manager.asset_secondary_id ? manager.secondary_asset.name : " " %></td>
+      <td><%=manager.user.login%></td>
+      <td>
+        <% if manager.status == 'approved' %>
+            <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_manager_path(manager) %>  
+            <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), manager, :confirm => 'Are you sure you want to delete this fund?', :method => :delete %>
+          <% end %>
+          <% if manager.status == 'deleted' %>
+            <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20", :style => "margin-left:20px;"), {:controller => "managers", :action => "approve_manager", :id => manager.id}, :confirm => 'Are you sure you want to approve this fund?' %>
+          <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

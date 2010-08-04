@@ -1,0 +1,24 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr>
+    <th>Name</th>
+    <th>Role</th>
+    <% if current_user.has_role('Admin') %>
+    <th width="80px">Options</th>
+    <% end %>
+  </tr>
+
+  <% for organization_type in @organization_types %>
+    <tr align="left">
+      <td><%= organization_type.name %></td>
+      <td><%= organization_type.role.title%></td>
+      <% if current_user.has_role('Admin') %>
+      <td>
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_organization_type_path(organization_type) %>
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), organization_type, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @organization_types, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'organization_types', :action => 'index'} %>
+<div class="clear"></div>

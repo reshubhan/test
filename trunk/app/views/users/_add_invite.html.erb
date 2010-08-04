@@ -1,0 +1,4 @@
+<div id="invites<%=@value.to_s%>" >
+<%=text_field_tag "single_invite[]" ,nil,:style=>"width:302px;margin-left: 202px;"%>
+<%=image_tag("delete.png" ,:onclick =>"remove_invite('invites#{@value.to_s}');" ,:alt => "delete box",:height =>"17",:width => "17") %><br></br>
+</div>

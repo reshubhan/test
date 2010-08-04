@@ -1,0 +1,1 @@
+* 0 * * * cd /home/madhan/NetBeansProjects/Updated_projects/trustedinsight/source/trunk && /var/lib/gems/1.8/bin/rake send_notifications --trace >> /home/madhan/NetBeansProjects/Updated_projects/trustedinsight/source/trunk/log/notice_task.log

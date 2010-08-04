@@ -1,0 +1,16 @@
+<div id="menu" class="filterText">
+  <ul>
+    <li>
+      <%=link_to_remote "All", :url=>{:controller => 'managers', :action => 'filter_results', :browseby => @browseby ,
+                               :asset=> 'All', :geography=>@geography},:loading => "show_loading();", :complete => "hide_loading();",:html => {:class => "", :id => "assetAll"}%>
+    </li>
+    <% Asset.parents.each do |asset| %>
+      <li>
+        <%=link_to_remote asset.name,:url=>{:controller => 'managers', :action => 'filter_results', :browseby => @browseby ,
+          :asset=> asset.id, :geography=>@geography,:sector=>@sector,:size_min=>@sizemin,:size_max=>@sizemax,:seller=>@seller,:buyer=>@buyer,:open=>@open,:time=>@time},:loading => "show_loading();", :complete => "hide_loading();",
+          :html => {:class => "", :id => "asset#{asset.id}"}%>
+
+      </li>
+    <% end %>
+  </ul>
+</div>

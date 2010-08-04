@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/spec/named_scopes
+END
+association_conditions_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/spec/named_scopes/association_conditions_spec.rb
+END
+association_ordering_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/spec/named_scopes/association_ordering_spec.rb
+END
+conditions_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/spec/named_scopes/conditions_spec.rb
+END
+or_conditions_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/spec/named_scopes/or_conditions_spec.rb
+END
+ordering_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/spec/named_scopes/ordering_spec.rb
+END
+alias_scope_spec.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/2587/source/trunk/vendor/plugins/searchlogic/spec/named_scopes/alias_scope_spec.rb
+END

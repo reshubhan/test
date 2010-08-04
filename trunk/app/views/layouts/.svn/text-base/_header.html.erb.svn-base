@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="headerLeft">
+    <a href="/"><%= image_tag "logo.gif", :title => "Trusted Insight"%> </a>
+  </div>
+  
+  <div class="headerRight" <% unless !current_user.nil? and not (session[:facebook_session] and session[:facebook_session].user) %> style="margin-right:-9px;" <% end %>>
+      <span id="fb_section" style="margin-top: -2px;float: left;display:<% if !current_user.nil? and not (session[:facebook_session] and session[:facebook_session].user) %>''<%else%>none<%end%>;">
+        <fb:login-button onlogin="facebook_login('header');" size="medium" ></fb:login-button>
+      </span>
+    <%= render :partial => "layouts/login"%>
+    
+  </div>
+  <div class="clear"></div>
+</div>

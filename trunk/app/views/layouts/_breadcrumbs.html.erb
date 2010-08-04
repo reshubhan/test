@@ -1,0 +1,38 @@
+<%=
+  if request.parameters.include? 'newfundtosell'
+    params = 'newfundtosell'
+  end
+  levels = request.path.split('?')[0].split('/') #remove extra query string parameters and break up url into different levels
+  levels.delete_at(0)
+  levels.delete("index_results") if levels.include?("index_results")
+
+  links = ""
+  links += content_tag('a', "home", :href => "/")
+  levels.each_with_index do |level, index|
+
+    if index != levels.size-1 #if not last level make it a link
+      if level.to_i > 0
+        links += " > #{content_tag('a', MainController.getName(levels[index-1],level.to_i, params), :href => '/'+levels[0..index].join('/'))}"
+      else
+        if level == 'index' || level == 'upload' || level == 'list' || level =='new' || level == 'orders'
+          links += ""
+        else
+          level = "Directs/Co-Investments" if level == "companies"
+          level = "Postings" if level == "classified_funds"
+          links += " > #{content_tag('a', level.downcase.gsub(/_/, ' '), :href => '/'+levels[0..index].join('/'))}"
+        end
+      end
+    else
+      if level.to_i > 0
+        links += " > #{MainController.getName(levels[index-1],level.to_i, params)}"
+      else
+        level = "Directs/Co-Investments #{@total}" if level == "companies"
+        level = "Postings #{@total}" if level == "classified_funds"
+        level = "Secondaries #{@total}" if level == "secondaries"
+        links += " > #{level.downcase.gsub(/_/, ' ')}"
+      end
+    end
+  end
+
+  content_tag("div", links, :class => "navigation")
+-%>

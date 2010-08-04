@@ -1,0 +1,19 @@
+<ul><b>Users Details</b></ul><br></br>
+<p>User with the following details has signed in Trustedinsight:-</p><br></br>
+
+<ul>
+  <li>User login      : <%=@user.login%></li><br></br>
+  <li>User First Name : <%=@user.profile.firstname%></li><br></br>
+  <li>User Last Name  : <%=@user.profile.lastname%></li><br></br>
+  <li>User Email_id   : <%=@user.profile.email%></li><br></br>
+  <li>User Telephone  : <%=@user.profile.telephone%></li><br></br>
+  <li>User Organization Name : <%=@user.profile.organization_type.name%></li><br></br>
+  <li>User Plan : <%=@user.plan_id%></li><br></br>
+  <li>User Created_at : <%=@user.created_at%></li><br></br>
+  <%if @user.plan.role.title=="Fund Manager"%>
+    <li>User Manager_id : <%=@user.manager_id%></li><br></br>
+  <%else%>
+    <li>User role : <%=@user.plan.role.title%></li><br></br>
+  <%end%>
+  <li>User Zip code : <%=@user.profile.zip%></li><br></br>
+</ul>

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/trustedinsight/!svn/ver/4/source/trunk/script
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/trustedinsight/!svn/ver/4/source/trunk/script/console
+END
+server
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/trustedinsight/!svn/ver/4/source/trunk/script/server
+END
+dbconsole
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/trustedinsight/!svn/ver/4/source/trunk/script/dbconsole
+END
+destroy
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/trustedinsight/!svn/ver/4/source/trunk/script/destroy
+END
+runner
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/trustedinsight/!svn/ver/4/source/trunk/script/runner
+END
+about
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/trustedinsight/!svn/ver/4/source/trunk/script/about
+END
+generate
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/trustedinsight/!svn/ver/4/source/trunk/script/generate
+END
+plugin
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/trustedinsight/!svn/ver/4/source/trunk/script/plugin
+END

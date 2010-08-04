@@ -1,0 +1,113 @@
+<style>
+  .labels{
+    text-align: left;
+    vertical-align: top;
+    font-weight: bold;
+  }
+</style>
+<table width="100%" style="color:#666666;">
+  <tr>
+    <td class="labels"><%= label_tag 'Name ' %></td>
+    <td><%= f.text_field :name, :size => "27", :id => "name", :style => "width:100%;", :tabindex => "1" %></td>
+  </tr>
+  <tr>
+    <td class="labels"><%= label_tag 'Mailer Type' %></td>
+    <td>
+      <%= f.select(:mailer_type_id,  MailerType.find(:all).collect {|p| [ p.name, p.id ] },{}, :onchange => "show_iteration(this);") %>
+      <span id="frequency">
+        <% if @notification %>
+          <%= render :partial => 'frequency' %>
+        <% end %>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td class="labels"><%= label_tag 'For users in plan:' %> &nbsp; &nbsp;</td>
+    <td>
+      <%Role.user_roles.each do |role|%>
+        <div>
+          <fieldset>
+            <legend>
+              <b><%= role.title %> :</b>
+            </legend>
+            <ul>
+              <%role.active_plans.each do |plan|%>
+                <li style="float: left;"><input type="checkbox" name="plans[]" value="<%=plan.id%>"
+                                                <% if @notification.plans.include? plan %>checked="checked"<% end %>
+                                                /> <%= plan.name %></li>
+                <% end %>
+            </ul>
+          </fieldset>
+        </div>
+        <div class="clear"></div>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td class="labels"><%= label_tag 'Subject ' %></td>
+    <td><%= f.text_field :subject, :id => "subject", :style => "width:100%", :tabindex => "2" %></td>
+  </tr>
+  <tr>
+    <td class="labels">
+      <%= label_tag 'Body ' %><br/>
+      <small>
+        Content type:
+      </small><br/>
+      <select onchange="flipTextEditor(this);">
+        <option value="html">HTML</option>
+        <option value="plain">Plain Text</option>
+      </select>
+    </td>
+    <td>
+      <div id="body">
+        <%= render :partial => 'body_notification', :locals => { :type => 'html'}  %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="labels"><%= label_tag 'Activate?' %></td>
+    <td>
+      <%= f.radio_button(:status, true) %> Yes&nbsp;
+      <%= f.radio_button(:status, false) %> No&nbsp;
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  function show_iteration(ele){
+    <%#*if(ele.value==1){%>
+      <%#*document.getElementById("monthly").style.display='none';%>
+      <%#*document.getElementById("weekly").style.display='none';%>
+    <%#*}%>
+    <%#*if(ele.value==2){%>
+      <%#*document.getElementById("monthly").style.display='none';%>
+      <%#*document.getElementById("weekly").style.display='';%>
+    <%#*}%>
+    <%#*if(ele.value==3){%>
+      <%#*document.getElementById("monthly").style.display='';%>
+      <%#*document.getElementById("weekly").style.display='none';%>
+    <%#*}%>
+    pars = '&id='+ ele.value;
+    new Ajax.Updater ('frequency', '/notifications/show_frequency',
+    {
+        asynchronous:true,
+        evalScripts:true,
+        parameters:pars
+    });
+  }
+
+  function flipTextEditor(ele){
+    <%#*if(ele.value==1){%>
+      <%#*$('notification_body').className = 'mceEditor';%>
+    <%#*}else{%>
+      <%#*$('notification_body').className = '';%>
+    <%#*}%>
+    pars = '&id='+ ele.value;
+    new Ajax.Updater ('body', '/notifications/toggle_body',
+    {
+        asynchronous:true,
+        evalScripts:true,
+        parameters:pars
+    });
+  }
+</script>

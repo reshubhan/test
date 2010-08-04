@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/trustedinsight/!svn/ver/670/source/trunk/vendor/plugins/paypal
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/Rakefile
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/init.rb
+END
+MIT-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/MIT-LICENSE
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/trustedinsight/!svn/ver/660/source/trunk/vendor/plugins/paypal/README
+END

@@ -1,0 +1,114 @@
+<% unless classified_funds.blank? %>
+  <table width="100%;" cellpadding="0" cellspacing="0px" border="0" class="secondary_table" style="margin-left:-1px;margin-top:-1px;border:1px solid #e5e5e5;clear:both;">
+    <tr align="left" class="buy_sell_header">
+      <th colspan="1" class="secondaries_head" style="text-align:center;">&nbsp;
+        <%= link_to_remote "New Fund",:controller => 'classified_funds', :action => 'index_results', :browse_by => 'recent' ,
+          :asset=> @asset, :geography=>@geography,:type =>@type,:orderby=>'newfund',:ascdesc=>@ascdesc,
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='newfund' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='newfund' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%></th>
+      <th class="secondaries_head" width="95">
+        <%= link_to_remote"Asset Class",:controller => 'classified_funds', :action => 'index_results', :browse_by => 'recent' ,
+          :asset=> @asset, :geography=>@geography,:type =>@type,:orderby=>'asset',:ascdesc=>@ascdesc,
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='asset' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='asset' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%>
+      </th>
+
+      <th class="secondaries_head" width="80">
+        <%= link_to_remote "Sector",:controller => 'classified_funds', :action => 'index_results', :browse_by => 'recent' ,
+          :asset=> @asset, :geography=>@geography,:type =>@type,:orderby=>'sector',:ascdesc=>@ascdesc,
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='sector' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='sector' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%>
+      </th>
+      <th class="secondaries_head" width="140">
+        <%= link_to_remote "Geography",:controller => 'classified_funds', :action => 'index_results', :browse_by => 'recent' ,
+          :asset=> @asset, :geography=>@geography,:type =>@type,:orderby=>'geography',:ascdesc=>@ascdesc,
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='geography' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='geography' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%></th>
+      <th class="secondaries_head" width="140">
+        <%= link_to_remote "Fund Size",:controller => 'classified_funds', :action => 'index_results', :browse_by => 'recent' ,
+          :asset=> @asset, :geography=>@geography,:type =>@type,:orderby=>'fund_size',:ascdesc=>@ascdesc,
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='fund_size' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='fund_size' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%></th>
+      <th class="secondaries_head" width="140" <%if !is_admin?%>colspan="3"<%end%>><%= link_to_remote "Desired Size",:controller => 'classified_funds', :action => 'index_results', :browse_by => 'recent' ,
+          :asset=> @asset, :geography=>@geography,:type =>@type,:orderby=>'desired_size',:ascdesc=>@ascdesc,
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='desired_size' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='desired_size' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%></th>
+      <%if is_admin?%>
+        <th class="secondaries_head" width="70" style="color:#2F76BC;" colspan="2">Options
+        </th>
+      <%end%>
+
+    </tr>
+
+    <% for classified_fund in classified_funds %>
+      <tr align="left" valign="top">
+        <td valign="middle" width="1" class="secondaries_row" style="padding-bottom:12px;" rowspan="1">
+          <div style="width:280px;height:26px;">
+            <a href="/classified_funds/<%=classified_fund.id%>"><%=classified_fund.user.plan.role.title%> is looking for new funds</a>
+          </div>
+
+          <% if current_user.has_role('Admin') %>
+            <div align="left" style="padding-left:10px;width:280px">
+              <p><b>Login Name&nbsp;:</b> <%= classified_fund.user.login %></p>
+              <p><b>First Name&nbsp;:</b> <%= classified_fund.user.profile.firstname %></p>
+              <p><b>Organization&nbsp;:</b> <% unless classified_fund.user.profile.organization_name.blank? %> <%= classified_fund.user.profile.organization_name %><% else %>-<% end %></p>
+            </div>
+          <% end %>
+        </td>
+
+        <td class="secondaries_row"><% if classified_fund.asset %> <%= classified_fund.asset.name %> <% else %>-<% end %></td>
+        <td class="secondaries_row"><% if classified_fund.sectors.first %> <%= classified_fund.sectors.first.name %> <% else %>-<% end %></td>
+        <td class="secondaries_row"><% if classified_fund.geography %> <%= classified_fund.geography.name %> <% else %>-<% end %></td>
+        <td class="secondaries_row"><% if classified_fund.fund_size%> <%= classified_fund.fund_size %> <% else %>-<% end %></td>
+        <td class="secondaries_row"><% if classified_fund.desired_size%> <%= classified_fund.desired_size.name %><% else %>-<% end %></td>
+        <%if current_user.has_role('Admin')%>
+          <td class="secondaries_row"><% if current_user.has_role('Admin')%><%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_classified_fund_path(classified_fund) %><% end %></td>
+          <td class="secondaries_row"><% if current_user.has_role('Admin')%><%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"),classified_fund, :confirm => 'Are you sure you want to delete this fund?', :method => :delete %><% end %></td>
+        <%end%>
+      <% end %>
+  </table>
+
+  <%= will_paginate @classified_fund_buy, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'classified_funds',
+    :action => 'profile_fund_list',
+    :with => "'&type=buy'",
+    :loading => "$('loading').style.display=''",
+    :complete => "$('loading').style.display='none'"},
+    :inner_window => 1,
+    :outer_window => 0
+
+%>
+
+<% else %>
+  <div style="padding:10px 0px 10px 10px;float:left;width:90%;clear:both;">
+    <% if params[:controller]=="classified_funds" %>
+      Sorry, we couldn't find any matching results. Please modify your search.
+    <% else %>
+      There are no Classified funds to Buy.
+    <% end %>
+    <br/>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<td valign="top"   width="50%">
+          <% form_tag :action => 'check_availability', :role => @role , :plan => @plan do -%>
+            <table width="100%" cellpadding="0" cellspacing="3" border="0" class="normalText">
+              <tr></tr>
+              <tr><td></td><td style="font-weight:bold;font-size:12px;" > Choose Manager </td> </tr>
+              <tr></tr>
+<tr><td></td><td>Type first few characters to choose manager. </td></tr>
+                <tr>
+              <tr></tr>
+                  <th class="required" width="50%" valign="top">
+                    <%= label_tag 'manager', 'Manager' %>              
+                    <br/>
+                  </th>
+                  <td width="50%" class="inputBoxprofile_zip" valign="top">
+                    <div class="yui-skin-sam">
+                      <div id="managerAutoComplete">
+                        <input id="managerInput" type="text" name="manager_name"value="<%= @user.manager.name if @user.manager %>" style="width:197px !important;" onfocus="clearText(this);return false;" onblur="setText(this, 'Search Manager');return false;" />
+                        <div id="managerContainer" style="*margin:20px 0px 0px 0px" ></div>
+                        <input id="managerHidden" name="manager_id" type="hidden" value="<%= @user.manager.id if @user.manager %>"/>
+                      </div>
+                    </div>
+                    <%= render :partial => "layouts/autocomplete_script" %>
+                  </td>
+                  
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                  <td ></td><td style="font-size:10px;width:300px;">Manager not present!<%=link_to "Add a manager",:controller => 'managers',:action=>'new',:plan=>@plan,:role=>@role%></td></tr>
+              
+              
+      
+              <tr>
+                <td>&nbsp;</td>
+                <td style="padding-right:14px;">
+                  <br/>
+                    <%= submit_tag 'Choose Manager', :class => "button" %>
+                </td>
+              </tr>
+              <tr><td>&nbsp;</td></tr>
+            </table>
+          <% end -%>
+        </td>

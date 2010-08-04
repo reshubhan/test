@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/trustedinsight/!svn/ver/2762/source/trunk/app/views/admin
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/240/source/trunk/app/views/admin/index.html.erb
+END
+edit_attribute.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/admin/edit_attribute.html.erb
+END
+new_attribute.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/admin/new_attribute.html.erb
+END
+export_active_users.xls.builder
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/2550/source/trunk/app/views/admin/export_active_users.xls.builder
+END
+funds.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/77/source/trunk/app/views/admin/funds.html.erb
+END
+_users_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2762/source/trunk/app/views/admin/_users_results.html.erb
+END
+upload.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2444/source/trunk/app/views/admin/upload.html.erb
+END
+reviews.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/57/source/trunk/app/views/admin/reviews.html.erb
+END
+edit_asset.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/admin/edit_asset.html.erb
+END
+_advance_search.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2615/source/trunk/app/views/admin/_advance_search.html.erb
+END
+upload_image.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/admin/upload_image.html.erb
+END
+attributes.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/1247/source/trunk/app/views/admin/attributes.html.erb
+END
+new_asset.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/admin/new_asset.html.erb
+END
+upload_geography.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/admin/upload_geography.html.erb
+END
+_active_users_form.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2550/source/trunk/app/views/admin/_active_users_form.rhtml
+END
+edit_geography.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/admin/edit_geography.html.erb
+END
+active_users.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2594/source/trunk/app/views/admin/active_users.html.erb
+END
+managers.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/57/source/trunk/app/views/admin/managers.html.erb
+END
+geographies.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/87/source/trunk/app/views/admin/geographies.html.erb
+END
+new_geography.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/admin/new_geography.html.erb
+END
+manager_updates.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/admin/manager_updates.html.erb
+END
+secondaries.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/57/source/trunk/app/views/admin/secondaries.html.erb
+END
+users.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/2595/source/trunk/app/views/admin/users.html.erb
+END
+assets.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/405/source/trunk/app/views/admin/assets.html.erb
+END
+_from.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/76/source/trunk/app/views/admin/_from.html.erb
+END

@@ -1,0 +1,64 @@
+<div style="margin-top:10px;margin-bottom:10px;">
+  <p align="center">You have been registered as a <%= @user.plan.role.title.downcase %>.<br/> Please select your online payment method below. We offer secure online payment through PayPal.</p>
+  <table align="center" style="border:1px solid #e6e6e6; width:300px;">
+    <tr>
+      <th colspan="2" style="background-color:#c6c6c6;">
+        <h3 style="color:#fff;">Payment Detail</h3>
+      </th>
+    </tr>
+    <tr>
+      <th>User name: </th>
+      <td><%= @user.login %></td>
+    </tr>
+    <tr>
+      <th>First Name: </th>
+      <td><%= @user.profile.firstname %></td>
+    </tr>
+    <tr>
+      <th>Last Name: </th>
+      <td><%= @user.profile.lastname %></td>
+    </tr>
+    <tr>
+      <th>Role: </th>
+      <td><%= @user.plan.role.title %></td>
+    </tr>
+    <tr>
+      <th>Plan: </th>
+      <td><%= @user.plan.name %></td>
+    </tr>
+    <tr>
+      <th>Duration: </th>
+      <td><%= @user.plan.duration %></td>
+    </tr>
+    <tr>
+      <th>Amount: </th>
+      <td>$<%= @user.plan.fee %> USD</td>
+    </tr>
+  </table>
+  
+</div>
+<script type="text/javascript">
+  function cancelAction() {
+    if (confirm("Are you sure?")) {
+      window.location = '<%= cancel_registration_url(:id => @user.id) %>'
+    }
+  }
+</script>
+<center>
+<%= paypal_form_tag %>
+<%if !@user.plan.fee.nil?%>
+  <%= paypal_setup @user.id, @user.plan.fee.to_s, @business_email, :item_name =>  @user.plan.role.title.downcase + " : " + @user.plan.name, :business_key => @business_key, :business_cert => @business_cert, :business_certid => @business_certid, :notify_url => url_for(:only_path => false, :action => 'paypal_ipn') %>
+<%else%>
+  <%= paypal_setup @user.id, 0.to_s, @business_email, :item_name =>  @user.plan.role.title.downcase + " : " + @user.plan.name, :business_key => @business_key, :business_cert => @business_cert, :business_certid => @business_certid, :notify_url => url_for(:only_path => false, :action => 'paypal_ipn') %>
+<%end%>
+<table align="center">
+  <tr>
+    <td>
+      <%= submit_tag "PayPal", :class =>"input" %>
+<input type="button" class="button" value="Cancel Registration" onclick="cancelAction();" />
+    </td>
+  </tr>
+</table>
+</form>
+<img src="https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif" />
+</center>

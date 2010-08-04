@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/76/source/trunk/vendor/plugins/simple_captcha/assets/migrate
+END
+create_simple_captcha_data_less_than_2.0.rb
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/trustedinsight/!svn/ver/76/source/trunk/vendor/plugins/simple_captcha/assets/migrate/create_simple_captcha_data_less_than_2.0.rb
+END
+create_simple_captcha_data.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/trustedinsight/!svn/ver/76/source/trunk/vendor/plugins/simple_captcha/assets/migrate/create_simple_captcha_data.rb
+END

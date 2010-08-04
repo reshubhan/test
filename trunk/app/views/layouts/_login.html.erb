@@ -1,0 +1,32 @@
+
+        <%#= render :partial => "layouts/share_this_links" %>
+        <% if not current_user %>
+          <div class="logincontainer1" style="display:none;" id="LoginDetais">
+            <% form_tag session_path, :style=>"margin:0px !important;" do -%>
+              <div>
+                <span style="float:right;margin-top:5px;">
+                  <table border="0" cellspacing="0" cellpadding="2">
+                    <tr>
+                      <td width="113"><%= text_field_tag 'login', 'User Name', :onfocus => "clear_assit_login(this);", :style => "width:110px;vertical-align:bottom;color:#ccc",:class=>"loginBoxBorder"%></td>
+                      <td width="113"><%= password_field_tag 'password', 'Password', :onfocus => "clear_assit_password(this);", :style => "width:110px;vertical-align:bottom;margin-left:5px;color:#ccc",:class=>"loginBoxBorder"%></td>
+                      <td width="39" align="right"><%= submit_tag '',:class => "login_btn", :style => 'width: 39px;height:21px;margin-left:5px;' %></td>
+                      <td width="18"><img src="../images/close.jpg" alt="close" width="18" height="21" onclick="$('LoginDetais').hide();$('logoutLinks').show();" id="closeLoginDetails" /></td>
+                    </tr>
+                  </table>
+                </span>
+              </div>
+            <% end -%>
+          </div>
+
+          <span id="logoutLinks">
+            <span class="links"><a href="javascript:void(0);" onclick="$('LoginDetais').show();$('logoutLinks').hide();">Login </a></span>
+            <span class="headerLinksDivider"></span>
+            <span class="links"><%= link_to_unless_current('Forgot Password?', {:controller => 'users', :action => 'forgot_password'}) %></span>
+          </span>
+        <% else %>
+            <span class="welcome">Welcome <%= current_user.profile.firstname.capitalize %></span>
+            <span class="headerLinksDivider"></span>
+            <span class="links"><%= link_to_unless_current('Profile', user_profile_url, :style => 'color:#2F76BC;')  %></span>
+            <span class="headerLinksDivider"></span>
+            <span class="links"><%= link_to('Logout', {:controller => 'sessions', :action => 'destroy'})%></span>
+        <% end %>

@@ -1,0 +1,30 @@
+<br/>
+<p>
+  <b>Connection Request via Trusted Insight, Inc:</b><br></br><br></br>
+
+  <%= @sender.profile.email %> is interested in connecting with you.
+</p>
+<br/><br/>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<br/><br/><%= @message.body.gsub(/\r\n/, "<br/>") %>
+
+<!--<%= @sender.profile.email %> wants to contact you regarding your posting.-->
+<!--<br/><br/>If you are interested in the inquiry, kindly click <a href='<%=@url2%>'>Interested</a>-->
+<!--<br/><br/>If you are not interested in the inquiry, kindly click <a href='<%=@url1%>'>Not Interested</a>
+<br/><br/>If you are not interested in the inquiry, You may want to include <a href='mailto:admin@trustedinsightinc.com'>mailto:admin@trustedinsightinc.com</a> in your response, to show that you have received the message.<br/><br/>Best regards,
+<br/><br/>Trusted Insight, Inc Team-->
+<br/><br/>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<br/><br/>
+
+
+<p>Trusted Insight Inc. strives to provide Investors with targeted investment opportunities.  If the above opportunity is not an area of interest please visit <a href="http://trustedinsightinc.com">Trustedinsightinc.com</a> and log in to update your profile and preferences.  Updating your preferences and profile only takes a few minutes and helps ensure you extract maximum value from our services.<br></br><br></br>
+
+  If you are interested in this connection, click <a href='<%=@url2%>'>Interested</a> and claim your credits towards becoming an elite member.<br></br><br></br>
+
+  If you are not interested in this connection, click <a href='<%=@url1%>'>Not Interested</a> and claim your credits towards becoming an elite member.<br></br><br></br>
+
+  Please visit our site to learn more about the benefits of elite member status.<br></br><br></br>
+
+  Best regards,<br></br><br></br>
+
+  Trusted Insight, Inc Team
+</p>

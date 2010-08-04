@@ -1,0 +1,23 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th >Questions</th>
+    <th style="width:400px !important;">Options</th>
+  </tr>
+  <% for question in @questions %>
+    <tr align="left">
+      <td><%=h question.questions%></td>
+      <td style="width:400px !important;">
+        <%= link_to 'Show', question %> |
+        <%#= link_to 'Edit', edit_question_path(question) %>
+        <%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %> |
+        <%if question.status!=true%>
+          <%= link_to 'Show Question',:controller=>"questions" ,:action=>"show_question",:id=>question.id%> |
+        <%else%>
+          <%= link_to 'Hide Question',:controller=>"questions" ,:action=>"remove_question",:id=>question.id%> | 
+        <%end%>
+        Select rank <%= select_tag 'question[rank]'+question.id.to_s,options_from_collection_for_select(Question.find(:all), 'id', 'rank',question.id) , {:style => "height:23px;width:100px;",:onchange =>"update_rank(this,#{question.rank},#{question.id},#{@count});"} %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div class="clear"></div>

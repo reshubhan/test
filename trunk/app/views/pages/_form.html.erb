@@ -1,0 +1,15 @@
+<p align="left">
+  <b><%= f.label :name %></b><br />
+  <%= f.text_field :name, :style => "width:95%;"%>
+</p>
+<p align="left">
+  <b><%= f.label :title %></b><br />
+  <%= f.text_field :title, :style => "width:95%;" %>
+</p>
+<p align="left">
+  <b><%= f.label :content %></b><br />
+  <%= f.text_area :content, :class => "mceEditor", :style => "width:95%;"%>
+</p>
+<script>
+  $('page_name').focus();
+</script>

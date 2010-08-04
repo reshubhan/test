@@ -1,0 +1,175 @@
+
+/* 
+Document   : theme.css
+Created on : May 15, 2009, 3:48:36 PM
+Author     : Sandhanakumar
+Description:
+Purpose of the stylesheet follows.
+*/
+/* grayBoxBottomInner
+
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+ 
+/*--header Top Css Starts here*/
+.logo{padding-top:4px;padding-right:30px;}
+.logo a:hover{
+    background-color:white;
+}
+.logo a{
+    float:left;
+    width:100%;
+    font-weight:bold;
+    font-size:32px;
+    color:#FFCC00;
+    
+    text-align:left;
+    text-decoration:none;
+    
+    
+}
+#login a:hover{background-color:#fff;}
+.grayBoxBottom{
+    width:100%;
+    float:left;   
+    /*background-color:#126e96;*/   
+    text-align:left;
+    
+}
+.grayBoxBottomInner{
+    width:100%;
+    float:left;
+     height:27px;
+    text-align:left;
+    background-image: url('../images/topbg.gif');
+    background-repeat:repeat-x;
+    margin-bottom:20px
+}
+.permission{color:#fff;}
+.footerBottom{
+    width:100%;
+    float:left;
+    height:24px;
+    margin:0px;
+    margin-top:20px;
+    padding:0px;
+    /*background-color:#126e96;*/
+    background:url('../images/topbg.gif') repeat-x;
+    text-align:left;
+    padding:3px 0px 3px 0px;
+    color:#000;
+}
+.footerBottom ul{
+    margin:0px;
+    padding:0px;
+}
+.footerBottom ul li{
+    display:inline;
+    text-decoration:none;
+    list-style:none;
+    padding:0px 10px 0px 10px;
+       color:#000;
+}
+.footerBottom ul li a{
+    text-decoration:none;
+    padding:0px 10px 0px 10px;
+       color:#000;
+}
+.menuLeftCurveCorner{
+    width:7px;
+    float:left;
+    height:40px;
+    text-align:left;
+    background-image:url('../images/menuleft_cornerImg.gif');
+    background-repeat:no-repeat;
+
+
+}
+.menuRightCurveCorner{
+    width:7px;
+    float:left;
+    height:40px;
+    text-align:left;
+    background-image:url('../images/menurightt_cornerImg.gif');
+    background-repeat:no-repeat;
+
+
+}
+/*--header Top Css Ends here*/
+/*comment box css starts here*/
+.commentDiv{
+    width:97%;
+    float:left;
+    background-color:#cee9f5;
+    
+    font-size:12px;
+    color:#000;
+    padding:10px 10px 10px 10px;
+}
+.wordVerificationText{
+    color:#ce740b;
+    font-weight:bold;
+    padding-right:30px;
+}
+.tableText td{
+    font-weight:bold;
+    color:#000;
+    font-size:12px;
+}
+.profileManagerButtonDiv{
+    width:147px;
+    float:left;
+    text-align:left;
+    background-color:#FE7B02;
+    padding-left:3px;
+}
+.profileManagerButtonDiv ul{
+    margin:0px;
+    padding:0px;
+}
+.profileManagerButtonDiv ul li{
+    
+    font-size:10px;
+    font-weight:bold;
+    color:#000;
+    text-align:left;
+    list-style:none;
+	 
+    background-image:url(../images/buttn_bootmShadow_img.gif);
+    background-repeat:repeat-x;
+    background-position:bottom; 
+    padding-bottom:9px;
+}
+.profileManagerButtonDiv ul li a{
+    font-size:10px;
+    font-weight:bold;
+    color:#000;
+    text-align:left;
+    padding:0px 0px 5px 5px;
+}
+.profileManagerButtonDiv ul li a:hover{
+    color:#fff;
+    text-align:left;
+    padding:0px 0px 5px 5px;
+}
+.profileManagerButtonDiv ul li a:active{
+    color:#c60000;
+    text-align:left;
+    padding:0px 0px 5px 5px;
+}
+.addFundDiv{
+    background-color:#126e96;
+}
+.addPersonDiv{}
+.createdataRoomDiv{}
+.uploadDocumentsDiv{}
+.postSecondaryDiv{}
+.inviteyourLpsDiv{}
+/*comment box css Ends here*/
+ 
+ 

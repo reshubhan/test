@@ -1,0 +1,27 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      Edit Statistic
+    </h3>
+    <div style="float: right;margin: 10px;">
+      <%= link_to 'All Statistics', statistics_path, :class => "button" %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+        <% form_for(@statistic) do |f| %>
+          <%= f.error_messages %>
+          <p>
+            <%= f.label :statistic_text %>
+          </p>
+          <p><%= f.text_area :statistic_text %>
+          </p>
+          <br />
+          <p>
+            <%= f.submit "Update", :class => "button" %>
+          </p>
+        <% end %>
+    </div>
+  </div>
+</div>

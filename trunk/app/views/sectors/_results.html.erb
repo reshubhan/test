@@ -1,0 +1,17 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th >Name</th>
+    <th style="width:80px !important;">Options</th>
+  </tr>
+  <% for sector in @sectors %>
+    <tr align="left">
+      <td><%=sector.name%></td>
+      <td style="width:80px !important;">
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_sector_path(sector) %>
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), sector, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @sectors, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'sectors', :action => 'index'} %>
+<div class="clear"></div>

@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/trustedinsight/!svn/ver/2762/source/trunk/app/views/companies
+END
+new_directs.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/companies/new_directs.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2558/source/trunk/app/views/companies/index.html.erb
+END
+_asset_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/1205/source/trunk/app/views/companies/_asset_list.html.erb
+END
+_company_details.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/2637/source/trunk/app/views/companies/_company_details.html.erb
+END
+_asset_filter_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/2567/source/trunk/app/views/companies/_asset_filter_list.html.erb
+END
+_profile_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/2697/source/trunk/app/views/companies/_profile_results.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/1288/source/trunk/app/views/companies/show.html.erb
+END
+_autocomplete_script.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/1204/source/trunk/app/views/companies/_autocomplete_script.html.erb
+END
+_filter.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2709/source/trunk/app/views/companies/_filter.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2705/source/trunk/app/views/companies/edit.html.erb
+END
+new_directs_to_buy.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/2501/source/trunk/app/views/companies/new_directs_to_buy.html.erb
+END
+_saved_searches.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/2709/source/trunk/app/views/companies/_saved_searches.rhtml
+END
+company_contact.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/1266/source/trunk/app/views/companies/company_contact.js.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/companies/new.html.erb
+END
+_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2762/source/trunk/app/views/companies/_results.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2582/source/trunk/app/views/companies/_form.html.erb
+END
+upload_buy.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/companies/upload_buy.html.erb
+END
+upload_sell.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2565/source/trunk/app/views/companies/upload_sell.html.erb
+END

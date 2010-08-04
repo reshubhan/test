@@ -1,0 +1,56 @@
+<div style="padding: 10px 50px;">
+  <div class="content-box">
+    <div class="content-box-header">
+      <h3 style="cursor: s-resize;">
+        Investment Criteria
+      </h3>
+      <div class="clear"></div>
+    </div>
+    <div class="content-box-content">
+      <div style="display: block;" class="tab-content default-tab scrollDiv">
+        <% form_for :user_answers ,:url=> {:controller=>'answers',:action=>'user_answers'} do |f| %>
+          <div>
+            <ul>
+              <%questions=Question.find(:all,:conditions=>{:status=>true},:order =>"rank")%>
+              <%i=1%>
+              <%questions.each do |question|%> 
+                <%if question.role_ids.include?(current_user.plan.role.id)%>
+                  <li class="list_question_heading">Q<%=i%>.  <%=question.questions%></li><br />
+                  <div class="questions">
+                    <input type="hidden" name="question_ids[]" value="<%=question.id %>" />
+                    <%if question.question_type=="yes/no with option"%>
+                      <p><%=radio_button_tag 'options['+question.id.to_s+'][]',question.yes_option.option=="option_yes" ? "yes":"no",true,:class => "options", :onclick=>"show_options(#{question.id});"%> Yes</p>
+                      <div id="radio_option_<%= question.id %>" style="margin-left:20px;text-align:left;" >
+                      </div>
+                      <p><%=radio_button_tag 'options['+question.id.to_s+'][]',question.no_option.option=="option_no"? "no":"yes",true,:class => "options", :onclick=>"hide_options(#{question.id});"%> No</p>
+                    <%elsif question.question_type=="yes/no without option" %>
+                      <p><%=radio_button_tag 'options['+question.id.to_s+'][]',"Yes",true,:class => "options"%>  Yes</p>
+                      <p><%=radio_button_tag 'options['+question.id.to_s+'][]',"No",true,:class => "options"%>  No</p>
+                    <%elsif question.question_type=="multiple choice"%>
+                      <%question.options.each do |l|%>
+                        <p><%=check_box_tag('options['+question.id.to_s+'][]',l.id,l.default_check==true ? true:false,:class => "options" )%> <%=l.option%></p>
+                      <%end%>
+                    <%else%>
+                      <%if params[:id]=="true"%>
+                        <%ans=Answer.find(:all,:conditions=>{:user_id=>current_user.id,:question_id=>question.id})%>
+                        <%ans.each do|m|%>
+                          <%m.option_id=m.option_id.split(",")%>
+                          <p><%=text_field_tag 'options['+question.id.to_s+'][]',(m.option_id)%></p>
+                        <%end%>
+                      <%else%>
+                        <p><%=text_field_tag 'options['+question.id.to_s+'][]',{}%></p>
+                      <%end%>
+                    <%end%>
+                  </div>
+                  <%i=i+1%>
+                <%end%>
+              <%end%>
+            </ul>
+          </div>
+          <input type="submit" class="button" value="Submit"/>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+

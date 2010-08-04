@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/test/backends/remote
+END
+s3_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/test/backends/remote/s3_test.rb
+END
+cloudfiles_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/trustedinsight/!svn/ver/2403/source/trunk/vendor/plugins/attachment_fu/test/backends/remote/cloudfiles_test.rb
+END

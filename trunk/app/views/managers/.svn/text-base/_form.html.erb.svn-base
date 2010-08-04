@@ -1,0 +1,71 @@
+<%= hidden_field_tag :flow, @flow_check %>
+<center>
+<table width="100%" style="color:#666666;">
+<%= render :partial => "layouts/mandatory_info" %>
+<%= f.hidden_field :role_id, :value => @role_id %>
+<%= f.hidden_field :plan_id, :value => @plan_id %>
+
+<tr>
+  <td class="required"><b class="required_mark">*</b><%= label_tag 'Enter Name of Manager ' %></td>
+  <td><%= f.text_field :name, :size => "27", :id => "name", :style => "width:173px;", :tabindex => "1" %></td>
+</tr>
+<tr>
+  <td class="required"><b class="required_mark">*</b><%= label_tag 'Enter web address(url) of manager' %></td>
+  <td><div style="float:left;*margin-top:5px;"><label style="float:left;width:47px;"> http://</label> <div style="float:left;*padding:0px 20px 0px 0px;*margin:0px -25px 0px 0px;*width:150px;"><%= f.text_field :url, :style => "width:126px;*width:135px;*margin:0px 32px 0px 0px;", :tabindex => "2" %></div></div></td>
+</tr>
+<tr>
+  <td class="required"><b class="required_mark">*</b><%= label_tag 'Geography' %></td>
+  <td><%=f.select :geography_id, Geography.list.collect{|geography| [geography.name, geography.id]}, :prompt => "Select" ,:size=>10, :tabindex => "3"%></td>
+</tr>
+<tr>
+  <td class="fields">&nbsp;&nbsp;<%= label_tag 'Geography Sub Class' %></td>
+  <%#= f.text_field :geography_sub, :tabindex => "4" %>
+  <td><%=f.select :geography_sub, Geography.list.collect{|geography| [geography.name, geography.name]}, :prompt => "Select" ,:size=>10, :tabindex => "4"%></td>
+</tr>
+<tr>
+  <td class="required"><b class="required_mark">*</b><%= label_tag 'Asset Class Primary',"Asset class" %></td>
+  <td><%=f.select :asset_primary_id, Asset.list.collect{|asset| [asset.name, asset.id]} , :prompt => "Select" ,:size=>10, :tabindex => "5"%></td>
+</tr>
+<tr>
+  <td class="fields"><%= label_tag 'Asset Class Secondary', "Sub asset class" %></td>
+  <td><%=f.select :asset_secondary_id, Asset.list.collect{|asset| [asset.name, asset.id]} , :prompt => "Select" ,:size=>10, :tabindex => "6"%></td>
+</tr>
+<tr>
+  <td class="required"><b class="required_mark">*</b>
+    <%= label_tag 'Description of Manager' %>
+    <p style="font-size:10px; font-weight:normal;">
+      Provide a brief description of the manager.
+    </p>
+  </td>
+  <td><%= f.text_area :description, :style => "width:171px;height:150px;", :tabindex => "7" %></td>
+</tr>
+<% if not current_user.blank? %>
+
+  <tr>
+
+    <td class="required" colspan="2" valign="top"  style="padding-right:4px; ">
+      <%# if is_admin? %>
+        <%#*<span style="width:292px;float:left;">%>
+          <%# if  @manager.featured %>
+            <%#*<input type="checkbox" name="featured" style ="margin-right:0px;height:auto; width:15px; border:1px solid none;" checked />%>
+          <%#else%>
+            <%#*<input type="checkbox" name="featured" style ="margin-right:0px;height:auto; width:15px; border:1px solid none;" />%>
+          <%#end%>
+          <%#= label_tag 'Featured manager?' %>
+        <%#*</span>%>
+      <%# end %>
+      <span style="width:480px;float:left;">
+        <input type="checkbox" name="continue" style ="margin:0px;height:auto; width:15px; border:1px solid none;" />
+        <%= label_tag 'Continue with adding a fund to this manager?' %>
+      </span>
+    </td>
+  </tr>
+<%end%>
+<% if is_admin? %>
+  <tr>
+    <th class="fields"><%= label_tag 'For User (User Name)' %></th>
+    <td> <%= text_field_with_auto_complete :manager, :user_login, { :size => 15, :tabindex => "8" }, { :url => formatted_users_path(:js), :method => :get, :param_name => 'login_search' } %> </td>
+  </tr>
+<% end %>
+</table>
+</center>

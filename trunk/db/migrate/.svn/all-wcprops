@@ -1,0 +1,1247 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/trustedinsight/!svn/ver/2826/source/trunk/db/migrate
+END
+20100703055601_add_more_notification_columns.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/2593/source/trunk/db/migrate/20100703055601_add_more_notification_columns.rb
+END
+20090918063224_create_companies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/1198/source/trunk/db/migrate/20090918063224_create_companies.rb
+END
+20090918130000_companies_sectors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/1193/source/trunk/db/migrate/20090918130000_companies_sectors.rb
+END
+20100326113737_create_questions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100326113737_create_questions.rb
+END
+20100331102242_create_transaction_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100331102242_create_transaction_types.rb
+END
+20100630091148_change_col_body_in_notifications.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/trustedinsight/!svn/ver/2566/source/trunk/db/migrate/20100630091148_change_col_body_in_notifications.rb
+END
+20090522114716_remove_id_from_funds_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090522114716_remove_id_from_funds_secondaries.rb
+END
+20090618112253_add_columns_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/488/source/trunk/db/migrate/20090618112253_add_columns_to_users.rb
+END
+20091224074758_add_plan_id_to_organization_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/trustedinsight/!svn/ver/1636/source/trunk/db/migrate/20091224074758_add_plan_id_to_organization_type.rb
+END
+20100629071851_change_col_name_in_email.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/2561/source/trunk/db/migrate/20100629071851_change_col_name_in_email.rb
+END
+20090521073244_alter_column_irr_in_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090521073244_alter_column_irr_in_funds.rb
+END
+20090601075057_add_in_market_to_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/232/source/trunk/db/migrate/20090601075057_add_in_market_to_funds.rb
+END
+20100112161623_update_plus_and_premium_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/1719/source/trunk/db/migrate/20100112161623_update_plus_and_premium_plans.rb
+END
+20090604065219_add_attachments_image_to_manager.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/350/source/trunk/db/migrate/20090604065219_add_attachments_image_to_manager.rb
+END
+20090725064353_create_assets_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/965/source/trunk/db/migrate/20090725064353_create_assets_funds.rb
+END
+20100513071444_create_saved_searches.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/2189/source/trunk/db/migrate/20100513071444_create_saved_searches.rb
+END
+20100625141854_add_new_assets_for_hedge_funds_in_assets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/trustedinsight/!svn/ver/2553/source/trunk/db/migrate/20100625141854_add_new_assets_for_hedge_funds_in_assets.rb
+END
+20100224141250_add_sender_read_and_receiver_read_to_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/trustedinsight/!svn/ver/1931/source/trunk/db/migrate/20100224141250_add_sender_read_and_receiver_read_to_messages.rb
+END
+20090716065505_create_classified_funds_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/840/source/trunk/db/migrate/20090716065505_create_classified_funds_funds.rb
+END
+20100703060413_create_notifications_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/trustedinsight/!svn/ver/2593/source/trunk/db/migrate/20100703060413_create_notifications_users.rb
+END
+20100115164858_update_premium_yearly_plan_fee.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/1753/source/trunk/db/migrate/20100115164858_update_premium_yearly_plan_fee.rb
+END
+20090715050731_add_parent_id_to_assets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/836/source/trunk/db/migrate/20090715050731_add_parent_id_to_assets.rb
+END
+20100225115459_add_ticker_to_show_in_tickers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/1933/source/trunk/db/migrate/20100225115459_add_ticker_to_show_in_tickers.rb
+END
+20090626074312_add_rank_to_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/598/source/trunk/db/migrate/20090626074312_add_rank_to_plans.rb
+END
+20090701142432_add_column_paid_in_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/660/source/trunk/db/migrate/20090701142432_add_column_paid_in_users.rb
+END
+20090513210619_create_roles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513210619_create_roles.rb
+END
+20090722080104_remove_funds_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/871/source/trunk/db/migrate/20090722080104_remove_funds_secondaries.rb
+END
+20090615105323_rename_column_type_in_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/trustedinsight/!svn/ver/457/source/trunk/db/migrate/20090615105323_rename_column_type_in_funds.rb
+END
+20100104191329_add_column_image_in_assets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/trustedinsight/!svn/ver/1647/source/trunk/db/migrate/20100104191329_add_column_image_in_assets.rb
+END
+20100127105918_add_column_paypal_profile_id_in_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/trustedinsight/!svn/ver/1786/source/trunk/db/migrate/20100127105918_add_column_paypal_profile_id_in_users.rb
+END
+20090513211920_create_geographies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/2636/source/trunk/db/migrate/20090513211920_create_geographies.rb
+END
+20100105064026_add_column_link_in_assets_and_geographies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/trustedinsight/!svn/ver/1651/source/trunk/db/migrate/20100105064026_add_column_link_in_assets_and_geographies.rb
+END
+20100105115912_update_new_plan_for_service_providers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/trustedinsight/!svn/ver/1663/source/trunk/db/migrate/20100105115912_update_new_plan_for_service_providers.rb
+END
+20090605193223_create_comment_ratings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/373/source/trunk/db/migrate/20090605193223_create_comment_ratings.rb
+END
+20100329051333_add_usertype_and_rank_and_status_to_questions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100329051333_add_usertype_and_rank_and_status_to_questions.rb
+END
+20100607094322_create_session_datas.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/2328/source/trunk/db/migrate/20100607094322_create_session_datas.rb
+END
+20100721113328_alter_table_questions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/2793/source/trunk/db/migrate/20100721113328_alter_table_questions.rb
+END
+20090918063639_assets_companies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/1193/source/trunk/db/migrate/20090918063639_assets_companies.rb
+END
+20090713052413_drop_payments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/816/source/trunk/db/migrate/20090713052413_drop_payments.rb
+END
+20100628063101_create_notifications.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/2561/source/trunk/db/migrate/20100628063101_create_notifications.rb
+END
+20090513213915_create_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/224/source/trunk/db/migrate/20090513213915_create_secondaries.rb
+END
+20100407122541_add_default_status_in_questions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/2046/source/trunk/db/migrate/20100407122541_add_default_status_in_questions.rb
+END
+20090724080725_update_admin_user_row.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/906/source/trunk/db/migrate/20090724080725_update_admin_user_row.rb
+END
+20090513210528_create_roles_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513210528_create_roles_users.rb
+END
+20090716045230_create_classified_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/846/source/trunk/db/migrate/20090716045230_create_classified_funds.rb
+END
+20090513212042_create_manager_attributes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513212042_create_manager_attributes.rb
+END
+20090922112400_add_asset_type_id_to_companies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/1205/source/trunk/db/migrate/20090922112400_add_asset_type_id_to_companies.rb
+END
+20100617101519_add_admin_fee_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/2435/source/trunk/db/migrate/20100617101519_add_admin_fee_to_users.rb
+END
+20090530103242_add_column_user_id_to_secondory.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090530103242_add_column_user_id_to_secondory.rb
+END
+20090608113836_add_status_in_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/393/source/trunk/db/migrate/20090608113836_add_status_in_comments.rb
+END
+20100204062404_change_data_type_of_transaction_id_to_string.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/trustedinsight/!svn/ver/1833/source/trunk/db/migrate/20100204062404_change_data_type_of_transaction_id_to_string.rb
+END
+20090616085102_add_column_manager_id_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/466/source/trunk/db/migrate/20090616085102_add_column_manager_id_to_users.rb
+END
+20100615114044_add_advert_id.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/2403/source/trunk/db/migrate/20100615114044_add_advert_id.rb
+END
+20091215103056_poll_value_in_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/1578/source/trunk/db/migrate/20091215103056_poll_value_in_users.rb
+END
+20090612055212_add_column_for_timestamp_in_ratings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/trustedinsight/!svn/ver/441/source/trunk/db/migrate/20090612055212_add_column_for_timestamp_in_ratings.rb
+END
+20100104191039_remove_image_column_from_assets_and_geographies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/trustedinsight/!svn/ver/1647/source/trunk/db/migrate/20100104191039_remove_image_column_from_assets_and_geographies.rb
+END
+20090709131931_add_column_ip_address_in_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/792/source/trunk/db/migrate/20090709131931_add_column_ip_address_in_orders.rb
+END
+20100225074142_create_tickers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/1933/source/trunk/db/migrate/20100225074142_create_tickers.rb
+END
+20100203143544_add_transaction_id_to_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/1826/source/trunk/db/migrate/20100203143544_add_transaction_id_to_orders.rb
+END
+20100112184051_upgrade_plan_refactored.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/1742/source/trunk/db/migrate/20100112184051_upgrade_plan_refactored.rb
+END
+20090701142715_create_payments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/660/source/trunk/db/migrate/20090701142715_create_payments.rb
+END
+20090513204723_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513204723_create_users.rb
+END
+20091222150233_create_webinars.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/1598/source/trunk/db/migrate/20091222150233_create_webinars.rb
+END
+20090617070402_add_column_commitment_size_in_secondary.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/trustedinsight/!svn/ver/473/source/trunk/db/migrate/20090617070402_add_column_commitment_size_in_secondary.rb
+END
+20100125125203_remove_type_and_type_id_from_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/trustedinsight/!svn/ver/1826/source/trunk/db/migrate/20100125125203_remove_type_and_type_id_from_messages.rb
+END
+20090513212309_create_ratings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513212309_create_ratings.rb
+END
+20090526074515_update_column_description_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090526074515_update_column_description_secondaries.rb
+END
+20090720124624_add_asset_to_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/856/source/trunk/db/migrate/20090720124624_add_asset_to_funds.rb
+END
+20091222165752_remove_profile_id_from_organization_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/trustedinsight/!svn/ver/1601/source/trunk/db/migrate/20091222165752_remove_profile_id_from_organization_types.rb
+END
+20100616053050_join_table_for_adverts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/2403/source/trunk/db/migrate/20100616053050_join_table_for_adverts.rb
+END
+20100628114741_create_emails.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/2561/source/trunk/db/migrate/20100628114741_create_emails.rb
+END
+20100331095505_add_ebitda_to_companies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/2014/source/trunk/db/migrate/20100331095505_add_ebitda_to_companies.rb
+END
+20100122090405_add_changes_to_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/1781/source/trunk/db/migrate/20100122090405_add_changes_to_messages.rb
+END
+20100616055452_remove_link_from_asset_geography.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/trustedinsight/!svn/ver/2403/source/trunk/db/migrate/20100616055452_remove_link_from_asset_geography.rb
+END
+20090605035952_create_indexing.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/350/source/trunk/db/migrate/20090605035952_create_indexing.rb
+END
+20090627065106_create_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/601/source/trunk/db/migrate/20090627065106_create_messages.rb
+END
+20090528135101_add_column_geography_sub_in_manager.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090528135101_add_column_geography_sub_in_manager.rb
+END
+20090714125310_create_sectors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/825/source/trunk/db/migrate/20090714125310_create_sectors.rb
+END
+20100104101319_add_type_and_type_id_to_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/trustedinsight/!svn/ver/1642/source/trunk/db/migrate/20100104101319_add_type_and_type_id_to_messages.rb
+END
+20090513210749_create_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513210749_create_plans.rb
+END
+20090522090510_add_columns_to_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090522090510_add_columns_to_secondaries.rb
+END
+20090603195908_add_column_for_timestamp_in_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/295/source/trunk/db/migrate/20090603195908_add_column_for_timestamp_in_comments.rb
+END
+20090721052946_add_seller_id_in_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/859/source/trunk/db/migrate/20090721052946_add_seller_id_in_funds.rb
+END
+20090521065643_add_column_multiple_in_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/trustedinsight/!svn/ver/490/source/trunk/db/migrate/20090521065643_add_column_multiple_in_funds.rb
+END
+20100804051235_add_manager_name.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/2826/source/trunk/db/migrate/20100804051235_add_manager_name.rb
+END
+20100606093413_add_token_to_classified_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/2319/source/trunk/db/migrate/20100606093413_add_token_to_classified_funds.rb
+END
+20100625101121_add_new_assettypes_for_hedge_funds_in_assets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/trustedinsight/!svn/ver/2553/source/trunk/db/migrate/20100625101121_add_new_assettypes_for_hedge_funds_in_assets.rb
+END
+20090724091832_add_column_order_type_in_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/927/source/trunk/db/migrate/20090724091832_add_column_order_type_in_orders.rb
+END
+20090619114149_update_email_alias_of_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/trustedinsight/!svn/ver/956/source/trunk/db/migrate/20090619114149_update_email_alias_of_users.rb
+END
+20100504093745_add_column_is_interested_to_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/trustedinsight/!svn/ver/2134/source/trunk/db/migrate/20100504093745_add_column_is_interested_to_messages.rb
+END
+20100331060839_add_option_ids_to_answers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100331060839_add_option_ids_to_answers.rb
+END
+20090709101144_create_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/792/source/trunk/db/migrate/20090709101144_create_orders.rb
+END
+20100330061601_create_answers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100330061601_create_answers.rb
+END
+20100331141843_add_transaction_type_to_companies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100331141843_add_transaction_type_to_companies.rb
+END
+20090710102423_change_column_values_in_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/802/source/trunk/db/migrate/20090710102423_change_column_values_in_plans.rb
+END
+20091229122720_add_startdate_and_enddate_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/trustedinsight/!svn/ver/1636/source/trunk/db/migrate/20091229122720_add_startdate_and_enddate_to_users.rb
+END
+20100712112643_rename.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2704/source/trunk/db/migrate/20100712112643_rename.rb
+END
+20090513213414_create_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513213414_create_funds.rb
+END
+20091222152118_alter_webinars.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/1598/source/trunk/db/migrate/20091222152118_alter_webinars.rb
+END
+20090513223426_create_assets_managers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513223426_create_assets_managers.rb
+END
+20100703061411_create_mailer_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/2593/source/trunk/db/migrate/20100703061411_create_mailer_types.rb
+END
+20100430055607_add_show_user_name_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/trustedinsight/!svn/ver/2119/source/trunk/db/migrate/20100430055607_add_show_user_name_to_users.rb
+END
+20090818105032_change_in_market_in_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/1078/source/trunk/db/migrate/20090818105032_change_in_market_in_funds.rb
+END
+20090612095531_rename_column_relationship_in_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/trustedinsight/!svn/ver/449/source/trunk/db/migrate/20090612095531_rename_column_relationship_in_comments.rb
+END
+20090716094903_create_classified_funds_sectors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/840/source/trunk/db/migrate/20090716094903_create_classified_funds_sectors.rb
+END
+20090722064705_update_plans1.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/867/source/trunk/db/migrate/20090722064705_update_plans1.rb
+END
+20100111231338_upgrade_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/1717/source/trunk/db/migrate/20100111231338_upgrade_plans.rb
+END
+20090513213215_create_persons.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513213215_create_persons.rb
+END
+20091222062541_create_organization_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/1601/source/trunk/db/migrate/20091222062541_create_organization_types.rb
+END
+20090616095620_approve_all_funds_and_managers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/467/source/trunk/db/migrate/20090616095620_approve_all_funds_and_managers.rb
+END
+20090615082054_add_column_type_to_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/455/source/trunk/db/migrate/20090615082054_add_column_type_to_funds.rb
+END
+20090530101930_add_column_description_to_secondary.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090530101930_add_column_description_to_secondary.rb
+END
+20090513211326_create_managers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513211326_create_managers.rb
+END
+20091222091201_add_telephone_and_organization_type_to_profile.rb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/trustedinsight/!svn/ver/1593/source/trunk/db/migrate/20091222091201_add_telephone_and_organization_type_to_profile.rb
+END
+20090621204810_create_pages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/515/source/trunk/db/migrate/20090621204810_create_pages.rb
+END
+20091216053718_remove_column_has_polled_from_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/1579/source/trunk/db/migrate/20091216053718_remove_column_has_polled_from_users.rb
+END
+20100331063602_rename_option_ids_to_option_id_in_answers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100331063602_rename_option_ids_to_option_id_in_answers.rb
+END
+20090603134603_alter_in_market_from_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/284/source/trunk/db/migrate/20090603134603_alter_in_market_from_funds.rb
+END
+20090515104947_add_describtion_to_manager.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090515104947_add_describtion_to_manager.rb
+END
+20100615112731_create_adverts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/2403/source/trunk/db/migrate/20100615112731_create_adverts.rb
+END
+20100206070359_create_payment_notifications.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/1849/source/trunk/db/migrate/20100206070359_create_payment_notifications.rb
+END
+20100712090004_create_invites.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/2702/source/trunk/db/migrate/20100712090004_create_invites.rb
+END
+20100615092505_add_defaults_to_options.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/2401/source/trunk/db/migrate/20100615092505_add_defaults_to_options.rb
+END
+20100615081949_remove_image_column_from_asset_and_geography.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/trustedinsight/!svn/ver/2403/source/trunk/db/migrate/20100615081949_remove_image_column_from_asset_and_geography.rb
+END
+20090619071452_create_user_activities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/506/source/trunk/db/migrate/20090619071452_create_user_activities.rb
+END
+20090514091125_populate_roles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090514091125_populate_roles.rb
+END
+20090904075424_add_featured_to_managers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/1151/source/trunk/db/migrate/20090904075424_add_featured_to_managers.rb
+END
+20090616063853_populate_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/465/source/trunk/db/migrate/20090616063853_populate_plans.rb
+END
+20090513212134_create_attributes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513212134_create_attributes.rb
+END
+20100628064101_alter_companies_table.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/2630/source/trunk/db/migrate/20100628064101_alter_companies_table.rb
+END
+20090513212434_create_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513212434_create_comments.rb
+END
+20090605043809_add_anonymous_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/575/source/trunk/db/migrate/20090605043809_add_anonymous_user.rb
+END
+20090713075145_add_fields_in_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/819/source/trunk/db/migrate/20090713075145_add_fields_in_funds.rb
+END
+20091216053608_add_column_has_polled_in_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/1579/source/trunk/db/migrate/20091216053608_add_column_has_polled_in_users.rb
+END
+20090529070743_alter_column_flag_in_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090529070743_alter_column_flag_in_comments.rb
+END
+20100329060313_rename_usertype_to_role_in_questions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100329060313_rename_usertype_to_role_in_questions.rb
+END
+20090529045200_add_votes_to_asset_attribute_manager.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090529045200_add_votes_to_asset_attribute_manager.rb
+END
+20090601171343_update_overview_portfolio_from_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/239/source/trunk/db/migrate/20090601171343_update_overview_portfolio_from_funds.rb
+END
+20100107072554_remove_values_from_plan_and_add_new_values.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/trustedinsight/!svn/ver/1672/source/trunk/db/migrate/20100107072554_remove_values_from_plan_and_add_new_values.rb
+END
+20090709121414_create_order_transactions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/792/source/trunk/db/migrate/20090709121414_create_order_transactions.rb
+END
+20100331101454_change_datatype_of_revenue_per_year_in_companies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/trustedinsight/!svn/ver/2126/source/trunk/db/migrate/20100331101454_change_datatype_of_revenue_per_year_in_companies.rb
+END
+20090713063536_create_currencies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/819/source/trunk/db/migrate/20090713063536_create_currencies.rb
+END
+20100430075729_change_column_in_profiles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/2126/source/trunk/db/migrate/20100430075729_change_column_in_profiles.rb
+END
+20100629095954_add_default_asset_to_assets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/trustedinsight/!svn/ver/2559/source/trunk/db/migrate/20100629095954_add_default_asset_to_assets.rb
+END
+20100703061541_update_col_mailer_type_in_notification.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/trustedinsight/!svn/ver/2593/source/trunk/db/migrate/20100703061541_update_col_mailer_type_in_notification.rb
+END
+20100203135757_add_columns_in_assets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/1826/source/trunk/db/migrate/20100203135757_add_columns_in_assets.rb
+END
+20091231072144_add_image_to_geography.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/1637/source/trunk/db/migrate/20091231072144_add_image_to_geography.rb
+END
+20091005121103_add_new_columns_to_managers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/trustedinsight/!svn/ver/1293/source/trunk/db/migrate/20091005121103_add_new_columns_to_managers.rb
+END
+20090706140259_add_admin_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/956/source/trunk/db/migrate/20090706140259_add_admin_user.rb
+END
+20090717100805_create_funds_sectors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/844/source/trunk/db/migrate/20090717100805_create_funds_sectors.rb
+END
+20100520110650_add_last_user_activity_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/2202/source/trunk/db/migrate/20100520110650_add_last_user_activity_to_user.rb
+END
+20100413063006_add_questions_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/2077/source/trunk/db/migrate/20100413063006_add_questions_users.rb
+END
+20090622131901_change_value_in_roles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/528/source/trunk/db/migrate/20090622131901_change_value_in_roles.rb
+END
+20090604062448_add_image_remote_url_to_managers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/314/source/trunk/db/migrate/20090604062448_add_image_remote_url_to_managers.rb
+END
+20100224131832_add_sender_delete_status_andreceiver_delete_stattus_to_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/trustedinsight/!svn/ver/1931/source/trunk/db/migrate/20100224131832_add_sender_delete_status_andreceiver_delete_stattus_to_messages.rb
+END
+20090513211113_create_logs.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513211113_create_logs.rb
+END
+20100703060108_create_notifications_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/trustedinsight/!svn/ver/2593/source/trunk/db/migrate/20100703060108_create_notifications_plans.rb
+END
+20090513205858_create_profiles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513205858_create_profiles.rb
+END
+20090616091623_set_all_default2.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/467/source/trunk/db/migrate/20090616091623_set_all_default2.rb
+END
+20090528074424_create_asset_attributes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090528074424_create_asset_attributes.rb
+END
+20100706125819_create_facebook_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/2655/source/trunk/db/migrate/20100706125819_create_facebook_users.rb
+END
+20090724060211_change_values_in_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/896/source/trunk/db/migrate/20090724060211_change_values_in_plans.rb
+END
+20090714065148_add_type_to_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/825/source/trunk/db/migrate/20090714065148_add_type_to_secondaries.rb
+END
+20100528064906_create_desired_sizes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/2630/source/trunk/db/migrate/20100528064906_create_desired_sizes.rb
+END
+20100121064850_plan_swaped.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/1765/source/trunk/db/migrate/20100121064850_plan_swaped.rb
+END
+20100406051708_add_parent_id_to_options.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/2024/source/trunk/db/migrate/20100406051708_add_parent_id_to_options.rb
+END
+20090520050631_alter_column_body_in_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090520050631_alter_column_body_in_comments.rb
+END
+20090703134151_add_description_columns_to_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/706/source/trunk/db/migrate/20090703134151_add_description_columns_to_plans.rb
+END
+20090527070505_remove_attribute_type_from_attribute.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090527070505_remove_attribute_type_from_attribute.rb
+END
+20100225125844_add_statistic_to_show_to_statistics.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/1933/source/trunk/db/migrate/20100225125844_add_statistic_to_show_to_statistics.rb
+END
+20090514093414_create_simple_captcha_data.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090514093414_create_simple_captcha_data.rb
+END
+20100628074404_alter_secondaries_table.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/2636/source/trunk/db/migrate/20100628074404_alter_secondaries_table.rb
+END
+20090520063103_change_column_in_funds_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090520063103_change_column_in_funds_secondaries.rb
+END
+20090629063305_change_value_of_fees_in_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/605/source/trunk/db/migrate/20090629063305_change_value_of_fees_in_plans.rb
+END
+20100706125319_add_facebook_user_id_in_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/2655/source/trunk/db/migrate/20100706125319_add_facebook_user_id_in_users.rb
+END
+20090625154949_alter_column_size_in_fund.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/584/source/trunk/db/migrate/20090625154949_alter_column_size_in_fund.rb
+END
+20100225111734_create_statistics.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/1934/source/trunk/db/migrate/20100225111734_create_statistics.rb
+END
+20090529112627_add_relationship_and_experience_level_to_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090529112627_add_relationship_and_experience_level_to_comments.rb
+END
+20090608080339_add_update_info_in_models.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/392/source/trunk/db/migrate/20090608080339_add_update_info_in_models.rb
+END
+20090923052027_add_featured_to_companies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/1219/source/trunk/db/migrate/20090923052027_add_featured_to_companies.rb
+END
+20090924045430_add_fund_id_to_classified_funds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/1231/source/trunk/db/migrate/20090924045430_add_fund_id_to_classified_funds.rb
+END
+20100615113500_create_table_questions_roles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/2412/source/trunk/db/migrate/20100615113500_create_table_questions_roles.rb
+END
+20090611065318_add_parent_id_in_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/432/source/trunk/db/migrate/20090611065318_add_parent_id_in_comments.rb
+END
+20100703063155_polpulate_mailer_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/2593/source/trunk/db/migrate/20100703063155_polpulate_mailer_types.rb
+END
+20090605122130_remove_commitment_size_from_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/trustedinsight/!svn/ver/350/source/trunk/db/migrate/20090605122130_remove_commitment_size_from_secondaries.rb
+END
+20100329065416_create_options.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/1993/source/trunk/db/migrate/20100329065416_create_options.rb
+END
+20100406100128_add_question_type_to_questions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/2031/source/trunk/db/migrate/20100406100128_add_question_type_to_questions.rb
+END
+20090615113553_add_column_title_to_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/trustedinsight/!svn/ver/458/source/trunk/db/migrate/20090615113553_add_column_title_to_comments.rb
+END
+20090513211811_create_assets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513211811_create_assets.rb
+END
+20090605183641_set_all_defaults.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/367/source/trunk/db/migrate/20090605183641_set_all_defaults.rb
+END
+20090513214237_create_funds_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090513214237_create_funds_secondaries.rb
+END
+20090623125953_additional_values_in_plans.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/554/source/trunk/db/migrate/20090623125953_additional_values_in_plans.rb
+END
+20100621111223_alter_classified_funds_table.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/2630/source/trunk/db/migrate/20100621111223_alter_classified_funds_table.rb
+END
+20091231072121_add_image_to_asset.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/1637/source/trunk/db/migrate/20091231072121_add_image_to_asset.rb
+END
+20100703072417_add_sponsered_column_to_asset.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/2628/source/trunk/db/migrate/20100703072417_add_sponsered_column_to_asset.rb
+END
+20090616134439_alter_nav_drawn_in_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/469/source/trunk/db/migrate/20090616134439_alter_nav_drawn_in_secondaries.rb
+END
+20090723083014_add_activation_code_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/trustedinsight/!svn/ver/872/source/trunk/db/migrate/20090723083014_add_activation_code_to_users.rb
+END
+20090519143010_change_columns_in_secondaries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090519143010_change_columns_in_secondaries.rb
+END
+20090527072025_rename_managerattribute.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090527072025_rename_managerattribute.rb
+END
+20091009081117_add_credits_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/1349/source/trunk/db/migrate/20091009081117_add_credits_to_users.rb
+END
+20091230144123_alter_column_body_in_comments_to2000.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/trustedinsight/!svn/ver/1633/source/trunk/db/migrate/20091230144123_alter_column_body_in_comments_to2000.rb
+END
+20100206081052_change_data_type_of_ipn_details_in_payment_notification.rb
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/trustedinsight/!svn/ver/1849/source/trunk/db/migrate/20100206081052_change_data_type_of_ipn_details_in_payment_notification.rb
+END
+20090530120357_remove_column_premium_from_secondary.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090530120357_remove_column_premium_from_secondary.rb
+END
+20090618142624_add_column_email_alias_in_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/490/source/trunk/db/migrate/20090618142624_add_column_email_alias_in_users.rb
+END
+20100115100638_remove_spaces_from.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/1743/source/trunk/db/migrate/20100115100638_remove_spaces_from.rb
+END
+20090514071001_remove_description_from_manager.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/215/source/trunk/db/migrate/20090514071001_remove_description_from_manager.rb
+END
+20100528064829_create_fund_sizes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/2258/source/trunk/db/migrate/20100528064829_create_fund_sizes.rb
+END

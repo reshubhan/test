@@ -1,0 +1,166 @@
+<% if not @secondaries.blank? %>
+  <table width="100%;" cellpadding="0" cellspacing="0px" border="0" class="secondary_table" style="margin-left:-1px;margin-top:-1px;border:1px solid #e5e5e5;">
+    <tr align="left" class="buy_sell_header">
+      <th colspan="2" class="secondaries_head" style="text-align:center;">
+        <%if @type == 'sell'%>
+          <%labelsecondary="Secondary to Sell"%>
+        <%else%>
+          <%labelsecondary="Secondary Wish List"%>
+        <%end%>
+        <%=link_to_remote labelsecondary, :url =>{:controller => 'secondaries', :action => 'index_results', :order_by=>'secondary', :ascdesc=>@ascdesc},
+                                          :with => "$('filter_form').serialize(true)",
+                                          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='secondary' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='secondary' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%></th>
+      <th class="secondaries_head" width="95">
+        <%=link_to_remote "Asset Class", :url =>{:controller => 'secondaries', :action => 'index_results', :order_by=>'asset', :ascdesc=>@ascdesc},
+                                         :with => "$('filter_form').serialize(true)",
+                                         :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='asset' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='asset' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%> </th>
+      <% if not @type.eql?'buy' %>
+        <th class="secondaries_head" width="100">
+          <%=link_to_remote "Commitment", :url =>{:controller => 'secondaries', :action => 'index_results', :order_by=>'commitment_size', :ascdesc=>@ascdesc},
+                                          :with => "$('filter_form').serialize(true)",
+                                          :loading => "show_loading();", :complete => "hide_loading();"%>
+          <% if @orderby=='commitment_size' && @ascdesc=='asc' %>
+            <%=image_tag('up.png')%>
+          <%elsif @orderby=='commitment_size' && @ascdesc=='desc' %>
+            <%=image_tag('down.png')%>
+          <%end%></th>
+      <% end %>
+      <th class="secondaries_head" width="95">
+        <%=link_to_remote "NAV", :url =>{:controller => 'secondaries', :action => 'index_results', :order_by=>'net_asset_value', :ascdesc=>@ascdesc},
+                                 :with => "$('filter_form').serialize(true)",
+                                 :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='net_asset_value' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='net_asset_value' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%>
+        <% if type.eql?'buy' %>
+          <br/>
+          <%=link_to_remote "(Desired Size)", :url =>{:controller => 'secondaries', :action => 'index_results', :order_by=>'net_asset_value', :ascdesc=>@ascdesc},
+                                              :with => "$('filter_form').serialize(true)",
+                                              :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% end %>
+      </th>
+      <th class="secondaries_head" width="80">
+        <%=link_to_remote "% Drawn", :url =>{:controller => 'secondaries', :action => 'index_results', :order_by=>'drawn', :ascdesc=>@ascdesc},
+                                     :with => "$('filter_form').serialize(true)",
+                                     :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='drawn' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='drawn' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%></th>
+      <th class="secondaries_head" width="140">
+        <%=link_to_remote "Expected Price", :url =>{:controller => 'secondaries', :action => 'index_results', :order_by=>'expected_price', :ascdesc=>@ascdesc},
+                                            :with => "$('filter_form').serialize(true)",
+                                            :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='expected_price' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='expected_price' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%></th>
+    </tr>
+    <% for secondary in @secondaries %>
+      <tr align="left" valign="top">
+        <td valign="middle" width="1" class="secondaries_row" style="padding-bottom:12px;" rowspan="1">
+          <div style="width:107px;height:80px;">
+            <% @message=Message.find(:last,:conditions=>{:post_type=>"secondary",:post_id=>secondary.id,:sender_id=>current_user.id}) %>
+            <a href="/secondaries/<%=secondary.id%>"><%= image_tag APP_CONFIG["WEBSNAPR_URL"] + secondary.manager.url, :alt => secondary.manager.name, :size => "107x80", :style => "border : 1px solid #E5E5E5;"%></a>
+          </div>
+        </td>
+        <td align="left" valign="top" class="secondaries_row" style="text-align:left;padding-bottom:0px;">
+          <table width="243px !important;">
+            <tr>
+              <td>
+                <span style="font-weight:bold;color:blue;font-size:12px;">
+                  <% if secondary.manager.belongs_to_user(current_user) or (current_user.views != 0) %>
+                    <%if not @message.blank?%><%if @message.is_not_interested==true%><img src="/images/close.jpg" border="0" alt="Creator of this posting does not have interest"  title="Creator of this posting does not have interest" height="10px;" width="10px;"><%else%><img src="/images/reply2.jpg" border="0" alt="you have replied to this Secondary"  title="You have replied to this Secondary"><%end%><%end%><%= link_to secondary.manager.name, {:controller => "secondaries", :action => "show", :id => secondary.id} %>
+                  <% else %>
+                    <%= link_to_redbox(secondary.manager.name, "upgrade") %>
+                  <% end %>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:11px;line-height:1;">
+                <%= render :partial => "managers/rating" ,:locals => {:value => secondary.manager.rating.round.to_i}%> <span style="padding-top:3px;"><%=secondary.manager.rating.round.to_i%> Average Investor Rating</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:11px;line-height:1;">
+                <b>Fund&nbsp;:</b> <%= secondary.fund.name %>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:11px;line-height:1;">
+                <b>Size&nbsp;&nbsp;:</b> <%= number_to_currency(secondary.fund.size) %> &nbsp; <%=get_currency(secondary.fund.currency)%> Million&nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:11px;line-height:1;">
+                <b>Year&nbsp;:</b> <%= secondary.fund.year %>&nbsp;
+              </td>
+            </tr>
+    <%# if !from_edit_profile.blank? %>
+            <tr>
+              <td style="font-size:11px;line-height:1;">
+                <%= link_to 'Rate and Review Manager', secondary.manager %>
+              </td>
+            </tr>
+    <%# end %>
+          </table>
+
+        </td>
+        <td class="secondaries_row">
+          <%=secondary.manager.primary_asset.name%>
+        </td>
+        <% if not @type.eql?'buy' %>
+          <td class="secondaries_row"><%=secondary.commitment_size%></td>
+        <% end %>
+        <td class="secondaries_row"><% if secondary.net_asset_value %> <%=secondary.net_asset_value.name%> <% else %> - <% end %>  </td>
+        <td class="secondaries_row"><%=secondary.drawn%></td>
+        <td class="secondaries_row" align="center"><%= wrap_price_string(secondary.expected_price)%></td>
+      </tr>
+      <% if current_user.has_role('Admin') %>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="2" style="padding:0 0 2px 8px;" valign="top"><b>Login Name&nbsp;:</b> <%=secondary.user.login%></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="2" style="padding:0 0 2px 8px;" valign="top"><b>First Name&nbsp;:</b> <%=secondary.user.profile.firstname%></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td colspan="2" style="padding:0 0 2px 8px;" valign="top"><b>Organization&nbsp;:</b> <% if not secondary.user.profile.organization_name.blank?%> <%=secondary.creator.profile.organization_name%><% else %>-<% end %></td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <%= will_paginate @secondaries, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'secondaries',
+    :action => 'index_results', :order_by => @orderby, :ascdesc => @ascdesc,
+    :with => "$('filter_form').serialize(true)",
+    :loading => "$('loading_sec').style.display=''",
+    :complete => "$('loading_sec').style.display='none'"},
+    :inner_window => 1,
+    :outer_window => 0
+%>
+  <div style="float:left;width:40%;padding:9px 0px 9px 0px;text-align:right;">
+    <span id="loading_sec" style="display:none"><img src="/images/loader.gif"/></span>
+  </div>
+<% else %>
+  <div style="padding:10px 0px 0px 10px;float:left;">Sorry, we couldn't find any matching results. Please modify your search.</div>
+<% end %>

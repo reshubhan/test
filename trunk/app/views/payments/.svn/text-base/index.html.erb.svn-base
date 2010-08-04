@@ -1,0 +1,9 @@
+firstdata.com   62 
+<h1>Order Form</h1> 
+<p>Your order total is: 13.99.</p> 
+<Form action="https://www.staging.linkpointcentral.com/lpc/servlet/lppay" method="post">
+<input type="hidden" name="storename" value="1001158219"> 
+<INPUT type="hidden" name="chargetotal" value="13.99"> 
+<input type="hidden" name="mode" value="payplus">  
+<INPUT type="submit" value="Continue to secure payment form">  
+</Form>

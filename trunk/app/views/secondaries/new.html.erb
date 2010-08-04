@@ -1,0 +1,128 @@
+
+<div class="formBox">
+  <div class="formBoxHeader">
+    <h3>Upload Secondary</h3>
+  </div>
+  <div class="formBoxInner">
+    <% form_for(@secondary) do |f| %>
+      <center><%= f.error_messages %></center>
+      <%= f.hidden_field :secondary_type, :value => @secondary.secondary_type%>
+      <table width="100%">
+        <tr>
+          <td >
+            <% if @secondary.secondary_type == 'Sell' %>	
+              <h4>Post Your Secondary position that you would like to sell</h4>
+              <h6>Describe the Secondary you have available. It’s easy</h6>
+            <% else %>
+              <h4>List the secondary position that you would like to buy</h4>
+              <h6>Describe the Secondary you would like to buy. It’s easy</h6>
+            <% end %>	
+          </td>
+        </tr>
+        <% if @secondary.secondary_type == 'Sell' %>
+          <tr>
+            <td class="fields">
+            </td>
+            <td><div><%= label_tag 'Commitment Size' %><br/>
+                <%=f.text_field  :commitment_size%>
+              </div>
+              <div><%= label_tag 'Net Asset Value' %><br/>
+                <%=f.text_field  :net_asset_value%>
+              </div>
+              <div><%= label_tag '% Drawn' %><br/>
+                <%=f.text_field  :drawn%>
+            </div></td>
+          </tr>
+          <tr>
+            <td colspan="2"  class="fields"><%= label_tag 'Manager Name (Not revealed - only rating revealed.)' %><br/>
+              <%= text_field_with_auto_complete :secondary, :manager_name, { :size => 15, :onblur =>"get_manager_funds(); return false;", :class => "selectClass" }, { :url => formatted_managers_path(:js), :method => :get, :param_name => 'search', :select => 'name' } %>
+            </td>
+          </tr>
+          <tr>
+            <td class="fields"><%= label_tag 'Fund name (optional, not revealed)' %><br/>
+              <div id="managerfunds">
+                <%= render :partial => 'funds', :locals => {:type => @secondary.secondary_type}%>
+              </div>
+            </td>
+            <td><%= label_tag 'Vintage (optional)' %><br/>
+              <%=f.select :vintage, Fund.year_options.collect {|s| [s[:label], s[:val]]}, {:include_blank => true } %>
+            </td>
+          </tr>		
+          <tr>
+            <td height="2px"></td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td height="2px"></td>
+          </tr>
+          <tr>
+            <td class="fields"><%= label_tag 'Description' %><br/>
+              <%=f.text_area :description, :size => "30x5"%>
+            </td>
+            <td><%= label_tag 'Expected Price' %><br/>
+              <%=f.radio_button :expected_price, 'par', :onchange => "disable_enable_text_field(); return false;"%>Par<br />
+              <%=f.radio_button :expected_price, 'discount', :onchange => "disable_enable_text_field(); return false;"%>Discount<br />
+              <%=f.radio_button :expected_price, 'premium', :onchange => "disable_enable_text_field(); return false;"%>Premium
+              <%=f.text_field :premium, :disabled => 'disabled' , :style => "width:100px" %>	
+            </td>
+          </tr>
+          <tr><td></td></tr>
+          <tr><td></td></tr>
+          <tr><td></td></tr>
+          <tr>
+            <td colspan="2" align="center" >
+              <%= submit_tag 'Continue', :class => "small_button" %>
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <td colspan="2"  class="fields"><%= label_tag 'Manager Name (Not revealed - only rating revealed.)' %><br/>
+              <%= text_field_with_auto_complete :secondary, :manager_name, { :size => 15, :onblur =>"get_manager_funds(); return false;"}, { :url => formatted_managers_path(:js), :method => :get, :param_name => 'search', :select => 'name' } %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="fields"><%= label_tag 'Manager URL' %><br/>
+              <input type="text" id='manager_url' name="manager_url" value="" />
+            </td>
+          </tr>
+          <tr>
+            <td class="fields"><%= label_tag 'Fund name (optional, not revealed)' %><br/>
+              <div id="managerfunds">
+                <%= render :partial => 'funds', :locals => {:type => @secondary.secondary_type}%>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td height="2px"></td>
+          </tr>
+          <tr>	
+            <td colspan="2" class="fields"><%= label_tag 'Byte Size' %><br/>
+              <%=f.text_field :bite_size %>
+            </td>
+          </tr>		
+          
+          <tr>
+            <td class="fields"><%= label_tag 'Notes' %><br/>
+              <%=f.text_area :notes, :size => "30x5"%>
+            </td>
+            <td><%= label_tag 'Expected Price' %><br/>
+              <%=f.radio_button :expected_price, 'par', :onchange => "disable_enable_text_field(); return false;"%>Par<br />
+              <%=f.radio_button :expected_price, 'discount', :onchange => "disable_enable_text_field(); return false;"%>Discount<br />
+              <%=f.radio_button :expected_price, 'premium', :onchange => "disable_enable_text_field(); return false;"%>Premium
+              <%=f.text_field :premium, :disabled => 'disabled' , :style => "width:100px" %>	
+            </td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr>
+            <td colspan="2" align="center" >
+              <%= submit_tag 'Continue', :class => "small_button" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</div>

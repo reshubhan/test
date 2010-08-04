@@ -1,0 +1,14 @@
+<p><br/></p>
+<p>
+  <input type="hidden" name="touserid" value="<%=@user.id%>" />
+  <b><%= label_tag :subject, "Subject", :style => "font-size:13px;" %></b><br />
+  <%= f.text_field :subject, :style => "width:99%;"  %>
+</p>
+<p>
+  <b><%=label_tag :body, "Message", :style => "font-size:13px;" %></b><br />
+  <%= f.text_area :body, :style => "width:99%;height:250px;"%>
+</p>
+<%= f.hidden_field :sender_id %>
+<%= f.hidden_field :manager_id %>
+<%= f.hidden_field :post_id %>
+<%= f.hidden_field :post_type %>

@@ -1,0 +1,6 @@
+<script>
+  setTimeout("closeThis();", 0);
+  function closeThis(){
+     parent.document.location = parent.document.location;
+  }
+</script>

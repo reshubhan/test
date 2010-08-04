@@ -1,0 +1,19 @@
+class SetAllDefault2 < ActiveRecord::Migration
+  def self.up
+    change_column_default(:funds, :status, "approved")
+    change_column_default(:managers, :status, "approved")
+    change_column_default(:persons, :status, "approved")
+    change_column_default(:profiles, :approved, 0)
+    change_column_default(:secondaries, :status, "approved")
+    change_column_default(:users, :status, "approved")
+  end
+
+  def self.down
+    change_column_default(:funds, :status, "unapproved")
+    change_column_default(:managers, :status, "unapproved")
+    change_column_default(:persons, :status, "unapproved")
+    change_column_default(:profiles, :approved, 0)
+    change_column_default(:secondaries, :status, "unapproved")
+    change_column_default(:users, :status, "unapproved")
+  end
+end

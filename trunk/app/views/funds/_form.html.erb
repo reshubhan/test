@@ -1,0 +1,117 @@
+<table style="color:#666666;" cellpadding="0" cellspacing="0">
+
+  <%= render :partial => "layouts/mandatory_info" %>
+
+  <% if @newfund %>
+    <%= f.hidden_field :seller_id, :value => current_user.id %>
+  <% end %>
+  <tr>
+    <td class="required_create_fund"><b class="required_mark">*</b><%= label_tag 'Manager Name' %></td>
+    <td>
+      <div class="yui-skin-sam">
+        <div id="myAutoComplete">
+          <input id="myInput" type="text" value="<%= @fund.manager.name if @fund.manager %>" style="margin-top:-12px;width:170px;margin-left:0px;"/>
+          <div id="myContainer" style="margin-top:-8px;"></div>
+          <input id="myHidden" name="fund[manager_id]" type="hidden" value="<%= @fund.manager.id if @fund.manager %>"/>
+        </div>
+      </div>
+    </td>
+    <td style="font-size:10px;width:110px;"><a href="/managers/new" style="color:#2F90DF">Add a manager</a></td>
+  </tr>
+  <tr>
+    <td class="required_create_fund"><div id="assets_label">Assets</div></td>
+    <td colspan="2">
+      <span style="font-size:12px;" onclick="show_assets('assets');"><a href="#">Click to choose Assets/Asset types</a></span>
+      <%= render :partial => "funds/asset_list", :locals => {:id => "assets"} %>
+    </td>
+  </tr>
+  <tr>
+    <td  class="required_create_fund"><b class="required_mark">*</b><%= label_tag 'Fund Name' %></td>
+    <td><%= f.text_field :name,:style=>"width:170px" %></td>
+    <td style="font-size:10px;width:110px;">
+      <%= link_to 'Check availability',nil,:onclick => "check_availability();", :href => "#" %>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="fields"> </td>
+    <td>
+      <div id="fundscheck" >
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="required_create_fund"><b class="required_mark">*</b><%= label_tag 'Fund Size' %><font size="1"> (Millions)</font></td>
+    <td>
+      <%= f.text_field :size, :style => "width:109px;", :onkeypress => "return allowNumbersOnly(event);" %>
+      <%= f.select 'currency', Currency.list.collect {|currency| [currency.name, currency.id]},{}, :style => "height:24px;width:58px !important;float:right;*margin:-25px 0px 0px 0px;margin-bottom:5px;" %>
+    </td>
+  </tr>
+  <tr>
+    <td class="required_create_fund"><b class="required_mark">*</b><%= label_tag 'Fund Year','Fund Year'%></td>
+    <td><%= f.select 'year',  Fund.year_options.collect {|s| [s[:label], s[:val]]} %></td>
+  </tr>
+  <tr>
+    <td class="fields"><b class="required_mark">*</b><%= label_tag 'In Market?' %></td>
+    <td>
+      <%= f.radio_button :in_market, true, :style => "width:30px;border:0 none;" %><%= label_tag 'Yes' %>
+      <%= f.radio_button :in_market, false, :style => "width:30px;border:0 none;" %><%= label_tag 'No' %>
+    </td>
+  </tr>
+  <tr>
+    <td class="fields"><%= label_tag 'Sector' %></td>
+    <td><%= select_tag 'fund[sector_ids][]', options_from_collection_for_select(Sector.list, 'id', 'name', @fund.sector_ids), { :style => "height:100px;", :multiple => true }%></td>
+  </tr>
+  <tr>
+    <td class="fields"><%= label_tag 'Investors', 'Investors', :style => "margin-top:5px;" %></td>
+    <td><%= f.text_field :investors,:style=>"width:172px;margin-top:5px;" %></td>
+  </tr>
+  <% if is_admin? %>
+    <tr>
+      <td class="required_create_fund"><b class="required_mark">*</b><%= label_tag 'For User (User Name)' %></td>
+      <td> <%= text_field_with_auto_complete :fund, :user_login, { :size => 15 }, { :url => formatted_users_path(:js), :method => :get, :param_name => 'login_search' } %> </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td></td>
+  </tr>
+
+</table>
+<%= render :partial => "secondaries/autocomplete_script" %>
+<script type="text/javascript">
+  $('myInput').focus();
+
+  function show_assets(ele_id){
+    $(ele_id).show();
+    $(ele_id).style.position = "absolute";
+    $(ele_id).style.top = $(ele_id+'_label').offsetTop-400;
+    $(ele_id).style.left = $(ele_id+'_label').offsetLeft + $(ele_id+'_label').width;
+  }
+  function hide_assets(ele_id){
+    $(ele_id).hide();
+  }
+
+  function allowNumbersOnly(e){
+    var keynum;
+    var keychar;
+    if(window.event){ // IE
+      keynum = e.keyCode;
+    } else if(e.which){
+      keynum = e.which;
+    }
+    if( keynum== null ||  keynum=='8'){
+      return true;
+    }
+    keychar = String.fromCharCode(keynum);
+    if( keychar >= '0' && keychar <= '9' || keychar == ''){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function check_availability(){
+    new Ajax.Request('/funds/check_funds?manager_name='+$('myInput').value+"&fund_name="+document.getElementById('fund_name').value, {asynchronous:true, evalScripts:true}); return false;
+  }
+
+</script>

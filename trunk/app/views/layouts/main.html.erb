@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <%= render :partial => "layouts/head" %>
+  </head>
+  <body>
+    <%= render :partial => "layouts/fb_inits" %>
+    <script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"></script>
+
+    <div class="main">
+      <%= render :partial => "layouts/header" %>
+      <% if current_user %>
+        <%= render :partial => "layouts/menu" %>
+      <% end %>
+      <% if current_user %>
+        <div id="breadCrumbs">
+          <%= render :partial => "layouts/breadcrumbs" %>
+        </div>
+      <% end %>
+      <%= render :partial => "layouts/flash", :locals => {:flash => flash} %>
+      <div class="content">
+        <% if params[:controller] == 'main' && params[:action] == 'index' %>
+          <%= yield %>
+        <% else %>
+          <div class="contentL"></div>
+          <div class="contentM">
+            <%= yield %>
+          </div>
+          <div class="contentR"></div>
+          <% if params[:controller] == 'managers' && (params[:action] == 'index' || params[:action] == 'filter_results') %>
+            <div id="adsDiv">
+              <%= render :partial => "managers/ads_div" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <%= render :partial => "layouts/footer" %>
+    </div>
+  </body>
+</html>

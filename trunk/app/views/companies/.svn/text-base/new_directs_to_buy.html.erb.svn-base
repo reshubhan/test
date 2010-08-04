@@ -1,0 +1,31 @@
+<div id="loader" style="width: 100%;display: none;"><center><img src="/images/loader.gif" alt="Processing :"/> Creating companies for you, please wait...</center><br/></div>
+<div style="width: 100%;"><center><%= progress_image() %></center></div>
+<%= render :partial => "layouts/left_pane", :locals => { :current => 'direct'}%>
+<div class="newfundContainer">
+  <div class="newfundTop"></div>
+  <div class="newfundContent">
+    <h2>Which deals are you looking for?</h2><br/>
+    <% form_tag(:action => "directs_to_investment_criteria",:controller => "companies" )  do -%>
+      <% assets_for_preference_company.each do |asset| %>
+        <div class="newfundInner">
+          <%= check_box_tag "company_asset_id[]", asset.id,session[:checked_value]? (((session[:checked_value].to_s.include?(asset.id.to_s))? true : false )) : true %>
+          <label><%= display_name(asset.name) %></label>
+          <%= link_to "provide more specifics", {:controller => :companies, :action => :new_directs_to_buy, "company_asset_id[]" => asset.id} %>
+        </div><br/>
+      <% end %>
+  <%#session[:checked_value]=nil%>
+      <div class="newfundInner" style="margin-top: 10px;text-align: center;">
+        <%= submit_tag 'Save and continue >>', :class => "button", :onClick => "show_loader()" %>
+      </div><br/>
+      <div class="newfundContent" style="border-bottom:1px solid #EFEEEC;margin-top:-1px;padding:9px;width:582px;">
+        <p style="font-size: 11px; font-weight: normal;">*Please provide specifics of the assets that are of interest to you.<br/>Checking all assets will create default Directs/Co-investments which may not capture your preferences accurately.</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="newfundBottom"></div>
+</div>
+<script type="text/javascript">
+  function show_loader(){
+    document.getElementById('loader').style.display = "";
+  }
+</script>

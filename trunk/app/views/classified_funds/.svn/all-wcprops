@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/trustedinsight/!svn/ver/2807/source/trunk/app/views/classified_funds
+END
+_asset_type_dropdown.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/2578/source/trunk/app/views/classified_funds/_asset_type_dropdown.rhtml
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/2558/source/trunk/app/views/classified_funds/index.html.erb
+END
+_new_funds_to_sell.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/2762/source/trunk/app/views/classified_funds/_new_funds_to_sell.html.erb
+END
+_asset_filter_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/classified_funds/_asset_filter_list.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2807/source/trunk/app/views/classified_funds/show.html.erb
+END
+_profile_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/trustedinsight/!svn/ver/2785/source/trunk/app/views/classified_funds/_profile_results.html.erb
+END
+_filter.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/2709/source/trunk/app/views/classified_funds/_filter.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/classified_funds/edit.html.erb
+END
+new_fund_to_buy.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/2800/source/trunk/app/views/classified_funds/new_fund_to_buy.html.erb
+END
+_asset_list.html.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/992/source/trunk/app/views/classified_funds/_asset_list.html.rhtml
+END
+new_funds.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/2568/source/trunk/app/views/classified_funds/new_funds.html.erb
+END
+_saved_searches.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/2709/source/trunk/app/views/classified_funds/_saved_searches.rhtml
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/classified_funds/new.html.erb
+END
+_sell.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/1242/source/trunk/app/views/classified_funds/_sell.html.erb
+END
+_profile_sell_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/2691/source/trunk/app/views/classified_funds/_profile_sell_results.html.erb
+END
+_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/trustedinsight/!svn/ver/2789/source/trunk/app/views/classified_funds/_results.html.erb
+END
+_header.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2712/source/trunk/app/views/classified_funds/_header.rhtml
+END
+upload_buy.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/classified_funds/upload_buy.html.erb
+END
+upload_sell.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/classified_funds/upload_sell.html.erb
+END

@@ -1,0 +1,9 @@
+<div style="text-align: left;">
+  <%form_tag "/single_invite",:url => {:controller => "users",:action => "single_invite"} do %>
+    <div id="single_invite">
+      <%=label_tag "Put one email Id in the text box &nbsp;&nbsp;&nbsp;:"%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%=text_field_tag "single_invite[]" ,{},:style=>"width:302px;"%>
+    </div>
+  <div style="margin-left:251px;margin-top: 10px;vertical-align: top;"><%= submit_tag 'Send Invite' ,:class => "button"%>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<b><%=link_to_remote "Add more email Id" ,:url =>{:action => :add_invite,:controller => "users"}%></b></div>
+  <%end%>
+</div>

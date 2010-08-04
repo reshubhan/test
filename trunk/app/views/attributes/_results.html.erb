@@ -1,0 +1,21 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th width="20%">Name</th>
+    <th width="70%">For Assets</th>
+    <th width="10%">Options</th>
+  </tr>
+
+
+<% for attribute in @attributes %>
+  <tr align="left">
+    <td valign="top"><%=attribute.name%></td>
+    <td valign="top"><%=attribute.asset_names%></td>
+    <td valign="top">
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_attribute_path(attribute) %> 
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), attribute, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @attributes, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'attributes', :action => 'index'} %>
+<div class="clear"></div>

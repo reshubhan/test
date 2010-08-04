@@ -1,0 +1,22 @@
+<div id="<%= id %>" onmouseover="show_sectors('<%= id %>');" onmouseout="hide_sectors('<%= id %>');"  style="background-color:#fff;display:none;z-index:99;width:905px;min-height:50px;border:3px solid #666666;">
+  <%remote_form_for :manager, @manager, :url => {:controller => 'managers', :action => 'filter_results' }, :html => {:style => "width:100%;"} do |f| %>
+  <div style="width:100%;">
+    <table width="100%">
+      <tr><td>
+          <ul>
+            <% obj_arr.each do |obj| %>
+              <li style="color:#000;font-size:11px;float:left; width:220px;">
+                <input style="border:0 none;width:auto;height:auto;" type="checkbox" name="<%= id %>[]" value="<%= obj.id %>"/>
+                <%= obj.name %>
+              </li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div style="width:100%; background-color:#e0e0e0;height:30px;margin-left:-20px;">
+    <%= submit_tag "Ok", :class => "button" %>
+  </div>
+  <% end %>
+</div>

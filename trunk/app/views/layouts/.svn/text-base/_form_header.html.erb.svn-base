@@ -1,0 +1,5 @@
+<div>
+  <h3 style="text-align:center;padding-top:5px;font-size:15px;color:#666666;">
+    <%= heading %>
+  </h3>
+</div>

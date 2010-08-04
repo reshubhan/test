@@ -1,0 +1,162 @@
+<% if not companies.blank? %>
+  <table width="100%;" cellpadding="0" cellspacing="0px" border="0" class="secondary_table" style="margin-left:-1px;margin-top:-1px;border:1px solid #e5e5e5;">
+    <tr align="left" class="buy_sell_header">
+      <th  class="companies_head" >
+        <%=link_to_remote "User Type",:url =>{:controller => 'companies', :action => 'index_results',
+          :orderby=>'usertype',:ascdesc=>@ascdesc}, :with => "$('filter_form').serialize(true)",
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='usertype' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='usertype' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%> </th>
+      <th class="companies_head" >
+        <%=link_to_remote "Deal Type",:url =>{:controller => 'companies', :action => 'index_results',
+          :orderby=>'dealtype',:ascdesc=>@ascdesc}, :with => "$('filter_form').serialize(true)",
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='dealtype' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='dealtype' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%> </th>
+      <th class="companies_head" >
+        <%=link_to_remote "Financing",:url =>{:controller => 'companies', :action => 'index_results',
+          :orderby=>'financing',:ascdesc=>@ascdesc}, :with => "$('filter_form').serialize(true)",
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='financing' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='financing' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%> </th>
+      <th class="companies_head" >
+        <%=link_to_remote "Geography",:url =>{:controller => 'companies', :action => 'index_results',
+          :orderby=>'geography',:ascdesc=>@ascdesc}, :with => "$('filter_form').serialize(true)",
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='geography' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='geography' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%> </th>
+      <th class="companies_head" >
+        <%=link_to_remote "Sector",:url =>{:controller => 'companies', :action => 'index_results',
+          :orderby=>'sector',:ascdesc=>@ascdesc}, :with => "$('filter_form').serialize(true)",
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='sector' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='sector' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%> </th>
+      <% if not type.eql?'buy' %>
+        <th class="companies_head" >
+          <%=link_to_remote "Revenue",:url =>{:controller => 'companies', :action => 'index_results',
+            :orderby=>'revenue',:ascdesc=>@ascdesc}, :with => "$('filter_form').serialize(true)",
+            :loading => "show_loading();", :complete => "hide_loading();"%>
+          <% if @orderby=='revenue' && @ascdesc=='asc' %>
+            <%=image_tag('up.png')%>
+          <%elsif @orderby=='revenue' && @ascdesc=='desc'%>
+            <%=image_tag('down.png')%>
+          <%end%> </th>
+      <% end %>
+      <th class="companies_head" >
+        <%=link_to_remote "Size",:url =>{:controller => 'companies', :action => 'index_results',
+          :orderby=>'size',:ascdesc=>@ascdesc}, :with => "$('filter_form').serialize(true)",
+          :loading => "show_loading();", :complete => "hide_loading();"%>
+        <% if @orderby=='size' && @ascdesc=='asc' %>
+          <%=image_tag('up.png')%>
+        <%elsif @orderby=='size' && @ascdesc=='desc'%>
+          <%=image_tag('down.png')%>
+        <%end%> </th>
+      <% if current_user.has_role('Admin') %>
+        <th class="companies_head"  >
+          <%=link_to_remote "Options"%></th>
+      <%end%>
+    </tr>
+    <% for company in companies %>
+      <tr>
+        <% if not type.eql?'buy' %>
+          <td class="companies_row" rowspan="1">
+            <% @message=Message.find(:last,:conditions=>{:post_type=>"company",:post_id=>company.id,:sender_id=>current_user.id}) %>
+            <%if not @message.blank?%>
+              <%if @message.is_not_interested==true%>
+                <img src="/images/close.jpg" border="0" alt="Creator of this posting do not have interest"  title="Creator of this posting does not have interest" height="10px;" width="10px;"/>
+              <%else%>
+                <img src="/images/reply2.jpg" border="0" alt="you have replied to this posting" title="You have replied to this Direct/Co-investment"/>
+              <%end%>
+            <%end%>
+            <a href="/companies/<%=company.id%>">
+              <%= company_display_name(current_user, company) %>
+            </a>
+          </td>
+        <% else %>
+          <td  class="companies_row" rowspan="1">
+            <% @message=Message.find(:last,:conditions=>{:post_type=>"company",:post_id=>company.id,:sender_id=>current_user.id}) %>
+            <%if not @message.blank?%><%if @message.is_not_interested==true%>
+                <img src="/images/close.jpg" border="0" alt="Creator of this posting do not have interest"  title="Creator of this posting does not have interest" height="10px;" width="10px;"/>
+              <%else%>
+                <img src="/images/reply2.jpg" border="0" alt="you have replied to this Direct/Co-investment"  title="You have replied to this Direct/Co-investment"/>
+              <%end%>
+            <%end%>
+            <a href="/companies/<%=company.id%>"><%= company_display_name(current_user, company) %> is looking for <br/> Directs/Co-investments</a>
+          </td>
+        <% end %>
+        <td class="companies_row"><%= company.asset.name %> </td>
+        <td class="companies_row"><%= company.type_of_financing %></td>
+        <td class="companies_row"><% if company.geography_id.blank?%>-<% else %><%=company.geography.name%> <% end %></td>
+        <td class="companies_row"><% if company.sectors.first %>
+            <%= company.sectors[0].name %>
+            <% if not company.sectors[1].blank? %>
+              ...more
+            <% end %>
+          <% else %>-<% end %></td>
+        <% if not type.eql?'buy' %>
+          <td class="companies_row"><% if  company.revenue_per_year.blank?%>-<% else %><%=number_to_currency(company.revenue_per_year)%>M <% end %></td>
+        <% end %>
+        <td class="companies_row"><% if company.desired_size %> <%= company.desired_size.name %> <% else %> - <% end %>  </td>
+        <% if current_user.has_role('Admin') %>
+          <td class="companies_row">
+            <% if company.status == 'approved' %>
+              <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_company_path(company) %>
+              <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), company, :confirm => 'Are you sure you want to delete this fund?', :method => :delete %>
+            <% end %>
+            <% if company.status == 'deleted' %>
+              <%= link_to (image_tag "delete.png  ", :alt => "Delete", :title => "Delete", :size => "20x20", :style => "margin-left:20px;"), {:controller => "companies", :action => "approve_fund", :id => company.id}, :confirm => 'Are you sure you want to approve this fund?' %>
+            <% end %>
+          </td>
+        <%end%>
+
+      </tr>
+      <% if current_user.has_role('Admin') %>
+        <tr>
+
+          <td colspan="2" style="padding:0 0 2px 8px;" valign="top"><b>Login Name&nbsp;:</b> <%=company.user.login%></td>
+        </tr>
+        <tr>
+
+          <td colspan="2" style="padding:0 0 2px 8px;" valign="top"><b>First Name&nbsp;:</b> <%=company.user.profile.firstname%></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="padding:0 0 2px 8px;" valign="top"><b>Organization&nbsp;:</b> <% if company.user.profile.organization_name.blank?%>-<% else %><%=company.creator.profile.organization_name%><% end %></td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <%= will_paginate companies, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'companies',
+    :action => 'index_results', :orderby => @orderby, :ascdesc => @ascdesc,
+    :with => "$('filter_form').serialize(true)",
+    :loading => "$('loading').style.display=''",
+    :complete => "$('loading').style.display='none'"},
+    :inner_window => 1,
+    :outer_window => 0
+%>
+  <div style="float:left;width:40%;padding:9px 0px 9px 0px;text-align:right;">
+    <span id="loading" style="display:none"><img src="/images/loader.gif"/></span>
+  </div>
+<% else %>
+  <div style="padding:10px 0px 10px 10px;float:left;width:90%;">
+      Sorry, we couldn't find any matching results. Please modify your search.
+    <br/>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<div class="plan-upgrade-main-div">
+  <div class="section-header">
+    <h3>Upgrade Your Account</h3>
+  </div>
+  <div class="section-header" style="text-align:left;">
+    <ul>
+      <li><b>Find and connect with global Institutional Investors.</b></li>
+      <li><b style="font-size:14px;"><%=number_with_delimiter(@total_postings)%></b> <b>postings representing over </b><b style="font-size:14px;"><%=number_to_currency(@total_sum, :precision => 3)%> Billion</b><b> in demand.</b></li>
+      <li><b>Send messages directly to interested Institutional Investors.</b></li>
+    </ul>
+  </div>
+  <div>
+    <% form_for  :upgrade_plan ,:url => {:controller => "orders", :action => "new" ,:id=>current_user.id ,:upgrade=>true} do |f| %>
+      <input id="basic" name="basic" type="hidden" value="<%=current_user.plan.name%>"/>
+      <div class="plan-form">
+        <div class="background_image_blue">
+          <ul>
+            <li style="border-bottom:1px dotted #000000; font-size:10px !important; margin:0 5px; padding:5px 5px;"><input type="radio" value="plus" style="width: auto ! important;height:14px;*border:0px;" name="upgrade_plan[plan_type]" id="upgrade_plan_plan_type__plus" <%= @plan.blank? ? " " :@plan.check_plus %>/> <span style="font-size: 14px;"><b>Plus</b></span></li>
+            <li style="border-bottom:1px dotted #000000; font-size:10px !important; margin:0 5px; padding:5px 5px;"><b>$<%= @plus.fee %></b> per month*</li>
+            <li style="border-bottom:1px dotted #000000; font-size:10px !important; margin:0 5px; padding:5px 5px;"><b><%= @plus.no_of_emails %> Messages</b><br/>per month </li>
+            <li style="font-size:10px !important; margin:0 5px; padding:5px 5px;"><b> 5 Featured Posts</b><br/>per month</li>
+          </ul>
+        </div>
+        <div  class="background_image_grey">
+          <ul>
+            <li style="border-bottom:1px dotted #000000; font-size:10px !important; margin:0 5px; padding:5px 5px;"><input type="radio" value="premium" style="width: auto ! important;height:14px;*border:0px;" name="upgrade_plan[plan_type]" id="upgrade_plan_plan_type_premium" <%= @plan.blank? ? "checked='true'" : (@plan.name=='Basic'?"checked='true'" :@plan.check_premium) %>/> <span style="font-size: 14px;"><b>Premium</b></span></li>
+            <li style="border-bottom:1px dotted #000000; font-size:10px !important; margin:0 5px; padding:5px 5px;"><b>$<%= @premium.fee %></b> per month*</li>
+            <li style="border-bottom:1px dotted #000000; font-size:10px !important; margin:0 5px; padding:5px 5px;"><b><%= @premium.no_of_emails %> Messages</b><br/>per month</li>
+            <li style="border-bottom:1px dotted #000000; font-size:10px !important; margin:0 5px; padding:5px 5px;"><b> 50 Featured Posts</b><br/>per month</li>
+            <li style="border-bottom:1px dotted #000000; font-size:10px !important; margin:0 5px; padding:5px 5px;"><b>Rate and Review</b><br/></li>
+            <li style="font-size:10px !important; margin:0 5px; padding:5px 5px;"><b>Investor Trends</b></li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div style="width: 100%;text-align: center;">
+        <p><small><span style="color:red;">*</span> Yearly contract and billing. Per user, Non transferable.</small></p>
+        <p><b>Special Offer: </b>Prepay for 1 year and receive <b>2 months free.</b><br/></p>
+        <p><%=f.submit 'Continue', :class => "button"%></p>
+      </div>
+    <%end%>
+  </div>
+</div>

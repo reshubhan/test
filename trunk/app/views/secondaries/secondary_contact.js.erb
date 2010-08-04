@@ -1,0 +1,15 @@
+<div align="right" style="padding:3px 10px 10px 0px;">
+	<%= link_to_close_redbox('Close', html_options = {:class=>"closeComentBoxImg"})%>
+</div>
+<% form_tag  :action => "secondary_mail", :id => @secondary do -%>
+
+<%= text_area_tag 'message', @message, :size => '40x10' %><br />
+
+<span>
+[We suggest that you tell the other party a little about your <br />organization or institution that you are representing]
+</span>
+
+<div align="center">
+	<%= submit_tag "Submit", :class => "small_button" %>
+</div>
+<% end %>

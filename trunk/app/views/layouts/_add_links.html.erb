@@ -1,0 +1,98 @@
+<%#if not params[:action]=="new_fund_to_buy"%>
+<%#*<div class="addManagerdropDownInner">%>
+  <%#*<ul id="sddm">%>
+    <%#*<li class="arrwImg"><a href="#" onmouseover="mopen('m1');hideLink('sell_links');hideLink('buy_links');"%>
+                           <%#*onmouseout="mclosetime()"style="padding-left:0px;width:" >Add</a>%>
+      <%#*<div id="m1" onmouseover="mcancelclosetime()">%>
+        <%#*<a href="#" onmouseover="openSubmenu('buy_links');hideLink('sell_links');" style="margin:0px 0px 0px 7px;padding-left:0px;" >Add to buy</a>%>
+        <%#*<a href="#" onmouseover="openSubmenu('sell_links');hideLink('buy_links');" style="margin:0px 0px 0px 7px;padding-left:0px;"  >Add to sell</a>%>
+        <%#*<a href="/funds/new"  onmouseover="hideLink('sell_links');hideLink('buy_links');" style="margin:0px 0px 0px 7px;padding-left:0px;"  >Funds</a>%>
+        <%#*<a href="/managers/new" onmouseover="hideLink('sell_links');hideLink('buy_links');" style="margin:0px 0px 0px 7px;padding-left:0px;" >Managers</a>%>
+      <%#*</div>%>
+    <%#*</li>%>
+  <%#*</ul>%>
+
+  <%#*<div id="buy_links" class="subMenu_div" style="margin:24px 0px 0px 73px;width:185px; *margin:24px 0px 0px 24px; display: none;"%>
+       <%#*onmouseover="openSubmenu('buy_links');mopen('m1');" onmouseout="hideLink('buy_links');mclosetime();">%>
+    <%#*<a href="/classified_funds/new_fund_to_buy" >New Fund to buy</a>%>
+    <%#*<a href="/secondaries/upload/buy" >Secondary to buy</a>%>
+    <%#*<a href="/companies/upload/buy" >Directs/Co-investments to buy</a>%>
+  <%#*</div>%>
+
+  <%#*<div id="sell_links" class="subMenu_div" style="margin:48px 0px 0px 73px;width:185px; *margin:48px 0px 0px 24px; display: none;"%>
+       <%#*onmouseover="openSubmenu('sell_links');mopen('m1');" onmouseout="hideLink('sell_links');mclosetime();">%>
+    <%#*<a href="/classified_funds/upload/sell">New Fund to sell</a>%>
+    <%#*<a href="/secondaries/upload/sell">Secondary to sell</a>%>
+    <%#*<a href="/companies/upload/sell" >Directs/Co-investments to sell</a>%>
+
+  <%#*</div>%>
+<%#*</div>%>
+
+<%#*<div class="addManagerdropDownInner">%>
+  <%#*<ul id="sddm">%>
+    <%#*<li><a href="/webinars" style="padding-left: 3px; padding-right: 2px; width: 58px;">Webinars</a>%>
+    <%#*</li>%>
+  <%#*</ul>%>
+<%#*</div>%>
+<%#end%>
+
+<ul id="navbar">
+   <li><a href="javascript::void(0)">New Funds</a>
+      <ul>
+         <li><a href="/classified_funds">Buyers</a></li>
+         <li><a href="/classified_funds/list/sell">Sellers</a></li>
+         <li><a href="/classified_funds/new_fund_to_buy">Post to Buy</a></li>
+         <li><a href="/classified_funds/upload/sell">Post to Sell</a></li>
+      </ul>
+   </li>
+   <li><a href="javascript::void(0)">Secondaries</a>
+      <ul style="left:79px;">
+         <li><a href="/secondaries">Buyers</a></li>
+         <li><a href="/secondaries?type=sell">Sellers</a></li>
+         <li><a href="/secondaries/upload/buy">Post to Buy</a></li>
+         <li><a href="/secondaries/upload/sell">Post to Sell</a></li>
+      </ul>
+   </li>
+   <li><a href="javascript::void(0)">Directs/Co-Investments</a>
+      <ul style="left:168px;">
+         <li><a href="/companies">Buyers</a></li>
+         <li><a href="/companies?type=sell">Sellers</a></li>
+         <li><a href="/companies/new_directs_to_buy">Post to Buy</a></li>
+         <li><a href="/companies/upload/sell">Post to Sell</a></li>
+      </ul>
+   </li>
+
+   <li><a href="javascript::void(0)">Directories</a>
+      <ul style="left:318px;">
+         <li><a href="/managers">Managers</a></li>
+         <li><a href="/managers/new">Post</a></li>
+      </ul>
+   </li>
+
+   <li><a href="#">Webinars</a></li>
+   
+   <li><a href="javascript::void(0)">Blogs</a>
+      <ul style="left:264px;">
+         <li><a href="#">Manager Selection</a></li>
+         <li><a href="#">Terms</a></li>
+         <li><a href="#">Fundraising</a></li>
+      </ul>
+   </li>
+</ul>
+
+<script type="text/javascript">
+  // Javascript originally by Patrick Griffiths and Dan Webb.
+  // http://htmldog.com/articles/suckerfish/dropdowns/
+  sfHover = function() {
+     var sfEls = document.getElementById("navbar").getElementsByTagName("li");
+     for (var i=0; i<sfEls.length; i++) {
+        sfEls[i].onmouseover=function() {
+           this.className+=" hover";
+        }
+        sfEls[i].onmouseout=function() {
+           this.className=this.className.replace(new RegExp(" hover\\b"), "");
+        }
+     }
+  }
+  if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script>

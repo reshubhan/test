@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails
+END
+._helpers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/._helpers.rb
+END
+facebook_session_handling.rb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/facebook_session_handling.rb
+END
+controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/controller.rb
+END
+facebook_url_rewriting.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/facebook_url_rewriting.rb
+END
+integration_session.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/integration_session.rb
+END
+routing.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/routing.rb
+END
+facebook_request_fix.rb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/facebook_request_fix.rb
+END
+facebook_url_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/facebook_url_helper.rb
+END
+profile_publisher_extensions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/profile_publisher_extensions.rb
+END
+publisher.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/publisher.rb
+END
+backwards_compatible_param_checks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/backwards_compatible_param_checks.rb
+END
+test_helpers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/test_helpers.rb
+END
+facebook_form_builder.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/facebook_form_builder.rb
+END
+helpers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/helpers.rb
+END
+cucumber.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/cucumber.rb
+END
+facebook_request_fix_2-3.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/facebook_request_fix_2-3.rb
+END
+utilities.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/utilities.rb
+END
+facebook_pretty_errors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/trustedinsight/!svn/ver/2720/source/trunk/vendor/plugins/facebooker/lib/facebooker/rails/facebook_pretty_errors.rb
+END

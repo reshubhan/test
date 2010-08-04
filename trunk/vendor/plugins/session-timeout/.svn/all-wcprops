@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/843/source/trunk/vendor/plugins/session-timeout
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/841/source/trunk/vendor/plugins/session-timeout/LICENSE
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/841/source/trunk/vendor/plugins/session-timeout/Rakefile
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/841/source/trunk/vendor/plugins/session-timeout/init.rb
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/841/source/trunk/vendor/plugins/session-timeout/install.rb
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/841/source/trunk/vendor/plugins/session-timeout/README
+END

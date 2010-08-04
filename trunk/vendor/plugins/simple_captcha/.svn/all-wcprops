@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/trustedinsight/!svn/ver/902/source/trunk/vendor/plugins/simple_captcha
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/76/source/trunk/vendor/plugins/simple_captcha/Rakefile
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/76/source/trunk/vendor/plugins/simple_captcha/init.rb
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/76/source/trunk/vendor/plugins/simple_captcha/install.rb
+END
+MIT-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/76/source/trunk/vendor/plugins/simple_captcha/MIT-LICENSE
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/76/source/trunk/vendor/plugins/simple_captcha/README
+END

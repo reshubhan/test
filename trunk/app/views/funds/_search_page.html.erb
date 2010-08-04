@@ -1,0 +1,14 @@
+<% form_tag '/funds/search' do -%>
+  <div class="search_buttonDiv">
+    <div class="yui-skin-sam">
+      <div id="managerAutoComplete">
+        <input id="managerInput" type="text" value="Search Manager" style="height:18px;width:230px !important;" onfocus="clearText(this);return false;" onblur="setText(this, 'Search Manager');return false;"/>
+        <div id="managerContainer" ></div>
+        <input id="managerHidden" name="manager[name]" type="hidden" value=""/>
+      </div>
+    </div>
+    <%= render :partial => "layouts/autocomplete_script" %>
+
+    <div class="searchButtonImg" style="margin-left: 230px;"><a href="#"><img src="/images/search_button.gif" border="0" alt="searchimageButton" onclick="document.forms[0].submit();"/></a></div>
+  </div>
+<% end %>

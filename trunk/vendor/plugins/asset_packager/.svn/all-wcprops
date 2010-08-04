@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/Rakefile
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/init.rb
+END
+CHANGELOG
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/CHANGELOG
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/install.rb
+END
+about.yml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/about.yml
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/README
+END

@@ -1,0 +1,45 @@
+<p style="text-align:center;">Thank you for completing the registration. Below are the details of your registration.</p>
+<table align="center" style="border:1px solid #e6e6e6; width:300px;">
+    <tr>
+      <th colspan="2" style="background-color:#c6c6c6;" align="center">
+        <h3 style="color:#fff;">Payment Detail</h3>
+      </th>
+    </tr>
+    <tr>
+      <th>User name: </th>
+      <td><%= @user.login %></td>
+    </tr>
+    <tr>
+      <th>First Name: </th>
+      <td><%= @user.profile.firstname %></td>
+    </tr>
+    <tr>
+      <th>Last Name: </th>
+      <td><%= @user.profile.lastname %></td>
+    </tr>
+    <tr>
+      <th>Role: </th>
+      <td><%= @user.plan.role.title %></td>
+    </tr>
+    <tr>
+      <th>Plan: </th>
+      <td><%= @user.plan.name %></td>
+    </tr>
+    <tr>
+      <th>Duration: </th>
+      <td><%= @user.plan.duration %></td>
+    </tr>
+    <tr>
+      <th>Amount: </th>
+      <td>$<%= @user.plan.fee %> USD</td>
+    </tr>
+    <tr>
+      <th>Transaction Id: </th>
+      <td><%= @user.order.transaction_id%></td>
+    </tr>
+    <tr>
+      <th>Status: </th>
+      <td><%= @status=='Completed' ? "<font style='color:#060;'>Complete</font>" : "<font style='color:#f00;'>#{@status}</font>"%></td>
+    </tr>
+  </table>
+<p style="font-size:11px;text-align:center;"><b>Note: </b>Please print or save a copy of payment shown above for further reference.</p>

@@ -1,0 +1,54 @@
+<table cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="2" style="padding-left:160px;"><%= render :partial => "layouts/form_header", :locals => {:heading => "Fund Details"} %></td>
+  </tr>
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr>
+    <td class="fields">Id : </td>
+    <td><%= @fund.id %></td>
+  </tr>
+  <tr>
+    <td class="fields">Name : </td>
+    <td><%= @fund.name %></td>
+  </tr>
+  <tr>
+    <td class="fields">Manager Name : </td>
+    <td><%= @fund.manager.name %></td>
+  </tr>
+  <tr>
+    <td class="fields">Asset Class : </td>
+    <td><%= @fund.manager.primary_asset.name %></td>
+  </tr>
+  <tr>
+    <td class="fields">Geography : </td>
+    <td><%= @fund.manager.geography.name %></td>
+  </tr>
+  <tr>
+    <td class="fields">Year : </td>
+    <td><%= @fund.year %></td>
+  </tr>
+  <tr>
+    <td class="fields">Type : </td>
+    <td><%= @fund.fund_type %></td>
+  </tr>
+  <tr>
+    <td class="fields">Size : </td>
+    <td><%= number_to_currency(@fund.size) %>&nbsp;<%=get_currency(@fund.currency)%> Million</td>
+  </tr>
+  <tr>
+    <td class="fields">User : </td>
+    <td><%= @fund.user.login %></td>
+  </tr>
+  <tr><td colspan="2">&nbsp;</td></tr>
+  <tr>
+    <td colspan="2" align="center" style="padding-left:160px;">
+      <% if @fund.status == 'approved' %>
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_fund_path(@fund) %>
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), @fund, :confirm => 'Are you sure you want to delete this fund?', :method => :delete %>
+      <% end %>
+      <% if @fund.status == 'deleted' %>
+        <%= link_to (image_tag "delete.png  ", :alt => "Delete", :title => "Delete", :size => "20x20", :style => "margin-left:20px;"), {:controller => "funds", :action => "approve_fund", :id => @fund.id}, :confirm => 'Are you sure you want to approve this fund?' %>
+      <% end %>
+    </td>
+  </tr>
+</table>

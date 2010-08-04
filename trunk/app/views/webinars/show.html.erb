@@ -1,0 +1,28 @@
+<p>
+  <b>Title:</b>
+  <%=h @webinar.title %>
+</p>
+
+<p>
+  <b>Speaker:</b>
+  <%=h @webinar.speaker %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%=h @webinar.link %>
+</p>
+
+<p>
+  <b>Organization:</b>
+  <%=h @webinar.organization %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @webinar.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_webinar_path(@webinar) %> |
+<%= link_to 'Back', webinars_path %>

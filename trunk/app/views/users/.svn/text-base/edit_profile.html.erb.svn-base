@@ -1,0 +1,213 @@
+<%= render :partial => "layouts/form_header", :locals => {:heading => "My Profile"} %>
+<div class="myProfile">
+  <ul>
+    <li><a href="javascript:void(0)" id="mainProfileTab" class="current" onclick="if (this.className != 'current'){ showContentAndHighlight3('mainProfile', 'editProfile', 'inboxContent','invitation', 'investment'); }">MAIN</a></li>
+    <li><a href="javascript:void(0)" id="editProfileTab" onclick="if (this.className != 'current'){ showContentAndHighlight3('editProfile', 'mainProfile', 'inboxContent','invitation', 'investment'); }">EDIT PROFILE</a></li>
+    <li><a href="javascript:void(0)" style="width:200px;" id="investmentTab" onclick="if (this.className != 'current'){ showContentAndHighlight3('investment', 'editProfile', 'inboxContent','invitation', 'mainProfile'); }">INVESTMENT CRITERIA</a></li>
+    <li><a href="javascript:void(0)" id="inboxContentTab" onclick="if (this.className != 'current'){ showContentAndHighlight3('inboxContent', 'mainProfile', 'editProfile','invitation', 'investment'); }">INBOX</a></li>
+    <li><a href="javascript:void(0)" id="invitationTab" onclick="if (this.className != 'current'){ showContentAndHighlight3('invitation', 'mainProfile', 'editProfile','inboxContent', 'investment'); }">INVITES</a></li>
+  </ul>
+</div>
+<br/>
+<div class="myProfileC" id="mainProfile">
+  <table width="750px" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Email</b></td>
+      <td><b>:</b> <%=@profile.email%></</td>
+    </tr>
+    <tr>
+      <td><b>Joined on</b></td>
+      <td><b>:</b> <%=@profile.created_at.to_date %></td>
+    </tr>
+
+    <% unless current_user.has_role('Admin') %>
+      <tr>
+        <td><b>Scorecard</b></td>
+        <td><b>:</b> <%= @user.emails<0 ? "Unlimited" : @user.emails %> emails </td>
+      </tr>
+      <tr>
+        <td><b>Membership</b></td>
+        <td><b>:</b> <%= @user.plan.name %> <%= @user.plan.duration.blank? ? '' : "(Duration: #{@user.plan.duration})"%>
+          <% unless @user.plan.rank == highest_plan_rank(@user.plan) %>
+            <% if @user.plan.role.title.eql?'Institutional Investor' %>
+              <%= link_to_redbox("Click here to upgrade", "upgrade") %>
+            <% else %>
+              <%= link_to("Click here to upgrade", "users/upgrade_plan/") %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+
+    <% if not @profile.organization_name.blank? %>
+      <tr>
+        <td> <b>Organization</b></td>
+        <td><b>:</b> <%=@profile.organization_name.capitalize%></td>
+      </tr>
+    <% end %>
+    <%  unless Question.find_by_sql("select * from questions q inner join questions_roles qr on q.id=qr.question_id where qr.role_id=#{current_user.plan.role.id} and q.status=true").blank?%>
+      <tr>
+        <td> <b>Edit Investment Criteria</b></td>
+        <td><b>:</b> <a href="/list_answers">Edit Investment Criteria</a></td>
+      <%else%>
+        <td> <b>Edit Investment Criteria</b></td>
+        <td><b>:</b> N/A </td>
+      </tr>
+    <%end%>
+  </table><br/>
+  <div id="upgrade" style="display:none;">
+    <%= render :partial => "upgrade_membership" , :locals => {:upgrade_message => nil} %>
+  </div>
+
+  <%if current_user.has_role('Admin')%>
+    <div style="clear:both">
+  <%#=link_to "Delete secondaries", {:action => "delete_postings",:controller => "secondaries",:user_id => @profile.user_id},:confirm =>"Are you sure you want to delete all your secondaries posting?"%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%=link_to "Delete new funds", {:action => "delete_postings",:controller => "classified_funds",:user_id => @profile.user_id},:confirm =>"Are you sure you want to delete all your new fund posting?"%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%=link_to "Delete directs", {:action => "delete_postings",:controller => "companies",:user_id => @profile.user_id},:confirm =>"Are you sure you want to delete all your directs posting?"%>
+    </div>
+  <% end %>
+
+  <div class="myProfile" style="font-weight: normal;font-size: 12px !important;">
+    <ul>
+      <% if is_manager?(current_user) %>
+        <li><a href="javascript:void(0)" id="managerProfileTab" class="current" onclick="if(this.className != 'current'){ showContentAndHighlight3('managerProfile', 'secBuy', 'secSell'); }">Your Manager Profile</a></li>
+      <% end %>
+      <li><a href="javascript:void(0)" id="secBuyTab" <% unless is_manager?(current_user) %> class="current" <% end %>  onclick="if(this.className != 'current'){ showContentAndHighlight3('secBuy', 'secSell', 'managerProfile'); }">Secondaries to buy</a></li>
+      <li><a href="javascript:void(0)" id="secSellTab" onclick="if(this.className != 'current'){ showContentAndHighlight3('secSell', 'secBuy', 'managerProfile'); }">Secondaries to sell</a></li>
+    </ul>
+  </div><br/>
+  <% if is_manager?(current_user) %>
+    <div id="managerProfile" class="topcommentsimage">
+      <%= render :partial => "managers/manager_view", :locals => {:from_edit_profile => 'true', :hide_edit_link => 'true'} %>
+    </div>
+  <% end %>
+  <div id="secBuy" class="topcommentsimage" <% if is_manager?(current_user) %> style="display:none;" <% end %> >
+    <%= render :partial => "secondaries/profile_results", :locals => {:secondaries => @secondaries_buy, :type => 'buy', :from_edit_profile => 'true'} %>
+  </div>
+  <div id="secSell" class="topcommentsimage" style="display:none;">
+    <%= render :partial => "secondaries/profile_results", :locals => {:secondaries => @secondaries_sell, :type => 'sell', :from_edit_profile => 'true'} %>
+  </div>
+
+  <!-- Funds tabs and listings -->
+  <div class="myProfile" style="font-weight: normal;font-size: 12px !important;">
+    <ul>
+      <li><a href="javascript:void(0)" id="fundBuyTab" class="current" onclick="if(this.className != 'current'){ showContentAndHighlight2('fundBuy', 'fundSell'); }">Funds to buy</a></li>
+      <li><a href="javascript:void(0)" id="fundSellTab" onclick="if(this.className != 'current'){ showContentAndHighlight2('fundSell', 'fundBuy'); }">Funds to sell</a></li>
+    </ul>
+  </div><br/>
+  <div id="fundBuy" class="topcommentsimage" >
+    <%= render :partial => "classified_funds/profile_results", :locals => {:classified_funds => @classified_fund_buy,:type => 'buy', :from_edit_profile => 'true'} %>
+  </div>
+  <div id="fundSell" class="topcommentsimage" style="display:none ! important;">
+    <%= render :partial => "classified_funds/profile_sell_results", :locals => {:classified_funds => @classified_fund_sell,:type => 'sell', :from_edit_profile => 'true'} %>
+  </div>
+  <!-- companies tabs and listings -->
+
+  <div class="myProfile" style="font-weight: normal;font-size: 12px !important;">
+    <ul>
+      <li><a href="javascript:void(0)" style="width:230px;" id="companyBuyTab" class="current" onclick="if(this.className != 'current'){ showContentAndHighlight2('companyBuy', 'companySell'); }">Directs/Co-Investments to buy</a></li>
+      <li><a href="javascript:void(0)" style="width:230px;" id="companySellTab" onclick="if(this.className != 'current'){ showContentAndHighlight2('companySell', 'companyBuy'); }">Directs/Co-Investments to sell</a></li>
+    </ul>
+  </div><br/>
+  <div id="companyBuy" class="topcommentsimage" >
+    <%= render :partial => "companies/profile_results", :locals => {:companies => @company_buy,:type => 'buy', :from_edit_profile => 'true'} %>
+  </div>
+  <div id="companySell" class="topcommentsimage" style="display:none ! important;">
+    <%= render :partial => "companies/profile_results", :locals => {:companies => @company_sell,:type => 'sell', :from_edit_profile => 'true'} %>
+  </div>
+</div>
+<!-- main profile end -->
+
+
+
+<!-- edit profile start -->
+<div id="editProfile" class="topcommentsimage" style="color:#666666;display:none !important;float:left;">
+  <%= render :partial => 'edit_profile_form' %>
+</div>
+<!-- edit profile end -->
+
+
+
+<!-- inbox start -->
+<div id="inboxContent" class="topcommentsimageinbox" style="display:none;">
+  <%= render :partial => "message" %>
+</div>
+<!-- inbox end -->
+
+
+
+<!--contact start-->
+<div id="invitation" style="display: none;">
+  <%= render :partial => "import_contact" %>
+</div>
+<!--contact end-->
+
+
+<!--profile answers start-->
+<div id="investment" class="content-box-content" style="display:none;clear:both;">
+  <% unless @answers.blank? %>
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <div style="text-align: left;">
+        <%i=1%>
+        <%@answers.each do |answer|%>
+          <%if answer.question.role_ids.include?(current_user.plan.role.id)%>
+            <p><b>Q <%=i%>.  <%=answer.question.answer_text.nil? ? answer.question.questions : answer.question.answer_text%></b></p><br/>
+            <p>
+            <ul>
+              <%answer.option_id.split(",").each do |op|%>
+                <%if is_a_number(op)%>
+                  <%option=Option.find(:first,:conditions=>"id=#{op.to_i} and parent_id is NULL")%>
+                  <%if option && (option.option=="option_yes"||option.option=="option_no")%>
+                    <%if option.option=="option_yes"%>
+                      <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span>Yes</span></li>
+                    <%else%>
+                      <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span>No</span></li>
+                    <%end%>
+                  <%elsif answer.question.question_type=="multiple choice"%>
+                    <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span><%=Option.find(op).option%></span></li>
+                  <%elsif answer.question.question_type!="text field"%>
+                    <li class="user_answer_option_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span><%=Option.find(op).option%></span></li>
+                  <%end%>
+                <%else%>
+                  <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><%=op%></li>
+                <%end%>
+              <%end%>
+              <%i=i+1%>
+            </ul>
+            </p><br/>
+          <%end%>
+        <%end%>
+      </div>
+    </div>
+  <%else%>
+    <div style="text-align: center;">
+      You have not entered the Investment Criteria to enter click the link below .<br></br><br></br>
+      <b>Investment Criteria</b>
+      <b>:</b> <a href="/list_question">Investment Criteria</a>
+    </div>
+  <% end %>
+</div>
+<!--profile answers end-->
+<div class="clear"></div>
+<script type="text/javascript">
+  function reload_profile(){
+    window.location="/profile";
+  }
+
+  function facebook_login(loc){
+    new Ajax.Request('/facebook/connect'+'/'+loc, {
+      method:'get',
+      asynchronous:true,
+      evalScripts:true
+    });
+  }
+</script>
+
+<%if params[:from_fund_page]%>
+  <script>
+    document.getElementById('invitationTab').className = 'current';
+    document.getElementById('mainProfileTab').className = '';
+    showContentAndHighlight3('invitation', 'mainProfile', 'editProfile','inboxContent');
+  </script>
+  <%params[:from_fund_page]=nil%>
+<%end%>

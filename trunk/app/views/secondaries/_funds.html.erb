@@ -1,0 +1,6 @@
+<% if not secondary == -1 %>
+    <%= select_tag 'secondary[fund_id]', options_from_collection_for_select(Fund.find(:all, :conditions => " status='approved' and manager_id='#{manager}'"), 'id', 'name', Secondary.find(secondary).fund_id), {:style => "height:20px;"} %>
+  <% else %>
+    <%= select_tag 'secondary[fund_id]', options_from_collection_for_select(Fund.find(:all, :conditions => " status='approved' and manager_id='#{manager}'"), 'id', 'name', nil), {:style => "height:20px;"} %>
+  <% end %>		
+

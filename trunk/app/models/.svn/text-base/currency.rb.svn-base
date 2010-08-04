@@ -1,0 +1,8 @@
+class Currency < ActiveRecord::Base
+  validates_presence_of :name
+  validates_uniqueness_of :name
+
+  def self.list
+    find(:all, :order => 'name desc')
+  end
+end

@@ -1,0 +1,73 @@
+<div class="content-box">
+  <div class="content-box-header">
+    <h3 style="cursor: s-resize;">
+      Add Manager
+    </h3>
+    <div style="float: right;margin: 10px;"><%= link_to 'Back', managers_path, :class => "button" %></div>
+    <div class="clear"></div>
+  </div>
+  <div class="content-box-content">
+    <div style="display: block;" class="tab-content default-tab scrollDiv">
+        <div>
+          <table width="100%" cellpading="0" cellspacing="0" border="0" align="center">
+            <tr>
+              <td valign="top" width="50%" style="padding:10px;">
+                <% form_for(@manager) do |f| %>
+                  <center><%= f.error_messages %></center>
+                  <input type="hidden" name="role" value="<%=@role%>" />
+                  <input type="hidden" name="plan" value="<%=@plan%>" />
+                  <%= render :partial => "form", :locals => {:f => f} %>
+                  <div class="middleButtnManager">
+                    <br/>
+                    <input type="submit" class="button" value="Submit"/>
+                  </div>
+                <% end %>
+              </td>
+              <td valign="top" width="50%" style="border-left:1px solid #cdcdcd;padding:0px 5px 0px 5px;">
+                <table width="100%" cellpading="2" cellspacing="3" border="0">
+                  <tr>
+                    <td style="padding-left:5px;">
+                      <div width="100px">
+                        <p>
+                          <b>Portfolio Upload</b>
+                        </p>
+                        <p style="font-size:11px;" align="justify">
+                          Do you want to add an entire portfolio of managers and funds? Contact our team at
+                          <a href="mailto:Portfolio@trustedinsightinc.com">Portfolio@trustedinsightinc.com</a>
+                          and we will be happy to assist in loading your portfolio into our system.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <br/>
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  init();
+  function init(){
+    document.title = 'Add Manager - Trusted Insight'
+    $('name').focus();
+    /* if(<%= current_user.blank? %>){
+      if(<%= !session[:money_manager_id].blank?%>){
+<% begin %>
+  <%#* Try catch is placed to handle exceptions when user other than Money manager is accessing this page%>
+  <% user = User.find(session[:money_manager_id]) %>
+            if (<%= user.manager_id.blank? and user.plan.role.title.eql?('Fund Manager') %>){
+  <%#*show_div = document.getElementById('complete_signup_div');%>
+  <%#*RedBox.showInline(show_div);%>
+              document.getElementById('complete_signup_div').style.display='';
+            }
+<% rescue Exception => e %>
+<% end %>
+      }
+    }*/
+    return false;
+  }
+</script>

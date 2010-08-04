@@ -1,0 +1,49 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th width="15%" >Name</th>
+    <th width="15%">Parent</th>
+    <th width="30%">Attributes</th>
+    <th width="30%">Ad</th>
+    <th>Activate_asset</th>
+    <th>Default_asset</th>
+    <th width="10%" style="width:80px !important;">Options</th>
+  </tr>
+  <% for asset in @assets %>
+    <%@asset=asset%>
+    <tr align="left">
+      <td valign="top"><b><%=asset.name%></b></td>
+      <td valign="top"><%=asset.parent ? "<a href='/assets/#{asset.parent.id}/edit'>#{asset.parent.name}</a>" : "This is a root level asset class."%></td>
+      <td valign="top"><%=asset.attribute_names%></td>
+      <td valign="top">
+        <% if asset.adverts %>
+          <% asset.adverts.each do |advert| %>
+            <a href="<%= advert.link %>"><img src="<%=advert.public_filename(:thumb)%>" title="<%=advert.name%>"/></a>
+          <% end %>
+        <% else %>
+          -
+        <% end %>
+      </td>
+      <%if asset.active_asset==false%>
+        <td  valign="top"><%= link_to_remote "activate",:url =>{:controller =>"assets",:action =>"activate_asset",:id =>asset.id} %></td>
+      <%else%>
+        <td  valign="top"><%= link_to_remote "inactivate",:url =>{:controller =>"assets",:action =>"activate_asset",:id =>asset.id,:inactivate =>true} %></td>
+      <%end%>
+      <%if asset.default_asset==false%>
+        <td  valign="top"><%= link_to_remote "set_default",:url =>{:controller =>"assets",:action =>"default_asset",:id =>asset.id} %></td>
+      <%else%>
+        <td  valign="top"><%= link_to_remote "remove_default",:url =>{:controller =>"assets",:action =>"default_asset",:id =>asset.id,:remove_default => true} %></td>
+      <%end%>
+      <td valign="top" style="width:80px !important;">
+        <% if asset.parent_id %>
+          <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), :controller => 'assets', :action => 'edit' , :id => asset, :asset_type => 'asset_type' %>
+        <% else %>
+          <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_asset_path(asset) %>
+        <% end %>
+      </td>
+
+      <td></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @assets, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'assets', :action => 'index'} %>
+<div class="clear"></div>

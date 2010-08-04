@@ -1,0 +1,19 @@
+<table class="listing" cellpadding="0px" cellspacing="0px;">
+  <tr align="left">
+    <th>Name</th>
+    <th>Title</th>
+    <th style="width:80px !important;">Options</th>
+  </tr>
+  <% for page in @pages %>
+    <tr align="left">
+      <td><%=page.name%></td>
+      <td><%=page.title%></td>
+      <td style="width:80px !important;">
+        <%= link_to (image_tag "edit_new.gif", :alt => "Edit", :title => "Edit"), edit_page_path(page) %> 
+        <%= link_to (image_tag "delete.png", :alt => "Delete", :title => "Delete", :size => "20x20"), page, :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @pages, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'pages', :action => 'index'} %>
+<div class="clear"></div>

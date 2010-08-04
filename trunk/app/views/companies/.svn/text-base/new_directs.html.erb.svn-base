@@ -1,0 +1,157 @@
+<table width="100%"  align="center" cellpadding="2" cellspacing="3" border="0" >
+  <tr>
+    <td colspan="1" width="50%" valign="top" class="buy_selltitleText new_fund_heading">
+      <%= render :partial => "layouts/form_header", :locals => {:heading => "Please share with us the asset classes that you want to add direct deal / co-investments." } %>
+    </td>
+  </tr>
+  <% assets = get_asset_types(params[:company_asset_id],'company') if params[:company_asset_id] %>
+  <%asset_ids=[]%>
+  <%assets.each do |x|%>
+    <%asset_ids<<x.id%>
+    <%asset_ids<<10%>
+  <%end%>
+  <% form_for :companies ,:url=> {:controller=>'companies',:action=>'params_saved', :company_asset_id => params[:company_asset_id]} do |f| %>
+    <center><%= f.error_messages %></center>
+    <table  class="new_fund_table" width="100%">
+      <tr>
+        <td colspan="9">
+          <div class="postings_asset_name">
+            <input id="header_check" type="checkbox" class="directs_header_checkbox" onclick="check_all_assets_and_assettypes( <%=asset_ids%>,'company' );"/>
+            <%= @assets[0].name == "Venture Capital" ? "Venture & Growth" : (@assets[0].name == "Real Estate" ? "Real Assets" : @assets[0].name) %>
+            <span style="float: right;font-weight: normal;font-size: 14px;">
+              <%= link_to_redbox("Write a description", "upgrade") %>
+            </span>
+          </div>
+          <div id="desc_div" class="postings_description" style="display: none;"><b>Description: </b> <%= assets[0].name %> is looking for new funds
+          </div>
+
+          <input type="hidden" id="description" name="description" value="<%= assets[0].name %> is looking for new funds"/>
+          <div id="upgrade" style="display:none;">
+            <div style="width:400px;">
+              <%= render :partial => "/main/popup_close" %>
+              <%= render :partial => "layouts/form_header", :locals => {:heading => "Write a description here"} %>
+              <p>
+                <input type="text" id="popup_desc" style="width: 380px;margin: 10px;" onchange="assign_directly(this);"/>
+              </p>
+              <p>&nbsp;</p>
+              <p><center><input type="button" value="Done" class="button" onclick="asign_desc();"/></center></p>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr bgcolor="#CCCCCC" height="30px;">
+        <th class="newfund_head" width="1%" ></th>
+        <th class="newfund_head" width="10%"> ASSET </th>
+        <th class="newfund_head" width="8%"> TRANSACTION TYPE </th>
+        <th class="newfund_head" width="11%"> FINANCING TYPE </th>
+        <th class="newfund_head" width="15%" >GEOGRAPHY</th>
+        <th class="newfund_head" width="12%" >BITE SIZE </th>
+        <th class="newfund_head" width="20%" >SECTOR</th>
+        <th class="newfund_head" width="12%" >TARGET REVENUE</th>
+        <th class="newfund_head" width="11%" >TARGET_EBITDA</th>
+      </tr>
+      <% for asset in assets%>
+
+        <tr class="<%= cycle('whiterow','greyrow') %>">
+          <td class="newfundbuy" width="1%" >
+            <%=check_box_tag  'companies['+'asset'+asset.id.to_s+'][assets][]',asset.id,true,{ :style => "margin-top:0px;width:25px;" } %>
+          </td>
+          <td class="newfundbuy" width="10%" >
+            <%=asset.name%>
+          </td>
+          <td class="newfundbuy" width="8%">
+            <%k=0%>
+            <%transaction_types=TransactionType.find(:all,:conditions=>{:asset_id=>asset.id})%>
+            <%transaction_types.each do |transaction_type|%>
+              <div style="width:20px;"><%=check_box_tag  'companies['+'asset'+asset.id.to_s+'][transaction_types][]',transaction_type.id,set_transaction_type(asset.id,transaction_type),{ :id=>asset.id.to_s+'transaction_checkbox'+k.to_s,:style => "float:left;width:15px;"}%></div>
+              <label class="company_transaction_type" title="<%=transaction_type.transaction_type%>"><%= wrap_string(transaction_type.transaction_type, 6)%></label>
+              <%k=k+1%>
+              <br/>
+            <%end%>
+          </td>
+          <td class="newfundbuy" width="11%">
+            <%j=0%>
+            <%(Company::TYPE_OF_FINANCING).each do |financing_type|%>
+              <div  class="assettype_check">
+                <span><%=check_box_tag  'companies['+'asset'+asset.id.to_s+'][type_of_financing][]',financing_type,((Company::TYPE_OF_FINANCING)[0]==financing_type ? true:false),{:id=>asset.id.to_s+'financing_checkbox'+j.to_s, :style => "width:15px;" }%></span>
+                <label><%= financing_type %></label>
+              </div>
+              <br />
+              <%j=j+1%>
+            <%end%>
+          </td>
+          <td class="newfundbuy" width="15%">
+            <%k=0%>
+            <%@geos.each do |geo|%>
+              <%=check_box_tag  'companies['+'asset'+asset.id.to_s+'][geographies][]',geo.id,(geo.name=="Europe"||geo.name=="US"||geo.name=="Asia" ? true:false),{ :id=>asset.id.to_s+'geography_checkbox'+k.to_s,:style => "width:15px;" ,:multipe=>true}%>
+              <%=geo.name%>
+              <br />
+              <%k=k+1%>
+            <%end%>
+          </td>
+          <td class="newfundbuy" width="12%">
+            <%l=0%>
+            <%for desired_size in DesiredSize.find(:all, :conditions => "name != '>$20M'")%>
+              <%=check_box_tag  'companies['+'asset'+asset.id.to_s+'][desired_size][]',desired_size.id,(desired_size.name.eql?'<$5M' ? true : false),{ :id=>asset.id.to_s+'desired_size_checkbox'+l.to_s,:style => "width:15px;" ,:multipe=>true}%>
+              <%=desired_size.name%>
+              <br />
+              <%l=l+1%>
+            <%end%>
+          </td>
+          <td class="newfundbuy" width="20%">
+            <div  class="assettype_check">
+              <div class="letmechoose_direct"><span><%=radio_button_tag  'companies['+'asset'+asset.id.to_s+'][sector_ids][]',"All available",true,{:style => "width:20px;", :onclick=>"hide_option('all_sectors_#{asset.id}');" }%></span><label>All available</label></div>
+              <div class="letmechoose_direct"><span><%=radio_button_tag  'companies['+'asset'+asset.id.to_s+'][sector_ids][]',"Let me choose",false,{:style => "width:20px;"  , :onclick=>"select_option('all_sectors_#{asset.id}');"}%></span><label>Let me choose</label></div>
+              <br /><br />
+              <div id="all_sectors_<%=asset.id%>" style="display:none">
+                <%@sectors.each do |sector|%>
+                  <div class="letmechoose_direct" >
+                    <span><%=check_box_tag  'companies['+'asset'+asset.id.to_s+'][sector_ids][]',sector.id,((sector.name=="Clean Technology"||sector.name=="Consumer "||sector.name=="Industrial Goods")? true : false),{:style => "margin-top:0px;width:25px;" } %></span>
+                    <label title="<%=sector.name%>"><%=wrap_string(sector.name)%></label>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+          </td>
+          <td class="newfundbuy" width="12%">
+            <%l=0%>
+            <%for target_revenue in Company::TARGET_REVENUE%>
+              <%=check_box_tag  'companies['+'asset'+asset.id.to_s+'][revenue][]',target_revenue,((Company::TARGET_REVENUE)[0]==target_revenue ? true:false),{ :id=>asset.id.to_s+'target_revenue_checkbox'+l.to_s,:style => "width:15px;" ,:multipe=>true}%>
+              <%=target_revenue%>
+              <br />
+              <%l=l+1%>
+            <%end%>
+          </td>
+          <td class="newfundbuy" width="11%">
+            <%l=0%>
+            <%for target_ebitda in Company::TARGET_EBITDA%>
+              <%=check_box_tag  'companies['+'asset'+asset.id.to_s+'][ebitda][]',target_ebitda,((Company::TARGET_EBITDA)[0]==target_ebitda ? true:false),{ :id=>asset.id.to_s+'target_ebitda_checkbox'+l.to_s,:style => "width:15px;" ,:multipe=>true}%>
+              <%=target_ebitda%>
+              <br />
+              <%l=l+1%>
+            <%end%>
+          </td>
+
+        </tr>
+
+      <% end %>
+    </table>
+    <tr>
+      <td colspan="9">
+        <br/>
+        <input type="submit" class="button"  value="Save and continue"/>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<script type="text/javascript">
+  function asign_desc(){
+    document.getElementById('desc_div').style.display = "";
+    document.getElementById('desc_div').innerHTML = "<b>Description: </b>"+document.getElementById('description').value;
+    RedBox.close(); return false;
+  }
+
+  function assign_directly(ele){
+    document.getElementById('description').value = ele.value;
+  }
+</script>

@@ -1,0 +1,20 @@
+<div style="width : 400px; margin: 8px 12px 8px 12px;" >
+  <div style="font-weight:bold;" align="center">
+     <%= label_tag 'Comment : ' %>
+  </div>
+  <%=@comment.body%>
+  <br/><br/>
+  <div align="center">
+    <div style="font-weight:bold;"><%= label_tag 'Status : ' %></div>
+    <%=@comment.status%>
+  </div>
+</div>
+<br/>
+<div align="center">
+<%= link_to (image_tag "approve.gif", :alt => "Approve", :title => "Approve"), approve_flagged_comment_url(@comment) %>
+<%= link_to (image_tag "disapprove.gif", :alt => "Disapprove", :title => "Dissapprove"), disapprove_flagged_comment_url(@comment) %>
+</div>
+<div align="center">
+<%= link_to_close_redbox('Close', html_options = {:id => 'details'})%>
+<br/><br/>
+</div>

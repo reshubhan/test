@@ -1,0 +1,5 @@
+<% if status %>
+  <%= link_to_remote 'De-activate', :url => {:action => 'change_status', :id => id}, :update => "status#{id}" %>
+<% else %>
+  <%= link_to_remote 'Activate', :url => {:action => 'change_status', :id => id}, :update => "status#{id}"  %>
+<% end %>

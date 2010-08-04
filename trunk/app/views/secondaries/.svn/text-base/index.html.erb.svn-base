@@ -1,0 +1,63 @@
+<% if current_user.has_role('Admin') %>
+  <div class="content-box">
+    <div class="content-box-header">
+      <h3 style="cursor: s-resize;">
+        Secondaries
+      </h3>
+      <div style="float: right;margin: 10px;">
+        <%= link_to 'Create Secondaries For Sell', "/secondaries/upload/sell", :class=>"button" %>
+      </div>
+      <div style="float: right;margin: 10px;">
+        <%= link_to 'Create Secondaries For Buy', "/secondaries/upload/buy", :class=>"button" %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="content-box-content">
+      <div style="display: block;" class="tab-content default-tab scrollDiv">
+      <% end %>
+        <div id="header">
+          <%= render :partial => "classified_funds/header" %>
+        </div>
+      <span id="loading" style="display:none"><img src="/images/loader.gif"/></span>
+      <div id="filterDiv" style="width:16%; border-top:1px solid #e5e5e5;  ">
+        <%= render :partial => "filter" %>
+      </div>
+      <div style="float: left;width:80%;*width:auto;">
+        <table style="margin-top:-4px;" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td valign="top">
+              <div style="width:100%; text-align:left;padding:10px 0px 0px 0px;border-bottom:1px solid #e5e5e5;">
+                <table cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td valign="top">
+                      <div id="buyers" <% if @type && (@type == 'buy') %> class="selectedTabs" <% else %> class="secondaryTabs" <% end %> > <%= link_to "Buyers",:controller => 'secondaries', :type => 'buy', :browse_by => nil , :asset=>nil, :geography=>nil%></div>
+                    </td>
+                    <td valign="top">
+                      <div id="buyers" <% if @type && (@type == 'sell') %> class="selectedTabs" <% else %> class="secondaryTabs" <% end %> > <%= link_to "Sellers",:controller => 'secondaries', :type => 'sell', :browse_by => nil , :asset=>nil, :geography=>nil%></div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top" align="left">
+              <div class="managersDiv" style="width: 100%;">
+                <div id="secondariesDivBuyer" >
+                  <div id="buy">
+                    <% if not @secondaries.blank? %>
+                      <%= render :partial => "results", :locals => {:from_edit_profile => nil} %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"></div>
+      <% if current_user.has_role('Admin') %>
+      </div>
+    </div>
+  </div>
+<%end%>

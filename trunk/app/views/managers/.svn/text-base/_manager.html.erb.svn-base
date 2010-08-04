@@ -1,0 +1,139 @@
+<div style="float:left;width:100%;height:34px;">
+  <% if @browseby == 'popular' %>
+    <div style="width:52%;float:left;text-align:left;padding:5px 0px 0px 0px;">
+      <%= link_to_remote "All Time",:url => {:controller => 'managers', :action => 'filter_results', :time => 'All',:browseby => @browseby , :asset=> @asset, :geography=>@geography, :sector =>@sector, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer  },
+        :loading => "show_loading();", :complete => "hide_loading();",
+        :html => {:class => "secondaryTabs", :id =>"All"}%>
+      <%= link_to_remote "Today",:url => {:controller => 'managers', :action => 'filter_results', :time => 'today',:browseby => @browseby , :asset=> @asset, :geography=>@geography, :sector =>@sector, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer },
+        :loading => "show_loading();", :complete => "hide_loading();",
+        :html => {:class => "secondaryTabs", :id =>"today"}%>
+      <%= link_to_remote "This Week",:url => {:controller => 'managers', :action => 'filter_results', :time => 'week',:browseby => @browseby , :asset=> @asset, :geography=>@geography, :sector =>@sector, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer },
+        :loading => "show_loading();", :complete => "hide_loading();",
+        :html => {:class => "secondaryTabs", :id =>"week"}%>
+      <%= link_to_remote "This Month",:url => {:controller => 'managers', :action => 'filter_results', :time => 'month',:browseby => @browseby , :asset=> @asset, :geography=>@geography, :sector =>@sector, :size_min=>@sizemin,:size_max=>@sizemax,:open=>@open,:seller=>@seller,:buyer=>@buyer },
+        :loading => "show_loading();", :complete => "hide_loading();",
+        :html => {:class => "secondaryTabs", :id =>"month"}%>
+    </div>
+    <script type="text/javascript">
+      $("<%=@time%>").className = "selectedTabs"
+    </script>
+  <% end %>
+  <div style="padding: 8px 0px 5px 0px; float:right; width: 10%; text-align: center;">
+    <span id="loading_top" style="display:none;"><img src="/images/loader.gif"/></span>
+  </div>
+</div>
+<% if not @managers.blank? %>
+  <% if not current_user.has_role('Admin') %>
+    <div id="upgrade" style="display:none;">
+      <%= render :partial => "users/upgrade_membership", :locals => {:upgrade_message => nil} %>
+    </div>
+  <% end %>
+  <table cellspacing="0" cellpadding="0" width="100%" style="margin-top:-1px;border-top:1px solid #E5E5E5; margin-left:1px " align="left">
+    <% count = 0 %>
+    <% @managers.each do |manager| %>
+      <%@manager = manager%>
+      <% if count%2==0 %>
+        <tr>
+        <% end %>
+        <% if manager.belongs_to_user(current_user) ||  (@featured_managers && @featured_managers.include?(manager.id))%>
+          <td valign="top" align="left" id="manager<%=manager.id%>" style="width:320px;padding:10px 0px 0px 10px;border-bottom: 1px solid #E5E5E5;border-right: 1px solid #E5E5E5;background-color:#FCF8DC;">
+          <% else %>
+          <td valign="top" align="left" id="manager<%=manager.id%>" style="width:320px;padding:10px 0px 0px 10px;border-bottom: 1px solid #E5E5E5;border-right: 1px solid #E5E5E5;background-color:#f7f7f7;">
+          <% end %>
+          <table cellpadding="2" cellspacing="2" width="100%" align="left">
+            <tr>
+              <td valign="top" width="40%" align="left">
+                <div style="border:1px solid #9d9d9d;width:133px;"><a href="/managers/<%=manager.id%>"><%= image_tag APP_CONFIG["WEBSNAPR_URL"] + manager.url, :size => "133x100", :alt => manager.name %></a></div>
+              </td>
+              <td valign="top" width="60%" class="pClass">
+                <div style="clear:both;"></div>
+                <p>
+                <h3><font size="2" color="#ECB23C"><% if manager.belongs_to_user(current_user) or (current_user.views != 0) or (current_user.has_role('Admin'))%><%= link_to manager.name, manager %><% else %><%= link_to_redbox(manager.name, "upgrade") %><% end %></font><% if current_user.manager == manager %>*<% end %></h3>
+                </p>
+                <p>
+                  <% if manager.recent_funds[0] %>
+                    <%= "#{manager.recent_funds[0].name} (#{number_to_currency(manager.recent_funds[0].size)} #{get_currency(manager.recent_funds[0].currency)} Million)" %><br />
+                  <% else %>
+                    &nbsp;
+                  <% end %>
+                </p>
+                <p>
+                  <% if manager.recent_funds[1] %>
+                    <%= "#{manager.recent_funds[1].name} (#{number_to_currency(manager.recent_funds[1].size)} #{get_currency(manager.recent_funds[0].currency)} Million)" %><br /><br />
+                  <% else %>
+                    &nbsp;
+                  <% end %>
+                </p>
+                <p>
+    <%# if !highest_rated.blank? %>
+                  <%= render :partial => "rating" ,:locals => {:value => manager.rating.to_i}%>
+    <%# end %>
+                  <span style="font-weight:bold;font-style:normal;font-size:11px;">
+                    <% if manager.review_count>0 %>
+                      <%= pluralize( manager.review_count , 'review')%>
+                    <% else %>
+                      <%= link_to_redbox("Write a Review", "write_a_review_#{manager.id}", {:style => "color:#2F76BC !important;font-size:11px;"}) %>
+                      <div id="write_a_review_<%=manager.id%>" style="display:none;">
+                        <%= render :partial => "managers/comments_page", :locals => {:manager => manager, :parent_id => 0, :reply_title => nil} %>
+                      </div>
+                    <% end %>
+                  </span>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" colspan="2" style="padding-bottom:10px;">&nbsp;
+                <table cellpadding="0" cellspacing="0" width="368" border="0" style="color:#666666;">
+                  <tr>
+                    <td width="80%">
+                      <b>Asset Class : </b><%=manager.primary_asset.name%>
+                    </td>
+                    <td align="right" width="20%">
+                      <%= link_to "Edit", edit_manager_path(manager) %>
+                      <% if current_user.has_role('Admin') or manager.user_id == current_user.id %>
+                        &nbsp;<%= link_to "Delete", manager, :confirm => 'Are you sure?', :method => :delete %>
+                      <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="top" colspan="2">
+                      <b>Asset Type &nbsp;: </b><% if not manager.asset_secondary_id.nil? %> <%=manager.secondary_asset.name%> <% else %> - <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="top" colspan="2" style="padding-bottom:6px;">
+                      <b>Geography &nbsp;: </b><% if not manager.geography_id.blank? %> <%=manager.geography.name%> <% else %> - <% end %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="top" colspan="2" align="right" style="padding-bottom:6px;color:blue;">
+                      <b><% if (@featured_managers.include?(manager.id) unless @featured_managers.nil?) %> Sponsored <% end %></b>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <% if count%2==1 %>
+        </tr>
+      <% end %>
+      <% count = count+1 %>
+    <% end %>
+  </table>
+  <div style="float:left;width:100%;clear:both;font-size:11px;">
+    <%= will_paginate @managers, :renderer => 'RemoteLinkRenderer', :remote => {:controller => 'managers',
+      :action => 'filter_results',
+      :with => "'&asset=#{@asset}' + '&geography=#{@geography}' + '&browseby=#{@browseby}'+ '&sector=#{@sector}'+ '&size_min=#{@sizemin}'+ '&size_max=#{@sizemax}'+ '&open=#{@open}'+ '&buyer=#{@buyer}'+ '&seller=#{@seller}'+ '&time=#{@time}'",
+      :loading => "$('loading').style.display=''; $('loading_div').style.display='' ",
+      :complete => "$('loading').style.display='none'; $('loading_div').style.display='none'"},
+      :inner_window => 1,
+      :outer_window => 0
+  %>
+    <div style="float:left;width:40%;padding:9px 0px 9px 0px;text-align:right; display:none" id="loading_div">
+      <span id="loading" style="display:none"><img src="/images/loader.gif"/></span>
+    </div>
+  </div>
+<% else %>
+  <div style="padding:50px 0px 0px 50px;float:left;border-top: 1px solid #E5E5E5;margin-top:-1px;">Sorry, we couldn't find any matching results. Please modify your search.</div>
+<% end %>

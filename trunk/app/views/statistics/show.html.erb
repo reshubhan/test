@@ -1,0 +1,11 @@
+<div class="ticker_show">
+    <p>
+      <b>Statistic text:</b><br /><br />
+      <div style="padding-left:20px;"><%=h @statistic.statistic_text %></div>
+    </p>
+    <br />
+    <div style="padding-left:2px;">
+      <%= link_to 'Edit', edit_statistic_path(@statistic) %> |
+      <%= link_to 'Back', statistics_path %>
+    </div>
+</div>

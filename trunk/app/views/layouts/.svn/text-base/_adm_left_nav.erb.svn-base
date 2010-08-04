@@ -1,0 +1,126 @@
+<div id="test-accordion" class="accordion">
+<div class="accordion-toggle">User</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Active Users (#{User.active_users_count})", :controller => 'admin', :action => 'active_users' %></li>
+  <li><%= link_to_unless_current "Inactive Users (#{User.inactive_users_count})", :controller => 'admin', :action => 'users' %></li>
+  <li><%= link_to_unless_current "Change User Profile", :controller => 'admin', :action => 'users', :change_plan => 'true' %></li>
+</ul></div>
+<div class="accordion-toggle">Asset</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Asset", :controller => 'assets', :action => 'new' %></li>
+  <li><%= link_to_unless_current "Create Asset Type", :controller => 'assets', :action => 'new', :id => 'asset_type' %></li>
+  <li><%= link_to_unless_current "List Assets", :controller => 'assets', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Advertisement</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Advertisements", :controller => 'adverts', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Advertisements", :controller => 'adverts', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Attribute</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Attribute", :controller => 'attributes', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Attributes", :controller => 'attributes', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Fund</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Fund", :controller => 'funds', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Funds", :controller => 'funds', :action => 'index' %></li>
+  <li><%= link_to_unless_current "Deleted Funds", :controller => 'funds', :action => 'deleted_funds' %></li>
+</ul></div>
+<div class="accordion-toggle">Geography</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Geography", :controller => 'geographies', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Geographies", :controller => 'geographies', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Manager</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Manager", :controller => 'managers', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Managers", :controller => 'managers', :action => 'index' %></li>
+  <li><%= link_to_unless_current "Deleted Managers", :controller => 'managers', :action => 'deleted_managers' %></li>
+  <li><%= link_to_unless_current "Flagged Comments", :controller => 'comments', :action => 'index' %></li>
+  <li><%= link_to_unless_current "Manager Updates", :controller => 'admin', :action => 'manager_updates' %></li>
+</ul></div>
+<div class="accordion-toggle">Secondary</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Secondary - Buy", :controller => 'secondaries', :action => 'upload', :id => 'buy' %></li>
+  <li><%= link_to_unless_current "Create Secondary - Sell", :controller => 'secondaries', :action => 'upload', :id => 'sell' %></li>
+  <li><%= link_to_unless_current "List Secondaries - Buy", :controller => 'secondaries', :action => 'index', :type => 'buy' %></li>
+  <li><%= link_to_unless_current "List Secondaries - Sell", :controller => 'secondaries', :action => 'index', :type => 'sell' %></li>
+</ul></div>
+<div class="accordion-toggle">Classified Fund</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create New Fund - Buy", :controller => 'classified_funds', :action => 'upload', :id => 'buy' %></li>
+  <li><%= link_to_unless_current "Create New Fund - Sell", :controller => 'classified_funds', :action => 'upload', :id => 'sell'  %></li>
+  <li><%= link_to_unless_current "List New Funds - Buy", :controller => 'classified_funds', :action => 'list', :id => 'buy' %></li>
+  <li><%= link_to_unless_current "List New Funds - Sell", :controller => 'classified_funds', :action => 'list', :id => 'sell' %></li>
+</ul></div>
+<div class="accordion-toggle">Pages</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Pages", :controller => 'pages', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Pages", :controller => 'pages', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">CSV Upload</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "User", :controller => 'admin', :action => 'upload', :id => "csv_import" %></li>
+  <li><%= link_to_unless_current "User's Organization Type", :controller => 'admin', :action => 'upload', :id => "update_users_organization_type" %></li>
+  <li><%= link_to_unless_current "Funds", :controller => 'admin', :action => 'upload', :id => "funds" %></li>
+  <li><%= link_to_unless_current "Managers", :controller => 'admin', :action => 'upload', :id => "managers" %></li>
+  <li><%= link_to_unless_current "Geographies", :controller => 'admin', :action => 'upload', :id => "geographies" %></li>
+  <li><%= link_to_unless_current "Sectors", :controller => 'admin', :action => 'upload', :id => "sectors" %></li>
+  <li><%= link_to_unless_current "Currencies", :controller => 'admin', :action => 'upload', :id => "currencies" %></li>
+  <li><%= link_to_unless_current "Classified Funds", :controller => 'admin', :action => 'upload', :id => "classified_funds" %></li>
+</ul></div>
+<div class="accordion-toggle">Currency</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Add Currency", :controller => 'currencies', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Currencies", :controller => 'currencies', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Sector</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Sector", :controller => 'sectors', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Sectors", :controller => 'sectors', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Direct/Co-investment</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Directs/Co-investments - Buy", :controller => 'companies', :action => 'upload', :id => 'buy' %></li>
+  <li><%= link_to_unless_current "Create Directs/Co-investments - Sell", :controller => 'companies', :action => 'upload', :id => 'sell' %></li>
+  <li><%= link_to_unless_current "List Directs/Co-investments - Buy", :controller => 'companies', :action => 'index', :type => 'buy' %></li>
+  <li><%= link_to_unless_current "List Directs/Co-investments - Sell", :controller => 'companies', :action => 'index', :type => 'sell' %></li>
+</ul></div>
+<div class="accordion-toggle">Organization Type</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Organization Type", :controller => 'organization_types', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Organization Types", :controller => 'organization_types', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Webinar</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Webinar", :controller => 'webinars', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Webinars", :controller => 'webinars', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Ticker</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create tickers", :controller => 'tickers', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List tickers", :controller => 'tickers', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Statistics</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Statistic", :controller => 'Statistics', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Statistic", :controller => 'Statistics', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Questions</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Question", :controller => 'questions', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Questions", :controller => 'questions', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Transaction Type</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Transaction Type", :controller => 'transaction_types', :action => 'new' %></li>
+  <li><%= link_to_unless_current "List Transaction Type", :controller => 'transaction_types', :action => 'index' %></li>
+</ul></div>
+<div class="accordion-toggle">Notification</div> 	<div class="accordion-content">
+<ul id="leftNav">
+  <li><%= link_to_unless_current "Create Notification", :controller => 'notifications', :action => 'new' %></li>
+  <li><%= link_to_unless_current "Notifications", :controller => 'notifications', :action => 'index' %></li>
+</ul></div>
+</div>
+

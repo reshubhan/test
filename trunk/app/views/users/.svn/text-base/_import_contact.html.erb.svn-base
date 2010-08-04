@@ -1,0 +1,54 @@
+<div class="container_inbox">
+  <script type="text/javascript" src="http://www.plaxo.com/css/m/js/util.js"></script>
+  <script type="text/javascript" src="http://www.plaxo.com/css/m/js/basic.js"></script>
+  <script type="text/javascript" src="http://www.plaxo.com/css/m/js/abc_launcher.js"></script>
+  <script type="text/javascript">
+    function onABCommComplete() {
+      var myOldString = document.getElementById('recipient_list').value;
+      myOldString = myOldString.replace(/>, /g, ">,\n");
+      document.getElementById('recipient_list').value = myOldString;
+      document.getElementById('contact_form').style.display = '';
+      document.getElementById('instruction').style.display = 'none';
+    }
+  </script>
+  <div id="instruction" style="float: left;text-align: center; padding: 20px 100px">
+    This quick wizard will give you access to your contacts, wherever they are stored.<br/>
+    Click the tabs below to send invites to your friends on Facebook or contacts in your e-mail.<br/>
+  </div>
+  <div class="myProfile" style="font-weight: normal;font-size: 12px !important;width:500px;">
+    <ul>
+      <li><a href="javascript:void(0)" id="mailContactsTab" class="current" onclick="if(this.className != 'current'){ showContentAndHighlight3('mailContacts', 'fb_friend_content','third_invite'); }">Invite Email Contacts</a></li>
+      <li><a href="javascript:void(0)" id="fb_friend_contentTab" onclick="if(this.className != 'current'){ showContentAndHighlight3('fb_friend_content', 'mailContacts','third_invite'); }">Invite Facebook Contacts</a></li>
+      <li><a href="javascript:void(0)" id="third_inviteTab" onclick="if(this.className != 'current'){ showContentAndHighlight3('third_invite','fb_friend_content', 'mailContacts'); }">Invite</a></li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+  <div id="mailContacts">
+    <div  style="float: left;">
+      <ul class="contact_social">
+        <li><img src="/images/social/aol.gif"/></li>
+        <li><img src="/images/social/gmail.gif"/></li>
+        <li><img src="/images/social/outlook_and_oe.gif"/></li>
+        <li><img src="/images/social/plaxo.gif"/></li>
+        <li><img src="/images/social/yahoo.gif"/></li>
+      </ul>
+      <br/>
+      <a href="#" onclick="showPlaxoABChooser('recipient_list', '/users/contact_list'); return false">
+        <img src="http://www.plaxo.com/images/abc/buttons/add_button.gif" alt="Add from my address book" />
+      </a>
+    </div>
+    <div id="contact_form" style="float: left;text-align: center;display: none;">
+      <% form_tag send_mails_path do %>
+        <%= text_area(:recipient, :list, :style => "height:238px;width:520px;") %><br/><br/>
+        <%= submit_tag "send mails" ,:class => "button"%>
+      <% end %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div id="fb_friend_content" style="display:none;">
+    <%= render :partial=> 'fb_friend_list' %>
+  </div>
+  <div id="third_invite" style="display:none;">
+    <%= render :partial=> 'single_invite' %>
+  </div>
+</div>

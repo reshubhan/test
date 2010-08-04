@@ -1,0 +1,98 @@
+<script type="text/javascript">
+
+  YAHOO.example.FnMultipleFields = function(){
+    var myContacts = [
+      <% items =[] %>
+      <% @fundList = Fund.find(:all, :conditions => {:status => "approved"}, :order => 'name') %>
+      <% if not @fundList.blank? %>
+        <% @fundList.each do |fund| %>
+          <% items << "{id:#{fund.id}, fname:\"#{fund.name}\"}" %>
+        <% end %>
+      <% end %>
+      <%= items.join(",\n") %>
+    ];
+
+    // Define a custom search function for the DataSource
+    var matchNames = function(sQuery) {
+      // Replacing single space represented by '%20' by a blank spaces so that even spaces typed can be handled
+      sQuery = sQuery.replace('%20', ' ')
+      // Case insensitive matching
+      var query = sQuery.toLowerCase(),
+      contact,
+      i=0,
+      l=myContacts.length,
+      matches = [];
+
+      // Match against each name of each contact
+      for(; i<l; i++) {
+        contact = myContacts[i];
+        if((contact.fname.toLowerCase().indexOf(query) == 0)) {
+          matches[matches.length] = contact;
+        }
+      }
+
+      return matches;
+    };
+
+    // Use a FunctionDataSource
+    var oDS = new YAHOO.util.FunctionDataSource(matchNames);
+    oDS.responseSchema = {
+      fields: ["id", "fname"]
+    }
+
+    // Instantiate AutoComplete
+    var oAC = new YAHOO.widget.AutoComplete("fundInput", "fundContainer", oDS);
+    oAC.resultTypeList = false;
+    oAC.useShadow = true;
+
+
+    // Custom formatter to highlight the matching letters
+    oAC.formatResult = function(oResultData, sQuery, sResultMatch) {
+      var query = sQuery.toLowerCase(),
+      fname = oResultData.fname,
+      query = sQuery.toLowerCase(),
+      fnameMatchIndex = fname.toLowerCase().indexOf(query),
+      displayfundname;
+
+      if(fnameMatchIndex > -1) {
+        displayfundname = highlightMatch(fname, query, fnameMatchIndex);
+      }
+      else {
+        displayfundname = fname;
+      }
+
+      return "<font style=\'color:#2F76BC;\'><b>"+displayfundname+"</b></font>";
+
+    };
+
+    // Helper function for the formatter
+    var highlightMatch = function(full, snippet, matchindex) {
+      return full.substring(0, matchindex) +
+        "<span class='match'>" +
+        full.substr(matchindex, snippet.length) +
+        "</span>" +
+        full.substring(matchindex + snippet.length);
+    };
+
+    // Define an event handler to populate a hidden form field
+    // when an item gets selected and populate the input field
+    var myHiddenField = YAHOO.util.Dom.get("fundHidden");
+    var myHandler = function(sType, aArgs) {
+      var myAC = aArgs[0]; // reference back to the AC instance
+      var elLI = aArgs[1]; // reference to the selected LI element
+      var oData = aArgs[2]; // object literal of selected item's result data
+
+      // update hidden form field with the selected item's ID
+      myHiddenField.value = oData.id;
+      myAC.getInputEl().value = oData.fname;
+    };
+    oAC.itemSelectEvent.subscribe(myHandler);
+
+    return {
+      oDS: oDS,
+      oAC: oAC
+    };
+  }();
+
+
+</script>

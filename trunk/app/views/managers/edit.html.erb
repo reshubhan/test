@@ -1,0 +1,21 @@
+<%= render :partial => "layouts/form_header", :locals => {:heading => "Edit Manager"} %>
+<div class="formBoxInner">
+  <% form_for(@manager) do |f| %>
+    <center><%= f.error_messages %></center>
+    <%= render :partial => "form", :locals => {:f => f} %>
+    <p align="center">
+      <div class="middleButtnManager" style="padding-bottom:20px;margin-right:346px;">
+        <br/>
+        <input type="submit" class="button" value="Update" href="#"/>
+      </div>
+    </p>
+    <br/>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+    document.title = 'Edit Manager - Trusted Insight'
+    $('manager_name').focus();
+    $('manager_name').select();
+</script>
+

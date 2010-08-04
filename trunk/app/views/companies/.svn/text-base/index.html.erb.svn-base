@@ -1,0 +1,52 @@
+<div id="header">
+  <%= render :partial => "classified_funds/header" %>
+</div>
+<div id="filterDiv" style="width:16%; border-top:1px solid #e5e5e5;  ">
+  <%= render :partial => "filter" %>
+</div>
+<div style="float:right; width:82%;float:left;">
+  <table width="100%" style="margin-top:-4px;" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td valign="top">
+        <div style="width:100%; text-align:left;padding:10px 0px 0px 0px;border-bottom:1px solid #e5e5e5;">
+          <table cellpadding="0" cellspacing="0">
+            <tr>
+              <td valign="top">
+                <div id="buyers"  <% if @type && (@type == 'buy') %> class="selectedTabs" <% else %> class="secondaryTabs" <% end %> > <%= link_to "Buyers",:controller => 'companies', :type => 'buy', :browse_by => nil , :asset=>nil, :geography=>nil%></div>
+              </td>
+              <td valign="top">
+                <div id="buyers" <% if @type && (@type == 'sell') %> class="selectedTabs" <% else %> class="secondaryTabs" <% end %> > <%= link_to "Sellers",:controller => 'companies', :type => 'sell', :browse_by => nil , :asset=>nil, :geography=>nil%></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">
+        <div class="managersDiv" style="width: 100%;">
+          <div id="secondariesDivBuyer" >
+            <div id="buy">
+              <% if not @companies.blank? %>
+                <%= render :partial => "results", :locals => {:companies => @companies, :type => @type} %>
+              <% else %>
+                <div style="padding:30px 0px 10px 50px;float:left;border-top: 1px solid #e5e5e5;margin-top:-1px;width:90%;">
+                  <% if params[:controller]=="companies" %>
+                    Sorry, we couldn't find any matching results. Please modify your search.
+                  <% else %>
+                    No records found to display.
+                  <% end %>
+                  <br/>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+

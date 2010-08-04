@@ -1,0 +1,37 @@
+<div style="padding:10px;">
+  <div>
+    <h3> Payment receipt </h3>
+  </div>
+  <hr/>
+  <p>
+    Thanks for choosing TrustedInsight. Your payment and subscription details are mentioned below. Please take a print or save this page for future reference.
+  </p>
+  <div>
+<b>................................................................................<br/>
+................................................................................<br/></b><br/>
+  <b>Business Details</b><br/>
+
+    <b>Payment Type : </b><%= @order.order_type=="membership_upgrade" ? "Membership Upgrade" : "Sign Up" %><br/>
+    <b>Login        : </b><%= @order.user.login %><br/>
+    <b>Name         : </b><%= @order.user.profile.firstname+" "+@order.user.profile.lastname %><br/>
+    <b>Role         : </b><%= @order.plan.role.title %><br/>
+    <%if @order.order_type != "company_to_sell"%>
+    <b>Duration     : </b><%= @order.plan.duration%><br/>
+    <b>Plan Type    : </b><%= @order.plan.name %><br/><br/><br/><br/>
+    <%end%>
+<b> ................................................................................<br/></b><br/>
+
+ <br/><b>Payment Details</b><br/>
+
+   <b>Transaction Id :  </b><%= @order.transaction_id %><br/>
+   <b>Amount Paid    :  </b><%= @order.amount %><br/>
+   <b>Card Type      :  </b><%= @order.card_type %><br/>
+   <b>Payment Date   :  </b><%= @order.updated_at %><br/>
+<b>................................................................................<br/>
+................................................................................<br/></b>
+  
+  </div>
+<br/>
+
+
+</div>

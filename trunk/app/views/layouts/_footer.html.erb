@@ -1,0 +1,55 @@
+<div class="footer">
+  <div>
+    <div class="footerMenuL"></div>
+    <div class="footerMenuM">
+      <div class="footerTab1"></div>
+      <div class="footerDivider"></div>
+      <div class="footerTab2"><a href="/pages/about-us">About Us</a></div>
+      <div class="footerDivider"></div>
+      <div class="footerTab3"><a href="/pages/terms-of-use">Terms of Use / Privacy Policy</a></div>
+      <div class="footerDivider"></div>
+      <div class="footerTab4"><a href="/pages/contact-us">Contact Us</a></div>
+      <div class="footerDivider"></div>
+      <div class="footerTab5"><a href="/pages/faq">FAQ</a></div>
+      <div class="footerDivider"></div>
+      <div class="footerTab6"><%= render :partial => "layouts/share_this_links" %></div>
+    </div>
+    <div class="footerMenuR"></div>
+  </div>
+  <% if !current_user || (current_user && !current_user.has_role('Admin')) %>
+    <div class="footerContDiv">
+      <div class="footerContent">
+        <div class="line"><img src="/images/spacer.gif"/></div>
+        <div class="fContHeading">please read these important legal notices and disclosures</div>
+        <div class="line"><img src="/images/spacer.gif"/></div>
+        <div class="footerText">
+          <p>None of the information displayed represents a public offer to buy or sell any securities. Trusted Insight Inc. is a passive bulletin board that enables its registered members, who are sophisticated buyers and sellers of private company securities, to view existing portfolio items held by other members that may be available for purchase as well as items of interest to prospective buyers. Trusted Insight Inc. provides a forum for the interaction of buyers and sellers, who have met the qualifications of the Trusted Insight Inc. vetting process.</p>
+          <p>Trusted Insight Inc. does not (i) advise its users on the merits of a particular investment or transaction, (ii) assist in the negotiation, transaction or financial dealings between the parties or with the issuer, (iii) provide legal or transactional advisory services to its users, or (iv) participate or invest in any way or allow its employees to invest in or participate in any way in buy-sell transactions between its members. No contract can be entered into on this website and no transaction is processed or cleared by Trusted Insight Inc.</p>
+          <p>Trusted Insight Inc. is not a registered broker-dealer or registered securities exchange. Trusted Insight Inc. is not registered as an Investment Advisor with the Securities and Exchange Commission or any state authority.</p>
+          <p>The use of this site is governed by the <a href="/pages/terms-of-use">Terms of Use and Privacy Policy</a>. Your use of the site serves as your acknowledgment and acceptance of these terms, conditions and the general disclaimer.</p>
+          <p>@2010 Trusted Insight, Inc. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footerContDiv">
+      <div class="fContBottom">
+        <div class="fContBottomL"><img src="/images/spacer.gif"/></div>
+        <div class="fContBottomM"><img src="/images/spacer.gif"/></div>
+        <div class="fContBottomR"><img src="/images/spacer.gif"/></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= render :partial => "layouts/autocomplete_script" %>
+<script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    var pageTracker = _gat._getTracker("UA-10720251-1");
+    pageTracker._trackPageview();
+  } catch(err) {}
+  FB.init( "<%= APP_CONFIG['FACEBOOK_API_KEY'] %>", "<%=APP_CONFIG['FACEBOOK_CALLBACK_URL']%>//system/xd_receiver.htm");
+</script>
+

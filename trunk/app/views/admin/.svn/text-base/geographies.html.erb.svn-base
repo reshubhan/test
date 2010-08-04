@@ -1,0 +1,21 @@
+<h1 style="width:100%">Listing Geographies</h1>
+<hr>
+<table>
+  <div align="right"><%= link_to 'Add Geography', :action => 'new_geography' %></div>
+  <tr>
+    <td><b>Name</b><td>
+    <td colspan="2"><b>Options</b><td>
+  </tr>
+  <hr>
+<% for geography in @geographies %>
+  <tr>
+    <td><%=geography.name%></td>
+    <td></td>
+     <td><%= link_to 'Edit', :action => 'edit_geography' , :id => geography %></td>
+     <td><%= link_to 'Delete', :action => 'destroy_geography',:confirm => 'Are you sure?', :id => geography %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

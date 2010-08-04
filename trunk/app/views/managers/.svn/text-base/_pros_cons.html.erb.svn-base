@@ -1,0 +1,62 @@
+<div style="margin-bottom : 8px;">
+  Institutional Investors describe the manager as:
+</div>
+
+<div style="border:1px solid #d5d5d5; margin-bottom : 8px;">
+  <div class="attr_heading" align="center">
+    <%= label_tag 'Pros' %>
+  </div>
+  <div>
+    <table width="100%" cellpadding="5px" cellspacing="5">
+      <% if !AssetAttribute.get_type_list(@manager.id.to_s, @manager.asset_primary_id, 'pros').empty? %>
+        <% AssetAttribute.get_attribute_count(@manager.id.to_s, @manager.asset_primary_id, 'pros').each do |asset_attribute| %>
+          <tr>
+            <td colspan="2" style="font-size:11px;font-weight:bold;"><%=AssetAttribute.find(asset_attribute.first).attribute.name%></td>
+          </tr>
+          <tr>
+            <td width="100%">
+              <div style="width:<%= get_bar_width(AssetAttribute.get_attribute_count(@manager.id.to_s, @manager.asset_primary_id, 'pros').first.last.to_i, AssetAttribute.get_attribute_total_count(@manager.id.to_s, @manager.asset_primary_id, 'pros').to_i, asset_attribute.last.to_i).to_s+'%' %> ; height:10px !important; background-color:rgb(<%= rand(255) %>,<%= rand(255) %>,<%= rand(255) %>);">
+              </div>
+            </td>
+            <td width="35px" style="font-size:11px;">
+              <%= number_with_precision((asset_attribute.last.to_i*100.0)/AssetAttribute.get_attribute_total_count(@manager.id.to_s, @manager.asset_primary_id, 'pros'), 1)%>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="2" style="padding : 6px; text-align:center;">No pros for this manager</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div style="border:1px solid #d5d5d5;">
+  <div class="attr_heading" align="center">
+    <%= label_tag 'Cons' %>
+  </div>
+  <div>
+    <table width="100%" cellpadding="5px" cellspacing="5">
+      <% if !AssetAttribute.get_type_list(@manager.id.to_s, @manager.asset_primary_id, 'cons').empty? %>
+        <% AssetAttribute.get_attribute_count(@manager.id.to_s, @manager.asset_primary_id, 'cons').each do |asset_attribute| %>
+          <tr>
+            <td colspan="2" style="font-size:11px;font-weight:bold;"><%=AssetAttribute.find(asset_attribute.first).attribute.name%></td>
+          </tr>
+          <tr>
+            <td width="100%">
+              <div style="width:<%= get_bar_width(AssetAttribute.get_attribute_count(@manager.id.to_s, @manager.asset_primary_id, 'cons').first.last.to_i, AssetAttribute.get_attribute_total_count(@manager.id.to_s, @manager.asset_primary_id, 'cons').to_i, asset_attribute.last.to_i).to_s + '%' %>; height:10px !important; background-color:rgb(<%= rand(255) %>,<%= rand(255) %>,<%= rand(255) %>);">
+              </div>
+            </td>
+            <td width="35px" style="font-size:11px;"><%= number_with_precision((asset_attribute.last.to_i*100.0)/AssetAttribute.get_attribute_total_count(@manager.id.to_s, @manager.asset_primary_id, 'cons'), 1).to_s+'%'%>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan="2" style="padding : 6px; text-align:center;">No cons for this manager</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

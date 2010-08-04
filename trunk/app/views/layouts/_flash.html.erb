@@ -1,0 +1,10 @@
+
+    <div id="flash"  class="topnotification_errors">
+              <div <% if flash[:error] %>   <% else %> style="display:none;" <% end %>  class="errors">
+                <%= flash[:error]%>
+              </div>
+              <div <% if flash[:notice] %>  <% else %> style="display:none;" <% end %> class="notices">
+                <%= flash[:notice]%>
+              </div>
+      </div>
+<div class="clear"></div>

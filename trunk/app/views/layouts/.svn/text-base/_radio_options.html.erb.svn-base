@@ -1,0 +1,8 @@
+<%i=0%>
+<% choices.each do |option| %>
+  <div id="<%=params[:value].to_i%>_option_div_<%=i%>" name="<%=params[:value].to_i%>_option_div">
+    <%=check_box_tag 'options['+params[:value].to_s+'][]',option.id,option.default_check==true ? true:false,:class => "options"%>
+    <%=option.option%>
+  </div>
+  <%i=i+1%>
+<%end%>

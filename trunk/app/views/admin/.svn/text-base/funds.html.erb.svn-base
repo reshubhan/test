@@ -1,0 +1,24 @@
+
+<h1>Listing funds</h1>
+<div style="bgColor:#009988;">
+  <table width="100%">
+    <tr>
+      <td align="center"><b>Id</b></td>
+
+      <td align="center"><b> Name</b></td>
+
+      <td align="center"><b> Size</b></td>
+
+      <td align="center"><b> Type</b></td>
+    </tr>
+    <hr>
+    <% for fund in @funds %>
+      <tr>
+        <td width="50px" align="center"><%= fund.id %></td>
+        <td align="center" width="100px"><%= fund.name %></td>
+        <td align="center" width="100px"><%= fund.size  %></td>
+        <td align="center" width="100px"><%= fund.type  %></td>
+      </tr>
+    <%end%>
+  </table>
+</div>

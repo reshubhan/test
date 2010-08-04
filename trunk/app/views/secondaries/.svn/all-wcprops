@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/trustedinsight/!svn/ver/2709/source/trunk/app/views/secondaries
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2558/source/trunk/app/views/secondaries/index.html.erb
+END
+_fund_for_secondary.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/trustedinsight/!svn/ver/2327/source/trunk/app/views/secondaries/_fund_for_secondary.html.erb
+END
+listing.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2636/source/trunk/app/views/secondaries/listing.html.erb
+END
+secondary_contact.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/trustedinsight/!svn/ver/486/source/trunk/app/views/secondaries/secondary_contact.js.erb
+END
+_asset_filter_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/2567/source/trunk/app/views/secondaries/_asset_filter_list.html.erb
+END
+_funds.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/1194/source/trunk/app/views/secondaries/_funds.html.erb
+END
+_profile_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/trustedinsight/!svn/ver/2696/source/trunk/app/views/secondaries/_profile_results.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2320/source/trunk/app/views/secondaries/show.html.erb
+END
+_autocomplete_script.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/trustedinsight/!svn/ver/1501/source/trunk/app/views/secondaries/_autocomplete_script.html.erb
+END
+_filter.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2709/source/trunk/app/views/secondaries/_filter.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/secondaries/edit.html.erb
+END
+_asset_list.html.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/991/source/trunk/app/views/secondaries/_asset_list.html.rhtml
+END
+_saved_searches.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/2709/source/trunk/app/views/secondaries/_saved_searches.rhtml
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/secondaries/new.html.erb
+END
+_secondary_details.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/trustedinsight/!svn/ver/2637/source/trunk/app/views/secondaries/_secondary_details.html.erb
+END
+_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2636/source/trunk/app/views/secondaries/_results.html.erb
+END
+upload_buy.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/secondaries/upload_buy.html.erb
+END
+upload_sell.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/secondaries/upload_sell.html.erb
+END

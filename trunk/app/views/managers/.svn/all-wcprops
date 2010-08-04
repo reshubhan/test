@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/trustedinsight/!svn/ver/2796/source/trunk/app/views/managers
+END
+list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2436/source/trunk/app/views/managers/list.html.erb
+END
+_asset_filter_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/trustedinsight/!svn/ver/2741/source/trunk/app/views/managers/_asset_filter_list.html.erb
+END
+_list_filter.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/managers/_list_filter.html.erb
+END
+_filter_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2741/source/trunk/app/views/managers/_filter_list.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2417/source/trunk/app/views/managers/show.html.erb
+END
+_rating.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/trustedinsight/!svn/ver/131/source/trunk/app/views/managers/_rating.html.erb
+END
+_filter.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/trustedinsight/!svn/ver/2741/source/trunk/app/views/managers/_filter.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/managers/edit.html.erb
+END
+_geography_image_div.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/trustedinsight/!svn/ver/1643/source/trunk/app/views/managers/_geography_image_div.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/trustedinsight/!svn/ver/2556/source/trunk/app/views/managers/new.html.erb
+END
+review_manager.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/383/source/trunk/app/views/managers/review_manager.html.erb
+END
+_review_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/1236/source/trunk/app/views/managers/_review_page.html.erb
+END
+_attribute_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/trustedinsight/!svn/ver/2320/source/trunk/app/views/managers/_attribute_list.html.erb
+END
+_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2327/source/trunk/app/views/managers/_results.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2591/source/trunk/app/views/managers/_form.html.erb
+END
+_manager_view.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/trustedinsight/!svn/ver/2303/source/trunk/app/views/managers/_manager_view.html.erb
+END
+_pros_cons.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/2320/source/trunk/app/views/managers/_pros_cons.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/trustedinsight/!svn/ver/2476/source/trunk/app/views/managers/index.html.erb
+END
+_ads_div.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2402/source/trunk/app/views/managers/_ads_div.html.erb
+END
+_manager.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2796/source/trunk/app/views/managers/_manager.html.erb
+END
+_attributes_page.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2320/source/trunk/app/views/managers/_attributes_page.erb
+END
+index.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/trustedinsight/!svn/ver/240/source/trunk/app/views/managers/index.js.erb
+END
+_comments_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/1633/source/trunk/app/views/managers/_comments_page.html.erb
+END
+_comments.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/trustedinsight/!svn/ver/2303/source/trunk/app/views/managers/_comments.html.erb
+END
+_asset_list.html.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/999/source/trunk/app/views/managers/_asset_list.html.rhtml
+END
+_set_rating.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/trustedinsight/!svn/ver/514/source/trunk/app/views/managers/_set_rating.html.erb
+END
+_leftnav.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/1306/source/trunk/app/views/managers/_leftnav.html.erb
+END
+_ratings_page.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/trustedinsight/!svn/ver/2285/source/trunk/app/views/managers/_ratings_page.erb
+END
+_search_page.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/trustedinsight/!svn/ver/2417/source/trunk/app/views/managers/_search_page.html.erb
+END
+_rating_summary.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/trustedinsight/!svn/ver/588/source/trunk/app/views/managers/_rating_summary.html.erb
+END
+_asset_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/trustedinsight/!svn/ver/2290/source/trunk/app/views/managers/_asset_form.html.erb
+END

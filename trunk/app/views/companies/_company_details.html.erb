@@ -1,0 +1,86 @@
+<table class ="secondaries_detail" border="0" cellspacing="10" cellpadding="5">
+  <tr><% if not @company.type_buy %>
+      <th colspan="3" style="font-size:14px;">
+        Directs/Co-investments to <%= @company.company_type %> in <%= @company.name %>
+      </th>
+    <%end%>
+  </tr>
+  <tr>
+    <% if not @company.type_buy %>
+      <% if @company.name %>
+        <td width="130" align="left"> Name :</td>
+        <th width="660" align="left"> <%= @company.name %></th>
+      <%  end %>
+    <% else %>
+      <td colspan="2" valign="top"><%=@company.user.plan.role.title%> is looking for Direct/Co-Investments</td>
+    <% end %>
+  </tr>
+
+  <tr>
+    <td width="130" align="left">Asset Type :</td>
+    <th width="660" align="left"><%=@company.asset.name  %></th>
+  </tr>
+  <tr>
+    <td width="130" align="left">Byte Size :</td>
+    <th width="660" align="left"><% if @company.desired_size %> <%=@company.desired_size.name  %> <% else %> - <% end %>  </th>
+    <td rowspan="4" width="100" align="center" valign="middle">
+      <% if (current_user.emails != 0) %>
+        <span onclick="update_mailing_list(<%=@company.id%>);">
+          <%messages=Message.find(:last,:conditions=>{:post_id=>@company.id,:post_type=>"company"})%>
+          <%if @company.user_id!=current_user.id%><%if ((not messages.blank?) && (messages.is_not_interested==true) )%><%=(image_tag "contact-us.gif", :alt => "Contact", :title => "You have already replied to this Direct/Co-Investment")%><%else%><%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "contact") %><%end%><%end%>
+        </span>
+        <div id="contact" style="display:none;width:700px;height:490px;" >
+          <iframe id="frame"
+                  src='/messages/new?company_id=<%= @company.id %>'
+                  style="width:700px;height:490px;overflow:none;" >
+          </iframe>
+        </div>
+      <% else %>
+        <% if (Plan.find_by_id(current_user.plan_id).role_id)==1 %>
+          <%= link_to_redbox((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), "upgrade") %>
+        <%else%>
+          <%= link_to((image_tag "contact-us.gif", :alt => "Contact", :title => "Contact"), :controller=>"users",:action=>"upgrade_plan") %>
+        <% end %>
+        <div id="upgrade" style="display:none;">
+          <%= render :partial => "users/upgrade_membership", :locals => {:upgrade_message => nil} %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td width="130" align="left">Geography :</td>
+    <th width="660" align="left"><% if  @company.geography_id.blank?%>-<% else %><%=Geography.find(@company.geography_id ).name%> <% end %></th>
+  </tr>
+  <tr>
+    <td width="130" align="left">Sector :</td>
+    <th width="660" align="left"><% if @company.sectors.first %> <%= @company.get_sector_names %> <% else %>-<% end %></th>
+  </tr>
+  <% if not @company.type_buy %>
+    <tr>
+      <td width="130" align="left">Revenue Per Year:</td>
+      <th width="660" align="left">$<%=@company.revenue_per_year %>M</th>
+    </tr>
+  <%end%>
+  <tr>
+    <td width="140" align="left">Type Of Financing:</td>
+    <th width="660" align="left"><%=@company.type_of_financing  %></th>
+  </tr>
+  <tr>
+    <td valign="top">Posted By: </td>
+    <th width="660" align="left"><%=@company.posted_by  %></th>
+  </tr>
+  <tr>
+    <td valign="top">Description: </td>
+    <th width="660" align="left"><%if @company.description.blank?%><%=automatic_description_for_all_types("company",@company.id)%><%else%><%= @company.description %><%end%></th>
+  </tr>
+  <tr>
+    <th valign="top">
+      <% if current_user.has_role('Admin') or @company.user_id == current_user.id %>
+        <%= link_to "Edit", edit_company_path(@company) %>
+        &nbsp;
+        <%= link_to "Delete", @company, :confirm => 'Are you sure you want to delete the Direct/Co-investment?', :method => :delete %>
+      <% end %>
+    </th>
+  </tr>
+</table>
+

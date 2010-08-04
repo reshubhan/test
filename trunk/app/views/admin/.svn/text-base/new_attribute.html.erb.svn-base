@@ -1,0 +1,17 @@
+<div class="">
+<h1>New attribute</h1>
+<div class="inner-center-form-box">
+<% form_for :attribute,:url => {:controller => "admin", :action => "create_attribute"  } do |f| %>
+  <center><%= f.error_messages %></center>
+  <p  ><%= label_tag 'Enter Name' %><br/>
+  <%= f.text_field :name %></p>
+  <p>
+  <p><%= label_tag 'Enter Type' %><br/>
+  <%= f.text_field :attribute_type %></p>
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+<% end %>
+</div>
+</div>
+<%#= link_to 'Back', :action=>'attributes' %>

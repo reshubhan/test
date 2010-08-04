@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/test/assets/stylesheets
+END
+header.css
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/test/assets/stylesheets/header.css
+END
+screen.css
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/test/assets/stylesheets/screen.css
+END
+foo.css
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/test/assets/stylesheets/foo.css
+END
+bar.css
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/trustedinsight/!svn/ver/2484/source/trunk/vendor/plugins/asset_packager/test/assets/stylesheets/bar.css
+END

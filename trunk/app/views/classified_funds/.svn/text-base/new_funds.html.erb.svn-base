@@ -1,0 +1,206 @@
+<style>
+  input[type = "checkbox"], input[type = "radio"]{
+    height : 14px !important;
+    border: none !important;
+  }
+  label{
+    text-align: left;
+  }
+</style>
+
+<table width="100%"  align="center" cellpadding="2" cellspacing="3" border="0" >
+  <tr>
+    <td colspan="1" width="100%" valign="top" class="buy_selltitleText new_fund_heading">
+      <%= render :partial => "layouts/form_header", :locals => {:heading => "Please share with us the asset classes that you desire to add new fund managers to in your portfolio" } %>
+    </td>
+  </tr>
+
+  <%assets = get_asset_types(params[:asset_id], 'fund') if params[:asset_id] %>
+
+  <%asset_ids=[]%>
+  <%assets.each do |x|%>
+    <%asset_ids<<x.id%>
+    <%asset_ids<<10%>
+  <%end%>
+
+  <%ids=[]%>
+  <%assets.each do |x|%>
+    <%ids<<x.id%>
+  <%end%>
+
+  <tr>
+    <% form_for :classified_fund ,:url=> {:controller=>'classified_funds',:action=>'params_saved', :ids => ids,:classified_fund_asset_id =>params[:classified_fund_asset_id] } do |f|%>
+    <input type="hidden" value="<%= params[:asset_id] if params[:asset_id] %>" name="asset_id"/>
+    <center><%= f.error_messages %></center>
+    <table  class="new_fund_table" width="100%">
+      <tr>
+        <td colspan="7">
+          <div class="postings_asset_name"><%= assets[0].name=="Real Estate"? "Real Assets":assets[0].name %>
+            <span style="float: right;font-weight: normal;font-size: 14px;">
+              <%= link_to_redbox("Write a description", "upgrade") %>
+            </span>
+          </div>
+          <div id="desc_div" class="postings_description" style="display: none;"><b>Description: </b> <%= assets[0].name %> is looking for new funds
+          </div>
+          <input type="hidden" id="description" name="description" value="<%= assets[0].name %> is looking for new funds"/>
+          <div id="upgrade" style="display:none;">
+            <div style="width:400px;">
+              <%= render :partial => "/main/popup_close" %>
+              <%= render :partial => "layouts/form_header", :locals => {:heading => "Write a description here"} %>
+              <p>
+                <input type="text" id="popup_desc" style="width: 380px;margin: 10px;" onchange="assign_directly(this);"/>
+              </p>
+              <p>&nbsp;</p>
+              <p><center><input type="button" value="Done" class="button" onclick="asign_desc();"/></center></p>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr bgcolor="#CCCCCC" height="30px;">
+        <th class="newfund_head" width="2%" ></th>
+        <th class="newfund_head" width="14%"> ASSET </th>
+        <th class="newfund_head" width="18%"> ASSET TYPE </th>
+        <th class="newfund_head" width="15%" >GEOGRAPHY</th>
+        <th class="newfund_head" width="13%" >BITE SIZE </th>
+        <%if assets[0].name!="Real Estate"%>
+          <th class="newfund_head" width="23%" >SECTOR</th>
+        <%end%>
+        <th class="newfund_head" width="15%" >FUND SIZE</th>
+      </tr>
+      <%original_assets=assets%>
+      <%assets.each do |asset|%>
+        <tr class="<%= cycle('whiterow','greyrow') %>">
+          <td class="newfundbuy" width="2%" >
+            <%=check_box_tag('assets[]',asset.id,true,{ :style => "margin-top:0px;width:25px" } )%>
+          </td>
+          <td class="newfundbuy" width="14%" >
+            <div style="float:left;"><%=asset.name%></div><br/>
+          </td>
+          <td class="newfundbuy" width="20%" >
+            <div  class="assettype_check" id="assettype_div">
+              <%if asset.name=="Hedge Funds"%>
+                <%assets=Asset.find_by_sql("select * from assets where parent_id=#{asset.id} ")%>
+                <%assets.each do |asts|%>
+                  <% assts=Asset.find(:all,:conditions=>{:parent_id=>asts.id,:active_asset =>true}, :order => "name") %>
+                  <span style="width:100%;background-color: #cccccc;"><%=check_box_tag('classified_fund['+'asset'+asset.id.to_s+'][assettypes][]',asts.id,true,:style=>"width:auto !important;")%><%=asts.name%></span><br />
+                  <div class="letmechoose">
+                    All available <%=radio_button_tag('classified_fund['+'asset'+asset.id.to_s+'][subtype'+asts.id.to_s+'][]',"All available",true,{:style => "width:20px", :onclick=>"hide_option('all_asset_child_child_#{asts.id}');"})%>
+                  </div>
+                  <div class="letmechoose">
+                    Let me choose <%=radio_button_tag('classified_fund['+'asset'+asset.id.to_s+'][subtype'+asts.id.to_s+'][]',"Let me choose",false,{:style => "width:20px" , :onclick=>"select_option('all_asset_child_child_#{asts.id}');"})%>
+                  </div>
+                  <div id="all_asset_child_child_<%=asts.id%>" style="display:none">
+                    <%assts.each do |asst|%>
+                      <div class="letmechoose" title="<%asst.name%>">
+                        <%=wrap_string(asst.name)%><%=check_box_tag('classified_fund['+'asset'+asset.id.to_s+'][subtype'+asts.id.to_s+'][]',asst.id,true,{:style => "margin-top:0px;width:25px;" } )%>
+                      </div>
+                    <%end%>
+                  </div>
+                  <br/><br/>
+                <%end%>
+              <%else%>
+                <div class="letmechoose">
+                  All available <%=radio_button_tag('classified_fund['+'asset'+asset.id.to_s+'][assettypes][]',"All available",true,{:style => "width:20px", :onclick=>"hide_option('all_asset_child_#{asset.id}');"})%></div>
+                <div class="letmechoose">
+                  Let me choose <%=radio_button_tag('classified_fund['+'asset'+asset.id.to_s+'][assettypes][]',"Let me choose",false,{:style => "width:20px" , :onclick=>"select_option('all_asset_child_#{asset.id}');"})%></div>
+                <br /><br />
+                <%assets=Asset.find_by_sql("select * from assets where parent_id=#{asset.id} order by name")%>
+                <%if asset.name!="Hedge Funds"%>
+                  <div id="all_asset_child_<%=asset.id%>" style="display:none">
+                    <%assets.each do |asst|%>
+                      <div class="letmechoose" title="<%asst.name%>">
+                        <%=wrap_string(asst.name)%><%=check_box_tag('classified_fund['+'asset'+asset.id.to_s+'][assettypes][]',asst.id,true,{:style => "margin-top:0px;width:25px;" } )%>
+                      </div>
+                    <%end%>
+                  </div>
+                <%end%>
+              <%end%>
+            </div>
+          </td>
+          <td class="newfundbuy" width="15%">
+            <div class="assettype_check">
+              <div class="letmechoose">
+                All available <%=radio_button_tag('classified_fund['+'asset'+asset.id.to_s+'][geo][]',"All available",true,{:style => "width:20px;", :onclick=>"hide_option( 'all_geographies_#{asset.id}' );"})%>
+              </div>
+              <div class="letmechoose">
+                Let me choose <%=radio_button_tag('classified_fund['+'asset'+asset.id.to_s+'][geo][]',"Let me choose",false,{:style => "width:20px;", :onclick=>"select_option('all_geographies_#{asset.id}');"})%>
+              </div>
+              <br /><br />
+              <div id="all_geographies_<%=asset.id%>" style="display:none;">
+                <%@geos.each do |geography|%>
+                  <div class="letmechoose" >
+                    <%=geography.name%> <%=check_box_tag  'classified_fund['+'asset'+asset.id.to_s+'][geo][]',geography.id,(( geography.name=="US"||geography.name=="Asia" ) ? true : false),{:style => "margin-top:0px;width:25px;" } %>
+                  </div>
+                <%end%>
+                <br/><br/>
+              </div>
+            </div>
+          </td>
+          <td class="newfundbuy" width="13%">
+            <center>
+              <%= select('classified_fund['+'asset'+asset.id.to_s+']', 'desired_size', DesiredSize.find(:all, :conditions => "name != '>$20M'").collect {|s| [s.name, s.id]}, {:selected =>'$5M-20M'},{ :style => "width:90px;" }) %>
+            </center>
+          </td>
+          <%if original_assets[0].name!="Real Estate"%>
+            <td class="newfundbuy" width="21%">
+              <div  class="assettype_check">
+                <div class="letmechoose">
+                  All available <%=radio_button_tag  'classified_fund['+'asset'+asset.id.to_s+'][sector][]',"All available",true,{:style => "width:20px;", :onclick=>"hide_option('all_sectors_#{asset.id}');" }%>
+                </div>
+                <div class="letmechoose">
+                  Let me choose <%=radio_button_tag  'classified_fund['+'asset'+asset.id.to_s+'][sector][]',"Let me choose",false,{:style => "width:20px;"  , :onclick=>"select_option('all_sectors_#{asset.id}');"}%>
+                </div>
+                <br /><br />
+                <div id="all_sectors_<%=asset.id%>" style="display:none">
+                  <%@sectors.each do |sector|%>
+                    <div class="letmechoose" >
+                      <%= wrap_string(sector.name)%><%=check_box_tag  'classified_fund['+'asset'+asset.id.to_s+'][sector][]',sector.id,((sector.name=="Clean Technology"||sector.name=="Consumer "||sector.name=="Industrial Goods")? true : false),{:style => "margin-top:0px;width:25px;" } %>
+                    </div>
+                  <%end%>
+                </div>
+              </div>
+            </td>
+          <%end%>
+          <td class="newfundbuy" width="15%">
+            <div  class="assettype_check">
+              <div class="letmechoose">
+                All available <%=radio_button_tag  'classified_fund['+'asset'+asset.id.to_s+'][fund_size][]',"All available",true,{:style => "width:20px;", :onclick=>"hide_option('all_fund_size_#{asset.id}');" }%>
+              </div>
+              <div class="letmechoose">
+                Let me choose <%=radio_button_tag  'classified_fund['+'asset'+asset.id.to_s+'][fund_size][]',"Let me choose",false,{:style => "width:20px;" , :onclick=>"select_option('all_fund_size_#{asset.id}');"}%>
+              </div>
+              <br /><br />
+              <div id="all_fund_size_<%=asset.id%>" style="display:none"  >
+                <%FundSize.find(:all).each do |fund_size|%>
+                  <div class="letmechoose">
+                    <span><%=check_box_tag  'classified_fund['+'asset'+asset.id.to_s+'][fund_size][]',fund_size.name,true,{:style => "margin-top:0px;width:25px;" } %></span>
+                    <%=wrap_string fund_size.name%>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <tr>
+      <td>
+        <br/>
+        <input type="submit" class="button"  value="Save and continue"/>
+      </td>
+    </tr>
+  <% end %>
+</tr>
+
+</table>
+<script type="text/javascript">
+  function asign_desc(){
+    document.getElementById('desc_div').style.display = "";
+    document.getElementById('desc_div').innerHTML = "<b>Description: </b>"+document.getElementById('description').value;
+    RedBox.close(); return false;
+  }
+
+  function assign_directly(ele){
+    document.getElementById('description').value = ele.value;
+  }
+</script>

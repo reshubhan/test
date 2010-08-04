@@ -1,0 +1,55 @@
+<div style="padding: 10px 50px;">
+  <div class="content-box">
+    <div class="content-box-header">
+      <h3 style="cursor: s-resize;">
+        Investment Criteria
+      </h3>
+      <div class="clear"></div>
+    </div>
+    <div class="content-box-content">
+      <div style="display: block;" class="tab-content default-tab scrollDiv">
+        <div style="text-align: left;">
+          <%i=1%>
+          <%@answers.each do |answer|%>
+            <%if answer.question.role_ids.include?(current_user.plan.role.id)%>
+              <p><b>Q <%=i%>.  <%=answer.question.answer_text.nil? ? answer.question.questions : answer.question.answer_text%></b></p><br/>
+              <p>
+              <ul>
+                <%answer.option_id.split(",").each do |op|%>
+                  <%if is_a_number(op)%>
+                    <%option=Option.find(:first,:conditions=>"id=#{op.to_i} and parent_id is NULL")%>
+                    <%if option && (option.option=="option_yes"||option.option=="option_no")%>
+                      <%if option.option=="option_yes"%>
+                        <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span>Yes</span></li>
+                      <%else%>
+                        <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span>No</span></li>
+                      <%end%>
+                    <%elsif answer.question.question_type=="multiple choice"%>
+                      <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span><%=Option.find(op).option%></span></li>
+                    <%elsif answer.question.question_type!="text field"%>
+                      <li class="user_answer_option_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><span><%=Option.find(op).option%></span></li>
+                    <%end%>
+                  <%else%>
+                    <li class="user_answer_option"><img src="/images/pagination-arrow-next-hover.gif" class="user_answer_image"/><%=op%></li>
+                  <%end%>
+                <%end%>
+                <%i=i+1%>
+              </ul>
+              </p><br/>
+            <%end%>
+          <%end%>
+          <br/>
+          <div style="width:100%;text-align: center;">
+            <a style="float: none;" href="/list_answers" class="button">Edit Answers</a>
+            <%if current_user.plan.role.title=='Fund Manager' && current_user.profile.organization_type.name!="Fund of Funds"%>
+              &nbsp;&nbsp;<a style="float: none;" href="/classified_funds" class="button">Save and Continue</a>
+            <%else%>
+              &nbsp;&nbsp;<a style="float: none;" href="/secondaries?type=sell" class="button">Save and Continue</a>
+            <%end%>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
