@@ -17,9 +17,9 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: trustedinsight
+  database: trustedinsightprod
   username: root
-  password: 
+  password: neevtech
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -30,7 +30,7 @@ test:
   encoding: utf8
   database: trustedinsight_test
   username: root
-  password: neev
+  password: neevtech
   host: localhost
 
 production:
